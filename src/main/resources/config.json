@@ -6,6 +6,6 @@
 
   "host": "smtp.gmail.com",
   "port": "587",
-  "from": "java.lab.test.mail@gmail.com",
-  "password": "123456qwe"
+  "from": "auction.diploma@gmail.com",
+  "password": "diploma1234auction"
 }
