@@ -1,5 +1,5 @@
 {
-  "url": "jdbc:postgresql://localhost:5432/bts",
+  "url": "jdbc:postgresql://localhost:5432/auction",
   "login": "postgres",
   "passwordDB": "root",
   "driver": "org.postgresql.Driver",

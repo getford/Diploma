@@ -84,4 +84,18 @@ public class PersonalInformationTO {
     public void setZip(String zip) {
         this.zip = zip;
     }
+
+    @Override
+    public String toString() {
+        return "PersonalInformationTO{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", country='" + country + '\'' +
+                ", street='" + street + '\'' +
+                ", house='" + house + '\'' +
+                ", zip='" + zip + '\'' +
+                '}';
+    }
 }

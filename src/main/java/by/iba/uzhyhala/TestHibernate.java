@@ -1,12 +1,10 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.entity.AuthInfoEntity;
+import by.iba.uzhyhala.mail.SendMail;
+import by.iba.uzhyhala.user.DoRegistration;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
-
-import java.util.List;
 
 public class TestHibernate {
     private static final Logger logger = Logger.getLogger(TestHibernate.class);
@@ -18,10 +16,15 @@ public class TestHibernate {
 
         session.beginTransaction();
 
-        Query query = session.createQuery("select a.uuid from AuthInfoEntity a");
+       // Query query = session.createQuery("select a.uuid from AuthInfoEntity a");
+        //    Query query = session.createSQLQuery("select * from auth_info");
 
-        List<?> list = query.list();
+       // List<?> list = query.list();
 
-        System.out.println(list);
+        DoRegistration doRegistration = new DoRegistration();
+       // doRegistration.doRegistration();
+        System.out.println(doRegistration.prepareInputString("qweeeeee", "qwe"));
+
+        SendMail sendMail = new SendMail();
     }
 }

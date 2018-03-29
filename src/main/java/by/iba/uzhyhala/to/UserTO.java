@@ -32,4 +32,13 @@ public class UserTO extends PersonalInformationTO {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
+
+    @Override
+    public String toString() {
+        return "UserTO{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", uuid='" + uuid + '\'' +
+                '}';
+    }
 }

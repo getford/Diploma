@@ -117,4 +117,21 @@ public class LotTO {
     public void setLotUuid(String lotUuid) {
         this.lotUuid = lotUuid;
     }
+
+    @Override
+    public String toString() {
+        return "LotTO{" +
+                "idCategory=" + idCategory +
+                ", idUserSeller=" + idUserSeller +
+                ", idUserClient=" + idUserClient +
+                ", nameLot='" + nameLot + '\'' +
+                ", startCost='" + startCost + '\'' +
+                ", blitzCost='" + blitzCost + '\'' +
+                ", stepCost='" + stepCost + '\'' +
+                ", duration='" + duration + '\'' +
+                ", dateStart='" + dateStart + '\'' +
+                ", information='" + information + '\'' +
+                ", lotUuid='" + lotUuid + '\'' +
+                '}';
+    }
 }

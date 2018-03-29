@@ -9,6 +9,7 @@ public class AuthInfoEntity {
     private String login;
     private String password;
     private String uuid;
+    private String role;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -50,6 +51,16 @@ public class AuthInfoEntity {
         this.uuid = uuid;
     }
 
+    @Basic
+    @Column(name = "role", nullable = false, length = -1)
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,6 +72,7 @@ public class AuthInfoEntity {
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
+        if (role != null ? !role.equals(that.role) : that.role != null) return false;
 
         return true;
     }
@@ -71,6 +83,7 @@ public class AuthInfoEntity {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
     }
 }
