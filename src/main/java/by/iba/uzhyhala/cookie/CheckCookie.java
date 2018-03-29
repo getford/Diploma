@@ -1,12 +1,14 @@
 package by.iba.uzhyhala.cookie;
 
+import by.iba.uzhyhala.util.VariablesUtil;
+
 import javax.servlet.http.Cookie;
 
 public class CheckCookie {
-    public boolean isAdmin(Cookie[] cookies, int position) {
+    public boolean isAdmin(Cookie[] cookies, String role) {
         boolean flag = false;
         for (Cookie cooky : cookies) {
-            if (cooky.getName().equals("auth") && position == 0)
+            if (cooky.getName().equals("auction_auth") && role.equals(VariablesUtil.ADMIN_ROLE))
                 flag = true;
         }
         return flag;
@@ -15,7 +17,7 @@ public class CheckCookie {
     public boolean isAuthorized(Cookie[] cookies) {
         boolean flag = false;
         for (Cookie cooky : cookies) {
-            if (cooky.getName().equals("auth"))
+            if (cooky.getName().equals("auction_auth"))
                 flag = true;
         }
         return flag;

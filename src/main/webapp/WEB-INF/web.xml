@@ -1,7 +1,37 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Diploma Auction Web Application</display-name>
+  
+    <welcome-file-list>
+        <welcome-file>/pages/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <error-page>
+        <!-- Missing login -->
+        <error-code>401</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Forbidden directory listing -->
+        <error-code>403</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Missing resource -->
+        <error-code>404</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Uncaught exception -->
+        <error-code>500</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
+    <error-page>
+        <!-- Unsupported servlet method -->
+        <error-code>503</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
 </web-app>

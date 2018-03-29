@@ -16,15 +16,13 @@ public class TestHibernate {
 
         session.beginTransaction();
 
-       // Query query = session.createQuery("select a.uuid from AuthInfoEntity a");
+        // Query query = session.createQuery("select a.uuid from AuthInfoEntity a");
         //    Query query = session.createSQLQuery("select * from auth_info");
 
-       // List<?> list = query.list();
+        // List<?> list = query.list();
 
         DoRegistration doRegistration = new DoRegistration();
-       // doRegistration.doRegistration();
-        System.out.println(doRegistration.prepareInputString("qweeeeee", "qwe"));
-
+        
         SendMail sendMail = new SendMail();
     }
 }

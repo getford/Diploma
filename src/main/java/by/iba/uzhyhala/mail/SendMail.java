@@ -66,7 +66,6 @@ public class SendMail {
             message.setSubject(subject);
             message.setContent(mailBody, "text/html; charset=utf-8");
             Transport.send(message);
-            System.out.println("Sent message to [" + email + "] successfully.");
             logger.info("Sent message to [" + email + "] successfully.");
 
         } catch (MessagingException e) {

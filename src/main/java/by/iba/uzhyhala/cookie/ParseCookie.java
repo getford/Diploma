@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class ParseCookie {
-    private static final Logger log = Logger.getLogger(ParseCookie.class);
+    private static final Logger logger = Logger.getLogger(ParseCookie.class);
     private String token = null;
 
     public ParseCookie(HttpServletRequest req) {
@@ -19,9 +19,9 @@ public class ParseCookie {
 
         if (cookies != null) {
             for (Cookie c : cookies) {
-                if (c.getName().equals("auth")) {
+                if (c.getName().equals("auction_auth")) {
                     token = c.getValue();
-                    log.info("token: " + token);
+                    logger.info("token: " + token);
                 }
             }
         }

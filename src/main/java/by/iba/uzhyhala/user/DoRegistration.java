@@ -12,15 +12,26 @@ import org.hibernate.JDBCException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import javax.faces.bean.RequestScoped;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import java.util.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
+@WebServlet(name = "/registration")
+@RequestScoped
 public class DoRegistration extends HttpServlet implements IParseJsonString {
     private static final Logger logger = Logger.getLogger(TestHibernate.class);
 
     private String errorMessage = null;
-    private Session session = null;
-    private Gson gson = null;
+    private Session session;
+    private Gson gson;
 
     public DoRegistration() {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -28,16 +39,24 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
         gson = new Gson();
     }
 
-    public void doRegistration() {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+        doRegistration(req.getParameter("login"), req.getParameter("password"));
+    }
+
+    private void doRegistration(String login, String password) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
-        List<UserTO> list = handleInputString(prepareInputString("qwe", "qwe"));
+        List<UserTO> list = handleInputString(prepareInputString(login, password));
+
+        System.err.println(list.get(0).toString());
 
         try {
             if (isLoginEmpty(list.get(0).getLogin())) {
                 AuthInfoEntity authInfoEntity = new AuthInfoEntity();
                 authInfoEntity.setLogin(list.get(0).getLogin());
                 authInfoEntity.setPassword(list.get(0).getPassword());
-                authInfoEntity.setRole(VariablesUtil.DEFAULT_USER_ROLE);
+                authInfoEntity.setRole(VariablesUtil.USER_ROLE);
                 authInfoEntity.setUuid(UUID.randomUUID().toString());
 
                 session.save(authInfoEntity);
@@ -45,14 +64,14 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
             } else {
                 this.errorMessage = "Login isn't empty";
             }
-        } catch (JDBCException e) {
+        } catch (Exception e) {
             this.errorMessage = e.getMessage();
         }
     }
 
     private boolean isLoginEmpty(String login) {
         boolean flag = false;
-        Query query = session.createQuery("SELECT a.login FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a where login = :login");
+        Query query = session.createQuery("SELECT a.login FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE login = :login");
         query.setParameter("login", login);
         if (query.list().isEmpty())
             flag = true;
@@ -70,10 +89,7 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
 
     @Override
     public List<UserTO> handleInputString(String json) {
-        return gson.fromJson(json, new TypeToken<List<UserTO>>(){}.getType());
-    }
-
-    public String getErrorMessage() {
-        return errorMessage;
+        return gson.fromJson("[" + json + "]", new TypeToken<List<UserTO>>() {
+        }.getType());
     }
 }
