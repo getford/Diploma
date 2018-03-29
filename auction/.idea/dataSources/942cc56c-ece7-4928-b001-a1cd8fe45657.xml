@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="auction@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
+    <root id="1"/>
+    <database id="2" parent="1" name="auction">
+      <ObjectId>24858</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>13255</ObjectId>
+    </database>
+    <database id="4" parent="1" name="bts">
+      <ObjectId>16393</ObjectId>
+    </database>
+    <database id="5" parent="1" name="springapp">
+      <ObjectId>24836</ObjectId>
+    </database>
+    <role id="6" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="9" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="10" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="11" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="12" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-03-29.02:42:06.549</IntrospectionTimestamp>
+      <IntrospectionStateNumber>923</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="13" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="14" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="15" parent="2" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+    </schema>
+    <schema id="16" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+    </schema>
+    <schema id="17" parent="2" name="information_schema">
+      <ObjectId>12965</ObjectId>
+    </schema>
+    <sequence id="18" parent="12" name="bet_id_seq">
+      <ObjectId>33051</ObjectId>
+      <StateNumber>921</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="19" parent="12" name="auth_info_id_seq">
+      <ObjectId>24859</ObjectId>
+      <StateNumber>909</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="20" parent="12" name="category_id_seq">
+      <ObjectId>24893</ObjectId>
+      <StateNumber>913</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="21" parent="12" name="lot_id_seq">
+      <ObjectId>24882</ObjectId>
+      <StateNumber>912</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="22" parent="12" name="personal_info_id_seq">
+      <ObjectId>24871</ObjectId>
+      <StateNumber>911</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="23" parent="12" name="auth_info">
+      <ObjectId>24861</ObjectId>
+      <StateNumber>918</StateNumber>
+    </table>
+    <table id="24" parent="12" name="bet">
+      <ObjectId>33053</ObjectId>
+      <StateNumber>921</StateNumber>
+    </table>
+    <table id="25" parent="12" name="category">
+      <ObjectId>24895</ObjectId>
+      <StateNumber>914</StateNumber>
+    </table>
+    <table id="26" parent="12" name="lot">
+      <ObjectId>24884</ObjectId>
+      <StateNumber>919</StateNumber>
+    </table>
+    <table id="27" parent="12" name="personal_info">
+      <ObjectId>24873</ObjectId>
+      <StateNumber>917</StateNumber>
+    </table>
+    <column id="28" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>909</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_info_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>auth_info_id_seq</SequenceName>
+    </column>
+    <column id="29" parent="23" name="login">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>909</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="30" parent="23" name="password">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>909</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="31" parent="23" name="uuid">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>918</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="32" parent="23" name="auth_info_pkey">
+      <ObjectId>24868</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="33" parent="23" name="auth_info_login_uindex">
+      <ObjectId>24870</ObjectId>
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="34" parent="23" name="auth_info_pkey">
+      <ObjectId>24869</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>auth_info_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>921</StateNumber>
+      <DefaultExpression>nextval(&apos;bet_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>bet_id_seq</SequenceName>
+    </column>
+    <column id="36" parent="24" name="uuid_lot">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>921</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="37" parent="24" name="bulk_bet">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>921</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="38" parent="24" name="bet_id_uindex">
+      <ObjectId>33062</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="39" parent="24" name="bet_pkey">
+      <ObjectId>33060</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="40" parent="24" name="bet_uuid_lot_uindex">
+      <ObjectId>33063</ObjectId>
+      <ColNames>uuid_lot</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="24" name="bet_pkey">
+      <ObjectId>33061</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>bet_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>913</StateNumber>
+      <DefaultExpression>nextval(&apos;category_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>category_id_seq</SequenceName>
+    </column>
+    <column id="43" parent="25" name="category_name">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>913</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="44" parent="25" name="category_pkey">
+      <ObjectId>24902</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="25" name="category_pkey">
+      <ObjectId>24903</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>912</StateNumber>
+      <DefaultExpression>nextval(&apos;lot_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>lot_id_seq</SequenceName>
+    </column>
+    <column id="47" parent="26" name="id_category">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>912</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="48" parent="26" name="id_user_seller">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>912</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="49" parent="26" name="id_user_client">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="50" parent="26" name="name_lot">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="51" parent="26" name="start_cost">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="52" parent="26" name="blitz_cost">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="53" parent="26" name="step_cost">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="54" parent="26" name="duration">
+      <Position>9</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="55" parent="26" name="when_start">
+      <Position>10</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="56" parent="26" name="information">
+      <Position>11</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>912</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="57" parent="26" name="lot_uuid">
+      <Position>12</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>919</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="58" parent="26" name="lot_pkey">
+      <ObjectId>24891</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="59" parent="26" name="lot_lot_uuid_uindex">
+      <ObjectId>33050</ObjectId>
+      <ColNames>lot_uuid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="60" parent="26" name="lot_pkey">
+      <ObjectId>24892</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>lot_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="61" parent="26" name="FK_category">
+      <ObjectId>24904</ObjectId>
+      <ColNames>id_category</ColNames>
+      <RefTableId>24895</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="62" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>911</StateNumber>
+      <DefaultExpression>nextval(&apos;personal_info_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>personal_info_id_seq</SequenceName>
+    </column>
+    <column id="63" parent="27" name="id_user">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>911</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="64" parent="27" name="firstname">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="65" parent="27" name="lastname">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="66" parent="27" name="email">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="67" parent="27" name="phone">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="68" parent="27" name="country">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="69" parent="27" name="street">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="70" parent="27" name="house">
+      <Position>9</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="71" parent="27" name="zip">
+      <Position>10</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>911</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="72" parent="27" name="personal_info_pkey">
+      <ObjectId>24880</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="73" parent="27" name="personal_info_id_user_uindex">
+      <ObjectId>24914</ObjectId>
+      <ColNames>id_user</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="27" name="personal_info_pkey">
+      <ObjectId>24881</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>personal_info_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="27" name="FK_auth_personal_info">
+      <ObjectId>24909</ObjectId>
+      <ColNames>id_user</ColNames>
+      <RefTableId>24861</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_info</RefTableName>
+      <RefKeyName>auth_info_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
