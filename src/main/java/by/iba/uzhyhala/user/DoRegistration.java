@@ -8,7 +8,6 @@ import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.apache.log4j.Logger;
-import org.hibernate.JDBCException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -45,7 +44,7 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
         doRegistration(req.getParameter("login"), req.getParameter("password"));
     }
 
-    private void doRegistration(String login, String password) {
+    public void doRegistration(String login, String password) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
         List<UserTO> list = handleInputString(prepareInputString(login, password));
 
@@ -56,7 +55,8 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
                 AuthInfoEntity authInfoEntity = new AuthInfoEntity();
                 authInfoEntity.setLogin(list.get(0).getLogin());
                 authInfoEntity.setPassword(list.get(0).getPassword());
-                authInfoEntity.setRole(VariablesUtil.USER_ROLE);
+                authInfoEntity.setEmail(VariablesUtil.EMAIL_SUPPORT);
+                authInfoEntity.setRole(VariablesUtil.ROLE_USER);
                 authInfoEntity.setUuid(UUID.randomUUID().toString());
 
                 session.save(authInfoEntity);
@@ -68,6 +68,8 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
             this.errorMessage = e.getMessage();
         }
     }
+
+    //TODO: add email check
 
     private boolean isLoginEmpty(String login) {
         boolean flag = false;

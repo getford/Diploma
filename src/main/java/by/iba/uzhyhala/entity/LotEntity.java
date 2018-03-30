@@ -16,6 +16,7 @@ public class LotEntity {
     private String whenStart;
     private String information;
     private String lotUuid;
+    private CategoryEntity categoryByIdCategory;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -165,5 +166,15 @@ public class LotEntity {
         result = 31 * result + (information != null ? information.hashCode() : 0);
         result = 31 * result + (lotUuid != null ? lotUuid.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_category", referencedColumnName = "id", nullable = false)
+    public CategoryEntity getCategoryByIdCategory() {
+        return categoryByIdCategory;
+    }
+
+    public void setCategoryByIdCategory(CategoryEntity categoryByIdCategory) {
+        this.categoryByIdCategory = categoryByIdCategory;
     }
 }

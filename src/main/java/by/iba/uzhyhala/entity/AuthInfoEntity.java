@@ -10,6 +10,7 @@ public class AuthInfoEntity {
     private String password;
     private String uuid;
     private String role;
+    private String email;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -85,5 +86,15 @@ public class AuthInfoEntity {
         result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "email", nullable = false, length = -1)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
