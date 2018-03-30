@@ -10,7 +10,7 @@ public class PersonalInformationTO {
     private String house;
     private String zip;
 
-    public PersonalInformationTO(String firstName, String lastName, String email, String phone, String country, String street, String house, String zip) {
+    PersonalInformationTO(String firstName, String lastName, String email, String phone, String country, String street, String house, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

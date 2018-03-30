@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.user;
 
-import by.iba.uzhyhala.TestHibernate;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
@@ -26,9 +25,8 @@ import java.util.UUID;
 @WebServlet(name = "/registration")
 @RequestScoped
 public class DoRegistration extends HttpServlet implements IParseJsonString {
-    private static final Logger logger = Logger.getLogger(TestHibernate.class);
+    private static final Logger logger = Logger.getLogger(DoRegistration.class);
 
-    private String errorMessage = null;
     private Session session;
     private Gson gson;
 
@@ -62,10 +60,10 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
                 session.save(authInfoEntity);
                 session.getTransaction().commit();
             } else {
-                this.errorMessage = "Login isn't empty";
+                logger.debug("Login isn't empty");
             }
         } catch (Exception e) {
-            this.errorMessage = e.getMessage();
+            logger.debug(e.getMessage());
         }
     }
 
