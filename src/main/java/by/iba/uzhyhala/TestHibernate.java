@@ -22,7 +22,7 @@ public class TestHibernate {
         // List<?> list = query.list();
 
         DoRegistration doRegistration = new DoRegistration();
-        doRegistration.doRegistration("qwe", "qwe");
+        doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
         SendMail sendMail = new SendMail();
     }
 }

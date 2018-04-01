@@ -39,17 +39,17 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
-        doRegistration(req.getParameter("login"), req.getParameter("password"));
+        doRegistration(req.getParameter("login"), req.getParameter("password"), req.getParameter("email"));
     }
 
-    public void doRegistration(String login, String password) {
+    public void doRegistration(String login, String password, String email) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
-        List<UserTO> list = handleInputString(prepareInputString(login, password));
+        List<UserTO> list = handleInputString(prepareInputString(login, password, email));
 
         System.err.println(list.get(0).toString());
 
         try {
-            if (isLoginEmpty(list.get(0).getLogin())) {
+            if (isLoginAndEmailEmpty(list.get(0).getLogin(), list.get(0).getEmail())) {
                 AuthInfoEntity authInfoEntity = new AuthInfoEntity();
                 authInfoEntity.setLogin(list.get(0).getLogin());
                 authInfoEntity.setPassword(list.get(0).getPassword());
@@ -67,12 +67,12 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
         }
     }
 
-    //TODO: add email check
-
-    private boolean isLoginEmpty(String login) {
+    private boolean isLoginAndEmailEmpty(String login, String email) {
         boolean flag = false;
-        Query query = session.createQuery("SELECT a.login FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE login = :login");
+        Query query = session.createQuery("SELECT a.login FROM " +
+                VariablesUtil.ENTITY_AUTH_INFO + " a WHERE login = :login and email = :email");
         query.setParameter("login", login);
+        query.setParameter("email", email);
         if (query.list().isEmpty())
             flag = true;
 
@@ -80,10 +80,11 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
     }
 
     @Override
-    public String prepareInputString(String login, String password) {
+    public String prepareInputString(String login, String password, String email) {
         Map<String, String> map = new HashMap<>();
         map.put("login", login);
         map.put("password", password);
+        map.put("email", email);
         return gson.toJson(map, Map.class);
     }
 
