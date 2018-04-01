@@ -17,7 +17,6 @@ public class PersonalInfoEntity {
     private AuthInfoEntity authInfoByIdUser;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

@@ -9,7 +9,6 @@ public class CategoryEntity {
     private String categoryName;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

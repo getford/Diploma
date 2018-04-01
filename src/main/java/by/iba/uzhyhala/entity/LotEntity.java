@@ -20,7 +20,6 @@ public class LotEntity {
     private String whenStop;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
