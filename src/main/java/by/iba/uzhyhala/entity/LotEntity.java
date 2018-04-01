@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class LotEntity {
     private int id;
     private int idUserSeller;
+    private int idCategory;
     private Integer idUserClient;
     private String nameLot;
     private String startCost;
@@ -16,7 +17,7 @@ public class LotEntity {
     private String whenStart;
     private String information;
     private String lotUuid;
-    private CategoryEntity categoryByIdCategory;
+    private String whenStop;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -26,6 +27,15 @@ public class LotEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Column(name = "id_category", nullable = false)
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
     @Basic
@@ -128,6 +138,16 @@ public class LotEntity {
         this.lotUuid = lotUuid;
     }
 
+    @Basic
+    @Column(name = "when_stop", nullable = true, length = -1)
+    public String getWhenStop() {
+        return whenStop;
+    }
+
+    public void setWhenStop(String whenStop) {
+        this.whenStop = whenStop;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -148,6 +168,7 @@ public class LotEntity {
         if (information != null ? !information.equals(lotEntity.information) : lotEntity.information != null)
             return false;
         if (lotUuid != null ? !lotUuid.equals(lotEntity.lotUuid) : lotEntity.lotUuid != null) return false;
+        if (whenStop != null ? !whenStop.equals(lotEntity.whenStop) : lotEntity.whenStop != null) return false;
 
         return true;
     }
@@ -165,16 +186,7 @@ public class LotEntity {
         result = 31 * result + (whenStart != null ? whenStart.hashCode() : 0);
         result = 31 * result + (information != null ? information.hashCode() : 0);
         result = 31 * result + (lotUuid != null ? lotUuid.hashCode() : 0);
+        result = 31 * result + (whenStop != null ? whenStop.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_category", referencedColumnName = "id", nullable = false)
-    public CategoryEntity getCategoryByIdCategory() {
-        return categoryByIdCategory;
-    }
-
-    public void setCategoryByIdCategory(CategoryEntity categoryByIdCategory) {
-        this.categoryByIdCategory = categoryByIdCategory;
     }
 }

@@ -1,8 +1,8 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.mail.SendMail;
-import by.iba.uzhyhala.user.DoAuthorization;
-import by.iba.uzhyhala.user.DoRegistration;
+import by.iba.uzhyhala.lot.LotHandler;
+import by.iba.uzhyhala.user.Authorization;
+import by.iba.uzhyhala.user.Registration;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -22,11 +22,17 @@ public class TestHibernate {
 
         // List<?> list = query.list();
 
-        DoRegistration doRegistration = new DoRegistration();
+        Registration doRegistration = new Registration();
        /* doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
-        SendMail sendMail = new SendMail();*/
+        SendMailUtil sendMail = new SendMailUtil();*/
 
-        DoAuthorization doAuthorization = new DoAuthorization();
-        System.out.println(doAuthorization.doLogin("auction.diploma@gmail.com", "qwe"));
+        Authorization doAuthorization = new Authorization();
+      //  System.out.println(doAuthorization.doLogin("auction.diploma@gmail.com", "qwe"));
+
+        LotHandler lotHandler = new LotHandler();
+
+        lotHandler.prepareToAddLot("qwe", "10", "123", "10", "1234", "123", "123", "qwe");
+      //  lotHandler.addLot();
+        lotHandler.showLots();
     }
 }

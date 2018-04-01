@@ -10,10 +10,11 @@ public class LotTO {
     private String stepCost;
     private String duration;
     private String dateStart;
+    private String dateEnd;
     private String information;
     private String lotUuid;
 
-    public LotTO(int idCategory, int idUserSeller, int idUserClient, String nameLot, String startCost, String blitzCost, String stepCost, String duration, String dateStart, String information, String lotUuid) {
+    public LotTO(int idCategory, int idUserSeller, int idUserClient, String nameLot, String startCost, String blitzCost, String stepCost, String duration, String dateStart, String dateEnd, String information, String lotUuid) {
         this.idCategory = idCategory;
         this.idUserSeller = idUserSeller;
         this.idUserClient = idUserClient;
@@ -23,11 +24,13 @@ public class LotTO {
         this.stepCost = stepCost;
         this.duration = duration;
         this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
         this.information = information;
         this.lotUuid = lotUuid;
     }
 
     public LotTO() {
+
     }
 
     public int getIdCategory() {
@@ -102,6 +105,14 @@ public class LotTO {
         this.dateStart = dateStart;
     }
 
+    public String getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
     public String getInformation() {
         return information;
     }
@@ -130,6 +141,7 @@ public class LotTO {
                 ", stepCost='" + stepCost + '\'' +
                 ", duration='" + duration + '\'' +
                 ", dateStart='" + dateStart + '\'' +
+                ", dateEnd='" + dateEnd + '\'' +
                 ", information='" + information + '\'' +
                 ", lotUuid='" + lotUuid + '\'' +
                 '}';

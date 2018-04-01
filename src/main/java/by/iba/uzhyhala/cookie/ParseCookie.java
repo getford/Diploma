@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.cookie;
 
+import by.iba.uzhyhala.util.RegexpUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -27,27 +28,19 @@ public class ParseCookie {
         }
     }
 
-    public int getUserIdFromToken() throws IOException {
+    public int getUserUuidFromToken() throws IOException {
         Jws<Claims> jws = Jwts.parser()
-                .setSigningKey("zhigalo".getBytes("UTF-8"))
+                .setSigningKey(RegexpUtil.EMAIL_REGEXP.getBytes("UTF-8"))
                 .parseClaimsJws(token);
 
-        return Integer.parseInt(String.valueOf(jws.getBody().get("id")));
+        return Integer.parseInt(String.valueOf(jws.getBody().get("uuid")));
     }
 
-    public int getPositionIdFromToken() throws UnsupportedEncodingException {
+    public int getRoleFromToken() throws UnsupportedEncodingException {
         Jws<Claims> jws = Jwts.parser()
-                .setSigningKey("zhigalo".getBytes("UTF-8"))
+                .setSigningKey(RegexpUtil.EMAIL_REGEXP.getBytes("UTF-8"))
                 .parseClaimsJws(token);
 
-        return Integer.parseInt(String.valueOf(jws.getBody().get("position")));
-    }
-
-    public String getLoginFromToken() throws UnsupportedEncodingException {
-        Jws<Claims> jws = Jwts.parser()
-                .setSigningKey("zhigalo".getBytes("UTF-8"))
-                .parseClaimsJws(token);
-
-        return String.valueOf(jws.getBody().get("login"));
+        return Integer.parseInt(String.valueOf(jws.getBody().get("role")));
     }
 }

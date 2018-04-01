@@ -8,7 +8,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.0" />
-          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:3.6.10.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:3.6.7.Final" />
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.6" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.1" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
@@ -16,8 +16,10 @@
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
           <element id="library" level="project" name="Maven: javax.transaction:jta:1.1" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
-          <element id="library" level="project" name="Maven: org.hibernate:hibernate-envers:5.2.16.Final" />
-          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-envers:3.6.10.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:3.6.10.Final" />
+          <element id="library" level="project" name="Maven: cglib:cglib:2.2" />
+          <element id="library" level="project" name="Maven: asm:asm:3.1" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-annotations:3.5.6-Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.0.2.GA" />
           <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.1" />

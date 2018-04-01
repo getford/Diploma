@@ -140,7 +140,7 @@ public class PersonalInfoEntity {
         return result;
     }
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
     public AuthInfoEntity getAuthInfoByIdUser() {
         return authInfoByIdUser;
