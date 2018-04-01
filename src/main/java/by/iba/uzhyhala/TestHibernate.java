@@ -1,6 +1,7 @@
 package by.iba.uzhyhala;
 
 import by.iba.uzhyhala.mail.SendMail;
+import by.iba.uzhyhala.user.DoAuthorization;
 import by.iba.uzhyhala.user.DoRegistration;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
@@ -22,7 +23,10 @@ public class TestHibernate {
         // List<?> list = query.list();
 
         DoRegistration doRegistration = new DoRegistration();
-        doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
-        SendMail sendMail = new SendMail();
+       /* doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
+        SendMail sendMail = new SendMail();*/
+
+        DoAuthorization doAuthorization = new DoAuthorization();
+        System.out.println(doAuthorization.doLogin("auction.diploma@gmail.com", "qwe"));
     }
 }

@@ -44,17 +44,17 @@ public class DoRegistration extends HttpServlet implements IParseJsonString {
 
     public void doRegistration(String login, String password, String email) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
-        List<UserTO> list = handleInputString(prepareInputString(login, password, email));
+        List<UserTO> list = handleInputString(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()));
 
         System.err.println(list.get(0).toString());
 
         try {
-            if (isLoginAndEmailEmpty(list.get(0).getLogin(), list.get(0).getEmail())) {
+            if (isLoginAndEmailEmpty(list.get(0).getLogin().toLowerCase(), list.get(0).getEmail().toLowerCase())) {
                 AuthInfoEntity authInfoEntity = new AuthInfoEntity();
-                authInfoEntity.setLogin(list.get(0).getLogin());
+                authInfoEntity.setLogin(list.get(0).getLogin().toLowerCase());
                 authInfoEntity.setPassword(list.get(0).getPassword());
                 authInfoEntity.setEmail(VariablesUtil.EMAIL_SUPPORT);
-                authInfoEntity.setRole(VariablesUtil.ROLE_USER);
+                authInfoEntity.setRole(VariablesUtil.ROLE_USER.toLowerCase());
                 authInfoEntity.setUuid(UUID.randomUUID().toString());
 
                 session.save(authInfoEntity);
