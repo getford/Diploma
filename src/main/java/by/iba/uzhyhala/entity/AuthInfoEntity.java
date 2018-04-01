@@ -13,6 +13,7 @@ public class AuthInfoEntity {
     private String email;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
