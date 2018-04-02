@@ -1,9 +1,9 @@
 package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
-import by.iba.uzhyhala.util.SendMailUtil;
 import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
+import by.iba.uzhyhala.util.SendMailUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -60,7 +60,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
 
             session.save(authInfoEntity);
             session.getTransaction().commit();
-            session.close();
+            //  session.close();
             return true;
         } else {
             logger.debug("Login isn't empty");

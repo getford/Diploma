@@ -4,7 +4,7 @@
 
 <web-app>
     <display-name>Diploma Auction Web Application</display-name>
-  
+
     <welcome-file-list>
         <welcome-file>/pages/index.jsp</welcome-file>
     </welcome-file-list>

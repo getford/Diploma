@@ -10,6 +10,7 @@ public class BetEntity {
     private String bulkBet;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

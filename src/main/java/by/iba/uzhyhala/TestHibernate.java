@@ -27,12 +27,12 @@ public class TestHibernate {
         SendMailUtil sendMail = new SendMailUtil();*/
 
         Authorization doAuthorization = new Authorization();
-      //  System.out.println(doAuthorization.doLogin("auction.diploma@gmail.com", "qwe"));
+        //  System.out.println(doAuthorization.doLogin("auction.diploma@gmail.com", "qwe"));
 
         LotHandler lotHandler = new LotHandler();
 
         lotHandler.prepareToAddLot("qwe", "10", "123", "10", "1234", "123", "123", "qwe");
-      //  lotHandler.addLot();
+        //  lotHandler.addLot();
         lotHandler.showLots();
     }
 }

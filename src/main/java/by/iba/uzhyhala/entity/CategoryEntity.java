@@ -9,6 +9,7 @@ public class CategoryEntity {
     private String categoryName;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
