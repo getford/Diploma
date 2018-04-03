@@ -1,6 +1,7 @@
 package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
+import by.iba.uzhyhala.entity.RoleEntity;
 import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.SendMailUtil;
@@ -46,7 +47,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
         }
     }
 
-    private boolean doRegistration(String login, String password, String email) {
+    public boolean doRegistration(String login, String password, String email) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
 
         AuthInfoEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
@@ -55,7 +56,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
             authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
             authInfoEntity.setPassword(authInfoEntity.getPassword());
             authInfoEntity.setEmail(authInfoEntity.getEmail());
-            authInfoEntity.setRole(VariablesUtil.ROLE_USER.toLowerCase());
+            authInfoEntity.setRoleByIdRole((RoleEntity) session.load(RoleEntity.class, VariablesUtil.ROLE_USER));
             authInfoEntity.setUuid(UUID.randomUUID().toString());
 
             session.save(authInfoEntity);

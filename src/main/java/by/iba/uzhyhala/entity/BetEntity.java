@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name = "bet", schema = "public", catalog = "auction")
 public class BetEntity {
     private int id;
-    private String uuidLot;
-    private String bulkBet;
+    private String uuid;
+    private String bulk;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,23 +21,23 @@ public class BetEntity {
     }
 
     @Basic
-    @Column(name = "uuid_lot", nullable = false, length = -1)
-    public String getUuidLot() {
-        return uuidLot;
+    @Column(name = "uuid", nullable = false, length = -1 )
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setUuidLot(String uuidLot) {
-        this.uuidLot = uuidLot;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     @Basic
-    @Column(name = "bulk_bet", nullable = true, length = -1)
-    public String getBulkBet() {
-        return bulkBet;
+    @Column(name = "bulk", nullable = true, length = -1)
+    public String getBulk() {
+        return bulk;
     }
 
-    public void setBulkBet(String bulkBet) {
-        this.bulkBet = bulkBet;
+    public void setBulk(String bulk) {
+        this.bulk = bulk;
     }
 
     @Override
@@ -48,8 +48,8 @@ public class BetEntity {
         BetEntity betEntity = (BetEntity) o;
 
         if (id != betEntity.id) return false;
-        if (uuidLot != null ? !uuidLot.equals(betEntity.uuidLot) : betEntity.uuidLot != null) return false;
-        if (bulkBet != null ? !bulkBet.equals(betEntity.bulkBet) : betEntity.bulkBet != null) return false;
+        if (uuid != null ? !uuid.equals(betEntity.uuid) : betEntity.uuid != null) return false;
+        if (bulk != null ? !bulk.equals(betEntity.bulk) : betEntity.bulk != null) return false;
 
         return true;
     }
@@ -57,8 +57,8 @@ public class BetEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (uuidLot != null ? uuidLot.hashCode() : 0);
-        result = 31 * result + (bulkBet != null ? bulkBet.hashCode() : 0);
+        result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
+        result = 31 * result + (bulk != null ? bulk.hashCode() : 0);
         return result;
     }
 }

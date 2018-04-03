@@ -28,6 +28,7 @@ public class SendMailUtil {
                 }
             };
             Session session = Session.getInstance(props, auth);
+            System.setProperty("https.protocols", "TLSv1.1");
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(VariablesUtil.EMAIL_SUPPORT));
@@ -38,7 +39,7 @@ public class SendMailUtil {
             logger.info("Sent message to [" + email + "] successfully.");
 
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            logger.error(e.getLocalizedMessage());
         }
     }
 
@@ -59,5 +60,17 @@ public class SendMailUtil {
         } catch (MalformedURLException e) {
             logger.error(e.getMessage());
         }
+    }
+
+    public void testSendMail(String email, String login, String password_) {
+        String subject = "Successfully registration";
+        String mailBody = "<p>Hello,</p>" +
+                "<p>You will be successfully registered in Auction</p>" +
+                "<p>" +
+                "<b>Your login: </b>" + login + "" +
+                "<br/><b>Your password: </b>" + password_ + "" +
+                "</p>";
+
+        setupParametersForMessage(VariablesUtil.EMAIL_TEST, subject, mailBody);
     }
 }

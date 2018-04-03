@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "category", schema = "public", catalog = "auction")
-public class CategoryEntity {
+@Table(name = "status", schema = "public", catalog = "auction")
+public class StatusEntity {
     private int id;
-    private String categoryName;
+    private String name;
     private Collection<LotEntity> lotsById;
 
     @Id
@@ -22,13 +22,13 @@ public class CategoryEntity {
     }
 
     @Basic
-    @Column(name = "category_name", nullable = false, length = -1)
-    public String getCategoryName() {
-        return categoryName;
+    @Column(name = "name", nullable = true, length = -1)
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -36,10 +36,10 @@ public class CategoryEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CategoryEntity that = (CategoryEntity) o;
+        StatusEntity that = (StatusEntity) o;
 
         if (id != that.id) return false;
-        if (categoryName != null ? !categoryName.equals(that.categoryName) : that.categoryName != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
     }
@@ -47,11 +47,11 @@ public class CategoryEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (categoryName != null ? categoryName.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
 
-    @OneToMany(mappedBy = "categoryByIdCategory")
+    @OneToMany(mappedBy = "statusByIdStatus")
     public Collection<LotEntity> getLotsById() {
         return lotsById;
     }

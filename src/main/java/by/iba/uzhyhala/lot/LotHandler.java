@@ -8,14 +8,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.util.Arrays;
-import java.util.UUID;
 
 public class LotHandler {
     private static final Logger logger = Logger.getLogger(LotHandler.class);
     private Session session;
     private Gson gson;
 
-    private LotEntity lotTO;
+    private LotEntity lotEntity;
 
     public LotHandler() {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -24,8 +23,8 @@ public class LotHandler {
     }
 
     public void addLot() {
-        System.out.println(lotTO.toString());
-        session.save(lotTO);
+        System.out.println(lotEntity.toString());
+        session.save(lotEntity);
         session.beginTransaction().commit();
         session.close();
 
@@ -38,18 +37,19 @@ public class LotHandler {
     }
 
     public String prepareToAddLot(String name, String startCost, String blitzCost, String stepCost, String duraion, String dateStart, String dateEnd, String information) {
-        lotTO = new LotEntity();
-        lotTO.setNameLot(name);
-        lotTO.setIdCategory(1);
-        lotTO.setStartCost(startCost);
-        lotTO.setBlitzCost(blitzCost);
-        lotTO.setStepCost(stepCost);
-        lotTO.setDuration(duraion);
-        lotTO.setWhenStart(dateStart);
-        lotTO.setWhenStop(dateEnd);
-        lotTO.setInformation(information);
-        lotTO.setLotUuid(UUID.randomUUID().toString());
+        /*lotEntity = new LotEntity();
+        lotEntity.setNameLot(name);
+        lotEntity.setIdCategory(1);
+        lotEntity.setStartCost(startCost);
+        lotEntity.setBlitzCost(blitzCost);
+        lotEntity.setStepCost(stepCost);
+        lotEntity.setDuration(duraion);
+        lotEntity.setWhenStart(dateStart);
+        lotEntity.setWhenStop(dateEnd);
+        lotEntity.setInformation(information);
+        lotEntity.setLotUuid(UUID.randomUUID().toString());
 
-        return gson.toJson(lotTO);
+        return gson.toJson(lotEntity);*/
+        return null;
     }
 }

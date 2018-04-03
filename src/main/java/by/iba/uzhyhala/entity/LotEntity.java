@@ -1,23 +1,32 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 
 @Entity
 @Table(name = "lot", schema = "public", catalog = "auction")
 public class LotEntity {
     private int id;
-    private int idUserSeller;
-    private int idCategory;
-    private Integer idUserClient;
-    private String nameLot;
-    private String startCost;
+    private String uuid;
+    private Integer idUserSeller;
+    private Integer idStatus;
+    private Integer name;
+    private String information;
+    private String cost;
     private String blitzCost;
     private String stepCost;
-    private String duration;
-    private String whenStart;
-    private String information;
-    private String lotUuid;
-    private String whenStop;
+    private Date dateAdd;
+    private Date dateStart;
+    private Date dateEnd;
+    private Time timeStart;
+    private Time timeEnd;
+    private String uuidUserClient;
+    private Integer idCategory;
+    private BetEntity betByUuid;
+    private FeedbackEntity feedbackByUuid;
+    private StatusEntity statusByIdStatus;
+    private CategoryEntity categoryByIdCategory;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,53 +39,64 @@ public class LotEntity {
         this.id = id;
     }
 
-    @Column(name = "id_category", nullable = false)
-    public int getIdCategory() {
-        return idCategory;
+    @Basic
+    @Column(name = "uuid", nullable = false, length = -1, insertable = false, updatable = false)
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setIdCategory(int idCategory) {
-        this.idCategory = idCategory;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     @Basic
-    @Column(name = "id_user_seller", nullable = false)
-    public int getIdUserSeller() {
+    @Column(name = "id_user_seller", nullable = true, insertable = false, updatable = false)
+    public Integer getIdUserSeller() {
         return idUserSeller;
     }
 
-    public void setIdUserSeller(int idUserSeller) {
+    public void setIdUserSeller(Integer idUserSeller) {
         this.idUserSeller = idUserSeller;
     }
 
     @Basic
-    @Column(name = "id_user_client", nullable = true)
-    public Integer getIdUserClient() {
-        return idUserClient;
+    @Column(name = "id_status", nullable = true, insertable = false, updatable = false)
+    public Integer getIdStatus() {
+        return idStatus;
     }
 
-    public void setIdUserClient(Integer idUserClient) {
-        this.idUserClient = idUserClient;
-    }
-
-    @Basic
-    @Column(name = "name_lot", nullable = true, length = -1)
-    public String getNameLot() {
-        return nameLot;
-    }
-
-    public void setNameLot(String nameLot) {
-        this.nameLot = nameLot;
+    public void setIdStatus(Integer idStatus) {
+        this.idStatus = idStatus;
     }
 
     @Basic
-    @Column(name = "start_cost", nullable = true, length = -1)
-    public String getStartCost() {
-        return startCost;
+    @Column(name = "name", nullable = true)
+    public Integer getName() {
+        return name;
     }
 
-    public void setStartCost(String startCost) {
-        this.startCost = startCost;
+    public void setName(Integer name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "information", nullable = true, length = -1)
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    @Basic
+    @Column(name = "cost", nullable = true, length = -1)
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
     }
 
     @Basic
@@ -100,53 +120,73 @@ public class LotEntity {
     }
 
     @Basic
-    @Column(name = "duration", nullable = true, length = -1)
-    public String getDuration() {
-        return duration;
+    @Column(name = "date_add", nullable = true)
+    public Date getDateAdd() {
+        return dateAdd;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    @Basic
-    @Column(name = "when_start", nullable = true, length = -1)
-    public String getWhenStart() {
-        return whenStart;
-    }
-
-    public void setWhenStart(String whenStart) {
-        this.whenStart = whenStart;
+    public void setDateAdd(Date dateAdd) {
+        this.dateAdd = dateAdd;
     }
 
     @Basic
-    @Column(name = "information", nullable = false, length = -1)
-    public String getInformation() {
-        return information;
+    @Column(name = "date_start", nullable = true)
+    public Date getDateStart() {
+        return dateStart;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
-    }
-
-    @Basic
-    @Column(name = "lot_uuid", nullable = false, length = -1)
-    public String getLotUuid() {
-        return lotUuid;
-    }
-
-    public void setLotUuid(String lotUuid) {
-        this.lotUuid = lotUuid;
+    public void setDateStart(Date dateStart) {
+        this.dateStart = dateStart;
     }
 
     @Basic
-    @Column(name = "when_stop", nullable = true, length = -1)
-    public String getWhenStop() {
-        return whenStop;
+    @Column(name = "date_end", nullable = true)
+    public Date getDateEnd() {
+        return dateEnd;
     }
 
-    public void setWhenStop(String whenStop) {
-        this.whenStop = whenStop;
+    public void setDateEnd(Date dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    @Basic
+    @Column(name = "time_start", nullable = true)
+    public Time getTimeStart() {
+        return timeStart;
+    }
+
+    public void setTimeStart(Time timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    @Basic
+    @Column(name = "time_end", nullable = true)
+    public Time getTimeEnd() {
+        return timeEnd;
+    }
+
+    public void setTimeEnd(Time timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
+    @Basic
+    @Column(name = "uuid_user_client", nullable = true, length = -1)
+    public String getUuidUserClient() {
+        return uuidUserClient;
+    }
+
+    public void setUuidUserClient(String uuidUserClient) {
+        this.uuidUserClient = uuidUserClient;
+    }
+
+    @Basic
+    @Column(name = "id_category", nullable = true, insertable = false, updatable = false)
+    public Integer getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 
     @Override
@@ -157,19 +197,24 @@ public class LotEntity {
         LotEntity lotEntity = (LotEntity) o;
 
         if (id != lotEntity.id) return false;
-        if (idUserSeller != lotEntity.idUserSeller) return false;
-        if (idUserClient != null ? !idUserClient.equals(lotEntity.idUserClient) : lotEntity.idUserClient != null)
+        if (uuid != null ? !uuid.equals(lotEntity.uuid) : lotEntity.uuid != null) return false;
+        if (idUserSeller != null ? !idUserSeller.equals(lotEntity.idUserSeller) : lotEntity.idUserSeller != null)
             return false;
-        if (nameLot != null ? !nameLot.equals(lotEntity.nameLot) : lotEntity.nameLot != null) return false;
-        if (startCost != null ? !startCost.equals(lotEntity.startCost) : lotEntity.startCost != null) return false;
-        if (blitzCost != null ? !blitzCost.equals(lotEntity.blitzCost) : lotEntity.blitzCost != null) return false;
-        if (stepCost != null ? !stepCost.equals(lotEntity.stepCost) : lotEntity.stepCost != null) return false;
-        if (duration != null ? !duration.equals(lotEntity.duration) : lotEntity.duration != null) return false;
-        if (whenStart != null ? !whenStart.equals(lotEntity.whenStart) : lotEntity.whenStart != null) return false;
+        if (idStatus != null ? !idStatus.equals(lotEntity.idStatus) : lotEntity.idStatus != null) return false;
+        if (name != null ? !name.equals(lotEntity.name) : lotEntity.name != null) return false;
         if (information != null ? !information.equals(lotEntity.information) : lotEntity.information != null)
             return false;
-        if (lotUuid != null ? !lotUuid.equals(lotEntity.lotUuid) : lotEntity.lotUuid != null) return false;
-        if (whenStop != null ? !whenStop.equals(lotEntity.whenStop) : lotEntity.whenStop != null) return false;
+        if (cost != null ? !cost.equals(lotEntity.cost) : lotEntity.cost != null) return false;
+        if (blitzCost != null ? !blitzCost.equals(lotEntity.blitzCost) : lotEntity.blitzCost != null) return false;
+        if (stepCost != null ? !stepCost.equals(lotEntity.stepCost) : lotEntity.stepCost != null) return false;
+        if (dateAdd != null ? !dateAdd.equals(lotEntity.dateAdd) : lotEntity.dateAdd != null) return false;
+        if (dateStart != null ? !dateStart.equals(lotEntity.dateStart) : lotEntity.dateStart != null) return false;
+        if (dateEnd != null ? !dateEnd.equals(lotEntity.dateEnd) : lotEntity.dateEnd != null) return false;
+        if (timeStart != null ? !timeStart.equals(lotEntity.timeStart) : lotEntity.timeStart != null) return false;
+        if (timeEnd != null ? !timeEnd.equals(lotEntity.timeEnd) : lotEntity.timeEnd != null) return false;
+        if (uuidUserClient != null ? !uuidUserClient.equals(lotEntity.uuidUserClient) : lotEntity.uuidUserClient != null)
+            return false;
+        if (idCategory != null ? !idCategory.equals(lotEntity.idCategory) : lotEntity.idCategory != null) return false;
 
         return true;
     }
@@ -177,17 +222,61 @@ public class LotEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + idUserSeller;
-        result = 31 * result + (idUserClient != null ? idUserClient.hashCode() : 0);
-        result = 31 * result + (nameLot != null ? nameLot.hashCode() : 0);
-        result = 31 * result + (startCost != null ? startCost.hashCode() : 0);
+        result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
+        result = 31 * result + (idUserSeller != null ? idUserSeller.hashCode() : 0);
+        result = 31 * result + (idStatus != null ? idStatus.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (information != null ? information.hashCode() : 0);
+        result = 31 * result + (cost != null ? cost.hashCode() : 0);
         result = 31 * result + (blitzCost != null ? blitzCost.hashCode() : 0);
         result = 31 * result + (stepCost != null ? stepCost.hashCode() : 0);
-        result = 31 * result + (duration != null ? duration.hashCode() : 0);
-        result = 31 * result + (whenStart != null ? whenStart.hashCode() : 0);
-        result = 31 * result + (information != null ? information.hashCode() : 0);
-        result = 31 * result + (lotUuid != null ? lotUuid.hashCode() : 0);
-        result = 31 * result + (whenStop != null ? whenStop.hashCode() : 0);
+        result = 31 * result + (dateAdd != null ? dateAdd.hashCode() : 0);
+        result = 31 * result + (dateStart != null ? dateStart.hashCode() : 0);
+        result = 31 * result + (dateEnd != null ? dateEnd.hashCode() : 0);
+        result = 31 * result + (timeStart != null ? timeStart.hashCode() : 0);
+        result = 31 * result + (timeEnd != null ? timeEnd.hashCode() : 0);
+        result = 31 * result + (uuidUserClient != null ? uuidUserClient.hashCode() : 0);
+        result = 31 * result + (idCategory != null ? idCategory.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
+    public BetEntity getBetByUuid() {
+        return betByUuid;
+    }
+
+    public void setBetByUuid(BetEntity betByUuid) {
+        this.betByUuid = betByUuid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
+    public FeedbackEntity getFeedbackByUuid() {
+        return feedbackByUuid;
+    }
+
+    public void setFeedbackByUuid(FeedbackEntity feedbackByUuid) {
+        this.feedbackByUuid = feedbackByUuid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_status", referencedColumnName = "id")
+    public StatusEntity getStatusByIdStatus() {
+        return statusByIdStatus;
+    }
+
+    public void setStatusByIdStatus(StatusEntity statusByIdStatus) {
+        this.statusByIdStatus = statusByIdStatus;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_category", referencedColumnName = "id")
+    public CategoryEntity getCategoryByIdCategory() {
+        return categoryByIdCategory;
+    }
+
+    public void setCategoryByIdCategory(CategoryEntity categoryByIdCategory) {
+        this.categoryByIdCategory = categoryByIdCategory;
     }
 }

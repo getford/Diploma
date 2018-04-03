@@ -7,13 +7,13 @@ public class VariablesUtil {
     public static final String ENTITY_LOT = "LotEntity";
     public static final String ENTITY_PERSONAL_INFO = "PersonalInfoEntity";
 
-    public static final String ROLE_ADMIN = "admin";
-    public static final String ROLE_USER = "user";
+    public static final int ROLE_ADMIN = 1;
+    public static final int ROLE_USER = 2;
 
     public static final String EMAIL_SUPPORT = "auction.diploma@gmail.com";
+    public static final String EMAIL_SUPPORT_PASSWORD = "diploma1234auction";
     public static final String EMAIL_HOST = "smtp.gmail.com";
     public static final String EMAIL_PORT = "587";
-    public static final String EMAIL_SUPPORT_PASSWORD = "auction.diploma@gmail.com";
 
     public static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
 

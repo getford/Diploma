@@ -11,11 +11,16 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
         <property name="hibernate.show_sql">true</property>
+        <property name="transaction.auto_close_session">true</property>
+        <!--<property name="hbm2ddl.auto">update</property>-->
 
         <mapping class="by.iba.uzhyhala.entity.AuthInfoEntity"/>
         <mapping class="by.iba.uzhyhala.entity.BetEntity"/>
         <mapping class="by.iba.uzhyhala.entity.CategoryEntity"/>
         <mapping class="by.iba.uzhyhala.entity.LotEntity"/>
-        <mapping class="by.iba.uzhyhala.entity.PersonalInfoEntity"/>
+        <mapping class="by.iba.uzhyhala.entity.FeedbackEntity"/>
+        <mapping class="by.iba.uzhyhala.entity.PersonalInformationEntity"/>
+        <mapping class="by.iba.uzhyhala.entity.RoleEntity"/>
+        <mapping class="by.iba.uzhyhala.entity.StatusEntity"/>
     </session-factory>
 </hibernate-configuration>

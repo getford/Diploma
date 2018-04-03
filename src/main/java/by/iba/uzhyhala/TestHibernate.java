@@ -1,7 +1,5 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.lot.LotHandler;
-import by.iba.uzhyhala.user.Authorization;
 import by.iba.uzhyhala.user.Registration;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
@@ -21,10 +19,10 @@ public class TestHibernate {
         //    Query query = session.createSQLQuery("select * from auth_info");
 
         // List<?> list = query.list();
-
+/*
         Registration doRegistration = new Registration();
-       /* doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
-        SendMailUtil sendMail = new SendMailUtil();*/
+       *//* doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
+        SendMailUtil sendMail = new SendMailUtil();*//*
 
         Authorization doAuthorization = new Authorization();
         //  System.out.println(doAuthorization.doLogin("auction.diploma@gmail.com", "qwe"));
@@ -33,6 +31,11 @@ public class TestHibernate {
 
         lotHandler.prepareToAddLot("qwe", "10", "123", "10", "1234", "123", "123", "qwe");
         //  lotHandler.addLot();
-        lotHandler.showLots();
+        lotHandler.showLots();*/
+
+        Registration registration = new Registration();
+        registration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
+
+        // new SendMailUtil().testSendMail(VariablesUtil.EMAIL_TEST, "qwe", "qqq");
     }
 }
