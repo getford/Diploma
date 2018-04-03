@@ -11,7 +11,7 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="transaction.auto_close_session">true</property>
+        <property name="transaction.auto_close_session">false</property>
         <!--<property name="hbm2ddl.auto">update</property>-->
 
         <mapping class="by.iba.uzhyhala.entity.AuthInfoEntity"/>

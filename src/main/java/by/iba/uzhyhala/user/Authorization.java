@@ -4,18 +4,22 @@ import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.RegexpUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
+import by.iba.uzhyhala.util.VerifyRecaptchaUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -35,11 +39,29 @@ public class Authorization extends HttpServlet implements IParseJsonString {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (doLogin(req.getParameter("login_or_email").toLowerCase(), req.getParameter("password").toLowerCase())) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        if (isLoginOrEmail(req.getParameter("login_or_email").toLowerCase(), req.getParameter("password").toLowerCase())) {
             Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
+            // get reCAPTCHA request param
+            String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+            System.out.println(gRecaptchaResponse);
+            boolean verify = VerifyRecaptchaUtil.verify(gRecaptchaResponse);
+
+            logger.debug("verify > " + verify);
+
             setAuthCookie(((Object[]) obj[0])[0].toString(), ((Object[]) obj[0])[1].toString(), resp);
-            resp.sendRedirect("/pages/index.jsp");
+            // resp.sendRedirect("/pages/index.jsp");
+
+            RequestDispatcher rd = getServletContext().getRequestDispatcher(
+                    "/pages/index.jsp");
+            PrintWriter out = resp.getWriter();
+            if (verify) {
+                out.println("<font color=red>Either user name or password is wrong.</font>");
+            } else {
+                out.println("<font color=red>You missed the Captcha.</font>");
+            }
+            rd.include(req, resp);
+
             session.close();
         } else {
             resp.sendRedirect("/pages/auth.jsp");
@@ -47,7 +69,7 @@ public class Authorization extends HttpServlet implements IParseJsonString {
         }
     }
 
-    private boolean doLogin(String loginOrEmail, String password) {
+    private boolean isLoginOrEmail(String loginOrEmail, String password) {
         Matcher matcher = Pattern.compile(RegexpUtil.EMAIL_REGEXP, Pattern.CASE_INSENSITIVE).matcher(loginOrEmail);
         if (matcher.find()) {
             type = "email";
@@ -59,9 +81,17 @@ public class Authorization extends HttpServlet implements IParseJsonString {
     }
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
-        Query query = session.createQuery("SELECT a.uuid, a.role FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred");
-        query.setParameter("cred", loginOrEmail);
-        return query.list().toArray();
+        try {
+            Query query = session.createQuery("SELECT a.uuid, a.id_role FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred");
+            query.setParameter("cred", loginOrEmail);
+
+            logger.error(query.list().toArray());
+
+            return query.list().toArray();
+        }catch (Exception ex){
+            logger.error(ex.getLocalizedMessage());
+            return null;
+        }
     }
 
     private boolean isPasswordValid(String cred, String password) {

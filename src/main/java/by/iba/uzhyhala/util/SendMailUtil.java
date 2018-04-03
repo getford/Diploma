@@ -62,15 +62,5 @@ public class SendMailUtil {
         }
     }
 
-    public void testSendMail(String email, String login, String password_) {
-        String subject = "Successfully registration";
-        String mailBody = "<p>Hello,</p>" +
-                "<p>You will be successfully registered in Auction</p>" +
-                "<p>" +
-                "<b>Your login: </b>" + login + "" +
-                "<br/><b>Your password: </b>" + password_ + "" +
-                "</p>";
 
-        setupParametersForMessage(VariablesUtil.EMAIL_TEST, subject, mailBody);
-    }
 }
