@@ -1,6 +1,6 @@
 package by.iba.uzhyhala.cookie;
 
-import by.iba.uzhyhala.util.RegexpUtil;
+import by.iba.uzhyhala.util.VariablesUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -30,7 +30,7 @@ public class ParseCookie {
 
     public int getUserUuidFromToken() throws IOException {
         Jws<Claims> jws = Jwts.parser()
-                .setSigningKey(RegexpUtil.EMAIL_REGEXP.getBytes("UTF-8"))
+                .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
 
         return Integer.parseInt(String.valueOf(jws.getBody().get("uuid")));
@@ -38,7 +38,7 @@ public class ParseCookie {
 
     public int getRoleFromToken() throws UnsupportedEncodingException {
         Jws<Claims> jws = Jwts.parser()
-                .setSigningKey(RegexpUtil.EMAIL_REGEXP.getBytes("UTF-8"))
+                .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
 
         return Integer.parseInt(String.valueOf(jws.getBody().get("role")));

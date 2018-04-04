@@ -1,17 +1,13 @@
 package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
-import by.iba.uzhyhala.util.HibernateUtil;
-import by.iba.uzhyhala.util.RegexpUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
-import by.iba.uzhyhala.util.VerifyRecaptchaUtil;
+import by.iba.uzhyhala.util.*;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -32,45 +28,39 @@ public class Authorization extends HttpServlet implements IParseJsonString {
 
     private Session session;
     private String type;
+    private String role;
 
     public Authorization() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
     }
 
+    public void consoleLoginTest(String cred, String password) {
+        if (isLoginOrEmail(cred, password)) {
+            Object[] obj = getUserUuidAndRole(cred);
+            int i = 1000000000;
+        }
+    }
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        if (isLoginOrEmail(req.getParameter("login_or_email").toLowerCase(), req.getParameter("password").toLowerCase())) {
-            Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
-            // get reCAPTCHA request param
-            String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
-            System.out.println(gRecaptchaResponse);
-            boolean verify = VerifyRecaptchaUtil.verify(gRecaptchaResponse);
-
-            logger.debug("verify > " + verify);
-
-            setAuthCookie(((Object[]) obj[0])[0].toString(), ((Object[]) obj[0])[1].toString(), resp);
-            // resp.sendRedirect("/pages/index.jsp");
-
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(
-                    "/pages/index.jsp");
-            PrintWriter out = resp.getWriter();
-            if (verify) {
-                out.println("<font color=red>Either user name or password is wrong.</font>");
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        PrintWriter out = resp.getWriter();
+        if (VerifyRecaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
+            if (isLoginOrEmail(req.getParameter("login_or_email").toLowerCase(), req.getParameter("password").toLowerCase())) {
+                Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
+                assert obj != null;
+                setAuthCookie(((Object[]) obj[0])[0].toString(), CommonUtil.nameRoleByID(Integer.parseInt(String.valueOf(((Object[]) obj[0])[1]))), resp);
+                resp.sendRedirect("/pages/index.jsp");
             } else {
-                out.println("<font color=red>You missed the Captcha.</font>");
+                resp.sendRedirect("/pages/auth.jsp");
             }
-            rd.include(req, resp);
-
-            session.close();
         } else {
-            resp.sendRedirect("/pages/auth.jsp");
-            session.close();
+            out.println("<font color=red>You missed the Captcha.</font>");
         }
     }
 
     private boolean isLoginOrEmail(String loginOrEmail, String password) {
-        Matcher matcher = Pattern.compile(RegexpUtil.EMAIL_REGEXP, Pattern.CASE_INSENSITIVE).matcher(loginOrEmail);
+        Matcher matcher = Pattern.compile(VariablesUtil.REGEXP_EMAIL, Pattern.CASE_INSENSITIVE).matcher(loginOrEmail);
         if (matcher.find()) {
             type = "email";
             return isPasswordValid(loginOrEmail, password);
@@ -82,21 +72,15 @@ public class Authorization extends HttpServlet implements IParseJsonString {
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
         try {
-            Query query = session.createQuery("SELECT a.uuid, a.id_role FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred");
-            query.setParameter("cred", loginOrEmail);
-
-            logger.error(query.list().toArray());
-
-            return query.list().toArray();
-        }catch (Exception ex){
+            return session.createSQLQuery("select uuid, id_role from auth_info where " + type + " = '" + loginOrEmail + "'").list().toArray();
+        } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
             return null;
         }
     }
 
     private boolean isPasswordValid(String cred, String password) {
-        Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred");
-        query.setParameter("cred", cred);
+        Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred").setParameter("cred", cred);
         return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
     }
 

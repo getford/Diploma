@@ -7,7 +7,7 @@ import javax.servlet.http.Cookie;
 public class CheckCookie {
     public boolean isAdmin(Cookie[] cookies, String role) {
         for (Cookie cooky : cookies) {
-            if (cooky.getName().equals("auction_auth") && role.equals(VariablesUtil.ROLE_ADMIN))
+            if (cooky.getName().equals("auction_auth") && role.equals(VariablesUtil.ROLE_ADMIN_ID))
                 return true;
         }
         return false;

@@ -56,7 +56,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
             authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
             authInfoEntity.setPassword(authInfoEntity.getPassword());
             authInfoEntity.setEmail(authInfoEntity.getEmail());
-            authInfoEntity.setRoleByIdRole((RoleEntity) session.load(RoleEntity.class, VariablesUtil.ROLE_USER));
+            authInfoEntity.setRoleByIdRole((RoleEntity) session.load(RoleEntity.class, VariablesUtil.ROLE_USER_ID));
             authInfoEntity.setUuid(UUID.randomUUID().toString());
 
             session.save(authInfoEntity);
