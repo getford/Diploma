@@ -10,6 +10,13 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/logout")
 public class Logout extends HttpServlet {
+    public Logout(HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            doGet(req, resp);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

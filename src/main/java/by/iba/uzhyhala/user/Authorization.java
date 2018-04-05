@@ -42,7 +42,7 @@ public class Authorization extends HttpServlet implements IParseJsonString {
         if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
             Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
             assert obj != null;
-            setAuthCookie(((Object[]) obj[0])[0].toString(), CommonUtil.nameRoleByID(
+            setAuthCookie(((Object[]) obj[0])[0].toString(), CommonUtil.getNameRoleByID(
                     Integer.parseInt(String.valueOf(((Object[]) obj[0])[1]))), resp);
             resp.sendRedirect(REDIRECT_INDEX_PAGE);
         } else {
@@ -79,7 +79,7 @@ public class Authorization extends HttpServlet implements IParseJsonString {
                     .compact();
             logger.info("token create successfully");
 
-            Cookie cookie = new Cookie("auth", token);
+            Cookie cookie = new Cookie("auction_auth", token);
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown
             resp.addCookie(cookie);
         } catch (UnsupportedEncodingException e) {

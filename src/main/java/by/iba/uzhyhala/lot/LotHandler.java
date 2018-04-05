@@ -4,10 +4,8 @@ import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class LotHandler {
@@ -24,14 +22,16 @@ public class LotHandler {
         idUser = CommonUtil.getIdUserByLoginEmail(session, loginOrEmail, type);
     }
 
+    public LotHandler() {
+
+    }
+
     public void addLot() {
     }
 
-    public void showLots() {
+    public List<LotEntity> showLots() {
         logger.debug(getClass().getName() + " showLots");
-        Query query = session.createSQLQuery("SELECT * FROM lot");
-        System.out.println(Arrays.toString(query.list().toArray()));
-        int i = 1000000;
+        return session.createSQLQuery("SELECT * FROM lot").getResultList();
     }
 
     public List<LotEntity> getUserLot() {

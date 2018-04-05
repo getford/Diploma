@@ -8,12 +8,17 @@ import java.util.regex.Pattern;
 public class CommonUtil {
     private static final Logger logger = Logger.getLogger(CommonUtil.class);
 
-    public static String nameRoleByID(int id) {
-        return (id == 1) ? VariablesUtil.ROLE_ADMIN_NAME : VariablesUtil.ROLE_USER_NAME;
+    public static String getNameRoleByID(int id) {
+        String result = (id == 1) ? VariablesUtil.ROLE_ADMIN_NAME : VariablesUtil.ROLE_USER_NAME;
+        logger.debug(CommonUtil.class.getName() + " getNameRoleByID return: " + result);
+        return result;
     }
 
-    public static int idRoleByName(String name) {
-        return (name.equalsIgnoreCase("admin")) ? VariablesUtil.ROLE_ADMIN_ID : VariablesUtil.ROLE_USER_ID;
+    public static int getIdRoleByRoleName(String name) {
+        int result = (name.equalsIgnoreCase("admin")) ? VariablesUtil.ROLE_ADMIN_ID :
+                VariablesUtil.ROLE_USER_ID;
+        logger.debug(CommonUtil.class.getName() + " getIdRoleByRoleName return: " + result);
+        return result;
     }
 
     public static String loginOrEmail(String loginOrEmail) {
@@ -24,13 +29,16 @@ public class CommonUtil {
     }
 
     public static int getIdUserByLoginEmail(Session session, String loginOrEmail, String type) {
-        return (int) session.createQuery("SELECT a.id FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE "
+        int result = (int) session.createQuery("SELECT a.id FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE "
                 + type + " = '" + loginOrEmail + "'").list().get(0);
+        logger.debug(CommonUtil.class.getName() + " getIdUserByLoginEmail return: " + result);
+        return result;
     }
 
     public static String getUUIDUserByLoginEmail(Session session, String loginOrEmail, String type) {
-        return session.createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO
+        String result = session.createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO
                 + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();
-
+        logger.debug(CommonUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
+        return result;
     }
 }
