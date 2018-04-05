@@ -1,12 +1,13 @@
 package by.iba.uzhyhala.util;
 
-public class VariablesUtil {
+public final class VariablesUtil {
+    public static final String ENTITY_ADDRESS = "AddressEntity";
     public static final String ENTITY_AUTH_INFO = "AuthInfoEntity";
     public static final String ENTITY_BET = "BetEntity";
     public static final String ENTITY_CATEGORY = "CategoryEntity";
     public static final String ENTITY_FEEDBACK = "FeedbackEntity";
     public static final String ENTITY_LOT = "LotEntity";
-    public static final String ENTITY_PERSONAL_INFO = "PersonalInfoEntity";
+    public static final String ENTITY_PERSONAL_INFORMATION = "PersonalInformationEntity";
     public static final String ENTITY_ROLE = "RoleEntity";
     public static final String ENTITY_STATUS = "StatusEntity";
 
@@ -25,4 +26,5 @@ public class VariablesUtil {
     public static final String COOKIE_KEY = "a7fca695-ae2b-4aea-bc17-e62106e14c57";
 
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+    public static final String REGEXP_PASSWORD = "";
 }

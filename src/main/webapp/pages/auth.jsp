@@ -1,4 +1,4 @@
-<%@ page import="by.iba.uzhyhala.util.VerifyRecaptchaUtil" %>
+<%@ page import="by.iba.uzhyhala.util.ReCaptchaUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,8 +11,19 @@
     <br/>
     Password: <input type="password" name="password" placeholder="password"/>
     <br/>
-    <div class="g-recaptcha" data-sitekey="<%=VerifyRecaptchaUtil.PUBLIC%>"></div>
     <button type="submit" name="login">Log in</button>
+</form>
+<br/>
+<br/>
+<form action="/registration" method="post">
+    Login: <input type="text" name="login" placeholder="login"/>
+    <br/>
+    Email: <input type="email" name="email" placeholder="email"/>
+    <br/>
+    Password: <input type="password" name="password" placeholder="password"/>
+    <br/>
+    <div class="g-recaptcha" data-sitekey="<%=ReCaptchaUtil.PUBLIC%>"></div>
+    <button type="submit" name="reg">REG</button>
 </form>
 </body>
 </html>

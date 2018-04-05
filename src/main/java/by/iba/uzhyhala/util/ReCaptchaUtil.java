@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class VerifyRecaptchaUtil {
+public class ReCaptchaUtil {
     private static final String URL = "https://www.google.com/recaptcha/api/siteverify";
     private static final String SECRET = "6LfAwFAUAAAAAP9YGQNaD3jOzgN7YiN7qD5b4cJd";
     public static final String PUBLIC = "6LfAwFAUAAAAAJYuBmiEiv8Io3FMUHmlKzUPXIQ3";

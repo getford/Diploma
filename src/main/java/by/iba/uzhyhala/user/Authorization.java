@@ -1,7 +1,9 @@
 package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
-import by.iba.uzhyhala.util.*;
+import by.iba.uzhyhala.util.CommonUtil;
+import by.iba.uzhyhala.util.HibernateUtil;
+import by.iba.uzhyhala.util.VariablesUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.log4j.Logger;
@@ -15,16 +17,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebServlet(urlPatterns = "/auth")
 public class Authorization extends HttpServlet implements IParseJsonString {
 
     private static final Logger logger = Logger.getLogger(Authorization.class);
+    private static final String REDIRECT_INDEX_PAGE = "/pages/index.jsp";
+    private static final String REDIRECT_AUTH_PAGE = "/pages/auth.jsp";
 
     private Session session;
     private String type;
@@ -35,44 +36,24 @@ public class Authorization extends HttpServlet implements IParseJsonString {
         session.beginTransaction();
     }
 
-    public void consoleLoginTest(String cred, String password) {
-        if (isLoginOrEmail(cred, password)) {
-            Object[] obj = getUserUuidAndRole(cred);
-            int i = 1000000000;
-        }
-    }
-
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        PrintWriter out = resp.getWriter();
-        if (VerifyRecaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
-            if (isLoginOrEmail(req.getParameter("login_or_email").toLowerCase(), req.getParameter("password").toLowerCase())) {
-                Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
-                assert obj != null;
-                setAuthCookie(((Object[]) obj[0])[0].toString(), CommonUtil.nameRoleByID(Integer.parseInt(String.valueOf(((Object[]) obj[0])[1]))), resp);
-                resp.sendRedirect("/pages/index.jsp");
-            } else {
-                resp.sendRedirect("/pages/auth.jsp");
-            }
+        this.type = CommonUtil.loginOrEmail(req.getParameter("login_or_email")).toLowerCase();
+        if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
+            Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
+            assert obj != null;
+            setAuthCookie(((Object[]) obj[0])[0].toString(), CommonUtil.nameRoleByID(
+                    Integer.parseInt(String.valueOf(((Object[]) obj[0])[1]))), resp);
+            resp.sendRedirect(REDIRECT_INDEX_PAGE);
         } else {
-            out.println("<font color=red>You missed the Captcha.</font>");
-        }
-    }
-
-    private boolean isLoginOrEmail(String loginOrEmail, String password) {
-        Matcher matcher = Pattern.compile(VariablesUtil.REGEXP_EMAIL, Pattern.CASE_INSENSITIVE).matcher(loginOrEmail);
-        if (matcher.find()) {
-            type = "email";
-            return isPasswordValid(loginOrEmail, password);
-        } else {
-            type = "login";
-            return isPasswordValid(loginOrEmail, password);
+            resp.sendRedirect(REDIRECT_AUTH_PAGE);
         }
     }
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
         try {
-            return session.createSQLQuery("select uuid, id_role from auth_info where " + type + " = '" + loginOrEmail + "'").list().toArray();
+            return session.createSQLQuery("select uuid, id_role from auth_info where " + type + " = '" +
+                    loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
             return null;
@@ -80,7 +61,8 @@ public class Authorization extends HttpServlet implements IParseJsonString {
     }
 
     private boolean isPasswordValid(String cred, String password) {
-        Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred").setParameter("cred", cred);
+        Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " +
+                type + " = :cred").setParameter("cred", cred);
         return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
     }
 

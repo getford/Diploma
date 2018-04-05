@@ -10,8 +10,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
-public class SendMailUtil {
-    private static final Logger logger = Logger.getLogger(SendMailUtil.class);
+public class MailUtil {
+    private static final Logger logger = Logger.getLogger(MailUtil.class);
     private URL url = null;
 
     private void setupParametersForMessage(String email, String subject, String mailBody) {
@@ -54,13 +54,11 @@ public class SendMailUtil {
                     "<br/><b>Your password: </b>" + password_ + "" +
                     "</p>" +
                     "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/profile.jsp?login=" + login + "\">" +
-                    "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/profile.jsp?login=" + login + "</a></p>";
+                    "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/profile.jsp?user=" + login + "</a></p>";
 
             setupParametersForMessage(VariablesUtil.EMAIL_TEST, subject, mailBody);
         } catch (MalformedURLException e) {
             logger.error(e.getMessage());
         }
     }
-
-
 }

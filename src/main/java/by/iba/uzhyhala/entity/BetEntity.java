@@ -21,7 +21,7 @@ public class BetEntity {
     }
 
     @Basic
-    @Column(name = "uuid", nullable = false, length = -1 )
+    @Column(name = "uuid", nullable = false, length = -1)
     public String getUuid() {
         return uuid;
     }

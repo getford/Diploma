@@ -4,7 +4,8 @@ import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.entity.RoleEntity;
 import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
-import by.iba.uzhyhala.util.SendMailUtil;
+import by.iba.uzhyhala.util.MailUtil;
+import by.iba.uzhyhala.util.ReCaptchaUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,16 +36,21 @@ public class Registration extends HttpServlet implements IParseJsonString {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        if (doRegistration(req.getParameter("login"), req.getParameter("password"), req.getParameter("email"))) {
-            try {
-                new SendMailUtil().sendMailRegistration(req.getParameter("email"),
-                        req.getParameter("login"),
-                        req.getParameter("password"), req);
-                resp.sendRedirect("/pages/index.jsp");
-            } catch (IOException e) {
-                e.printStackTrace();
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        PrintWriter printWriter = resp.getWriter();
+        if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
+            if (doRegistration(req.getParameter("login"), req.getParameter("password"), req.getParameter("email"))) {
+                try {
+                    new MailUtil().sendMailRegistration(req.getParameter("email"),
+                            req.getParameter("login"),
+                            req.getParameter("password"), req);
+                    resp.sendRedirect("/pages/index.jsp");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        } else {
+            printWriter.println("<font color=red>You missed the Captcha.</font>");
         }
     }
 
@@ -67,6 +74,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
             logger.debug("Login isn't empty");
             return false;
         }
+
     }
 
     private boolean isLoginAndEmailEmpty(String login, String email) {
