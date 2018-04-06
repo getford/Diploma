@@ -75,9 +75,7 @@ public class PersonalInformationEntity {
         if (idUser != null ? !idUser.equals(that.idUser) : that.idUser != null) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
-        if (bday != null ? !bday.equals(that.bday) : that.bday != null) return false;
-
-        return true;
+        return bday != null ? bday.equals(that.bday) : that.bday == null;
     }
 
     @Override

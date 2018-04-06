@@ -3,6 +3,7 @@ package by.iba.uzhyhala.user;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
+import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,7 +11,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/auth")
@@ -37,7 +38,7 @@ public class Authorization extends HttpServlet implements IParseJsonString {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         this.type = CommonUtil.loginOrEmail(req.getParameter("login_or_email")).toLowerCase();
         if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
             Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
@@ -55,6 +56,7 @@ public class Authorization extends HttpServlet implements IParseJsonString {
             return session.createSQLQuery("select uuid, id_role from auth_info where " + type + " = '" +
                     loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getLocalizedMessage());
             return null;
         }
@@ -77,9 +79,9 @@ public class Authorization extends HttpServlet implements IParseJsonString {
                             VariablesUtil.COOKIE_KEY.getBytes("UTF-8")
                     )
                     .compact();
-            logger.info("token create successfully");
+            logger.info(getClass().getName() + " token create successfully");
 
-            Cookie cookie = new Cookie("auction_auth", token);
+            Cookie cookie = new Cookie(VariablesUtil.COOKIE_AUTH_NAME, token);
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown
             resp.addCookie(cookie);
         } catch (UnsupportedEncodingException e) {

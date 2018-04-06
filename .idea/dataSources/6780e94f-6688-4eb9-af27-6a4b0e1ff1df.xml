@@ -54,8 +54,8 @@
     </role>
     <schema id="12" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-04-04.22:58:30.235</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1109</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-04-06.03:25:22.610</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1112</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -160,7 +160,7 @@
     </table>
     <table id="31" parent="12" name="lot">
       <ObjectId>33226</ObjectId>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1111</StateNumber>
     </table>
     <table id="32" parent="12" name="personal_information">
       <ObjectId>33189</ObjectId>
@@ -497,9 +497,9 @@
     </column>
     <column id="84" parent="31" name="name">
       <Position>5</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>1068</StateNumber>
-      <TypeId>23</TypeId>
+      <DataType>text|0s</DataType>
+      <StateNumber>1112</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="85" parent="31" name="information">
       <Position>6</Position>

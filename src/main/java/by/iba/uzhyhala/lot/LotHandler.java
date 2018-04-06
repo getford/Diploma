@@ -23,10 +23,17 @@ public class LotHandler {
     }
 
     public LotHandler() {
-
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
     }
 
     public void addLot() {
+        logger.debug(getClass().getName() + " addLot");
+    }
+
+    public void deleteLot(String uuid) {
+        logger.debug(getClass().getName() + " deleteLot");
+
     }
 
     public List<LotEntity> showLots() {

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,7 +47,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
                             req.getParameter("password"), req);
                     resp.sendRedirect("/pages/index.jsp");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    new MailUtil().sendErrorMailForAdmin(Arrays.toString(e.getStackTrace()));
                 }
             }
         } else {
@@ -54,7 +55,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
         }
     }
 
-    public boolean doRegistration(String login, String password, String email) {
+    private boolean doRegistration(String login, String password, String email) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
 
         AuthInfoEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
@@ -63,7 +64,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
             authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
             authInfoEntity.setPassword(authInfoEntity.getPassword());
             authInfoEntity.setEmail(authInfoEntity.getEmail());
-            authInfoEntity.setRoleByIdRole((RoleEntity) session.load(RoleEntity.class, VariablesUtil.ROLE_USER_ID));
+            authInfoEntity.setRoleByIdRole(session.load(RoleEntity.class, VariablesUtil.ROLE_USER_ID));
             authInfoEntity.setUuid(UUID.randomUUID().toString());
 
             session.save(authInfoEntity);

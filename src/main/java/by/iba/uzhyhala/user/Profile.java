@@ -31,6 +31,10 @@ public class Profile {
         return session.createSQLQuery(selectQuery).getResultList();
     }
 
+    public String getUserNameByUuid(String uuid){
+        return null;
+    }
+
     public String getUuidUser() {
         return uuidUser;
     }

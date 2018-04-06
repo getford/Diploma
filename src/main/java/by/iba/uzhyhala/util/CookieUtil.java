@@ -21,7 +21,7 @@ public class CookieUtil {
 
         if (cookies != null) {
             for (Cookie c : cookies) {
-                if (c.getName().equals("auction_auth")) {
+                if (c.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)) {
                     token = c.getValue();
                     isFindCookie = true;
                     logger.info(getClass().getName() + " constructor, token: " + token);
@@ -34,7 +34,8 @@ public class CookieUtil {
 
     public boolean isAdmin(Cookie[] cookies) throws UnsupportedEncodingException {
         for (Cookie cooky : cookies) {
-            if ((cooky.getName().equals("auction_auth")) && (getRoleFromToken() == VariablesUtil.ROLE_ADMIN_ID))
+            if ((cooky.getName().equals(VariablesUtil.COOKIE_AUTH_NAME))
+                    && (getRoleFromToken() == VariablesUtil.ROLE_ADMIN_ID))
                 return true;
         }
         return false;

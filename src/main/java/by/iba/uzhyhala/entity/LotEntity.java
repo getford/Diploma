@@ -214,9 +214,7 @@ public class LotEntity {
         if (timeEnd != null ? !timeEnd.equals(lotEntity.timeEnd) : lotEntity.timeEnd != null) return false;
         if (uuidUserClient != null ? !uuidUserClient.equals(lotEntity.uuidUserClient) : lotEntity.uuidUserClient != null)
             return false;
-        if (idCategory != null ? !idCategory.equals(lotEntity.idCategory) : lotEntity.idCategory != null) return false;
-
-        return true;
+        return idCategory != null ? idCategory.equals(lotEntity.idCategory) : lotEntity.idCategory == null;
     }
 
     @Override

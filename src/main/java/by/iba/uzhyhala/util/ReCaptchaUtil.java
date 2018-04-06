@@ -17,7 +17,7 @@ public class ReCaptchaUtil {
     public static final String PUBLIC = "6LfAwFAUAAAAAJYuBmiEiv8Io3FMUHmlKzUPXIQ3";
     private final static String USER_AGENT = "Mozilla/5.0";
 
-    public static boolean verify(String gRecaptchaResponse) throws IOException {
+    public static boolean verify(String gRecaptchaResponse) {
         if (gRecaptchaResponse == null || "".equals(gRecaptchaResponse)) {
             return false;
         }

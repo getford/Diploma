@@ -8,6 +8,8 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 public class MailUtil {
@@ -41,6 +43,14 @@ public class MailUtil {
         } catch (MessagingException e) {
             logger.error(e.getLocalizedMessage());
         }
+    }
+
+    public void sendErrorMailForAdmin(String error) {
+        String mailBody = "" +
+                "<br/>" + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date().getTime()) +
+                "<br/>" + error +
+                "<br/>";
+        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error", mailBody);
     }
 
     public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {

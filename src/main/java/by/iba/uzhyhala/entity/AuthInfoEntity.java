@@ -77,9 +77,7 @@ public class AuthInfoEntity {
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
-
-        return true;
+        return uuid != null ? uuid.equals(that.uuid) : that.uuid == null;
     }
 
     @Override

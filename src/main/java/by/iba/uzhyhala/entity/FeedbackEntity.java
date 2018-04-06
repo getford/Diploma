@@ -75,9 +75,7 @@ public class FeedbackEntity {
         if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
         if (idUser != null ? !idUser.equals(that.idUser) : that.idUser != null) return false;
         if (feedbackText != null ? !feedbackText.equals(that.feedbackText) : that.feedbackText != null) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-
-        return true;
+        return date != null ? date.equals(that.date) : that.date == null;
     }
 
     @Override

@@ -24,6 +24,9 @@ public final class VariablesUtil {
     static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
 
     public static final String COOKIE_KEY = "a7fca695-ae2b-4aea-bc17-e62106e14c57";
+    public static final String COOKIE_AUTH_NAME = "auction_auth";
+
+    public static final String MESSAGE_ERROR_SERVER = "Please, contact with administrator. Email: auction.diploma@gmail.com";
 
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
     public static final String REGEXP_PASSWORD = "";

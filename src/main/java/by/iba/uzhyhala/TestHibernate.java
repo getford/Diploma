@@ -1,6 +1,6 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.user.Profile;
+import by.iba.uzhyhala.lot.BetHandler;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -35,9 +35,11 @@ public class TestHibernate {
 
         // new MailUtil().testSendMail(VariablesUtil.EMAIL_TEST, "qwe", "qqq");
 
-        Profile profile = new Profile("qwe@qwe.qwe");
-        profile.getUserPersonalInformation();
+/*        Profile profile = new Profile("qwe@qwe.qwe");
+        profile.getUserPersonalInformation();*/
 
+        BetHandler betHandler = new BetHandler();
+        betHandler.parseBetBulk();
 
     }
 }

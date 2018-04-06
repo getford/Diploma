@@ -39,9 +39,7 @@ public class CategoryEntity {
         CategoryEntity that = (CategoryEntity) o;
 
         if (id != that.id) return false;
-        if (categoryName != null ? !categoryName.equals(that.categoryName) : that.categoryName != null) return false;
-
-        return true;
+        return categoryName != null ? categoryName.equals(that.categoryName) : that.categoryName == null;
     }
 
     @Override

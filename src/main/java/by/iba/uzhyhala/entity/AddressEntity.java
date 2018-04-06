@@ -85,9 +85,7 @@ public class AddressEntity {
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
         if (street != null ? !street.equals(that.street) : that.street != null) return false;
         if (house != null ? !house.equals(that.house) : that.house != null) return false;
-        if (zip != null ? !zip.equals(that.zip) : that.zip != null) return false;
-
-        return true;
+        return zip != null ? zip.equals(that.zip) : that.zip == null;
     }
 
     @Override

@@ -24,14 +24,14 @@
         <error-code>404</error-code>
         <location>/pages/error.html</location>
     </error-page>
-    <error-page>
-        <!-- Uncaught exception -->
+<!--    <error-page>
+        &lt;!&ndash; Uncaught exception &ndash;&gt;
         <error-code>500</error-code>
         <location>/pages/error.html</location>
     </error-page>
     <error-page>
-        <!-- Unsupported servlet method -->
+        &lt;!&ndash; Unsupported servlet method &ndash;&gt;
         <error-code>503</error-code>
         <location>/pages/error.html</location>
-    </error-page>
+    </error-page>-->
 </web-app>
