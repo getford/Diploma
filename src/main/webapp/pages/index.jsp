@@ -5,28 +5,7 @@
 <html>
 <head>
     <title>Index - Auction Diploma</title>
-<%--
-    <%
-        try {
-            CookieUtil cookieUtil = new CookieUtil(request);
-            LotHandler lotHandler;
-            if (cookieUtil.isFindCookie()) {
-                String user = "";
-                lotHandler = new LotHandler(user);
-            } else {
-                lotHandler = new LotHandler();
-                lotHandler.showLots();
-            }
-        } catch (NoClassDefFoundError ex) {
-            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
-            response.getWriter().println(VariablesUtil.MESSAGE_ERROR_SERVER);
-        }
-    %>
---%>
-<%--    <%
-        LotHandler lotHandler = new LotHandler();
-        List<LotEntity> allLotsList = lotHandler.showAllLots();
-    %>--%>
+
 </head>
 <body>
 <br/>

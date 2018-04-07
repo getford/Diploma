@@ -25,7 +25,7 @@ public class FeedbackEntity {
     }
 
     @Basic
-    @Column(name = "uuid", nullable = true, length = -1)
+    @Column(name = "uuid", nullable = true, length = -1, insertable = false, updatable = false)
     public String getUuid() {
         return uuid;
     }
@@ -91,7 +91,7 @@ public class FeedbackEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id", insertable = false, updatable = false)
     public AuthInfoEntity getAuthInfoByIdUser() {
         return authInfoByIdUser;
     }

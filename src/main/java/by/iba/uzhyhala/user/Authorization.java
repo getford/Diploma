@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.user;
 
-import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
@@ -19,10 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-import java.util.List;
 
 @WebServlet(urlPatterns = "/auth")
-public class Authorization extends HttpServlet implements IParseJsonString {
+public class Authorization extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(Authorization.class);
     private static final String REDIRECT_INDEX_PAGE = "/pages/index.jsp";
@@ -89,15 +87,5 @@ public class Authorization extends HttpServlet implements IParseJsonString {
         } catch (UnsupportedEncodingException e) {
             logger.error(e.getMessage());
         }
-    }
-
-    @Override
-    public String prepareInputString(String login, String password, String emil) {
-        return null;
-    }
-
-    @Override
-    public List<AuthInfoEntity> handleInputString(String args) {
-        return null;
     }
 }

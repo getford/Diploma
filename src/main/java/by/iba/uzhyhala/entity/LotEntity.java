@@ -38,7 +38,7 @@ public class LotEntity {
     }
 
     @Basic
-    @Column(name = "uuid", nullable = false, length = -1)
+    @Column(name = "uuid", nullable = false, length = -1, insertable = false, updatable = false)
     public String getUuid() {
         return uuid;
     }
@@ -227,7 +227,7 @@ public class LotEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
     public BetEntity getBetByUuid() {
         return betByUuid;
     }
@@ -237,7 +237,7 @@ public class LotEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
     public FeedbackEntity getFeedbackByUuid() {
         return feedbackByUuid;
     }
@@ -247,7 +247,7 @@ public class LotEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_category", referencedColumnName = "id")
+    @JoinColumn(name = "id_category", referencedColumnName = "id", insertable = false, updatable = false)
     public CategoryEntity getCategoryByIdCategory() {
         return categoryByIdCategory;
     }
