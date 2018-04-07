@@ -35,8 +35,8 @@ public class CookieUtil {
     public boolean isAdmin(Cookie[] cookies) throws UnsupportedEncodingException {
         for (Cookie cooky : cookies) {
             if ((cooky.getName().equals(VariablesUtil.COOKIE_AUTH_NAME))
-                    && (getRoleFromToken() == VariablesUtil.ROLE_ADMIN_ID))
-                return true;
+                    && (getRoleFromToken().equalsIgnoreCase(VariablesUtil.ROLE_ADMIN))) ;
+            return true;
         }
         return false;
     }
@@ -49,12 +49,12 @@ public class CookieUtil {
         return Integer.parseInt(String.valueOf(jws.getBody().get("uuid")));
     }
 
-    private int getRoleFromToken() throws UnsupportedEncodingException {
+    private String getRoleFromToken() throws UnsupportedEncodingException {
         Jws<Claims> jws = Jwts.parser()
                 .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
 
-        return Integer.parseInt(String.valueOf(jws.getBody().get("role")));
+        return String.valueOf(jws.getBody().get("role"));
     }
 
     public boolean isFindCookie() {

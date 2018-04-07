@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.lot.to;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,27 +9,21 @@ public class BetTO {
     @SerializedName("uuid_user")
     @Expose
     private String uuidUser;
-
     @SerializedName("bet")
     @Expose
     private int bet;
-
     @SerializedName("blitz_cost")
     @Expose
-    private String blitzCost;
-
+    private int blitzCost;
     @SerializedName("old_cost")
     @Expose
     private int oldCost;
-
     @SerializedName("new_cost")
     @Expose
     private int newCost;
-
     @SerializedName("date")
     @Expose
     private String date;
-
     @SerializedName("time")
     @Expose
     private String time;
@@ -41,11 +36,6 @@ public class BetTO {
         this.uuidUser = uuidUser;
     }
 
-    public BetTO withUuidUser(String uuidUser) {
-        this.uuidUser = uuidUser;
-        return this;
-    }
-
     public int getBet() {
         return bet;
     }
@@ -54,22 +44,12 @@ public class BetTO {
         this.bet = bet;
     }
 
-    public BetTO withBet(int bet) {
-        this.bet = bet;
-        return this;
-    }
-
-    public String getBlitzCost() {
+    public int getBlitzCost() {
         return blitzCost;
     }
 
-    public void setBlitzCost(String blitzCost) {
+    public void setBlitzCost(int blitzCost) {
         this.blitzCost = blitzCost;
-    }
-
-    public BetTO withBlitzCost(String blitzCost) {
-        this.blitzCost = blitzCost;
-        return this;
     }
 
     public int getOldCost() {
@@ -80,22 +60,12 @@ public class BetTO {
         this.oldCost = oldCost;
     }
 
-    public BetTO withOldCost(int oldCost) {
-        this.oldCost = oldCost;
-        return this;
-    }
-
     public int getNewCost() {
         return newCost;
     }
 
     public void setNewCost(int newCost) {
         this.newCost = newCost;
-    }
-
-    public BetTO withNewCost(int newCost) {
-        this.newCost = newCost;
-        return this;
     }
 
     public String getDate() {
@@ -106,22 +76,12 @@ public class BetTO {
         this.date = date;
     }
 
-    public BetTO withDate(String date) {
-        this.date = date;
-        return this;
-    }
-
     public String getTime() {
         return time;
     }
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public BetTO withTime(String time) {
-        this.time = time;
-        return this;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
-import by.iba.uzhyhala.entity.RoleEntity;
 import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
@@ -47,7 +46,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
                             req.getParameter("password"), req);
                     resp.sendRedirect("/pages/index.jsp");
                 } catch (IOException e) {
-                    new MailUtil().sendErrorMailForAdmin(Arrays.toString(e.getStackTrace()));
+                    new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(e.getStackTrace()));
                 }
             }
         } else {
@@ -64,7 +63,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
             authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
             authInfoEntity.setPassword(authInfoEntity.getPassword());
             authInfoEntity.setEmail(authInfoEntity.getEmail());
-            authInfoEntity.setRoleByIdRole(session.load(RoleEntity.class, VariablesUtil.ROLE_USER_ID));
+            authInfoEntity.setRole(VariablesUtil.ROLE_USER);
             authInfoEntity.setUuid(UUID.randomUUID().toString());
 
             session.save(authInfoEntity);

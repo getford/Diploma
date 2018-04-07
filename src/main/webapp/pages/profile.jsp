@@ -18,8 +18,9 @@
         List<PersonalInformationEntity> personalInformationEntity = null;
         if (cookieUtil.isFindCookie()) {
             profile = new Profile(request.getParameter("user").toLowerCase());
+            profile.getUserPersonalInformation();
 
-            personalInformationEntity = profile.getUserPersonalInformation();
+            personalInformationEntity = profile.getPersonalInformationList();
         } else {
             new Logout(request, response);
         }
@@ -27,9 +28,11 @@
     %>
 </head>
 <body>
+<%--
 <h1><%=profile.getUuidUser()%>
 </h1>
 <h1><%=personalInformationEntity.get(0).getLastName()%>
 </h1>
+--%>
 </body>
 </html>

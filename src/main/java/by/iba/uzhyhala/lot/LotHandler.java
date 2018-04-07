@@ -31,12 +31,17 @@ public class LotHandler {
         logger.debug(getClass().getName() + " addLot");
     }
 
+    private String prepareBetBulk(String uuidUser){
+
+        return "";
+    }
+
     public void deleteLot(String uuid) {
         logger.debug(getClass().getName() + " deleteLot");
 
     }
 
-    public List<LotEntity> showLots() {
+    public List<LotEntity> showAllLots() {
         logger.debug(getClass().getName() + " showLots");
         return session.createSQLQuery("SELECT * FROM lot").getResultList();
     }

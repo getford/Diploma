@@ -8,19 +8,6 @@ import java.util.regex.Pattern;
 public class CommonUtil {
     private static final Logger logger = Logger.getLogger(CommonUtil.class);
 
-    public static String getNameRoleByID(int id) {
-        String result = (id == 1) ? VariablesUtil.ROLE_ADMIN_NAME : VariablesUtil.ROLE_USER_NAME;
-        logger.debug(CommonUtil.class.getName() + " getNameRoleByID return: " + result);
-        return result;
-    }
-
-    public static int getIdRoleByRoleName(String name) {
-        int result = (name.equalsIgnoreCase("admin")) ? VariablesUtil.ROLE_ADMIN_ID :
-                VariablesUtil.ROLE_USER_ID;
-        logger.debug(CommonUtil.class.getName() + " getIdRoleByRoleName return: " + result);
-        return result;
-    }
-
     public static String loginOrEmail(String loginOrEmail) {
         String result = Pattern.compile(VariablesUtil.REGEXP_EMAIL,
                 Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? "email" : "login";

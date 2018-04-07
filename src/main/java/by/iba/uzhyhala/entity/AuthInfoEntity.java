@@ -11,7 +11,8 @@ public class AuthInfoEntity {
     private String password;
     private String email;
     private String uuid;
-    private RoleEntity roleByIdRole;
+    private String role;
+    private Collection<AddressEntity> addressesById;
     private Collection<FeedbackEntity> feedbacksById;
     private Collection<PersonalInformationEntity> personalInformationsById;
 
@@ -66,6 +67,16 @@ public class AuthInfoEntity {
         this.uuid = uuid;
     }
 
+    @Basic
+    @Column(name = "role", nullable = false, length = -1)
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,7 +88,10 @@ public class AuthInfoEntity {
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        return uuid != null ? uuid.equals(that.uuid) : that.uuid == null;
+        if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
+        if (role != null ? !role.equals(that.role) : that.role != null) return false;
+
+        return true;
     }
 
     @Override
@@ -87,17 +101,17 @@ public class AuthInfoEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_role", referencedColumnName = "id", nullable = false)
-    public RoleEntity getRoleByIdRole() {
-        return roleByIdRole;
+    @OneToMany(mappedBy = "authInfoByIdUser")
+    public Collection<AddressEntity> getAddressesById() {
+        return addressesById;
     }
 
-    public void setRoleByIdRole(RoleEntity roleByIdRole) {
-        this.roleByIdRole = roleByIdRole;
+    public void setAddressesById(Collection<AddressEntity> addressesById) {
+        this.addressesById = addressesById;
     }
 
     @OneToMany(mappedBy = "authInfoByIdUser")

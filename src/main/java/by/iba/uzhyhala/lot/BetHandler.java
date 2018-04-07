@@ -1,7 +1,8 @@
 package by.iba.uzhyhala.lot;
 
+import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
-import by.iba.uzhyhala.lot.to.BulkBetTO;
+import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 
@@ -15,47 +16,52 @@ public class BetHandler {
 
     private Gson gson = new Gson();
 
-    private static final String jsonBulk = "{\"uuid_lot\":\"46b50288-66bf-4e37-a71d-a62d55bf3e50\",\"uuid_seller\":" +
-            "\"14209d9b-dc3a-4daa-9fe9-6d056febf3af\",\"uuid_client\":\"\",\"status\":\"active\",\"bets\":[{" +
-            "\"uuid_user\":\"d1230270-be57-4f82-84dd-a8f4b3286d0f\",\"bet\":10,\"blitz_cost\":\"100\",\"old_cost" +
-            "\":10,\"new_cost\":20,\"date\":\"06/04/2018\",\"time\":\"02:30:33\"},{\"uuid_user\":" +
-            "\"727378a4-9fb0-466e-85ce-2af4445032d2\",\"bet\":10,\"blitz_cost\":\"100\",\"old_cost\":20,\"new_cost" +
-            "\":30,\"date\":\"06/04/2018\",\"time\":\"04:25:45\"}]}";
+    private static String jsonBulk = "{\"uuid_lot\":\"46b50288-66bf-4e37-a71d-a62d55bf3e50\",\"uuid_seller\":\"14209d9b-dc3a-4daa-9fe9-6d056febf3af\",\"uuid_client\":\"\",\"status\":\"active\",\"bets\":[]}";
 
     public BetHandler() {
 
     }
 
     public void doBet() {
+        BetBulkTO betBulkTO = gson.fromJson(jsonBulk, BetBulkTO.class);
 
-    }
-
-
-    public void parseBetBulk() {
-        BulkBetTO bulkBetTO = gson.fromJson(jsonBulk, BulkBetTO.class);
-
-        int bet = 29;
+        int bet = 100;
         String uuidUser = "ca20bdaf-0be3-4427-9d58-1667968322b9";
-
-
-        List<BetTO> betTOList = new ArrayList<>(bulkBetTO.getBets());
+        int sizeBetArray = betBulkTO.getBets().size() - 1;
+        
+        List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
 
 
         BetTO betTO = new BetTO();
-        betTO.setBet(bet);
-        betTO.setDate(String.valueOf(new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime())));
-        betTO.setOldCost(bulkBetTO.getBets().get(bulkBetTO.getBets().size() - 1).getNewCost());
-        betTO.setNewCost(bulkBetTO.getBets().get(bulkBetTO.getBets().size() - 1).getNewCost() + bet);
-        betTO.setBlitzCost(bulkBetTO.getBets().get(0).getBlitzCost());
-        betTO.setUuidUser(uuidUser);
-        betTO.setTime(String.valueOf(new SimpleDateFormat("HH:mm:ss").format(new Date().getTime())));
+        if (!(betBulkTO.getBets().get(sizeBetArray).getBlitzCost() >= bet)) {
+            if (sizeBetArray == -1) {
+                betTO.setBet(bet);
+                betTO.setDate(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())));
+                betTO.setOldCost(0);
+                betTO.setNewCost(bet);
+                betTO.setBlitzCost(100);
+                betTO.setUuidUser(uuidUser);
+                betTO.setTime(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime())));
+                betTOList.add(betTO);
+                betBulkTO.setBets(betTOList);
+            } else {
 
-        betTOList.add(betTO);
+                betTO.setBet(bet);
+                betTO.setDate(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())));
+                betTO.setOldCost(betBulkTO.getBets().get(sizeBetArray).getNewCost());
+                betTO.setNewCost(betBulkTO.getBets().get(sizeBetArray).getNewCost() + bet);
+                betTO.setBlitzCost(betBulkTO.getBets().get(0).getBlitzCost());
+                betTO.setUuidUser(uuidUser);
+                betTO.setTime(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime())));
 
-        bulkBetTO.setBets(betTOList);
-
-        System.err.println(gson.toJson(bulkBetTO));
-
-        int i = 1000000;
+                betTOList.add(betTO);
+                betBulkTO.setBets(betTOList);
+            }
+        } else {
+            betBulkTO.setUuidClient(uuidUser);
+            betBulkTO.setStatus(VariablesUtil.STATUS_LOT_SALES);
+        }
+        jsonBulk = gson.toJson(betBulkTO);
+        System.err.println(gson.toJson(betBulkTO));
     }
 }

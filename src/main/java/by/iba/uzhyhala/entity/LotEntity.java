@@ -10,8 +10,7 @@ public class LotEntity {
     private int id;
     private String uuid;
     private Integer idUserSeller;
-    private Integer idStatus;
-    private Integer name;
+    private String name;
     private String information;
     private String cost;
     private String blitzCost;
@@ -25,7 +24,6 @@ public class LotEntity {
     private Integer idCategory;
     private BetEntity betByUuid;
     private FeedbackEntity feedbackByUuid;
-    private StatusEntity statusByIdStatus;
     private CategoryEntity categoryByIdCategory;
 
     @Id
@@ -40,7 +38,7 @@ public class LotEntity {
     }
 
     @Basic
-    @Column(name = "uuid", nullable = false, length = -1, insertable = false, updatable = false)
+    @Column(name = "uuid", nullable = false, length = -1)
     public String getUuid() {
         return uuid;
     }
@@ -60,22 +58,12 @@ public class LotEntity {
     }
 
     @Basic
-    @Column(name = "id_status", nullable = true, insertable = false, updatable = false)
-    public Integer getIdStatus() {
-        return idStatus;
-    }
-
-    public void setIdStatus(Integer idStatus) {
-        this.idStatus = idStatus;
-    }
-
-    @Basic
-    @Column(name = "name", nullable = true)
-    public Integer getName() {
+    @Column(name = "name", nullable = true, length = -1)
+    public String getName() {
         return name;
     }
 
-    public void setName(Integer name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -180,7 +168,7 @@ public class LotEntity {
     }
 
     @Basic
-    @Column(name = "id_category", nullable = true, insertable = false, updatable = false)
+    @Column(name = "id_category", nullable = true)
     public Integer getIdCategory() {
         return idCategory;
     }
@@ -200,7 +188,6 @@ public class LotEntity {
         if (uuid != null ? !uuid.equals(lotEntity.uuid) : lotEntity.uuid != null) return false;
         if (idUserSeller != null ? !idUserSeller.equals(lotEntity.idUserSeller) : lotEntity.idUserSeller != null)
             return false;
-        if (idStatus != null ? !idStatus.equals(lotEntity.idStatus) : lotEntity.idStatus != null) return false;
         if (name != null ? !name.equals(lotEntity.name) : lotEntity.name != null) return false;
         if (information != null ? !information.equals(lotEntity.information) : lotEntity.information != null)
             return false;
@@ -214,7 +201,9 @@ public class LotEntity {
         if (timeEnd != null ? !timeEnd.equals(lotEntity.timeEnd) : lotEntity.timeEnd != null) return false;
         if (uuidUserClient != null ? !uuidUserClient.equals(lotEntity.uuidUserClient) : lotEntity.uuidUserClient != null)
             return false;
-        return idCategory != null ? idCategory.equals(lotEntity.idCategory) : lotEntity.idCategory == null;
+        if (idCategory != null ? !idCategory.equals(lotEntity.idCategory) : lotEntity.idCategory != null) return false;
+
+        return true;
     }
 
     @Override
@@ -222,7 +211,6 @@ public class LotEntity {
         int result = id;
         result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
         result = 31 * result + (idUserSeller != null ? idUserSeller.hashCode() : 0);
-        result = 31 * result + (idStatus != null ? idStatus.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (information != null ? information.hashCode() : 0);
         result = 31 * result + (cost != null ? cost.hashCode() : 0);
@@ -239,7 +227,7 @@ public class LotEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
     public BetEntity getBetByUuid() {
         return betByUuid;
     }
@@ -249,23 +237,13 @@ public class LotEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
     public FeedbackEntity getFeedbackByUuid() {
         return feedbackByUuid;
     }
 
     public void setFeedbackByUuid(FeedbackEntity feedbackByUuid) {
         this.feedbackByUuid = feedbackByUuid;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_status", referencedColumnName = "id")
-    public StatusEntity getStatusByIdStatus() {
-        return statusByIdStatus;
-    }
-
-    public void setStatusByIdStatus(StatusEntity statusByIdStatus) {
-        this.statusByIdStatus = statusByIdStatus;
     }
 
     @ManyToOne

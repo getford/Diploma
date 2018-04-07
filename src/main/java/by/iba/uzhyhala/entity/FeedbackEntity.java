@@ -35,7 +35,7 @@ public class FeedbackEntity {
     }
 
     @Basic
-    @Column(name = "id_user", nullable = true, insertable = false, updatable = false)
+    @Column(name = "id_user", nullable = true, updatable = false, insertable = false)
     public Integer getIdUser() {
         return idUser;
     }
@@ -75,7 +75,9 @@ public class FeedbackEntity {
         if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
         if (idUser != null ? !idUser.equals(that.idUser) : that.idUser != null) return false;
         if (feedbackText != null ? !feedbackText.equals(that.feedbackText) : that.feedbackText != null) return false;
-        return date != null ? date.equals(that.date) : that.date == null;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+
+        return true;
     }
 
     @Override

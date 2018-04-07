@@ -39,7 +39,7 @@ public class TestHibernate {
         profile.getUserPersonalInformation();*/
 
         BetHandler betHandler = new BetHandler();
-        betHandler.parseBetBulk();
+        betHandler.doBet();
 
     }
 }

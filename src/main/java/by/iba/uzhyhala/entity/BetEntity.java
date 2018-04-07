@@ -49,7 +49,9 @@ public class BetEntity {
 
         if (id != betEntity.id) return false;
         if (uuid != null ? !uuid.equals(betEntity.uuid) : betEntity.uuid != null) return false;
-        return bulk != null ? bulk.equals(betEntity.bulk) : betEntity.bulk == null;
+        if (bulk != null ? !bulk.equals(betEntity.bulk) : betEntity.bulk != null) return false;
+
+        return true;
     }
 
     @Override

@@ -1,9 +1,6 @@
+<%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.lot.LotHandler" %>
-<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
-<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
-<%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="by.iba.uzhyhala.util.MailUtil" %>
-<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,6 +23,10 @@
         }
     %>
 --%>
+<%--    <%
+        LotHandler lotHandler = new LotHandler();
+        List<LotEntity> allLotsList = lotHandler.showAllLots();
+    %>--%>
 </head>
 <body>
 <br/>

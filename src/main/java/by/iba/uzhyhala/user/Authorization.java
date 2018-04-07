@@ -30,7 +30,6 @@ public class Authorization extends HttpServlet implements IParseJsonString {
 
     private Session session;
     private String type;
-    private String role;
 
     public Authorization() {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -43,8 +42,7 @@ public class Authorization extends HttpServlet implements IParseJsonString {
         if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
             Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
             assert obj != null;
-            setAuthCookie(((Object[]) obj[0])[0].toString(), CommonUtil.getNameRoleByID(
-                    Integer.parseInt(String.valueOf(((Object[]) obj[0])[1]))), resp);
+            setAuthCookie(((Object[]) obj[0])[0].toString(), String.valueOf(((Object[]) obj[0])[1]), resp);
             resp.sendRedirect(REDIRECT_INDEX_PAGE);
         } else {
             resp.sendRedirect(REDIRECT_AUTH_PAGE);
@@ -53,12 +51,16 @@ public class Authorization extends HttpServlet implements IParseJsonString {
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
         try {
-            return session.createSQLQuery("select uuid, id_role from auth_info where " + type + " = '" +
+            return session.createSQLQuery("select uuid, role from auth_info where " + type + " = '" +
                     loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getLocalizedMessage());
             return null;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
 
