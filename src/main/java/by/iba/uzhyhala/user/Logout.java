@@ -17,14 +17,14 @@ public class Logout extends HttpServlet {
 
     public Logout(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            doGet(req, resp);
+            doPost(req, resp);
         } catch (IOException e) {
             logger.error(getClass().getName() + "\n" + Arrays.toString(e.getStackTrace()));
         }
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Cookie cookie = new Cookie(VariablesUtil.COOKIE_AUTH_NAME, "");
         cookie.setMaxAge(0);
         cookie.setPath("/");

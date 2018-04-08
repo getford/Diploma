@@ -1,11 +1,12 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Table(name = "auth_info", schema = "public", catalog = "auction")
-public class AuthInfoEntity {
+public class AuthInfoEntity implements Serializable {
     private int id;
     private String login;
     private String password;

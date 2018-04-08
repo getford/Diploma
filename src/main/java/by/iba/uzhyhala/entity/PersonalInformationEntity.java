@@ -1,11 +1,12 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
 @Table(name = "personal_information", schema = "public", catalog = "auction")
-public class PersonalInformationEntity {
+public class PersonalInformationEntity implements Serializable {
     private int id;
     private Integer idUser;
     private String firstName;

@@ -1,10 +1,11 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "address", schema = "public", catalog = "auction")
-public class AddressEntity {
+public class AddressEntity implements Serializable {
     private int id;
     private int idUser;
     private String country;

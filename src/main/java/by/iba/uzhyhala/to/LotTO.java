@@ -3,34 +3,34 @@ package by.iba.uzhyhala.to;
 public class LotTO {
     private int idCategory;
     private int idUserSeller;
-    private int idUserClient;
-    private String nameLot;
-    private String startCost;
+    private String uuid;
+    private String name;
+    private String information;
+    private String cost;
     private String blitzCost;
     private String stepCost;
-    private String duration;
+    private String dateAdd;
     private String dateStart;
     private String dateEnd;
-    private String information;
-    private String lotUuid;
+    private String timeStart;
+    private String timeEnd;
+    private String uuidUserClient;
 
-    public LotTO(int idCategory, int idUserSeller, int idUserClient, String nameLot, String startCost, String blitzCost, String stepCost, String duration, String dateStart, String dateEnd, String information, String lotUuid) {
+    public LotTO(int idCategory, int idUserSeller, String uuid, String name, String information, String cost, String blitzCost, String stepCost, String dateAdd, String dateStart, String dateEnd, String timeStart, String timeEnd, String uuidUserClient) {
         this.idCategory = idCategory;
         this.idUserSeller = idUserSeller;
-        this.idUserClient = idUserClient;
-        this.nameLot = nameLot;
-        this.startCost = startCost;
+        this.uuid = uuid;
+        this.name = name;
+        this.information = information;
+        this.cost = cost;
         this.blitzCost = blitzCost;
         this.stepCost = stepCost;
-        this.duration = duration;
+        this.dateAdd = dateAdd;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
-        this.information = information;
-        this.lotUuid = lotUuid;
-    }
-
-    public LotTO() {
-
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.uuidUserClient = uuidUserClient;
     }
 
     public int getIdCategory() {
@@ -49,28 +49,36 @@ public class LotTO {
         this.idUserSeller = idUserSeller;
     }
 
-    public int getIdUserClient() {
-        return idUserClient;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setIdUserClient(int idUserClient) {
-        this.idUserClient = idUserClient;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
-    public String getNameLot() {
-        return nameLot;
+    public String getName() {
+        return name;
     }
 
-    public void setNameLot(String nameLot) {
-        this.nameLot = nameLot;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getStartCost() {
-        return startCost;
+    public String getInformation() {
+        return information;
     }
 
-    public void setStartCost(String startCost) {
-        this.startCost = startCost;
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
     }
 
     public String getBlitzCost() {
@@ -89,12 +97,12 @@ public class LotTO {
         this.stepCost = stepCost;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getDateAdd() {
+        return dateAdd;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setDateAdd(String dateAdd) {
+        this.dateAdd = dateAdd;
     }
 
     public String getDateStart() {
@@ -113,20 +121,28 @@ public class LotTO {
         this.dateEnd = dateEnd;
     }
 
-    public String getInformation() {
-        return information;
+    public String getTimeStart() {
+        return timeStart;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
     }
 
-    public String getLotUuid() {
-        return lotUuid;
+    public String getTimeEnd() {
+        return timeEnd;
     }
 
-    public void setLotUuid(String lotUuid) {
-        this.lotUuid = lotUuid;
+    public void setTimeEnd(String timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
+    public String getUuidUserClient() {
+        return uuidUserClient;
+    }
+
+    public void setUuidUserClient(String uuidUserClient) {
+        this.uuidUserClient = uuidUserClient;
     }
 
     @Override
@@ -134,16 +150,18 @@ public class LotTO {
         return "LotTO{" +
                 "idCategory=" + idCategory +
                 ", idUserSeller=" + idUserSeller +
-                ", idUserClient=" + idUserClient +
-                ", nameLot='" + nameLot + '\'' +
-                ", startCost='" + startCost + '\'' +
+                ", uuid='" + uuid + '\'' +
+                ", name='" + name + '\'' +
+                ", information='" + information + '\'' +
+                ", cost='" + cost + '\'' +
                 ", blitzCost='" + blitzCost + '\'' +
                 ", stepCost='" + stepCost + '\'' +
-                ", duration='" + duration + '\'' +
+                ", dateAdd='" + dateAdd + '\'' +
                 ", dateStart='" + dateStart + '\'' +
                 ", dateEnd='" + dateEnd + '\'' +
-                ", information='" + information + '\'' +
-                ", lotUuid='" + lotUuid + '\'' +
+                ", timeStart='" + timeStart + '\'' +
+                ", timeEnd='" + timeEnd + '\'' +
+                ", uuidUserClient='" + uuidUserClient + '\'' +
                 '}';
     }
 }

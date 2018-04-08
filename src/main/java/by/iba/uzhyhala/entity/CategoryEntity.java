@@ -1,11 +1,12 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Table(name = "category", schema = "public", catalog = "auction")
-public class CategoryEntity {
+public class CategoryEntity implements Serializable {
     private int id;
     private String categoryName;
     private Collection<LotEntity> lotsById;

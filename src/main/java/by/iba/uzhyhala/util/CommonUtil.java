@@ -28,4 +28,20 @@ public class CommonUtil {
         logger.debug(CommonUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
         return result;
     }
+
+    public static String getCategoryById(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        try {
+            return session.createQuery("SELECT c.category_name FROM " + VariablesUtil.ENTITY_CATEGORY + " c WHERE id = :id")
+                    .setParameter("id", id).list().get(0).toString();
+        } catch (Exception ex) {
+            logger.error(ex.getLocalizedMessage());
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return null;
+    }
 }

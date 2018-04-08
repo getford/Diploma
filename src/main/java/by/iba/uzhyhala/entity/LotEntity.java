@@ -1,12 +1,13 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 
 @Entity
 @Table(name = "lot", schema = "public", catalog = "auction")
-public class LotEntity {
+public class LotEntity implements Serializable {
     private int id;
     private String uuid;
     private Integer idUserSeller;
@@ -25,6 +26,7 @@ public class LotEntity {
     private BetEntity betByUuid;
     private FeedbackEntity feedbackByUuid;
     private CategoryEntity categoryByIdCategory;
+    private String status;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -175,6 +177,16 @@ public class LotEntity {
 
     public void setIdCategory(Integer idCategory) {
         this.idCategory = idCategory;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = true)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

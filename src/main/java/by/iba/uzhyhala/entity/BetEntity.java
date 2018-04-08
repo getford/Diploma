@@ -1,10 +1,11 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "bet", schema = "public", catalog = "auction")
-public class BetEntity {
+public class BetEntity implements Serializable {
     private int id;
     private String uuid;
     private String bulk;
