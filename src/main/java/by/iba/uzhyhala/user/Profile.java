@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.user;
 
+import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.PersonalInformationEntity;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
@@ -42,6 +43,22 @@ public class Profile {
         try {
             logger.debug(getClass().getName() + " getUserPersonalInformation");
             return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE id_user = :id").setParameter("id", idUser).list();
+        } catch (Exception ex) {
+            logger.error(ex.getLocalizedMessage());
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return null;
+    }
+
+    public List<AddressEntity> getUserAddress() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        try {
+            logger.debug(getClass().getName() + " getUserPersonalInformation");
+            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE id_user = :id").setParameter("id", idUser).list();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {
