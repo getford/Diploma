@@ -41,12 +41,12 @@ public class CookieUtil {
         return false;
     }
 
-    public int getUserUuidFromToken() throws IOException {
+    public String getUserUuidFromToken() throws IOException {
         Jws<Claims> jws = Jwts.parser()
                 .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
 
-        return Integer.parseInt(String.valueOf(jws.getBody().get("uuid")));
+        return String.valueOf(jws.getBody().get("uuid"));
     }
 
     private String getRoleFromToken() throws UnsupportedEncodingException {

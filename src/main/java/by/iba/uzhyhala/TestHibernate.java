@@ -1,6 +1,6 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.lot.BetHandler;
+import by.iba.uzhyhala.lot.LotHandler;
 import by.iba.uzhyhala.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -38,8 +38,13 @@ public class TestHibernate {
 /*        Profile profile = new Profile("qwe@qwe.qwe");
         profile.getUserPersonalInformation();*/
 
-        BetHandler betHandler = new BetHandler();
-        betHandler.doBet();
+//        BetHandler betHandler = new BetHandler();
+//        betHandler.doBet();
 
+        LotHandler lotHandler = new LotHandler("qwe");
+        lotHandler.addLot(session, "lot_1", "info_lot_1", "123", "11223", "11", "12/12/2010", "01/02/2011", "10:10:10", "20:20:20", 1);
+
+
+//        CommonUtil.getCategoryById(1);
     }
 }

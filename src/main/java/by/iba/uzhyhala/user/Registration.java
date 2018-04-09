@@ -42,7 +42,8 @@ public class Registration extends HttpServlet implements IParseJsonString {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter printWriter = resp.getWriter();
         if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
-            if (doRegistration(req.getParameter("login"), req.getParameter("password"), req.getParameter("email"))) {
+            if (doRegistration(req.getParameter("login"), req.getParameter("password"),
+                    req.getParameter("email"))) {
                 try {
                     new MailUtil().sendMailRegistration(req.getParameter("email"),
                             req.getParameter("login"),
@@ -77,7 +78,6 @@ public class Registration extends HttpServlet implements IParseJsonString {
             logger.debug("Login isn't empty");
             return false;
         }
-
     }
 
     private boolean isLoginAndEmailEmpty(String login, String email) {

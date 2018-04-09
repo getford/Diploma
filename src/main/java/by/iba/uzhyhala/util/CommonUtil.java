@@ -22,6 +22,13 @@ public class CommonUtil {
         return result;
     }
 
+    public static int getIdUserByUUID(Session session, String uuid) {
+        int result = (int) session.createQuery("SELECT a.id FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE" +
+                " uuid = :uuid").setParameter("uuid", uuid).list().get(0);
+        logger.debug(CommonUtil.class.getName() + " getIdUserByLoginEmail return: " + result);
+        return result;
+    }
+
     public static String getUUIDUserByLoginEmail(Session session, String loginOrEmail, String type) {
         String result = session.createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO
                 + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();
@@ -33,8 +40,9 @@ public class CommonUtil {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         try {
-            return session.createQuery("SELECT c.category_name FROM " + VariablesUtil.ENTITY_CATEGORY + " c WHERE id = :id")
-                    .setParameter("id", id).list().get(0).toString();
+            String s = session.createQuery("SELECT c.category_name FROM " + VariablesUtil.ENTITY_CATEGORY + " c WHERE id = :id")
+                    .setParameter("id", id).getResultList().get(0).toString();
+            return s;
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {

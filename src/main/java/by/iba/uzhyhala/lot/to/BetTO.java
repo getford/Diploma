@@ -9,21 +9,31 @@ public class BetTO {
     @SerializedName("uuid_user")
     @Expose
     private String uuidUser;
+
+    @SerializedName("uuid_bet")
+    @Expose
+    private String uuidBet;
+
     @SerializedName("bet")
     @Expose
-    private int bet;
+    private Integer bet;
+
     @SerializedName("blitz_cost")
     @Expose
-    private int blitzCost;
+    private Integer blitzCost;
+
     @SerializedName("old_cost")
     @Expose
-    private int oldCost;
+    private Integer oldCost;
+
     @SerializedName("new_cost")
     @Expose
-    private int newCost;
+    private Integer newCost;
+
     @SerializedName("date")
     @Expose
     private String date;
+
     @SerializedName("time")
     @Expose
     private String time;
@@ -36,35 +46,43 @@ public class BetTO {
         this.uuidUser = uuidUser;
     }
 
-    public int getBet() {
+    public String getUuidBet() {
+        return uuidBet;
+    }
+
+    public void setUuidBet(String uuidBet) {
+        this.uuidBet = uuidBet;
+    }
+
+    public Integer getBet() {
         return bet;
     }
 
-    public void setBet(int bet) {
+    public void setBet(Integer bet) {
         this.bet = bet;
     }
 
-    public int getBlitzCost() {
+    public Integer getBlitzCost() {
         return blitzCost;
     }
 
-    public void setBlitzCost(int blitzCost) {
+    public void setBlitzCost(Integer blitzCost) {
         this.blitzCost = blitzCost;
     }
 
-    public int getOldCost() {
+    public Integer getOldCost() {
         return oldCost;
     }
 
-    public void setOldCost(int oldCost) {
+    public void setOldCost(Integer oldCost) {
         this.oldCost = oldCost;
     }
 
-    public int getNewCost() {
+    public Integer getNewCost() {
         return newCost;
     }
 
-    public void setNewCost(int newCost) {
+    public void setNewCost(Integer newCost) {
         this.newCost = newCost;
     }
 
@@ -88,8 +106,9 @@ public class BetTO {
     public String toString() {
         return "BetTO{" +
                 "uuidUser='" + uuidUser + '\'' +
+                ", uuidBet='" + uuidBet + '\'' +
                 ", bet=" + bet +
-                ", blitzCost='" + blitzCost + '\'' +
+                ", blitzCost=" + blitzCost +
                 ", oldCost=" + oldCost +
                 ", newCost=" + newCost +
                 ", date='" + date + '\'' +

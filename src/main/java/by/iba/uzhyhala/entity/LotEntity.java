@@ -2,8 +2,6 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
 
 @Entity
 @Table(name = "lot", schema = "public", catalog = "auction")
@@ -16,11 +14,11 @@ public class LotEntity implements Serializable {
     private String cost;
     private String blitzCost;
     private String stepCost;
-    private Date dateAdd;
-    private Date dateStart;
-    private Date dateEnd;
-    private Time timeStart;
-    private Time timeEnd;
+    private String dateAdd;
+    private String dateStart;
+    private String dateEnd;
+    private String timeStart;
+    private String timeEnd;
     private String uuidUserClient;
     private Integer idCategory;
     private BetEntity betByUuid;
@@ -40,7 +38,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "uuid", nullable = false, length = -1, insertable = false, updatable = false)
+    @Column(name = "uuid", nullable = false, length = -1)
     public String getUuid() {
         return uuid;
     }
@@ -111,51 +109,51 @@ public class LotEntity implements Serializable {
 
     @Basic
     @Column(name = "date_add", nullable = true)
-    public Date getDateAdd() {
+    public String getDateAdd() {
         return dateAdd;
     }
 
-    public void setDateAdd(Date dateAdd) {
+    public void setDateAdd(String dateAdd) {
         this.dateAdd = dateAdd;
     }
 
     @Basic
     @Column(name = "date_start", nullable = true)
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
 
     @Basic
     @Column(name = "date_end", nullable = true)
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 
     @Basic
     @Column(name = "time_start", nullable = true)
-    public Time getTimeStart() {
+    public String getTimeStart() {
         return timeStart;
     }
 
-    public void setTimeStart(Time timeStart) {
+    public void setTimeStart(String timeStart) {
         this.timeStart = timeStart;
     }
 
     @Basic
     @Column(name = "time_end", nullable = true)
-    public Time getTimeEnd() {
+    public String getTimeEnd() {
         return timeEnd;
     }
 
-    public void setTimeEnd(Time timeEnd) {
+    public void setTimeEnd(String timeEnd) {
         this.timeEnd = timeEnd;
     }
 
