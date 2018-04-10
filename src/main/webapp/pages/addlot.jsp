@@ -5,12 +5,13 @@
     <title>Add lot - Auction Diploma</title>
     <%
         CookieUtil cookieUtil = new CookieUtil(request);
-        String uuidUser = cookieUtil.getUserUuidFromToken();
+        if (cookieUtil.isFindCookie()) {
+
+        }
     %>
 </head>
 <body>
 <form action="/lothandler" method="post">
-    <input type="hidden" name="uuid_user" value="<%=uuidUser%>"/>
     Имя лота: <input type="text" name="name_lot" placeholder="Имя"/>
     <br/>
     Информация: <input type="text" name="info_lot" placeholder="Информация"/>
@@ -32,7 +33,7 @@
     Категория: <input type="text" name="cat" placeholder="Категория"/>
     <br/>
 
-    <button type="submit" name="login">Log in</button>
+    <button type="submit" name="add_lot">Добавить лот</button>
 </form>
 </body>
 </html>

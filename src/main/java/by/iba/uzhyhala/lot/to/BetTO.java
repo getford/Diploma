@@ -9,31 +9,21 @@ public class BetTO {
     @SerializedName("uuid_user")
     @Expose
     private String uuidUser;
-
     @SerializedName("uuid_bet")
     @Expose
     private String uuidBet;
-
     @SerializedName("bet")
     @Expose
     private Integer bet;
-
-    @SerializedName("blitz_cost")
-    @Expose
-    private Integer blitzCost;
-
     @SerializedName("old_cost")
     @Expose
     private Integer oldCost;
-
     @SerializedName("new_cost")
     @Expose
     private Integer newCost;
-
     @SerializedName("date")
     @Expose
     private String date;
-
     @SerializedName("time")
     @Expose
     private String time;
@@ -60,14 +50,6 @@ public class BetTO {
 
     public void setBet(Integer bet) {
         this.bet = bet;
-    }
-
-    public Integer getBlitzCost() {
-        return blitzCost;
-    }
-
-    public void setBlitzCost(Integer blitzCost) {
-        this.blitzCost = blitzCost;
     }
 
     public Integer getOldCost() {
@@ -108,7 +90,6 @@ public class BetTO {
                 "uuidUser='" + uuidUser + '\'' +
                 ", uuidBet='" + uuidBet + '\'' +
                 ", bet=" + bet +
-                ", blitzCost=" + blitzCost +
                 ", oldCost=" + oldCost +
                 ", newCost=" + newCost +
                 ", date='" + date + '\'' +

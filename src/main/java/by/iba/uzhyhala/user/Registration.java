@@ -72,7 +72,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
 
             session.save(authInfoEntity);
             session.getTransaction().commit();
-            //  session.close();
+            session.close();
             return true;
         } else {
             logger.debug("Login isn't empty");

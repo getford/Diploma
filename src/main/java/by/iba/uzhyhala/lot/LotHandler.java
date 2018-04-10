@@ -2,10 +2,7 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.entity.BetEntity;
 import by.iba.uzhyhala.entity.LotEntity;
-import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.HibernateUtil;
-import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
+import by.iba.uzhyhala.util.*;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
@@ -13,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -28,6 +26,10 @@ public class LotHandler extends HttpServlet implements Serializable {
     private String type;
     private int idUser;
     private String uuidUser;
+    private String uuidAddLot;
+
+    public LotHandler() {
+    }
 
     public LotHandler(String loginOrEmail) {
         try {
@@ -46,20 +48,22 @@ public class LotHandler extends HttpServlet implements Serializable {
         }
     }
 
-    public LotHandler() {
-    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        this.uuidUser = req.getParameter("uuid_user");  //hidden
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
+            this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             this.idUser = CommonUtil.getIdUserByUUID(session, uuidUser);
-            addLot(session, req.getParameter("name_lot"), req.getParameter("info_lot"), req.getParameter("cost"),
+            boolean isLotAdd = addLot(session, req.getParameter("name_lot"), req.getParameter("info_lot"), req.getParameter("cost"),
                     req.getParameter("blitz"), req.getParameter("step"), req.getParameter("date_start"),
                     req.getParameter("date_end"), req.getParameter("time_start"), req.getParameter("time_end"), 1);
-
+            if (isLotAdd)
+                resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
+            else {
+                PrintWriter printWriter = resp.getWriter();
+                printWriter.println("Add lot have some error");
+            }
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
@@ -70,15 +74,16 @@ public class LotHandler extends HttpServlet implements Serializable {
         }
     }
 
-    public void addLot(Session session, String name, String info, String cost, String blitz, String step, String dateStart,
-                       String dateEnd, String timeStart, String timeEnd, int idCat) {
+    // TODO: id category
+    private boolean addLot(Session session, String name, String info, String cost, String blitz, String step, String dateStart,
+                           String dateEnd, String timeStart, String timeEnd, int idCat) {
         logger.debug(getClass().getName() + " addLot");
 
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime());
-        String uuidNewLot = UUID.randomUUID().toString();
+        this.uuidAddLot = UUID.randomUUID().toString();
         try {
             LotEntity lotEntity = new LotEntity();
-            lotEntity.setUuid(uuidNewLot);
+            lotEntity.setUuid(uuidAddLot);
             lotEntity.setIdUserSeller(idUser);
             lotEntity.setName(name);
             lotEntity.setInformation(info);
@@ -86,42 +91,49 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setBlitzCost(blitz);
             lotEntity.setStepCost(step);
             lotEntity.setDateAdd(dateNow);
-            lotEntity.setDateStart(dateStart);
-            lotEntity.setDateEnd(dateEnd);
+            lotEntity.setDateStart(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
+                    new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateStart)));
+            lotEntity.setDateEnd(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
+                    new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateEnd)));
             lotEntity.setTimeStart(timeStart);
             lotEntity.setTimeEnd(timeEnd);
             lotEntity.setIdCategory(idCat);
-            if (String.valueOf(dateNow).equals(dateStart))
+            if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(VariablesUtil.STATUS_LOT_ACTIVE);
             else
                 lotEntity.setStatus(VariablesUtil.STATUS_LOT_WAIT);
 
             BetEntity betEntity = new BetEntity();
-            betEntity.setUuid(uuidNewLot);
-            betEntity.setBulk(prepareBetBulk(uuidUser, uuidNewLot, lotEntity.getStatus(), cost, blitz));
+            betEntity.setUuid(uuidAddLot);
+            betEntity.setBulk(prepareBetBulk(uuidUser, uuidAddLot, lotEntity.getStatus(), cost, blitz, step));
 
             session.save(lotEntity);
             session.save(betEntity);
             session.getTransaction().commit();
+            session.clear();
+            return true;
         } catch (Exception e) {
+            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             logger.error(e.getLocalizedMessage());
+            return false;
         }
     }
 
-    private String prepareBetBulk(String uuidUser, String uuidLot, String status, String cost, String blitz) {
+    private String prepareBetBulk(String uuidUser, String uuidLot, String status, String cost, String blitz, String step) {
         return "{\n" +
                 "  \"uuid_lot\": \"" + uuidLot + "\",\n" +
                 "  \"uuid_seller\": \"" + uuidUser + "\",\n" +
                 "  \"uuid_client\": \"\",\n" +
                 "  \"status\": \"" + status + "\",\n" +
+                "  \"blitz_cost\": \"" + Integer.parseInt(blitz) + "\",\n" +
+                "  \"step\": \"" + Integer.parseInt(step) + "\",\n" +
                 "  \"bets\": [\n" +
                 "    {\n" +
                 "      \"uuid_user\": \"" + uuidUser + "\",\n" +
                 "      \"uuid_bet\": \"" + UUID.randomUUID().toString() + "\",\n" +
                 "      \"bet\": 0,\n" +
-                "      \"blitz_cost\":" + Integer.parseInt(blitz) + ",\n" +
                 "      \"old_cost\": " + Integer.parseInt(cost) + ",\n" +
-                "      \"new_cost\":" + Integer.parseInt(cost) + ",\n" +
+                "      \"new_cost\": " + Integer.parseInt(cost) + ",\n" +
                 "      \"date\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
                 "      \"time\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime())) + "\"\n" +
                 "    }\n" +

@@ -54,8 +54,8 @@ public class LotControl {
         return null;
     }
 
-    public List<LotEntity> getLotInfobyUuid() {
-        logger.debug(getClass().getName() + " getLotInfobyUuid");
+    public List<LotEntity> getLotInfoByUuid() {
+        logger.debug(getClass().getName() + " getLotInfoByUuid");
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         try {

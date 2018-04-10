@@ -23,7 +23,8 @@ public final class VariablesUtil {
     static final String EMAIL_PORT = "587";
     static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
 
-    public static final String PATTERN_DATE = "dd/MM/yyyy";
+    public static final String PATTERN_DATE = "dd-MM-yyyy";
+    public static final String PATTERN_DATE_REVERSE = "yyyy-MM-dd";
     public static final String PATTERN_TIME = "HH:mm:ss:SSS";
     public static final String PATTERN_DATE_TIME = "dd/MM/yyyy, HH:mm:ss:SSS";
 

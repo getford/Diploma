@@ -19,6 +19,12 @@ public class BetBulkTO {
     @SerializedName("status")
     @Expose
     private String status;
+    @SerializedName("blitz_cost")
+    @Expose
+    private Integer blitzCost;
+    @SerializedName("step")
+    @Expose
+    private Integer step;
     @SerializedName("bets")
     @Expose
     private List<BetTO> bets = null;
@@ -55,6 +61,22 @@ public class BetBulkTO {
         this.status = status;
     }
 
+    public Integer getBlitzCost() {
+        return blitzCost;
+    }
+
+    public void setBlitzCost(Integer blitzCost) {
+        this.blitzCost = blitzCost;
+    }
+
+    public Integer getStep() {
+        return step;
+    }
+
+    public void setStep(Integer step) {
+        this.step = step;
+    }
+
     public List<BetTO> getBets() {
         return bets;
     }
@@ -62,7 +84,7 @@ public class BetBulkTO {
     public void setBets(List<BetTO> bets) {
         this.bets = bets;
     }
-    
+
     @Override
     public String toString() {
         return "BetBulkTO{" +
@@ -70,6 +92,8 @@ public class BetBulkTO {
                 ", uuidSeller='" + uuidSeller + '\'' +
                 ", uuidClient='" + uuidClient + '\'' +
                 ", status='" + status + '\'' +
+                ", blitzCost=" + blitzCost +
+                ", step=" + step +
                 ", bets=" + bets +
                 '}';
     }

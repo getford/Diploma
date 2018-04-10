@@ -2,7 +2,6 @@
 <%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.entity.PersonalInformationEntity" %>
 <%@ page import="by.iba.uzhyhala.lot.LotHandler" %>
-<%@ page import="by.iba.uzhyhala.user.Logout" %>
 <%@ page import="by.iba.uzhyhala.user.Profile" %>
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
@@ -31,7 +30,7 @@
             addressEntityList = profile.getUserAddress();
             userLotList = lotHandler.getUserLot();
         } else {
-            new Logout(request, response);
+            response.sendRedirect("/");
         }
         assert personalInformationEntityList != null;
     %>
