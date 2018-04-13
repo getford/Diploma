@@ -146,37 +146,37 @@
                             %>
                             <tbody id="lotTable">
                             <tr>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=name%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=name%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=information%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=information%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=status%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=status%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=category%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=category%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=cost%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=cost%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=blitzCost%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=blitzCost%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=stepCost%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=stepCost%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateAdd%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=dateAdd%>
                                 </a>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateStart%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=dateStart%>
                                 </a>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateEnd%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=dateEnd%>
                                 </a>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeStart%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=timeStart%>
                                 </a>
                                 </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeEnd%>
+                                <td><a href="/pages/lot.jsp?uuidLot=<%=id%>"><%=timeEnd%>
                                 </a>
                                 </td>
                                 <td>

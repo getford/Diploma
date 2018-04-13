@@ -1,6 +1,6 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.admin.StatisticHandler;
+import by.iba.uzhyhala.admin.DocumentHandler;
 import org.apache.log4j.Logger;
 
 public class TestHibernate {
@@ -48,8 +48,11 @@ public class TestHibernate {
 //        CommonUtil.getCategoryById(1);
 
 
-        StatisticHandler statisticHandler = new StatisticHandler();
-        statisticHandler.getStatisticAddLotForDay();
+/*        StatisticHandler statisticHandler = new StatisticHandler();
+        statisticHandler.getStatisticAddLotForDay();*/
+
+        DocumentHandler documentHandler = new DocumentHandler();
+        documentHandler.generatePDF();
 
     }
 }
