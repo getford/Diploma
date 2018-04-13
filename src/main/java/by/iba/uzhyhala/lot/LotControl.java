@@ -13,11 +13,11 @@ import java.util.List;
 public class LotControl {
     private static final Logger logger = Logger.getLogger(LotHandler.class);
     private Session session;
-    private String uuid;
+    private String uuidLot;
 
-    public LotControl(String uuid) {
+    public LotControl(String uuidLot) {
         try {
-            this.uuid = uuid;
+            this.uuidLot = uuidLot;
       /*    session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             logger.debug(getClass().getName() + " constructor");
@@ -38,7 +38,7 @@ public class LotControl {
             session.beginTransaction();
 
             String betHistory = session.createQuery("SELECT b.bulk FROM " + VariablesUtil.ENTITY_BET +
-                    " b WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
+                    " b WHERE uuid = :uuid").setParameter("uuid", uuidLot).list().get(0).toString();
 
 
 
@@ -60,7 +60,7 @@ public class LotControl {
         session.beginTransaction();
         try {
             return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :id", LotEntity.class)
-                    .setParameter("id", uuid).getResultList();
+                    .setParameter("id", uuidLot).getResultList();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {
