@@ -48,7 +48,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "id_user_seller", nullable = true, insertable = false, updatable = false)
+    @Column(name = "id_user_seller", nullable = true)
     public Integer getIdUserSeller() {
         return idUserSeller;
     }

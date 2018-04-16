@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -48,7 +49,8 @@ public class DocumentHandler extends HttpServlet {
         // TODO: generate password for doc
         String dateNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE_DOC).format(new Date()));
         String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_DOC).format(new Date()));
-        String documentPassoword = String.valueOf(UUID.randomUUID()).substring(0, 8);
+        String filePath = "documents/" + dateNow + "_" + timeNow + "_" + tableHead + ".pdf";
+        String documentPassword = String.valueOf(UUID.randomUUID()).substring(0, 8);
 
         try {
             PdfPTable table = new PdfPTable(new float[]{20, 7, 4, 7, 7, 4});
@@ -78,10 +80,10 @@ public class DocumentHandler extends HttpServlet {
             }
 
             PdfWriter pdfWriter = PdfWriter.getInstance(document,
-                    new FileOutputStream("documents/" + dateNow + "_" + timeNow + "_" + tableHead + ".pdf"));
+                    new FileOutputStream(filePath));
             pdfWriter.setEncryption(
-                    documentPassoword.getBytes(),
-                    VariablesUtil.PDF_OWNER_PASSWORD.getBytes(),
+                    documentPassword.getBytes(Charset.forName("UTF-8")),
+                    VariablesUtil.PDF_OWNER_PASSWORD.getBytes(Charset.forName("UTF-8")),
                     PdfWriter.ALLOW_COPY,
                     PdfWriter.ENCRYPTION_AES_128);
 
@@ -101,7 +103,7 @@ public class DocumentHandler extends HttpServlet {
             document.add(new Paragraph("Created by: " + userName));
             document.close();
             logger.info("PDF document successfully generated");
-            logger.info("Password\t" + documentPassoword);
+            logger.info("Password\t" + documentPassword);
         } catch (DocumentException | FileNotFoundException e) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             logger.error(e.getLocalizedMessage());

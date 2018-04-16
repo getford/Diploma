@@ -1,7 +1,6 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
+import by.iba.uzhyhala.admin.DocumentHandler;
 import org.apache.log4j.Logger;
 
 public class TestHibernate {
@@ -52,15 +51,14 @@ public class TestHibernate {
 /*        StatisticHandler statisticHandler = new StatisticHandler();
         statisticHandler.getStatisticAddLotForDay();*/
 
-       // DocumentHandler documentHandler = new DocumentHandler();
-   //     documentHandler.generatePDF();
+        DocumentHandler documentHandler = new DocumentHandler();
+        documentHandler.generatePDF();
 
 /*        String s =UUID.randomUUID().toString();
         System.err.println(s);
         System.err.println(String.valueOf(s).substring(0, 8));*/
 
-
-        System.err.println(CommonUtil.getPrepareDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
+     //   System.err.println(CommonUtil.getPrepareDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
 
 /*        LocalDateTime localDateTime = LocalDateTime.parse("2018-04-16T19:20:17.866");
         System.err.println(localDateTime.toLocalTime());
@@ -68,6 +66,15 @@ public class TestHibernate {
         System.err.println(l.toLocalTime());
         LocalDateTime ll = localDateTime.plusSeconds(10);
         System.err.println(ll.toLocalTime());*/
+
+  /*      System.err.println(Thread.currentThread());
+
+
+        Thread thread = new Thread();
+        thread.run();*/
+
+
+
 
     }
 }
