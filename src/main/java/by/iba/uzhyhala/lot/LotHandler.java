@@ -95,7 +95,7 @@ public class LotHandler extends HttpServlet implements Serializable {
                     new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateEnd)));*/
             lotEntity.setTimeStart(timeStart);
             // lotEntity.setTimeEnd(timeEnd);
-            lotEntity.setTimeEnd(CommonUtil.getPrepareDateEnd(timeStart, VariablesUtil.LOT_TIME_SEC));
+            lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart, VariablesUtil.LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
             if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(VariablesUtil.STATUS_LOT_ACTIVE);

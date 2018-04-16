@@ -86,7 +86,7 @@ public class BetTO {
 
     @Override
     public String toString() {
-        return "BetTO{" +
+        return "BetHistoryTO{" +
                 "uuidUser='" + uuidUser + '\'' +
                 ", uuidBet='" + uuidBet + '\'' +
                 ", bet=" + bet +

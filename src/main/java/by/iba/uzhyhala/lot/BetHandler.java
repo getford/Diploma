@@ -2,6 +2,7 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
+import by.iba.uzhyhala.to.BetHistoryTO;
 import by.iba.uzhyhala.util.*;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
@@ -18,7 +19,7 @@ import java.util.*;
 
 @WebServlet(urlPatterns = "/bethandler")
 public class BetHandler extends HttpServlet implements Serializable {
-    private static final Logger logger = Logger.getLogger(BetHandler.class);
+    private static final Logger LOGGER = Logger.getLogger(BetHandler.class);
 
     private Session session = null;
     private String uuidLot;
@@ -37,13 +38,16 @@ public class BetHandler extends HttpServlet implements Serializable {
         try {
             String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime()));
             doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow), timeNow);
+
+            resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidLot);
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
         }
     }
 
     private String prepareDoBet(int bet, String timeNow) {
+        LOGGER.info(getClass().getName() + "prepareDoBet method");
         BetBulkTO betBulkTO = gson.fromJson(getJsonBulk(), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
@@ -82,6 +86,7 @@ public class BetHandler extends HttpServlet implements Serializable {
     }
 
     private void doBet(String jsonBulk, String time) {
+        LOGGER.info(getClass().getName() + "doBet method");
         try {
             session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
                     .setParameter("newBulk", jsonBulk)
@@ -89,12 +94,12 @@ public class BetHandler extends HttpServlet implements Serializable {
                     .executeUpdate();
 
             session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET time_end = :dateEnd WHERE uuid = :uuid")
-                    .setParameter("dateEnd", CommonUtil.getPrepareDateEnd(time, VariablesUtil.LOT_TIME_AFTER_BET_SEC))
+                    .setParameter("dateEnd", CommonUtil.getLotDateEnd(time, VariablesUtil.LOT_TIME_AFTER_BET_SEC))
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
             // return null;
         } finally {
             if (session != null && session.isOpen()) {
@@ -104,6 +109,7 @@ public class BetHandler extends HttpServlet implements Serializable {
     }
 
     private String getJsonBulk() {
+        LOGGER.info(getClass().getName() + "getJsonBulk method");
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -113,8 +119,26 @@ public class BetHandler extends HttpServlet implements Serializable {
 
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
             return null;
         }
+    }
+
+    public List<BetHistoryTO> getHistoryBets() {
+        LOGGER.info(getClass().getName() + "getHistoryBets method");
+        BetBulkTO betBulkTO = gson.fromJson(getJsonBulk(), BetBulkTO.class);
+        List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
+
+        List<BetHistoryTO> betHistoryTO = new ArrayList<>();
+        for (BetTO bet : betTOList) {
+            BetHistoryTO to = new BetHistoryTO();
+            to.setUserName(""); //TODO: user name
+            to.setBet(bet.getBet());
+            to.setDate(bet.getDate());
+            to.setTime(bet.getTime());
+
+            betHistoryTO.add(to);
+        }
+        return betHistoryTO;
     }
 }

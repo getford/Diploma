@@ -58,7 +58,7 @@ public class TestHibernate {
         System.err.println(s);
         System.err.println(String.valueOf(s).substring(0, 8));*/
 
-     //   System.err.println(CommonUtil.getPrepareDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
+     //   System.err.println(CommonUtil.getLotDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
 
 /*        LocalDateTime localDateTime = LocalDateTime.parse("2018-04-16T19:20:17.866");
         System.err.println(localDateTime.toLocalTime());

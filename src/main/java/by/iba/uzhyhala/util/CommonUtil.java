@@ -39,6 +39,13 @@ public class CommonUtil {
         return result;
     }
 
+/*    public static String getUserFirstLastNameByUUID(Session session, String uuid) {
+        String result = session.createQuery("SELECT a. FROM " + VariablesUtil.ENTITY_AUTH_INFO
+                + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();
+        logger.debug(CommonUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
+        return result;
+    }*/
+
     public static String getCategoryById(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -56,13 +63,9 @@ public class CommonUtil {
         return null;
     }
 
-    public static String getPrepareDateEnd(String start, String plusSec) {
+    public static String getLotDateEnd(String start, String plusSec) {
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
-        return String.valueOf(localDateTime.plusSeconds(Long.parseLong(VariablesUtil.LOT_TIME_SEC)).toLocalTime());
+        return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime());
     }
-
-/*    public static String generateUserPassword() {
-        return String.valueOf(UUID.randomUUID()).substring(0, 9);
-    }*/
 }
