@@ -60,15 +60,6 @@
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="auction@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="auction: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="personal_information: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
-      </path>
     </expand>
     <select />
   </component>
@@ -77,32 +68,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AddressEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java">
+      <file leaf-file-name="LotHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+            <state relative-caret-position="-218">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthInfoEntity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
+      <file leaf-file-name="Authorization.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-342">
-              <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+            <state relative-caret-position="421">
+              <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Registration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
+      <file leaf-file-name="BetEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeedbackEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LotEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonalInformationEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -110,11 +134,29 @@
       <file leaf-file-name="BetHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+            <state relative-caret-position="190">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LotControl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth_info" pinned="false" current-in-tab="false">
+        <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/auth_info">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -157,6 +199,7 @@
       <replace>pages/lot</replace>
       <replace>String</replace>
       <replace>BetTO</replace>
+      <replace>LOGGER</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -177,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BulkBetTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Logout.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
@@ -191,31 +233,32 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/ShowHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/charts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ApplicationInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/to/BetHistoryTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java" />
       </list>
     </option>
   </component>
@@ -263,6 +306,11 @@
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="documents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
@@ -341,29 +389,6 @@
               <item name="iba" type="462c0819:PsiDirectoryNode" />
               <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
               <item name="lot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="lot" type="462c0819:PsiDirectoryNode" />
-              <item name="to" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
@@ -746,7 +771,7 @@
       <workItem from="1522772574063" duration="10925000" />
       <workItem from="1522801781057" duration="43318000" />
       <workItem from="1523182364651" duration="48436000" />
-      <workItem from="1523899455135" duration="7613000" />
+      <workItem from="1523899455135" duration="12415000" />
     </task>
     <servers />
   </component>
@@ -783,7 +808,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159819000" />
+    <option name="totallyTimeSpent" value="164621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -807,12 +832,12 @@
       <window_info anchor="bottom" id="Database Changes" order="7" weight="0.32969698" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Database" order="2" weight="0.2539342" />
+      <window_info active="true" anchor="right" id="Database" order="2" visible="true" weight="0.2539342" />
       <window_info anchor="right" id="JSF" order="3" weight="0.3297568" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
       <window_info id="UI Designer" order="1" />
-      <window_info active="true" anchor="bottom" id="Debug" order="11" sideWeight="0.49427754" visible="true" weight="0.39030302" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49427754" visible="true" weight="0.39030302" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32848486" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -823,6 +848,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32848486" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="4" sideWeight="0.49499285" weight="0.3987879" />
       <window_info id="Persistence" order="3" sideWeight="0.53090906" side_tool="true" weight="0.29971388" />
+      <window_info anchor="bottom" id="Database Console" order="5" sideWeight="0.49570817" weight="0.32848486" />
       <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4690909" visible="true" weight="0.29971388" />
       <window_info anchor="right" id="Bean Validation" order="6" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.50423217" side_tool="true" weight="0.24606581" />
@@ -832,7 +858,6 @@
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Chronon" order="15" visible="true" weight="0.32969698" />
-      <window_info anchor="bottom" id="Database Console" order="5" sideWeight="0.49570817" weight="0.32848486" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="right" id="Commander" order="9" weight="0.4" />
@@ -925,7 +950,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java</url>
-          <line>18</line>
+          <line>24</line>
           <properties />
           <option name="timeStamp" value="126" />
         </line-breakpoint>
@@ -942,10 +967,22 @@
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java</url>
-          <line>83</line>
+          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java</url>
+          <line>47</line>
           <properties />
-          <option name="timeStamp" value="189" />
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java</url>
@@ -956,11 +993,11 @@
           <option name="timeStamp" value="169" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="191" />
+      <option name="time" value="203" />
     </breakpoint-manager>
     <watches-manager>
-      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="req.getParameter(&quot;uuid&quot;)" language="JAVA" />
+      <configuration name="Application">
+        <watch expression="uuidLot" />
       </configuration>
     </watches-manager>
   </component>
@@ -1089,13 +1126,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1112,13 +1142,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -1171,13 +1194,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/bet">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/category">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1189,62 +1205,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/lot">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="2" lean-forward="true" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1276,30 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="51" column="61" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/IParseJsonString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1328,27 +1264,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="166" column="50" selection-start-line="166" selection-start-column="50" selection-end-line="166" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/ShowHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1363,13 +1278,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1405,17 +1313,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3507e0a0/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/auction.public.auth_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1426,7 +1334,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/address">
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="194" column="6" lean-forward="true" selection-start-line="194" selection-start-column="6" selection-end-line="194" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="43" column="47" lean-forward="true" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="51" column="61" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/bet">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/lot">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1435,35 +1415,88 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+        <state relative-caret-position="285">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-218">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3507e0a0/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/auction.public.auth_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>

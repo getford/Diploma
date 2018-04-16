@@ -1,6 +1,7 @@
 package by.iba.uzhyhala;
 
 import by.iba.uzhyhala.admin.DocumentHandler;
+import by.iba.uzhyhala.lot.LotControl;
 import org.apache.log4j.Logger;
 
 public class TestHibernate {
@@ -53,6 +54,8 @@ public class TestHibernate {
 
         DocumentHandler documentHandler = new DocumentHandler();
         documentHandler.generatePDF();
+
+        new LotControl("").getHistoryBets();
 
 /*        String s =UUID.randomUUID().toString();
         System.err.println(s);

@@ -12,6 +12,7 @@ public class BetEntity implements Serializable {
     private String bulk;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

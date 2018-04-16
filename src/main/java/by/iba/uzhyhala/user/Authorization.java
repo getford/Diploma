@@ -26,13 +26,7 @@ public class Authorization extends HttpServlet {
     private static final String REDIRECT_INDEX_PAGE = "/pages/index.jsp";
     private static final String REDIRECT_AUTH_PAGE = "/pages/auth.jsp";
 
-    private Session session;
     private String type;
-
-    public Authorization() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-    }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -48,6 +42,8 @@ public class Authorization extends HttpServlet {
     }
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
         try {
             return session.createSQLQuery("select uuid, role from auth_info where " + type + " = '" +
                     loginOrEmail + "'").list().toArray();
@@ -63,9 +59,21 @@ public class Authorization extends HttpServlet {
     }
 
     private boolean isPasswordValid(String cred, String password) {
-        Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " +
-                type + " = :cred").setParameter("cred", cred);
-        return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        try {
+            Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " +
+                    type + " = :cred").setParameter("cred", cred);
+            return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
+            logger.error(ex.getLocalizedMessage());
+            return false;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 
     private void setAuthCookie(String uuid, String role, HttpServletResponse resp) {

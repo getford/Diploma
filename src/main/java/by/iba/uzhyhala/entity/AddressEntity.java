@@ -16,6 +16,7 @@ public class AddressEntity implements Serializable {
     private Integer zip;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

@@ -20,6 +20,7 @@ public class AuthInfoEntity implements Serializable {
     private PersonalInformationEntity personalInformationByUuid;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

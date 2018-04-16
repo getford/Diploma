@@ -1,5 +1,6 @@
 <%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.lot.LotControl" %>
+<%@ page import="by.iba.uzhyhala.to.BetHistoryTO" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.MailUtil" %>
 <%@ page import="java.util.Arrays" %>
@@ -18,9 +19,11 @@
         LotControl lotControl = null;
 
         List<LotEntity> lotInfoList = null;
+        List<BetHistoryTO> betHistoryList = null;
         try {
             lotControl = new LotControl(uuidLot);
             lotInfoList = lotControl.getLotInfoByUuid();
+            betHistoryList = lotControl.getHistoryBets();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
         }
@@ -42,8 +45,57 @@
     }
 %>
 <hr/>
-<h3>History bets</h3>
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="panel panel-success">
+                <a href="#betHistorySpoiler" class="btn btn-success btn-md btn-block" data-toggle="collapse"
+                   style="text-align: center;">
+                    <h4>History bets</h4>
+                </a>
+                <div class="panel-body">
+                    <input class="form-control" id="betHistoryInput" type="text" placeholder="Search..">
+                    <br>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Пользователь</th>
+                            <th>Ставка</th>
+                            <th>Дата</th>
+                            <th>Время</th>
 
+                        </tr>
+                        </thead>
+                        <%
+                            assert betHistoryList != null;
+                            for (int i = 1; i < betHistoryList.size(); i++) {
+                                String name = betHistoryList.get(i).getUserName();
+                                String bet = String.valueOf(betHistoryList.get(i).getBet());
+                                String dateBet = betHistoryList.get(i).getDate();
+                                String timeBet = betHistoryList.get(i).getTime();
+                        %>
+                        <tbody id="betHistory">
+                        <tr>
+                            <td><%=name%>
+                            </td>
+                            <td><%=bet%>
+                            </td>
+                            <td><%=dateBet%>
+                            </td>
+                            <td><%=timeBet%>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <%
+                            }
+                        %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <hr/>
 <form action="/bethandler" method="post">
     <h3>Сделать ставку</h3>

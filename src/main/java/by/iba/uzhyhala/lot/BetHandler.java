@@ -2,7 +2,6 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
-import by.iba.uzhyhala.to.BetHistoryTO;
 import by.iba.uzhyhala.util.*;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
@@ -22,8 +21,8 @@ public class BetHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(BetHandler.class);
 
     private Session session = null;
-    private String uuidLot;
-    private String uuidUser;
+    private String uuidLot = "d83a7aa9-a099-46e1-94a9-af145ac54b8e";
+    private String uuidUser = "87ff415e-b8ea-481b-964d-c23815e97cb5";
     private String errorMessage;
     private Gson gson = new Gson();
 
@@ -47,14 +46,14 @@ public class BetHandler extends HttpServlet implements Serializable {
     }
 
     private String prepareDoBet(int bet, String timeNow) {
-        LOGGER.info(getClass().getName() + "prepareDoBet method");
-        BetBulkTO betBulkTO = gson.fromJson(getJsonBulk(), BetBulkTO.class);
+        LOGGER.info(getClass().getName() + " prepareDoBet method");
+        BetBulkTO betBulkTO = gson.fromJson(CommonUtil.getJsonBetBulk(session, uuidLot), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
 
         int size = betBulkTO.getBets().size() - 1;
-        if (betBulkTO.getStatus().equals(VariablesUtil.STATUS_LOT_ACTIVE)) {
-            if (bet < betBulkTO.getBlitzCost() && bet >= betBulkTO.getStep()) {
+        if (betBulkTO.getStatus().equals(VariablesUtil.STATUS_LOT_ACTIVE) && bet >= betBulkTO.getStep()) {
+            if (bet < betBulkTO.getBlitzCost()) {
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
                 betTO.setDate(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())));
@@ -68,6 +67,7 @@ public class BetHandler extends HttpServlet implements Serializable {
             } else {
                 betBulkTO.setUuidClient(uuidUser);
                 betBulkTO.setStatus(VariablesUtil.STATUS_LOT_SALES);
+                updateLotStatus(VariablesUtil.STATUS_LOT_SALES);
 
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
@@ -86,7 +86,9 @@ public class BetHandler extends HttpServlet implements Serializable {
     }
 
     private void doBet(String jsonBulk, String time) {
-        LOGGER.info(getClass().getName() + "doBet method");
+        LOGGER.info(getClass().getName() + " doBet method");
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
         try {
             session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
                     .setParameter("newBulk", jsonBulk)
@@ -108,37 +110,22 @@ public class BetHandler extends HttpServlet implements Serializable {
         }
     }
 
-    private String getJsonBulk() {
-        LOGGER.info(getClass().getName() + "getJsonBulk method");
+    private void updateLotStatus(String status) {
+        LOGGER.info(getClass().getName() + " updateLotStatus method");
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-
-            return String.valueOf(session.createQuery("SELECT b.bulk FROM " + VariablesUtil.ENTITY_BET + " b WHERE uuid = :uuid")
-                    .setParameter("uuid", uuidLot).list().get(0));
-
+            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
+                    .setParameter("status", status)
+                    .setParameter("uuid", uuidLot)
+                    .executeUpdate();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            LOGGER.error(ex.getStackTrace());
-            return null;
+            LOGGER.error(ex.getLocalizedMessage());
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
-    }
-
-    public List<BetHistoryTO> getHistoryBets() {
-        LOGGER.info(getClass().getName() + "getHistoryBets method");
-        BetBulkTO betBulkTO = gson.fromJson(getJsonBulk(), BetBulkTO.class);
-        List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
-
-        List<BetHistoryTO> betHistoryTO = new ArrayList<>();
-        for (BetTO bet : betTOList) {
-            BetHistoryTO to = new BetHistoryTO();
-            to.setUserName(""); //TODO: user name
-            to.setBet(bet.getBet());
-            to.setDate(bet.getDate());
-            to.setTime(bet.getTime());
-
-            betHistoryTO.add(to);
-        }
-        return betHistoryTO;
     }
 }

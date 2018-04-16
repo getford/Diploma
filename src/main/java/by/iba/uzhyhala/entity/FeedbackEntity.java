@@ -16,6 +16,7 @@ public class FeedbackEntity implements Serializable {
     private AuthInfoEntity authInfoByIdUser;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

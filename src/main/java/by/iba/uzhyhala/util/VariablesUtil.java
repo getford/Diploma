@@ -40,7 +40,7 @@ public final class VariablesUtil {
     public static final String COOKIE_AUTH_NAME = "auction_auth";
 
     public static final String LOT_TIME_SEC = "600";
-    public static final String LOT_TIME_AFTER_BET_SEC = "30";
+    public static final String LOT_TIME_AFTER_BET_SEC = "60";
 
     public static final String MESSAGE_ERROR_SERVER = "Please, contact with administrator. " +
             "Email: auction.diploma@gmail.com";
