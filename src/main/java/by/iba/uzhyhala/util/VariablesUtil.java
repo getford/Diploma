@@ -31,13 +31,16 @@ public final class VariablesUtil {
     public static final String PATTERN_DATE = "dd-MM-yyyy";
     public static final String PATTERN_DATE_REVERSE = "yyyy-MM-dd";
     public static final String PATTERN_DATE_DOC = "dd.MM.yyyy";
-    public static final String PATTERN_TIME = "HH:mm:ss:SSS";
+    public static final String PATTERN_TIME = "HH:mm:ss.SSS";
     public static final String PATTERN_TIME_DOC = "HH:mm:ss";
-    public static final String PATTERN_DATE_TIME = "dd/MM/yyyy, HH:mm:ss:SSS";
+    public static final String PATTERN_DATE_TIME = "dd/MM/yyyy, HH:mm:ss.SSS";
 
     // Cookie creds
     public static final String COOKIE_KEY = "a7fca695-ae2b-4aea-bc17-e62106e14c57";
     public static final String COOKIE_AUTH_NAME = "auction_auth";
+
+    public static final String LOT_TIME_SEC = "600";
+    public static final String LOT_TIME_AFTER_BET_SEC = "30";
 
     public static final String MESSAGE_ERROR_SERVER = "Please, contact with administrator. " +
             "Email: auction.diploma@gmail.com";

@@ -56,8 +56,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             this.idUser = CommonUtil.getIdUserByUUID(session, uuidUser);
             boolean isLotAdd = addLot(session, req.getParameter("name_lot"), req.getParameter("info_lot"), req.getParameter("cost"),
-                    req.getParameter("blitz"), req.getParameter("step"), req.getParameter("date_start"),
-                    req.getParameter("date_end"), req.getParameter("time_start"), req.getParameter("time_end"), 1);
+                    req.getParameter("blitz"), req.getParameter("step"), req.getParameter("date_start"), req.getParameter("time_start"), 1);
             if (isLotAdd)
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
             else {
@@ -75,8 +74,7 @@ public class LotHandler extends HttpServlet implements Serializable {
     }
 
     // TODO: id category
-    private boolean addLot(Session session, String name, String info, String cost, String blitz, String step, String dateStart,
-                           String dateEnd, String timeStart, String timeEnd, int idCat) {
+    private boolean addLot(Session session, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
         logger.debug(getClass().getName() + " addLot");
 
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime());
@@ -93,10 +91,11 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setDateAdd(dateNow);
             lotEntity.setDateStart(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
                     new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateStart)));
-            lotEntity.setDateEnd(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
-                    new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateEnd)));
+            /*lotEntity.setDateEnd(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
+                    new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateEnd)));*/
             lotEntity.setTimeStart(timeStart);
-            lotEntity.setTimeEnd(timeEnd);
+            // lotEntity.setTimeEnd(timeEnd);
+            lotEntity.setTimeEnd(CommonUtil.getPrepareDateEnd(timeStart, VariablesUtil.LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
             if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(VariablesUtil.STATUS_LOT_ACTIVE);
