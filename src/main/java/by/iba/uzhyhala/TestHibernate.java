@@ -54,5 +54,8 @@ public class TestHibernate {
         DocumentHandler documentHandler = new DocumentHandler();
         documentHandler.generatePDF();
 
+/*        String s =UUID.randomUUID().toString();
+        System.err.println(s);
+        System.err.println(String.valueOf(s).substring(0, 8));*/
     }
 }

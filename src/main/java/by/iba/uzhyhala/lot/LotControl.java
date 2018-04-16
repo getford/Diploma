@@ -25,11 +25,11 @@ public class LotControl {
             this.idUser = CommonUtil.getIdUserByLoginEmail(session, loginOrEmail, type);*/
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
-        } finally {
+        } /*finally {
             if (session != null && session.isOpen()) {
                 session.close();
             }
-        }
+        }*/
     }
 
     public String getHistoryBets() {
@@ -38,7 +38,7 @@ public class LotControl {
             session.beginTransaction();
 
             String betHistory = session.createQuery("SELECT b.bulk FROM " + VariablesUtil.ENTITY_BET +
-                    " b WHERE uuid = :uuid").setParameter("uuid", uuidLot).list().get(0).toString();
+                    " b WHERE b.uuid = :uuid").setParameter("uuid", uuidLot).list().get(0).toString();
 
 
 

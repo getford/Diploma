@@ -52,4 +52,8 @@ public class CommonUtil {
         }
         return null;
     }
+
+/*    public static String generateUserPassword() {
+        return String.valueOf(UUID.randomUUID()).substring(0, 9);
+    }*/
 }

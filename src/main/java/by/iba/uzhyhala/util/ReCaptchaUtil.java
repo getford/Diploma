@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
@@ -38,7 +37,7 @@ public class ReCaptchaUtil {
             wr.flush();
             wr.close();
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(httpsURLConnection.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(httpsURLConnection.getInputStream(), "UTF-8"));
             String inputLine;
             StringBuilder response = new StringBuilder();
 
