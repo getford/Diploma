@@ -146,12 +146,12 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     }
 
-    public List<LotEntity> getAllLots() {
+    public List<LotEntity> getLots(String query) {
         logger.debug(getClass().getName() + " showLots");
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         try {
-            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l ORDER BY date_add ASC").list();
+            return session.createQuery(query).list();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {

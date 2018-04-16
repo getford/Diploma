@@ -46,6 +46,8 @@ public final class VariablesUtil {
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
     public static final String REGEXP_PASSWORD = "";
 
+    public static final String PDF_OWNER_PASSWORD = "9cb6baf0";
+
     // Query
     public static final String QUERY_CHART_DATA_ADD_DATE_LOT = "SELECT date_add, count(date_add) FROM lot " +
             "GROUP BY date_add ORDER BY date_add ASC";
@@ -53,5 +55,8 @@ public final class VariablesUtil {
             "GROUP BY date_start ORDER BY date_start ASC";
     public static final String QUERY_CHART_DATA_END_DATE_LOT = "SELECT date_end, count(date_end) FROM lot " +
             "GROUP BY date_end ORDER BY date_end ASC";
+    // Query lot
+    public static final String QUERY_SELECT_ALL_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
+    public static final String QUERY_SELECT_USER_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
 
 }
