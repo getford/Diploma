@@ -17,7 +17,6 @@ public class Profile {
 
     private Session session;
     private String type;
-    private int idUser;
     private String uuidUser;
 
     public Profile(String loginOrEmail) {
@@ -26,7 +25,6 @@ public class Profile {
             session.beginTransaction();
             logger.debug(getClass().getName() + " constructor");
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
-            this.idUser = CommonUtil.getIdUserByLoginEmail(session, loginOrEmail, type);
             this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, type);
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
@@ -42,7 +40,7 @@ public class Profile {
         session.beginTransaction();
         try {
             logger.debug(getClass().getName() + " getUserPersonalInformation");
-            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE id_user = :id").setParameter("id", idUser).list();
+            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid").setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {
@@ -58,7 +56,7 @@ public class Profile {
         session.beginTransaction();
         try {
             logger.debug(getClass().getName() + " getUserPersonalInformation");
-            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE id_user = :id").setParameter("id", idUser).list();
+            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE uuid_user = :uuid").setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {

@@ -3,6 +3,7 @@ package by.iba.uzhyhala.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 @Table(name = "auth_info", schema = "public", catalog = "auction")
@@ -13,12 +14,12 @@ public class AuthInfoEntity implements Serializable {
     private String email;
     private String uuid;
     private String role;
-    private Collection<AddressEntity> addressesById;
+    private AddressEntity addressByUuid;
     private Collection<FeedbackEntity> feedbacksById;
-    private Collection<PersonalInformationEntity> personalInformationsById;
+    private LotEntity lotByUuid;
+    private PersonalInformationEntity personalInformationByUuid;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -82,37 +83,29 @@ public class AuthInfoEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         AuthInfoEntity that = (AuthInfoEntity) o;
-
-        if (id != that.id) return false;
-        if (login != null ? !login.equals(that.login) : that.login != null) return false;
-        if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
-        if (role != null ? !role.equals(that.role) : that.role != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(login, that.login) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(uuid, that.uuid) &&
+                Objects.equals(role, that.role);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
-        return result;
+
+        return Objects.hash(id, login, password, email, uuid, role);
     }
 
-    @OneToMany(mappedBy = "authInfoByIdUser")
-    public Collection<AddressEntity> getAddressesById() {
-        return addressesById;
+    @ManyToOne
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false)
+    public AddressEntity getAddressByUuid() {
+        return addressByUuid;
     }
 
-    public void setAddressesById(Collection<AddressEntity> addressesById) {
-        this.addressesById = addressesById;
+    public void setAddressByUuid(AddressEntity addressByUuid) {
+        this.addressByUuid = addressByUuid;
     }
 
     @OneToMany(mappedBy = "authInfoByIdUser")
@@ -124,12 +117,23 @@ public class AuthInfoEntity implements Serializable {
         this.feedbacksById = feedbacksById;
     }
 
-    @OneToMany(mappedBy = "authInfoByIdUser")
-    public Collection<PersonalInformationEntity> getPersonalInformationsById() {
-        return personalInformationsById;
+    @ManyToOne
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user_seller", nullable = false)
+    public LotEntity getLotByUuid() {
+        return lotByUuid;
     }
 
-    public void setPersonalInformationsById(Collection<PersonalInformationEntity> personalInformationsById) {
-        this.personalInformationsById = personalInformationsById;
+    public void setLotByUuid(LotEntity lotByUuid) {
+        this.lotByUuid = lotByUuid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false)
+    public PersonalInformationEntity getPersonalInformationByUuid() {
+        return personalInformationByUuid;
+    }
+
+    public void setPersonalInformationByUuid(PersonalInformationEntity personalInformationByUuid) {
+        this.personalInformationByUuid = personalInformationByUuid;
     }
 }

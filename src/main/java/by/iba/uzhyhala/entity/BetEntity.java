@@ -2,6 +2,7 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "bet", schema = "public", catalog = "auction")
@@ -11,7 +12,6 @@ public class BetEntity implements Serializable {
     private String bulk;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -45,21 +45,15 @@ public class BetEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         BetEntity betEntity = (BetEntity) o;
-
-        if (id != betEntity.id) return false;
-        if (uuid != null ? !uuid.equals(betEntity.uuid) : betEntity.uuid != null) return false;
-        if (bulk != null ? !bulk.equals(betEntity.bulk) : betEntity.bulk != null) return false;
-
-        return true;
+        return id == betEntity.id &&
+                Objects.equals(uuid, betEntity.uuid) &&
+                Objects.equals(bulk, betEntity.bulk);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
-        result = 31 * result + (bulk != null ? bulk.hashCode() : 0);
-        return result;
+
+        return Objects.hash(id, uuid, bulk);
     }
 }

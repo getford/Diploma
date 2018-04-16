@@ -1,6 +1,8 @@
 package by.iba.uzhyhala.user;
 
+import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
+import by.iba.uzhyhala.entity.PersonalInformationEntity;
 import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
@@ -60,6 +62,8 @@ public class Registration extends HttpServlet implements IParseJsonString {
 
     private boolean doRegistration(String login, String password, String email) {
         logger.debug(this.getClass().getName() + ", method: doRegistration");
+        String newUserUUID = UUID.randomUUID().toString();
+
 
         AuthInfoEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
         if (isLoginAndEmailEmpty(authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
@@ -68,9 +72,17 @@ public class Registration extends HttpServlet implements IParseJsonString {
             authInfoEntity.setPassword(authInfoEntity.getPassword());
             authInfoEntity.setEmail(authInfoEntity.getEmail());
             authInfoEntity.setRole(VariablesUtil.ROLE_USER);
-            authInfoEntity.setUuid(UUID.randomUUID().toString());
+            authInfoEntity.setUuid(newUserUUID);
+
+            PersonalInformationEntity personalInformationEntity = new PersonalInformationEntity();
+            personalInformationEntity.setUuidUser(newUserUUID);
+
+            AddressEntity addressEntity = new AddressEntity();
+            addressEntity.setUuidUser(newUserUUID);
 
             session.save(authInfoEntity);
+            session.save(personalInformationEntity);
+            session.save(addressEntity);
             session.getTransaction().commit();
             session.close();
             return true;
@@ -86,7 +98,6 @@ public class Registration extends HttpServlet implements IParseJsonString {
         query.setParameter("login", login);
         query.setParameter("email", email);
         return query.list().isEmpty();
-
     }
 
     @Override

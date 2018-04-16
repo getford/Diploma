@@ -2,13 +2,14 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "lot", schema = "public", catalog = "auction")
 public class LotEntity implements Serializable {
     private int id;
     private String uuid;
-    private Integer idUserSeller;
+    private String uuidUserSeller;
     private String name;
     private String information;
     private String cost;
@@ -21,13 +22,12 @@ public class LotEntity implements Serializable {
     private String timeEnd;
     private String uuidUserClient;
     private Integer idCategory;
+    private String status;
     private BetEntity betByUuid;
     private FeedbackEntity feedbackByUuid;
     private CategoryEntity categoryByIdCategory;
-    private String status;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -48,13 +48,13 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "id_user_seller", nullable = true)
-    public Integer getIdUserSeller() {
-        return idUserSeller;
+    @Column(name = "uuid_user_seller", nullable = true, length = -1)
+    public String getUuidUserSeller() {
+        return uuidUserSeller;
     }
 
-    public void setIdUserSeller(Integer idUserSeller) {
-        this.idUserSeller = idUserSeller;
+    public void setUuidUserSeller(String uuidUserSeller) {
+        this.uuidUserSeller = uuidUserSeller;
     }
 
     @Basic
@@ -108,7 +108,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "date_add", nullable = true)
+    @Column(name = "date_add", nullable = true, length = 20)
     public String getDateAdd() {
         return dateAdd;
     }
@@ -118,7 +118,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "date_start", nullable = true)
+    @Column(name = "date_start", nullable = true, length = 20)
     public String getDateStart() {
         return dateStart;
     }
@@ -128,7 +128,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "date_end", nullable = true)
+    @Column(name = "date_end", nullable = true, length = 20)
     public String getDateEnd() {
         return dateEnd;
     }
@@ -138,7 +138,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "time_start", nullable = true)
+    @Column(name = "time_start", nullable = true, length = 15)
     public String getTimeStart() {
         return timeStart;
     }
@@ -148,7 +148,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "time_end", nullable = true)
+    @Column(name = "time_end", nullable = true, length = 15)
     public String getTimeEnd() {
         return timeEnd;
     }
@@ -178,7 +178,7 @@ public class LotEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "status", nullable = true)
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }
@@ -191,53 +191,33 @@ public class LotEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         LotEntity lotEntity = (LotEntity) o;
-
-        if (id != lotEntity.id) return false;
-        if (uuid != null ? !uuid.equals(lotEntity.uuid) : lotEntity.uuid != null) return false;
-        if (idUserSeller != null ? !idUserSeller.equals(lotEntity.idUserSeller) : lotEntity.idUserSeller != null)
-            return false;
-        if (name != null ? !name.equals(lotEntity.name) : lotEntity.name != null) return false;
-        if (information != null ? !information.equals(lotEntity.information) : lotEntity.information != null)
-            return false;
-        if (cost != null ? !cost.equals(lotEntity.cost) : lotEntity.cost != null) return false;
-        if (blitzCost != null ? !blitzCost.equals(lotEntity.blitzCost) : lotEntity.blitzCost != null) return false;
-        if (stepCost != null ? !stepCost.equals(lotEntity.stepCost) : lotEntity.stepCost != null) return false;
-        if (dateAdd != null ? !dateAdd.equals(lotEntity.dateAdd) : lotEntity.dateAdd != null) return false;
-        if (dateStart != null ? !dateStart.equals(lotEntity.dateStart) : lotEntity.dateStart != null) return false;
-        if (dateEnd != null ? !dateEnd.equals(lotEntity.dateEnd) : lotEntity.dateEnd != null) return false;
-        if (timeStart != null ? !timeStart.equals(lotEntity.timeStart) : lotEntity.timeStart != null) return false;
-        if (timeEnd != null ? !timeEnd.equals(lotEntity.timeEnd) : lotEntity.timeEnd != null) return false;
-        if (uuidUserClient != null ? !uuidUserClient.equals(lotEntity.uuidUserClient) : lotEntity.uuidUserClient != null)
-            return false;
-        if (idCategory != null ? !idCategory.equals(lotEntity.idCategory) : lotEntity.idCategory != null) return false;
-
-        return true;
+        return id == lotEntity.id &&
+                Objects.equals(uuid, lotEntity.uuid) &&
+                Objects.equals(uuidUserSeller, lotEntity.uuidUserSeller) &&
+                Objects.equals(name, lotEntity.name) &&
+                Objects.equals(information, lotEntity.information) &&
+                Objects.equals(cost, lotEntity.cost) &&
+                Objects.equals(blitzCost, lotEntity.blitzCost) &&
+                Objects.equals(stepCost, lotEntity.stepCost) &&
+                Objects.equals(dateAdd, lotEntity.dateAdd) &&
+                Objects.equals(dateStart, lotEntity.dateStart) &&
+                Objects.equals(dateEnd, lotEntity.dateEnd) &&
+                Objects.equals(timeStart, lotEntity.timeStart) &&
+                Objects.equals(timeEnd, lotEntity.timeEnd) &&
+                Objects.equals(uuidUserClient, lotEntity.uuidUserClient) &&
+                Objects.equals(idCategory, lotEntity.idCategory) &&
+                Objects.equals(status, lotEntity.status);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
-        result = 31 * result + (idUserSeller != null ? idUserSeller.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (information != null ? information.hashCode() : 0);
-        result = 31 * result + (cost != null ? cost.hashCode() : 0);
-        result = 31 * result + (blitzCost != null ? blitzCost.hashCode() : 0);
-        result = 31 * result + (stepCost != null ? stepCost.hashCode() : 0);
-        result = 31 * result + (dateAdd != null ? dateAdd.hashCode() : 0);
-        result = 31 * result + (dateStart != null ? dateStart.hashCode() : 0);
-        result = 31 * result + (dateEnd != null ? dateEnd.hashCode() : 0);
-        result = 31 * result + (timeStart != null ? timeStart.hashCode() : 0);
-        result = 31 * result + (timeEnd != null ? timeEnd.hashCode() : 0);
-        result = 31 * result + (uuidUserClient != null ? uuidUserClient.hashCode() : 0);
-        result = 31 * result + (idCategory != null ? idCategory.hashCode() : 0);
-        return result;
+
+        return Objects.hash(id, uuid, uuidUserSeller, name, information, cost, blitzCost, stepCost, dateAdd, dateStart, dateEnd, timeStart, timeEnd, uuidUserClient, idCategory, status);
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
     public BetEntity getBetByUuid() {
         return betByUuid;
     }
@@ -247,7 +227,7 @@ public class LotEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
     public FeedbackEntity getFeedbackByUuid() {
         return feedbackByUuid;
     }
@@ -257,7 +237,7 @@ public class LotEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_category", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_category", referencedColumnName = "id")
     public CategoryEntity getCategoryByIdCategory() {
         return categoryByIdCategory;
     }

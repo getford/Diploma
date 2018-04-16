@@ -24,7 +24,6 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     private Session session;
     private String type;
-    private int idUser;
     private String uuidUser;
     private String uuidAddLot;
 
@@ -37,7 +36,6 @@ public class LotHandler extends HttpServlet implements Serializable {
             session.beginTransaction();
             logger.debug(getClass().getName() + " constructor");
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
-            this.idUser = CommonUtil.getIdUserByLoginEmail(session, loginOrEmail, type);
             this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, type);
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
@@ -54,7 +52,6 @@ public class LotHandler extends HttpServlet implements Serializable {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
-            this.idUser = CommonUtil.getIdUserByUUID(session, uuidUser);
             boolean isLotAdd = addLot(session, req.getParameter("name_lot"), req.getParameter("info_lot"), req.getParameter("cost"),
                     req.getParameter("blitz"), req.getParameter("step"), req.getParameter("date_start"), req.getParameter("time_start"), 1);
             if (isLotAdd)
@@ -82,7 +79,7 @@ public class LotHandler extends HttpServlet implements Serializable {
         try {
             LotEntity lotEntity = new LotEntity();
             lotEntity.setUuid(uuidAddLot);
-            lotEntity.setIdUserSeller(idUser);
+            lotEntity.setUuidUserSeller(uuidUser);
             lotEntity.setName(name);
             lotEntity.setInformation(info);
             lotEntity.setCost(cost);
@@ -166,8 +163,8 @@ public class LotHandler extends HttpServlet implements Serializable {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         try {
-            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE id_user_seller = :id", LotEntity.class)
-                    .setParameter("id", idUser).getResultList();
+            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuidUserSeller = :uuid", LotEntity.class)
+                    .setParameter("uuid", uuidUser).getResultList();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {

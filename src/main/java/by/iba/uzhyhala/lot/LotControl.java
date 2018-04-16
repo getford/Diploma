@@ -59,8 +59,8 @@ public class LotControl {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         try {
-            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :id", LotEntity.class)
-                    .setParameter("id", uuidLot).getResultList();
+            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
+                    .setParameter("uuid", uuidLot).getResultList();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } finally {

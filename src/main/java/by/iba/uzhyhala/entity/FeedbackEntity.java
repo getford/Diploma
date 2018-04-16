@@ -3,6 +3,7 @@ package by.iba.uzhyhala.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "feedback", schema = "public", catalog = "auction")
@@ -15,7 +16,6 @@ public class FeedbackEntity implements Serializable {
     private AuthInfoEntity authInfoByIdUser;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -26,7 +26,7 @@ public class FeedbackEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "uuid", nullable = true, length = -1, insertable = false, updatable = false)
+    @Column(name = "uuid", nullable = true, length = -1)
     public String getUuid() {
         return uuid;
     }
@@ -36,7 +36,7 @@ public class FeedbackEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "id_user", nullable = true, updatable = false, insertable = false)
+    @Column(name = "id_user", nullable = true)
     public Integer getIdUser() {
         return idUser;
     }
@@ -69,30 +69,22 @@ public class FeedbackEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         FeedbackEntity that = (FeedbackEntity) o;
-
-        if (id != that.id) return false;
-        if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) return false;
-        if (idUser != null ? !idUser.equals(that.idUser) : that.idUser != null) return false;
-        if (feedbackText != null ? !feedbackText.equals(that.feedbackText) : that.feedbackText != null) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(uuid, that.uuid) &&
+                Objects.equals(idUser, that.idUser) &&
+                Objects.equals(feedbackText, that.feedbackText) &&
+                Objects.equals(date, that.date);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (uuid != null ? uuid.hashCode() : 0);
-        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
-        result = 31 * result + (feedbackText != null ? feedbackText.hashCode() : 0);
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        return result;
+
+        return Objects.hash(id, uuid, idUser, feedbackText, date);
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     public AuthInfoEntity getAuthInfoByIdUser() {
         return authInfoByIdUser;
     }
