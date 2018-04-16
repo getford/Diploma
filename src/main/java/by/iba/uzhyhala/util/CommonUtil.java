@@ -3,6 +3,9 @@ package by.iba.uzhyhala.util;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class CommonUtil {
@@ -51,6 +54,12 @@ public class CommonUtil {
             }
         }
         return null;
+    }
+
+    public static String getPrepareDateEnd(String start, String plusSec) {
+        String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime());
+        LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
+        return String.valueOf(localDateTime.plusSeconds(Long.parseLong(VariablesUtil.LOT_TIME_SEC)).toLocalTime());
     }
 
 /*    public static String generateUserPassword() {
