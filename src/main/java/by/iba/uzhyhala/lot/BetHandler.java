@@ -2,10 +2,7 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
-import by.iba.uzhyhala.util.CookieUtil;
-import by.iba.uzhyhala.util.HibernateUtil;
-import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
+import by.iba.uzhyhala.util.*;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -38,14 +35,15 @@ public class BetHandler extends HttpServlet implements Serializable {
         this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
         this.uuidLot = req.getParameter("uuid_lot");
         try {
-            doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost"))));
+            String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime()));
+            doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow), timeNow);
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
         }
     }
 
-    private String prepareDoBet(int bet) {
+    private String prepareDoBet(int bet, String timeNow) {
         BetBulkTO betBulkTO = gson.fromJson(getJsonBulk(), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
@@ -59,7 +57,7 @@ public class BetHandler extends HttpServlet implements Serializable {
                 betTO.setOldCost(betBulkTO.getBets().get(size).getNewCost());
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);
-                betTO.setTime(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime())));
+                betTO.setTime(timeNow);
 
                 betTOList.add(betTO);
                 betBulkTO.setBets(betTOList);
@@ -73,7 +71,7 @@ public class BetHandler extends HttpServlet implements Serializable {
                 betTO.setOldCost(betBulkTO.getBets().get(size).getNewCost());
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);
-                betTO.setTime(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime())));
+                betTO.setTime(timeNow);
 
                 betTOList.add(betTO);
                 betBulkTO.setBets(betTOList);
@@ -83,14 +81,20 @@ public class BetHandler extends HttpServlet implements Serializable {
         return gson.toJson(betBulkTO);
     }
 
-    private void doBet(String jsonBulk) {
+    private void doBet(String jsonBulk, String time) {
         try {
             session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
-                    .setParameter("newBulk", jsonBulk).setParameter("uuid", uuidLot).executeUpdate();
+                    .setParameter("newBulk", jsonBulk)
+                    .setParameter("uuid", uuidLot)
+                    .executeUpdate();
 
+            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET time_end = :dateEnd WHERE uuid = :uuid")
+                    .setParameter("dateEnd", CommonUtil.getPrepareDateEnd(time, VariablesUtil.LOT_TIME_AFTER_BET_SEC))
+                    .setParameter("uuid", uuidLot)
+                    .executeUpdate();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            logger.error(ex.getLocalizedMessage());
             // return null;
         } finally {
             if (session != null && session.isOpen()) {

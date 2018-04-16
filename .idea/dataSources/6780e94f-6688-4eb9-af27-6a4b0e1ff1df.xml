@@ -54,8 +54,8 @@
     </role>
     <schema id="12" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-04-09.19:40:22.919</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1148</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-04-16.20:09:17.873</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1199</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -498,32 +498,32 @@
     </column>
     <column id="84" parent="30" name="date_add">
       <Position>10</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <StateNumber>1143</StateNumber>
+      <DataType>varchar(20)|0s</DataType>
+      <StateNumber>1197</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="85" parent="30" name="date_start">
       <Position>11</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <StateNumber>1144</StateNumber>
+      <DataType>varchar(20)|0s</DataType>
+      <StateNumber>1198</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="86" parent="30" name="date_end">
       <Position>12</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <StateNumber>1145</StateNumber>
+      <DataType>varchar(20)|0s</DataType>
+      <StateNumber>1199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="87" parent="30" name="time_start">
       <Position>13</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <StateNumber>1146</StateNumber>
+      <DataType>varchar(15)|0s</DataType>
+      <StateNumber>1193</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="88" parent="30" name="time_end">
       <Position>14</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <StateNumber>1147</StateNumber>
+      <DataType>varchar(15)|0s</DataType>
+      <StateNumber>1194</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="89" parent="30" name="uuid_user_client">
