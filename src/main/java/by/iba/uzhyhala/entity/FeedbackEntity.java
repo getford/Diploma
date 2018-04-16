@@ -84,7 +84,7 @@ public class FeedbackEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id", insertable = false, updatable = false)
     public AuthInfoEntity getAuthInfoByIdUser() {
         return authInfoByIdUser;
     }

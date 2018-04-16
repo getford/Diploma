@@ -77,47 +77,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LotHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
+      <file leaf-file-name="AddressEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="166" column="50" selection-start-line="166" selection-start-column="50" selection-end-line="166" selection-end-column="50" />
+            <state relative-caret-position="90">
+              <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotControl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
+      <file leaf-file-name="AuthInfoEntity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+            <state relative-caret-position="-342">
+              <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java">
+      <file leaf-file-name="Registration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="30" column="27" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/ShowHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatisticHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="235">
+              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,47 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/to/UserTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BetHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1709">
-              <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
+            <state relative-caret-position="205">
+              <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -257,19 +203,19 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/to/BetHistoryTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java" />
       </list>
     </option>
   </component>
@@ -317,11 +263,6 @@
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="documents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
@@ -805,7 +746,7 @@
       <workItem from="1522772574063" duration="10925000" />
       <workItem from="1522801781057" duration="43318000" />
       <workItem from="1523182364651" duration="48436000" />
-      <workItem from="1523899455135" duration="6809000" />
+      <workItem from="1523899455135" duration="7613000" />
     </task>
     <servers />
   </component>
@@ -842,7 +783,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159015000" />
+    <option name="totallyTimeSpent" value="159819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -871,7 +812,7 @@
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49427754" weight="0.39030302" />
+      <window_info active="true" anchor="bottom" id="Debug" order="11" sideWeight="0.49427754" visible="true" weight="0.39030302" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32848486" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -882,7 +823,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32848486" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="4" sideWeight="0.49499285" weight="0.3987879" />
       <window_info id="Persistence" order="3" sideWeight="0.53090906" side_tool="true" weight="0.29971388" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4690909" visible="true" weight="0.29971388" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4690909" visible="true" weight="0.29971388" />
       <window_info anchor="right" id="Bean Validation" order="6" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.50423217" side_tool="true" weight="0.24606581" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32848486" />
@@ -1230,13 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/address">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/bet">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1262,100 +1196,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3507e0a0/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/auction.public.auth_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/personal_information">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/6780e94f-6688-4eb9-af27-6a4b0e1ff1df">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>6780e94f-6688-4eb9-af27-6a4b0e1ff1df</OriginalElement>
-          <nodes>
-            <node x="423.5" y="334.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.personal_information</node>
-            <node x="0.0" y="44.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.category</node>
-            <node x="42.5" y="213.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot</node>
-            <node x="258.5" y="312.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.address</node>
-            <node x="35.0" y="668.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.bet</node>
-            <node x="466.75" y="646.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.feedback</node>
-            <node x="345.75" y="0.0">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.personal_information" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info">
-              <point x="0.0" y="-70.5" />
-              <point x="505.5" y="193.0" />
-              <point x="436.375" y="193.0" />
-              <point x="18.125" y="81.5" />
-            </edge>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.feedback" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot">
-              <point x="-43.75" y="-70.5" />
-              <point x="510.5" y="621.0" />
-              <point x="189.5" y="621.0" />
-              <point x="49.0" y="191.5" />
-            </edge>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.feedback" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info">
-              <point x="43.75" y="-70.5" />
-              <point x="598.0" y="183.0" />
-              <point x="472.625" y="183.0" />
-              <point x="54.375" y="81.5" />
-            </edge>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.address" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info">
-              <point x="0.0" y="-92.5" />
-              <point x="331.0" y="193.0" />
-              <point x="400.125" y="193.0" />
-              <point x="-18.125" y="81.5" />
-            </edge>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info">
-              <point x="49.0" y="-191.5" />
-              <point x="189.5" y="183.0" />
-              <point x="363.875" y="183.0" />
-              <point x="-54.375" y="81.5" />
-            </edge>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.category">
-              <point x="-49.0" y="-191.5" />
-              <point x="0.0" y="37.5" />
-            </edge>
-            <edge source="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.bet" target="6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot">
-              <point x="0.0" y="-48.5" />
-              <point x="-49.0" y="191.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="102.5" y="220.0" />
-          <SelectedNodes>
-            <node>6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.feedback</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -1481,16 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
-          <caret line="74" column="46" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/to/UserTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1509,16 +1339,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1709">
-          <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1560,10 +1380,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://DATABASE/6780e94f-6688-4eb9-af27-6a4b0e1ff1df">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>6780e94f-6688-4eb9-af27-6a4b0e1ff1df</OriginalElement>
+          <nodes>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.personal_information</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.category</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.address</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.bet</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.feedback</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6195786864931846" x="605.9849999999999" y="290.204" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
+        <state relative-caret-position="48">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3507e0a0/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/auction.public.auth_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/personal_information">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
         </state>
       </provider>
     </entry>

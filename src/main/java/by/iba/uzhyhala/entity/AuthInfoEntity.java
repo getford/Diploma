@@ -99,7 +99,7 @@ public class AuthInfoEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false, insertable = false, updatable = false)
     public AddressEntity getAddressByUuid() {
         return addressByUuid;
     }
@@ -118,7 +118,7 @@ public class AuthInfoEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user_seller", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user_seller", nullable = false, insertable = false, updatable = false)
     public LotEntity getLotByUuid() {
         return lotByUuid;
     }
@@ -128,7 +128,7 @@ public class AuthInfoEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false, insertable = false, updatable = false)
     public PersonalInformationEntity getPersonalInformationByUuid() {
         return personalInformationByUuid;
     }

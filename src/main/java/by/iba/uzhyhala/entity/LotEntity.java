@@ -217,7 +217,7 @@ public class LotEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
     public BetEntity getBetByUuid() {
         return betByUuid;
     }
@@ -227,7 +227,7 @@ public class LotEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false)
+    @JoinColumn(name = "uuid", referencedColumnName = "uuid", nullable = false, insertable = false, updatable = false)
     public FeedbackEntity getFeedbackByUuid() {
         return feedbackByUuid;
     }
@@ -237,7 +237,7 @@ public class LotEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_category", referencedColumnName = "id")
+    @JoinColumn(name = "id_category", referencedColumnName = "id", insertable = false, updatable = false)
     public CategoryEntity getCategoryByIdCategory() {
         return categoryByIdCategory;
     }

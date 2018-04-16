@@ -28,16 +28,10 @@ import java.util.UUID;
 
 @WebServlet(urlPatterns = "/registration")
 public class Registration extends HttpServlet implements IParseJsonString {
-    private static final Logger logger = Logger.getLogger(Registration.class);
+    private static final Logger LOGGER = Logger.getLogger(Registration.class);
 
-    private Session session;
-    private Gson gson;
-
-    public Registration() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        gson = new Gson();
-    }
+    private Gson gson = new Gson();
+    ;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Override
@@ -61,38 +55,50 @@ public class Registration extends HttpServlet implements IParseJsonString {
     }
 
     private boolean doRegistration(String login, String password, String email) {
-        logger.debug(this.getClass().getName() + ", method: doRegistration");
+        LOGGER.debug(this.getClass().getName() + ", method: doRegistration");
         String newUserUUID = UUID.randomUUID().toString();
 
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            AuthInfoEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
+            if (isLoginAndEmailEmpty(session, authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
 
-        AuthInfoEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
-        if (isLoginAndEmailEmpty(authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
+                authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
+                authInfoEntity.setPassword(authInfoEntity.getPassword());
+                authInfoEntity.setEmail(authInfoEntity.getEmail());
+                authInfoEntity.setRole(VariablesUtil.ROLE_USER);
+                authInfoEntity.setUuid(newUserUUID);
 
-            authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
-            authInfoEntity.setPassword(authInfoEntity.getPassword());
-            authInfoEntity.setEmail(authInfoEntity.getEmail());
-            authInfoEntity.setRole(VariablesUtil.ROLE_USER);
-            authInfoEntity.setUuid(newUserUUID);
+                PersonalInformationEntity personalInformationEntity = new PersonalInformationEntity();
+                personalInformationEntity.setUuidUser(newUserUUID);
 
-            PersonalInformationEntity personalInformationEntity = new PersonalInformationEntity();
-            personalInformationEntity.setUuidUser(newUserUUID);
+                AddressEntity addressEntity = new AddressEntity();
+                addressEntity.setUuidUser(newUserUUID);
 
-            AddressEntity addressEntity = new AddressEntity();
-            addressEntity.setUuidUser(newUserUUID);
-
-            session.save(authInfoEntity);
-            session.save(personalInformationEntity);
-            session.save(addressEntity);
-            session.getTransaction().commit();
-            session.close();
-            return true;
-        } else {
-            logger.debug("Login isn't empty");
+                session.save(authInfoEntity);
+                session.save(personalInformationEntity);
+                session.save(addressEntity);
+                session.getTransaction().commit();
+                session.close();
+                return true;
+            } else {
+                LOGGER.debug("Login isn't empty");
+                return false;
+            }
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
             return false;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
 
-    private boolean isLoginAndEmailEmpty(String login, String email) {
+    private boolean isLoginAndEmailEmpty(Session session, String login, String email) {
         Query query = session.createQuery("SELECT a.login, a.email FROM " +
                 VariablesUtil.ENTITY_AUTH_INFO + " a WHERE login = :login AND email = :email");
         query.setParameter("login", login);
