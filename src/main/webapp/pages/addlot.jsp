@@ -24,11 +24,7 @@
     <br/>
     Дата старта торгов: <input type="date" name="date_start" placeholder="Дата начала"/>
     <br/>
-    Дата окончания торгов: <input type="date" name="date_end" placeholder="Дата окончания"/>
-    <br/>
     Время начала: <input type="time" name="time_start" placeholder="Время начала"/>
-    <br/>
-    Время окнончания: <input type="time" name="time_end" placeholder="Время окнчания"/>
     <br/>
     Категория: <input type="text" name="cat" placeholder="Категория"/>
     <br/>
