@@ -74,7 +74,5 @@ public class TestHibernate {
 
         Thread thread = new Thread();
         thread.run();*/
-
-
     }
 }

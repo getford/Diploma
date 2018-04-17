@@ -6,6 +6,7 @@ import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BarcodeQRCode;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -28,10 +30,12 @@ import java.util.UUID;
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentBetHistory extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentBetHistory.class);
+    private URL url;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
+            url = new URL(req.getRequestURL().toString());
             if (generateDocHistoryBet(req.getParameter("uuid_lot"), resp)) {
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + req.getParameter("uuid_lot"));
             } else {
@@ -51,6 +55,7 @@ public class DocumentBetHistory extends HttpServlet {
                 "attachment;filename=Bet_history_" + uuidLot + ".pdf");
         resp.setContentType("application/pdf;charset=UTF-8");
         String documentPassword = String.valueOf(UUID.randomUUID()).substring(0, 8);
+        String toEncode = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
 
         try {
             PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
@@ -90,7 +95,14 @@ public class DocumentBetHistory extends HttpServlet {
             document.add(new Paragraph("Auction Diploma"));
             document.add(new Paragraph("Bet history"));
             document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE_TIME).format(new Date()))));
-            document.add(new Paragraph("---------------------------------------------------------------" +
+
+            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(toEncode, 1000, 1000, null);
+            Image codeQrImage = barcodeQRCode.getImage();
+            codeQrImage.setAbsolutePosition(469, 729);
+            codeQrImage.scaleAbsolute(100, 100);
+            document.add(codeQrImage);
+
+            document.add(new Paragraph("\n---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
             document.add(new Paragraph("\n"));
             document.add(new Paragraph("\n"));

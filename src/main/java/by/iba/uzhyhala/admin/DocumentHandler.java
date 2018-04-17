@@ -5,6 +5,7 @@ import by.iba.uzhyhala.lot.LotHandler;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BarcodeQRCode;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -81,15 +81,23 @@ public class DocumentHandler extends HttpServlet {
 
             PdfWriter pdfWriter = PdfWriter.getInstance(document,
                     new FileOutputStream(filePath));
-            pdfWriter.setEncryption(
+           /* pdfWriter.setEncryption(
                     documentPassword.getBytes(Charset.forName("UTF-8")),
                     VariablesUtil.PDF_OWNER_PASSWORD.getBytes(Charset.forName("UTF-8")),
                     PdfWriter.ALLOW_COPY,
-                    PdfWriter.ENCRYPTION_AES_128);
+                    PdfWriter.ENCRYPTION_AES_128);*/
 
             document.open();
             document.add(new Paragraph("Auction Diploma"));
             document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE_TIME).format(new Date()))));
+
+            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(filePath, 1000, 1000, null);
+            Image codeQrImage = barcodeQRCode.getImage();
+            codeQrImage.setAlignment(Image.ALIGN_RIGHT);
+            codeQrImage.setAbsolutePosition(469, 729);
+            codeQrImage.scaleAbsolute(100, 100);
+            document.add(codeQrImage);
+
             document.add(new Paragraph("---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
             document.add(new Paragraph("\n"));

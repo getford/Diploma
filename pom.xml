@@ -38,11 +38,11 @@
             <artifactId>hibernate-envers</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-<!--        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.5.6-Final</version>
-        </dependency>-->
+        <!--        <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-annotations</artifactId>
+                    <version>3.5.6-Final</version>
+                </dependency>-->
         <!--        <dependency>
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-validator</artifactId>
@@ -120,7 +120,11 @@
             <artifactId>maven-pmd-plugin</artifactId>
             <version>3.9.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.0.6</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>auction</finalName>

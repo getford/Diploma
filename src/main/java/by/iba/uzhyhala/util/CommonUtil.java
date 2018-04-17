@@ -1,8 +1,8 @@
 package by.iba.uzhyhala.util;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
-import by.iba.uzhyhala.lot.to.BetTO;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
+import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
