@@ -1,11 +1,10 @@
 package by.iba.uzhyhala;
 
 import by.iba.uzhyhala.admin.DocumentHandler;
-import by.iba.uzhyhala.lot.LotControl;
 import org.apache.log4j.Logger;
 
 public class TestHibernate {
-    private static final Logger logger = Logger.getLogger(TestHibernate.class);
+    private static final Logger LOGGER = Logger.getLogger(TestHibernate.class);
 
     public static void main(String[] args) {
 /*
@@ -55,13 +54,13 @@ public class TestHibernate {
         DocumentHandler documentHandler = new DocumentHandler();
         documentHandler.generatePDF();
 
-        new LotControl("").getHistoryBets();
+        //  new LotControl("").getHistoryBets();
 
 /*        String s =UUID.randomUUID().toString();
         System.err.println(s);
         System.err.println(String.valueOf(s).substring(0, 8));*/
 
-     //   System.err.println(CommonUtil.getLotDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
+        //   System.err.println(CommonUtil.getLotDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
 
 /*        LocalDateTime localDateTime = LocalDateTime.parse("2018-04-16T19:20:17.866");
         System.err.println(localDateTime.toLocalTime());
@@ -75,8 +74,6 @@ public class TestHibernate {
 
         Thread thread = new Thread();
         thread.run();*/
-
-
 
 
     }

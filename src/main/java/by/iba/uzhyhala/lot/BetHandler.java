@@ -21,8 +21,8 @@ public class BetHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(BetHandler.class);
 
     private Session session = null;
-    private String uuidLot = "d83a7aa9-a099-46e1-94a9-af145ac54b8e";
-    private String uuidUser = "87ff415e-b8ea-481b-964d-c23815e97cb5";
+    private String uuidLot;
+    private String uuidUser;
     private String errorMessage;
     private Gson gson = new Gson();
 

@@ -22,7 +22,7 @@ import java.util.Arrays;
 @WebServlet(urlPatterns = "/auth")
 public class Authorization extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(Authorization.class);
+    private static final Logger LOGGER = Logger.getLogger(Authorization.class);
     private static final String REDIRECT_INDEX_PAGE = "/pages/index.jsp";
     private static final String REDIRECT_AUTH_PAGE = "/pages/auth.jsp";
 
@@ -49,7 +49,7 @@ public class Authorization extends HttpServlet {
                     loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
             return null;
         } finally {
             if (session != null && session.isOpen()) {
@@ -67,7 +67,7 @@ public class Authorization extends HttpServlet {
             return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {
             if (session != null && session.isOpen()) {
@@ -87,13 +87,13 @@ public class Authorization extends HttpServlet {
                             VariablesUtil.COOKIE_KEY.getBytes("UTF-8")
                     )
                     .compact();
-            logger.info(getClass().getName() + " token create successfully");
+            LOGGER.info(getClass().getName() + " token create successfully");
 
             Cookie cookie = new Cookie(VariablesUtil.COOKIE_AUTH_NAME, token);
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown
             resp.addCookie(cookie);
         } catch (UnsupportedEncodingException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }

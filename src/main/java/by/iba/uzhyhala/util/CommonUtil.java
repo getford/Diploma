@@ -1,12 +1,18 @@
 package by.iba.uzhyhala.util;
 
+import by.iba.uzhyhala.lot.to.BetBulkTO;
+import by.iba.uzhyhala.lot.to.BetTO;
+import by.iba.uzhyhala.lot.to.BetHistoryTO;
+import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class CommonUtil {
@@ -82,6 +88,35 @@ public class CommonUtil {
             new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             return null;
+        }
+    }
+
+    public static List<BetHistoryTO> getHistoryBets(String uuidLot) {
+        LOGGER.info("getHistoryBets method");
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        try {
+            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(session, uuidLot), BetBulkTO.class);
+            List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
+
+            List<BetHistoryTO> betHistoryTO = new ArrayList<>();
+            for (BetTO bet : betTOList) {
+                BetHistoryTO to = new BetHistoryTO();
+                to.setUserName(CommonUtil.getUserFirstLastNameByUUID(session, bet.getUuidUser()));
+                to.setBet(bet.getBet());
+                to.setDate(bet.getDate());
+                to.setTime(bet.getTime());
+
+                betHistoryTO.add(to);
+            }
+            return betHistoryTO;
+        } catch (Exception ex) {
+            LOGGER.error(ex.getLocalizedMessage());
+            return null;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
 

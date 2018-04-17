@@ -1,6 +1,7 @@
 <%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.lot.LotControl" %>
-<%@ page import="by.iba.uzhyhala.to.BetHistoryTO" %>
+<%@ page import="by.iba.uzhyhala.lot.to.BetHistoryTO" %>
+<%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.MailUtil" %>
 <%@ page import="java.util.Arrays" %>
@@ -13,17 +14,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%
-        String uuidLot = request.getParameter("uuid");
-
         CookieUtil cookieUtil = new CookieUtil(request);
         LotControl lotControl = null;
 
         List<LotEntity> lotInfoList = null;
         List<BetHistoryTO> betHistoryList = null;
         try {
-            lotControl = new LotControl(uuidLot);
+            lotControl = new LotControl(request.getParameter("uuid"));
             lotInfoList = lotControl.getLotInfoByUuid();
-            betHistoryList = lotControl.getHistoryBets();
+            betHistoryList = CommonUtil.getHistoryBets(request.getParameter("uuid"));
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
         }
@@ -45,6 +44,17 @@
     }
 %>
 <hr/>
+<form action="/generatehistorybets" method="post">
+    <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+    <button type="submit" name="generate_doc">Генерировать отчет</button>
+</form>
+<hr/>
+<form action="/bethandler" method="post">
+    <h3>Сделать ставку</h3>
+    <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+    <input type="text" name="cost" placeholder="min bet ">
+    <button type="submit" name="do_bet">Сделать ставку</button>
+</form>
 <br/>
 <div class="container">
     <div class="row">
@@ -96,12 +106,5 @@
         </div>
     </div>
 </div>
-<hr/>
-<form action="/bethandler" method="post">
-    <h3>Сделать ставку</h3>
-    <input type="hidden" name="uuid_lot" value="<%=uuidLot%>">
-    <input type="text" name="cost" placeholder="min bet ">
-    <button type="submit" name="do_bet">Сделать ставку</button>
-</form>
 </body>
 </html>
