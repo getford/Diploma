@@ -110,7 +110,8 @@
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object img-circle" src="/resources/images/sunset.jpg" alt="Sunset">
+                                    <img class="media-object img-circle" src="/resources/images/sunset.jpg"
+                                         alt="Sunset">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -124,7 +125,8 @@
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object img-circle" src="/resources/images/sunset.jpg" alt="Sunset">
+                                    <img class="media-object img-circle" src="/resources/images/sunset.jpg"
+                                         alt="Sunset">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -205,8 +207,7 @@
                 </div>
             </div>
             <footer class="text-right">
-                <p>Copyright &copy; 2084 Company Name
-                    | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                <p>Copyright &copy; 2018 Uladzimir Zhyhala inc.</p>
             </footer>
         </div>
     </div>
@@ -275,89 +276,3 @@
 <script type="text/javascript" src="resources/scripts/templatemo-script.js"></script>      <!-- Templatemo Script -->
 </body>
 </html>
-
-<%--
-</head>
-<body>
-<script>
-    google.charts.load('current', {packages: ['corechart', 'line']});
-    google.charts.setOnLoadCallback(lineLotAddChart);
-
-    function lineLotAddChart() {
-        let data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date');
-        data.addColumn('number', 'Add lots for date');
-        data.addRows([<%=lineChartAddDateLot%>]);
-
-        console.log(<%=lineChartAddDateLot%>);
-
-        let options = {
-            hAxis: {
-                title: 'Date'
-            },
-            vAxis: {
-                title: 'Count'
-            }
-        };
-
-        let chart = new google.visualization.LineChart(document.getElementById('chart_add_date_lot'));
-        chart.draw(data, options);
-    }
-</script>
-<script>
-    google.charts.load('current', {packages: ['corechart', 'line']});
-    google.charts.setOnLoadCallback(lineLotAddChart);
-
-    function lineLotAddChart() {
-        let data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date');
-        data.addColumn('number', 'Start date sale lots');
-        data.addRows([<%=lineChartStartDateLot%>]);
-
-        console.log(<%=lineChartStartDateLot%>);
-
-        let options = {
-            hAxis: {
-                title: 'Date'
-            },
-            vAxis: {
-                title: 'Count'
-            }
-        };
-
-        let chart = new google.visualization.LineChart(document.getElementById('chart_start_date_lot'));
-        chart.draw(data, options);
-    }
-</script>
-<script>
-    google.charts.load('current', {packages: ['corechart', 'line']});
-    google.charts.setOnLoadCallback(lineLotAddChart);
-
-    function lineLotAddChart() {
-        let data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date');
-        data.addColumn('number', 'End date sale lots');
-        data.addRows([<%=lineChartEndDateLot%>]);
-
-        console.log(<%=lineChartEndDateLot%>);
-
-        let options = {
-            hAxis: {
-                title: 'Date'
-            },
-            vAxis: {
-                title: 'Count'
-            }
-        };
-
-        let chart = new google.visualization.LineChart(document.getElementById('chart_end_date_lot'));
-        chart.draw(data, options);
-    }
-</script>
-<div id="chart_add_date_lot"></div>
-<div id="chart_start_date_lot"></div>
-<div id="chart_end_date_lot"></div>
-</body>
-</html>
-&lt;%&ndash;<script onload="lineLotAddChart(<%=lineChartData%>)"></script>&ndash;%&gt;
---%>

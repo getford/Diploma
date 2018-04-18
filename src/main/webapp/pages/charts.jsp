@@ -17,6 +17,7 @@
     <link href="/resources/css/templatemo-style.css" rel="stylesheet">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <%
         StatisticHandler statisticHandler = new StatisticHandler();
         String lineChartAddDateLot = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_ADD_DATE_LOT);
@@ -75,66 +76,25 @@
                 <h2 class="margin-bottom-10">Data Visualization</h2>
                 <div class="panel panel-default no-border">
                     <div class="panel-heading border-radius-10">
-                        <h2>Добавлено лотов за сегодня</h2>
+                        <h2>Добавлено лотов за день</h2>
                     </div>
-                    <script>
-                        google.charts.load('current', {packages: ['corechart', 'line']});
-                        google.charts.setOnLoadCallback(lineLotAddChart);
-
-                        function lineLotAddChart() {
-                            let data = new google.visualization.DataTable();
-                            data.addColumn('string', 'Date');
-                            data.addColumn('number', 'Add lots for date');
-                            data.addRows([<%=lineChartAddDateLot%>]);
-
-                            console.log(<%=lineChartAddDateLot%>);
-
-                            let options = {
-                                hAxis: {
-                                    title: 'Date'
-                                },
-                                vAxis: {
-                                    title: 'Count'
-                                }
-                            };
-
-                            let chart = new google.visualization.LineChart(document.getElementById('chart_add_date_lot'));
-                            chart.draw(data, options);
-                        }
-                    </script>
+                    <div id="chart_add_date_lot"></div>
                 </div>
                 <div class="panel panel-default no-border">
                     <div class="panel-heading border-radius-10">
-                        <h2>Timeline</h2>
+                        <h2>Начато торгов за день</h2>
                     </div>
-                    <div class="panel-body">
-                        <div class="templatemo-flex-row flex-content-row">
-                            <div class="col-1">
-                                <div id="timeline_div" class="templatemo-chart"></div>
-                                <h3 class="text-center margin-bottom-5">Conference Schedule</h3>
-                                <p class="text-center">Lorem Ipsum</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="chart_start_date_lot"></div>
                 </div>
                 <div class="panel panel-default no-border">
                     <div class="panel-heading border-radius-10">
-                        <h2>Area Chart</h2>
+                        <h2>Продано за день</h2>
                     </div>
-                    <div class="panel-body">
-                        <div class="templatemo-flex-row flex-content-row">
-                            <div class="col-1">
-                                <div id="area_chart_div" class="templatemo-chart"></div>
-                                <h3 class="text-center margin-bottom-5">Company Performance</h3>
-                                <p class="text-center">Fusce mi lacus</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="chart_end_date_lot"></div>
                 </div>
             </div>
             <footer class="text-right">
-                <p>Copyright &copy; 2084 Company Name
-                    | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                <p>Copyright &copy; 2018 Uladzimir Zhyhala inc.</p>
             </footer>
         </div>
     </div>
@@ -144,134 +104,84 @@
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
 <script type="text/javascript" src="https://www.google.com/jsapi"></script> <!-- Google Chart -->
-<script>
-
-    var gaugeChart;
-    var gaugeData;
-    var gaugeOptions;
-    var timelineChart;
-    var timelineDataTable;
-    var timelineOptions;
-    var areaData;
-    var areaOptions;
-    var areaChart;
-
-    /* Gauage
-    --------------------------------------------------*/
-    google.load("visualization", "1", {packages: ["gauge"]});
-    google.setOnLoadCallback(drawGauge);
-    google.load("visualization", "1", {packages: ["timeline"]});
-    google.setOnLoadCallback(drawTimeline);
-    google.load("visualization", "1", {packages: ["corechart"]});
-    google.setOnLoadCallback(drawChart);
-
-    $(document).ready(function () {
-        if ($.browser.mozilla) {
-            //refresh page on browser resize
-            // http://www.sitepoint.com/jquery-refresh-page-browser-resize/
-            $(window).bind('resize', function (e) {
-                if (window.RT) clearTimeout(window.RT);
-                window.RT = setTimeout(function () {
-                    this.location.reload(false);
-                    /* false to get page from cache */
-                }, 200);
-            });
-        } else {
-            $(window).resize(function () {
-                drawCharts();
-            });
-        }
-    });
-
-    function drawGauge() {
-
-        gaugeData = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['Memory', 80],
-            ['CPU', 55],
-            ['Network', 68]
-        ]);
-
-        gaugeOptions = {
-            redFrom: 90, redTo: 100,
-            yellowFrom: 75, yellowTo: 90,
-            minorTicks: 5
-        };
-
-        gaugeChart = new google.visualization.Gauge(document.getElementById('gauge_div'));
-        gaugeChart.draw(gaugeData, gaugeOptions);
-
-        setInterval(function () {
-            gaugeData.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-            gaugeChart.draw(gaugeData, gaugeOptions);
-        }, 13000);
-        setInterval(function () {
-            gaugeData.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-            gaugeChart.draw(gaugeData, gaugeOptions);
-        }, 5000);
-        setInterval(function () {
-            gaugeData.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-            gaugeChart.draw(gaugeData, gaugeOptions);
-        }, 26000);
-    } // End function drawGauage
-
-    /* Timeline
-    --------------------------------------------------*/
-    function drawTimeline() {
-        var container = document.getElementById('timeline_div');
-        timelineChart = new google.visualization.Timeline(container);
-        timelineDataTable = new google.visualization.DataTable();
-        timelineDataTable.addColumn({type: 'string', id: 'Room'});
-        timelineDataTable.addColumn({type: 'string', id: 'Name'});
-        timelineDataTable.addColumn({type: 'date', id: 'Start'});
-        timelineDataTable.addColumn({type: 'date', id: 'End'});
-        timelineDataTable.addRows([
-            ['Magnolia Room', 'CSS Fundamentals', new Date(0, 0, 0, 12, 0, 0), new Date(0, 0, 0, 14, 0, 0)],
-            ['Magnolia Room', 'Intro JavaScript', new Date(0, 0, 0, 14, 30, 0), new Date(0, 0, 0, 16, 0, 0)],
-            ['Magnolia Room', 'Advanced JavaScript', new Date(0, 0, 0, 16, 30, 0), new Date(0, 0, 0, 19, 0, 0)],
-            ['Gladiolus Room', 'Intermediate Perl', new Date(0, 0, 0, 12, 30, 0), new Date(0, 0, 0, 14, 0, 0)],
-            ['Gladiolus Room', 'Advanced Perl', new Date(0, 0, 0, 14, 30, 0), new Date(0, 0, 0, 16, 0, 0)],
-            ['Gladiolus Room', 'Applied Perl', new Date(0, 0, 0, 16, 30, 0), new Date(0, 0, 0, 18, 0, 0)],
-            ['Petunia Room', 'Google Charts', new Date(0, 0, 0, 12, 30, 0), new Date(0, 0, 0, 14, 0, 0)],
-            ['Petunia Room', 'Closure', new Date(0, 0, 0, 14, 30, 0), new Date(0, 0, 0, 16, 0, 0)],
-            ['Petunia Room', 'App Engine', new Date(0, 0, 0, 16, 30, 0), new Date(0, 0, 0, 18, 30, 0)]]);
-
-        timelineOptions = {
-            timeline: {colorByRowLabel: true},
-            backgroundColor: '#ffd'
-        };
-
-        timelineChart.draw(timelineDataTable, timelineOptions);
-    } // End function drawTimeline
-
-    /* Area Chart
-    --------------------------------------------------*/
-    function drawChart() {
-        areaData = google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses'],
-            ['2013', 1000, 400],
-            ['2014', 1170, 460],
-            ['2015', 660, 1120],
-            ['2016', 1030, 540]
-        ]);
-
-        areaOptions = {
-            title: 'Company Performance',
-            hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
-            vAxis: {minValue: 0}
-        };
-
-        areaChart = new google.visualization.AreaChart(document.getElementById('area_chart_div'));
-        areaChart.draw(areaData, areaOptions);
-    } // End function drawChart
-
-    function drawCharts() {
-        gaugeChart.draw(gaugeData, gaugeOptions);
-        timelineChart.draw(timelineDataTable, timelineOptions);
-        areaChart.draw(areaData, areaOptions);
-    }
-
-</script>
 <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(lineLotAddChart);
+
+    function lineLotAddChart() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', 'Add lots for date');
+        data.addRows([<%=lineChartAddDateLot%>]);
+
+        console.log(<%=lineChartAddDateLot%>);
+
+        let options = {
+            hAxis: {
+                title: 'Date'
+            },
+            vAxis: {
+                title: 'Count'
+            }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('chart_add_date_lot'));
+        chart.draw(data, options);
+    }
+</script>
+<%--Add lots today--%>
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(lineLotAddChart);
+
+    function lineLotAddChart() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', 'Start date sale lots');
+        data.addRows([<%=lineChartStartDateLot%>]);
+
+        console.log(<%=lineChartStartDateLot%>);
+
+        let options = {
+            hAxis: {
+                title: 'Date'
+            },
+            vAxis: {
+                title: 'Count'
+            }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('chart_start_date_lot'));
+        chart.draw(data, options);
+    }
+</script>
+<%--Start date lots--%>
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(lineLotAddChart);
+
+    function lineLotAddChart() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', 'End date sale lots');
+        data.addRows([<%=lineChartEndDateLot%>]);
+
+        console.log(<%=lineChartEndDateLot%>);
+
+        let options = {
+            hAxis: {
+                title: 'Date'
+            },
+            vAxis: {
+                title: 'Count'
+            }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('chart_end_date_lot'));
+        chart.draw(data, options);
+    }
+</script>
+<%--End date lots--%>
 </body>
 </html>
