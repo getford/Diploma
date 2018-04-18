@@ -129,20 +129,20 @@
                             </tr>
                             </thead>
                             <%
-                                for (int i = 0; i < userLotList.size(); i++) {
-                                    String id = userLotList.get(i).getUuid();
-                                    String name = userLotList.get(i).getName();
-                                    String information = userLotList.get(i).getInformation();
-                                    String status = userLotList.get(i).getStatus();
-                                    String category = CommonUtil.getCategoryById(userLotList.get(i).getIdCategory());
-                                    String cost = userLotList.get(i).getCost();
-                                    String blitzCost = userLotList.get(i).getBlitzCost();
+                                for (LotEntity lot : userLotList) {
+                                    String id = lot.getUuid();
+                                    String name = lot.getName();
+                                    String information = lot.getInformation();
+                                    String status = lot.getStatus();
+                                    String category = CommonUtil.getCategoryById(lot.getIdCategory());
+                                    String cost = lot.getCost();
+                                    String blitzCost = lot.getBlitzCost();
                                     String stepCost = userLotList.get(0).getStepCost();
-                                    String dateAdd = String.valueOf(userLotList.get(i).getDateAdd());
-                                    String dateStart = String.valueOf(userLotList.get(i).getDateStart());
-                                    String dateEnd = String.valueOf(userLotList.get(i).getDateEnd());
-                                    String timeStart = String.valueOf(userLotList.get(i).getTimeStart());
-                                    String timeEnd = String.valueOf(userLotList.get(i).getTimeEnd());
+                                    String dateAdd = String.valueOf(lot.getDateAdd());
+                                    String dateStart = String.valueOf(lot.getDateStart());
+                                    String dateEnd = String.valueOf(lot.getDateEnd());
+                                    String timeStart = String.valueOf(lot.getTimeStart());
+                                    String timeEnd = String.valueOf(lot.getTimeEnd());
                             %>
                             <tbody id="lotTable">
                             <tr>

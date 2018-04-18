@@ -54,7 +54,7 @@
     </role>
     <schema id="12" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-04-18.21:27:03.731</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-04-18.22:20:08.384</IntrospectionTimestamp>
       <IntrospectionStateNumber>1269</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
@@ -569,18 +569,13 @@
       <ColNames>uuid</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="97" parent="30" name="lot_uuid_user_seller_uindex">
-      <ObjectId>33477</ObjectId>
-      <ColNames>uuid_user_seller</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="98" parent="30" name="lot_pkey">
+    <key id="97" parent="30" name="lot_pkey">
       <ObjectId>33235</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>lot_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="99" parent="30" name="lot_auth_info_uuid_fk">
+    <foreign-key id="98" parent="30" name="lot_auth_info_uuid_fk">
       <ObjectId>33478</ObjectId>
       <ColNames>uuid_user_seller</ColNames>
       <RefTableId>24861</RefTableId>
@@ -588,7 +583,7 @@
       <RefTableName>auth_info</RefTableName>
       <RefColNames>uuid</RefColNames>
     </foreign-key>
-    <foreign-key id="100" parent="30" name="lot_category_id_fk">
+    <foreign-key id="99" parent="30" name="lot_category_id_fk">
       <ObjectId>33333</ObjectId>
       <ColNames>id_category</ColNames>
       <RefTableId>24895</RefTableId>
@@ -597,7 +592,7 @@
       <RefKeyName>category_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="101" parent="31" name="id">
+    <column id="100" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -606,47 +601,47 @@
       <TypeId>23</TypeId>
       <SequenceName>personal_information_id_seq</SequenceName>
     </column>
-    <column id="102" parent="31" name="uuid_user">
+    <column id="101" parent="31" name="uuid_user">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1217</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="103" parent="31" name="first_name">
+    <column id="102" parent="31" name="first_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1060</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="104" parent="31" name="last_name">
+    <column id="103" parent="31" name="last_name">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1060</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="105" parent="31" name="bday">
+    <column id="104" parent="31" name="bday">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <StateNumber>1060</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="106" parent="31" name="personal_information_pkey">
+    <index id="105" parent="31" name="personal_information_pkey">
       <ObjectId>33196</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="107" parent="31" name="personal_information_uuid_user_uindex">
+    <index id="106" parent="31" name="personal_information_uuid_user_uindex">
       <ObjectId>33452</ObjectId>
       <ColNames>uuid_user</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="108" parent="31" name="personal_information_pkey">
+    <key id="107" parent="31" name="personal_information_pkey">
       <ObjectId>33197</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>personal_information_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="109" parent="31" name="personal_information_auth_info_uuid_fk">
+    <foreign-key id="108" parent="31" name="personal_information_auth_info_uuid_fk">
       <ObjectId>33458</ObjectId>
       <ColNames>uuid_user</ColNames>
       <RefTableId>24861</RefTableId>
