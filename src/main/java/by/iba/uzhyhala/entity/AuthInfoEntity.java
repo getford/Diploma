@@ -2,7 +2,7 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity
@@ -14,13 +14,9 @@ public class AuthInfoEntity implements Serializable {
     private String email;
     private String uuid;
     private String role;
-    private AddressEntity addressByUuid;
-    private Collection<FeedbackEntity> feedbacksById;
-    private LotEntity lotByUuid;
-    private PersonalInformationEntity personalInformationByUuid;
+    private Date createDate;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -80,6 +76,16 @@ public class AuthInfoEntity implements Serializable {
         this.role = role;
     }
 
+    @Basic
+    @Column(name = "create_date", nullable = true)
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,51 +96,13 @@ public class AuthInfoEntity implements Serializable {
                 Objects.equals(password, that.password) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(uuid, that.uuid) &&
-                Objects.equals(role, that.role);
+                Objects.equals(role, that.role) &&
+                Objects.equals(createDate, that.createDate);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, login, password, email, uuid, role);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false, insertable = false, updatable = false)
-    public AddressEntity getAddressByUuid() {
-        return addressByUuid;
-    }
-
-    public void setAddressByUuid(AddressEntity addressByUuid) {
-        this.addressByUuid = addressByUuid;
-    }
-
-    @OneToMany(mappedBy = "authInfoByIdUser")
-    public Collection<FeedbackEntity> getFeedbacksById() {
-        return feedbacksById;
-    }
-
-    public void setFeedbacksById(Collection<FeedbackEntity> feedbacksById) {
-        this.feedbacksById = feedbacksById;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user_seller", nullable = false, insertable = false, updatable = false)
-    public LotEntity getLotByUuid() {
-        return lotByUuid;
-    }
-
-    public void setLotByUuid(LotEntity lotByUuid) {
-        this.lotByUuid = lotByUuid;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "uuid", referencedColumnName = "uuid_user", nullable = false, insertable = false, updatable = false)
-    public PersonalInformationEntity getPersonalInformationByUuid() {
-        return personalInformationByUuid;
-    }
-
-    public void setPersonalInformationByUuid(PersonalInformationEntity personalInformationByUuid) {
-        this.personalInformationByUuid = personalInformationByUuid;
+        return Objects.hash(id, login, password, email, uuid, role, createDate);
     }
 }

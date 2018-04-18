@@ -51,11 +51,13 @@ public class DocumentBetHistory extends HttpServlet {
         session.beginTransaction();
 
         Document document = new Document(PageSize.A4);
-        resp.setHeader("Content-Disposition",
-                "attachment;filename=Bet_history_" + uuidLot + ".pdf");
-        resp.setContentType("application/pdf;charset=UTF-8");
+        String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_DOC).format(new Date()));
         String documentPassword = String.valueOf(UUID.randomUUID()).substring(0, 8);
         String toEncode = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
+
+        resp.setHeader("Content-Disposition", "attachment;filename=Bet_history_"
+                + timeNow.replaceAll(":", ".") + "_" + uuidLot + ".pdf");
+        resp.setContentType("application/pdf;charset=UTF-8");
 
         try {
             PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
