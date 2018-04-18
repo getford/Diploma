@@ -13,8 +13,9 @@ import java.util.Date;
 import java.util.Properties;
 
 public class MailUtil {
-    private static final Logger logger = Logger.getLogger(MailUtil.class);
+    private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
     private URL url = null;
+    private static String timeNow = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date().getTime());
 
     private void setupParametersForMessage(String email, String subject, String mailBody) {
         try {
@@ -38,19 +39,18 @@ public class MailUtil {
             message.setSubject(subject);
             message.setContent(mailBody, "text/html; charset=utf-8");
             Transport.send(message);
-            logger.info("Sent message to [" + email + "] successfully.");
-
+            LOGGER.info("Sent message to [" + email + "] successfully.");
         } catch (MessagingException e) {
-            logger.error(e.getLocalizedMessage());
+            LOGGER.error(e.getLocalizedMessage());
         }
     }
 
     public void sendErrorMailForAdmin(String error) {
         String mailBody = "" +
-                "<br/>" + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date().getTime()) +
+                "<br/>" + timeNow +
                 "<br/>" + error +
                 "<br/>";
-        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error", mailBody);
+        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody);
     }
 
     public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {
@@ -68,7 +68,7 @@ public class MailUtil {
 
             setupParametersForMessage(VariablesUtil.EMAIL_TEST, subject, mailBody);
         } catch (MalformedURLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }

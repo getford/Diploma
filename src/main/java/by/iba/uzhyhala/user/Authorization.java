@@ -52,7 +52,7 @@ public class Authorization extends HttpServlet {
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         } finally {
-            if (session != null && session.isOpen()) {
+            if (session.isOpen()) {
                 session.close();
             }
         }
@@ -70,7 +70,7 @@ public class Authorization extends HttpServlet {
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {
-            if (session != null && session.isOpen()) {
+            if (session.isOpen()) {
                 session.close();
             }
         }

@@ -69,7 +69,7 @@ public class CommonUtil {
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
         } finally {
-            if (session != null && session.isOpen()) {
+            if (session.isOpen()) {
                 session.close();
             }
         }
@@ -114,7 +114,7 @@ public class CommonUtil {
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         } finally {
-            if (session != null && session.isOpen()) {
+            if (session.isOpen()) {
                 session.close();
             }
         }
