@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="zhyhala">
+    <meta name="author" content="Zhyhala">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet'
           type='text/css'>
     <link href="/resources/css/font-awesome.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
             <ul>
                 <li><a href="#" class="active"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
                 <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Charts</a></li>
-                <li><a href="manage-users.html"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
+                <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
                 <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>Preferences</a></li>
                 <li><a href="login.html"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
             </ul>

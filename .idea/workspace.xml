@@ -60,6 +60,15 @@
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="auction@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="auction: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="auth_info: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+      </path>
     </expand>
     <select />
   </component>
@@ -68,11 +77,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="210" column="21" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="21" />
+            <state relative-caret-position="330">
+              <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -83,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+            <state relative-caret-position="502">
+              <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
               <folding>
                 <element signature="e#4811#4817#0#HTML" expanded="true" />
                 <element signature="n#script#5;n#body#0;n#html#0;n#!!top" />
@@ -98,11 +107,44 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="manageusers.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+              <folding>
+                <element signature="e#16233#16239#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lot.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="90" column="33" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="90" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/UserHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="42" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="StatisticHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="540">
+              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,8 +155,8 @@
       <file leaf-file-name="LotHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="23" />
+            <state relative-caret-position="265">
+              <caret line="149" column="52" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -122,8 +164,8 @@
       <file leaf-file-name="LotControl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="405">
+              <caret line="37" column="43" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -149,8 +191,8 @@
         <option value="hibernate-main-3.0" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -172,9 +214,10 @@
       <find>Logger</find>
       <find>uuid</find>
       <find>uuidLot</find>
-      <find>logger</find>
       <find>anUserLotList</find>
       <find>var</find>
+      <find>logger</find>
+      <find>anAuthInfoEntityList</find>
     </findStrings>
     <replaceStrings>
       <replace>logger</replace>
@@ -183,9 +226,10 @@
       <replace>String</replace>
       <replace>BetTO</replace>
       <replace>uuid</replace>
-      <replace>LOGGER</replace>
       <replace>lot</replace>
       <replace>let</replace>
+      <replace>LOGGER</replace>
+      <replace>list</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -194,8 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/ParseCookie.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BulkBetTO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
@@ -210,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/CookieUtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/ShowHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/charts.js" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ApplicationInitializer.java" />
@@ -243,8 +284,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/jquery-1.11.2.min.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/jquery-migrate-1.2.1.min.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/UserHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
       </list>
     </option>
   </component>
@@ -340,6 +384,24 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
@@ -719,7 +781,7 @@
       <workItem from="1522801781057" duration="43318000" />
       <workItem from="1523182364651" duration="48436000" />
       <workItem from="1523899455135" duration="21464000" />
-      <workItem from="1523992557288" duration="7881000" />
+      <workItem from="1523992557288" duration="10076000" />
     </task>
     <servers />
   </component>
@@ -756,7 +818,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181551000" />
+    <option name="totallyTimeSpent" value="183746000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -785,7 +847,7 @@
       <window_info anchor="right" id="JSF" order="3" weight="0.3297568" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49356222" visible="true" weight="0.39030302" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49356222" weight="0.39030302" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32848486" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -796,7 +858,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32848486" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="4" sideWeight="0.49499285" weight="0.37454545" />
       <window_info id="Persistence" order="3" sideWeight="0.53249097" side_tool="true" weight="0.3040057" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.46750903" visible="true" weight="0.3040057" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.46750903" weight="0.3040057" />
       <window_info anchor="right" id="Bean Validation" order="6" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.50423217" side_tool="true" weight="0.24606581" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32848486" />
@@ -1023,20 +1085,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/feedback">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1223,13 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-164">
-          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/address">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1385,20 +1426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1409,38 +1436,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="149" column="52" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="540">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/UserHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="210" column="21" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="21" />
+        <state relative-caret-position="255">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="42" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#11122#11128#0#HTML" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="90" column="33" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="90" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+        <state relative-caret-position="502">
+          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
           <folding>
             <element signature="e#4811#4817#0#HTML" expanded="true" />
             <element signature="n#script#5;n#body#0;n#html#0;n#!!top" />
             <element signature="n#script#6;n#body#0;n#html#0;n#!!top" />
             <element signature="n#script#7;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding>
+            <element signature="e#16233#16239#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#11122#11128#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
