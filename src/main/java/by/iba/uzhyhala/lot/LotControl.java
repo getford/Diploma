@@ -38,7 +38,6 @@ public class LotControl extends HttpServlet {
     public List<LotEntity> getLotInfoByUuid() {
         LOGGER.debug(getClass().getName() + " getLotInfoByUuid");
         session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
         try {
             return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidLot).getResultList();

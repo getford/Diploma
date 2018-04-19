@@ -25,20 +25,6 @@ public class CommonUtil {
         return result;
     }
 
-    /*  public static int getIdUserByLoginEmail(Session session, String loginOrEmail, String type) {
-          int result = (int) session.createQuery("SELECT a.id FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE "
-                  + type + " = '" + loginOrEmail + "'").list().get(0);
-          LOGGER.debug(CommonUtil.class.getName() + " getIdUserByLoginEmail return: " + result);
-          return result;
-      }
-
-      public static int getIdUserByUUID(Session session, String uuid) {
-          int result = (int) session.createQuery("SELECT a.id FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE" +
-                  " uuid = :uuid").setParameter("uuid", uuid).list().get(0);
-          LOGGER.debug(CommonUtil.class.getName() + " getIdUserByLoginEmail return: " + result);
-          return result;
-      }
-  */
     public static String getUUIDUserByLoginEmail(Session session, String loginOrEmail, String type) {
         String result = session.createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO
                 + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();

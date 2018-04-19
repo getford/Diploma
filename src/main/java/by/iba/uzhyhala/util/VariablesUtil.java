@@ -1,6 +1,9 @@
 package by.iba.uzhyhala.util;
 
 public final class VariablesUtil {
+    private VariablesUtil() {
+    }
+
     // Entity
     public static final String ENTITY_ADDRESS = "AddressEntity";
     public static final String ENTITY_AUTH_INFO = "AuthInfoEntity";

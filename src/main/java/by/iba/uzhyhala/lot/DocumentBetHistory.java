@@ -30,25 +30,19 @@ import java.util.UUID;
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentBetHistory extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentBetHistory.class);
-    private URL url;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            url = new URL(req.getRequestURL().toString());
-            if (generateDocHistoryBet(req.getParameter("uuid_lot"), resp)) {
-                resp.sendRedirect("/pages/lot.jsp?uuid=" + req.getParameter("uuid_lot"));
-            } else {
-                resp.sendRedirect("/pages/lot.jsp?uuid=" + req.getParameter("uuid_lot"));
-            }
+            URL url = new URL(req.getRequestURL().toString());
+            generateDocHistoryBet(req.getParameter("uuid_lot"), resp, url);
         } catch (IOException e) {
             LOGGER.error(e.getStackTrace());
         }
     }
 
-    private boolean generateDocHistoryBet(String uuidLot, HttpServletResponse resp) throws IOException {
+    private void generateDocHistoryBet(String uuidLot, HttpServletResponse resp, URL url) throws IOException {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
 
         Document document = new Document(PageSize.A4);
         String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_DOC).format(new Date()));
@@ -113,18 +107,15 @@ public class DocumentBetHistory extends HttpServlet {
             document.add(new Paragraph("\n"));
             document.add(new Paragraph("---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
-            //   document.add(new Paragraph("Created by: " + CommonUtil.getUserFirstLastNameByUUID(session, uuidLot)));
             document.add(new Paragraph("UUID Lot: " + uuidLot));
             document.close();
             LOGGER.info("PDF document successfully generated");
             LOGGER.info("Password\t" + documentPassword);
-            return true;
         } catch (DocumentException | FileNotFoundException e) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
-            return false;
         } finally {
-            if (session.isOpen()) {
+            if (session != null) {
                 session.close();
             }
         }
