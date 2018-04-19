@@ -17,6 +17,7 @@ public class AuthInfoEntity implements Serializable {
     private Date createDate;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

@@ -79,9 +79,9 @@ public class CommonUtil {
 
     public static List<BetHistoryTO> getHistoryBets(String uuidLot) {
         LOGGER.info("getHistoryBets method");
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(session, uuidLot), BetBulkTO.class);
             List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
 
@@ -99,10 +99,6 @@ public class CommonUtil {
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 

@@ -1,5 +1,7 @@
+<%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
 <%@ page import="by.iba.uzhyhala.entity.AuthInfoEntity" %>
 <%@ page import="by.iba.uzhyhala.user.UserHandler" %>
+<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -17,13 +19,16 @@
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/templatemo-style.css" rel="stylesheet">
 
-
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <%
         UserHandler userHandler = new UserHandler();
+        StatisticHandler statisticHandler = new StatisticHandler();
         List<AuthInfoEntity> authInfoEntityList = userHandler.getAllUser();
+        String lineChartCreateForDay = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATE_CREATE_USER);
+
     %>
 </head>
 <body>
@@ -128,6 +133,17 @@
                             }
                         %>
                     </table>
+                </div>
+            </div>
+            <div class="templatemo-content-container">
+                <div class="templatemo-content-widget white-bg">
+                    <h2 class="margin-bottom-10">Chatrs</h2>
+                    <div class="panel panel-default no-border">
+                        <div class="panel-heading border-radius-10">
+                            <h2>Зарегистрированно пользователей за день</h2>
+                        </div>
+                        <div id="chart_create_user_for_date"></div>
+                    </div>
                 </div>
             </div>
             <div class="templatemo-flex-row flex-content-row">
@@ -286,5 +302,31 @@
         $('img.content-bg-img').hide();
     });
 </script>
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(lineCreateUsers);
+
+    function lineCreateUsers() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', 'Count users');
+        data.addRows([<%=lineChartCreateForDay%>]);
+
+        console.log(<%=lineChartCreateForDay%>);
+
+        let options = {
+            hAxis: {
+                title: 'Date'
+            },
+            vAxis: {
+                title: 'Count'
+            }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('chart_create_user_for_date'));
+        chart.draw(data, options);
+    }
+</script>
+<%-- Registered users for day --%>
 </body>
 </html>

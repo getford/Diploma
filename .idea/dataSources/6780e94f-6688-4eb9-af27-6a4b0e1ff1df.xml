@@ -54,8 +54,8 @@
     </role>
     <schema id="12" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-04-18.22:20:08.384</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1269</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-04-19.22:44:37.013</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1303</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -136,7 +136,7 @@
     </table>
     <table id="26" parent="12" name="auth_info">
       <ObjectId>24861</ObjectId>
-      <StateNumber>1269</StateNumber>
+      <StateNumber>1290</StateNumber>
     </table>
     <table id="27" parent="12" name="bet">
       <ObjectId>33053</ObjectId>
@@ -271,16 +271,17 @@
     </column>
     <column id="49" parent="26" name="role">
       <Position>6</Position>
-      <DataType>text|0s</DataType>
+      <DataType>varchar(9)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1126</StateNumber>
-      <TypeId>25</TypeId>
+      <StateNumber>1296</StateNumber>
+      <DefaultExpression>&apos;user&apos;::character varying</DefaultExpression>
+      <TypeId>1043</TypeId>
     </column>
     <column id="50" parent="26" name="create_date">
       <Position>8</Position>
       <DataType>date|0s</DataType>
-      <StateNumber>1269</StateNumber>
-      <DefaultExpression>now()</DefaultExpression>
+      <StateNumber>1303</StateNumber>
+      <DefaultExpression>CURRENT_DATE</DefaultExpression>
       <TypeId>1082</TypeId>
     </column>
     <index id="51" parent="26" name="auth_info_pkey">

@@ -25,7 +25,7 @@ public final class VariablesUtil {
 
     // Email cred
     static final String EMAIL_SUPPORT = "auction.diploma@gmail.com";
-    static final String EMAIL_SUPPORT_PASSWORD = "diploma1234auction";
+    static final String EMAIL_SUPPORT_PASSCODE = "diploma1234auction";
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
     static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
@@ -50,17 +50,19 @@ public final class VariablesUtil {
 
     // Regexp
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
-    public static final String REGEXP_PASSWORD = "";
 
-    public static final String PDF_OWNER_PASSWORD = "9cb6baf0";
+    // PDF
+    public static final String PDF_OWNER_PASSCODE = "9cb6baf0";
 
-    // Query
+    // Query charts
     public static final String QUERY_CHART_DATA_ADD_DATE_LOT = "SELECT date_add, count(date_add) FROM lot " +
             "GROUP BY date_add ORDER BY date_add ASC";
     public static final String QUERY_CHART_DATA_START_DATE_LOT = "SELECT date_start, count(date_start) FROM lot " +
             "GROUP BY date_start ORDER BY date_start ASC";
     public static final String QUERY_CHART_DATA_END_DATE_LOT = "SELECT date_end, count(date_end) FROM lot " +
             "GROUP BY date_end ORDER BY date_end ASC";
+    public static final String QUERY_CHART_DATE_CREATE_USER = "SELECT create_date, count(create_date) FROM auth_info " +
+            "GROUP BY create_date ORDER BY create_date ASC";
     // Query lot
     public static final String QUERY_SELECT_ALL_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
     public static final String QUERY_SELECT_USER_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";

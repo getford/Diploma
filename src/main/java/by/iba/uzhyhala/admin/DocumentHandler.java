@@ -83,7 +83,7 @@ public class DocumentHandler extends HttpServlet {
                     new FileOutputStream(filePath));
            /* pdfWriter.setEncryption(
                     documentPassword.getBytes(Charset.forName("UTF-8")),
-                    VariablesUtil.PDF_OWNER_PASSWORD.getBytes(Charset.forName("UTF-8")),
+                    VariablesUtil.PDF_OWNER_PASSCODE.getBytes(Charset.forName("UTF-8")),
                     PdfWriter.ALLOW_COPY,
                     PdfWriter.ENCRYPTION_AES_128);*/
 

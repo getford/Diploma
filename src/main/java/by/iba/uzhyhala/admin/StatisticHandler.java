@@ -13,7 +13,7 @@ public class StatisticHandler {
 
     private Session session;
 
-    public String prepareChartDataFormat(String query) {
+    public String prepareChartDataFormat(String query) {    // return [date, count]
         LOGGER.debug(getClass().getName() + "\t" + " prepareChartDataFormat");
         try {
             session = HibernateUtil.getSessionFactory().openSession();
