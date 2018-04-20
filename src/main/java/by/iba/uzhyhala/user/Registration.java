@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.user;
 
+import by.iba.uzhyhala.api.IParseJson;
 import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.entity.PersonalInformationEntity;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.UUID;
 
 @WebServlet(urlPatterns = "/registration")
-public class Registration extends HttpServlet implements IParseJsonString {
+public class Registration extends HttpServlet implements IParseJson {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
 
     private Gson gson = new Gson();

@@ -49,11 +49,16 @@ public class LotHandler extends HttpServlet implements Serializable {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
-            boolean isLotAdd = addLot(session, req.getParameter("name_lot"), req.getParameter("info_lot"), req.getParameter("cost"),
-                    req.getParameter("blitz"), req.getParameter("step"), req.getParameter("date_start"), req.getParameter("time_start"), 1);
+            boolean isLotAdd = addLot(
+                    new CookieUtil(req).getUserUuidFromToken(),
+                    req.getParameter("name_lot"),
+                    req.getParameter("info_lot"),
+                    req.getParameter("cost"),
+                    req.getParameter("blitz"),
+                    req.getParameter("step"),
+                    req.getParameter("date_start"),
+                    req.getParameter("time_start"),
+                    1);
             if (isLotAdd)
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
             else {
@@ -63,15 +68,13 @@ public class LotHandler extends HttpServlet implements Serializable {
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     // TODO: id category
-    private boolean addLot(Session session, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
+    public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
         logger.debug(getClass().getName() + " addLot");
 
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime());
@@ -79,7 +82,7 @@ public class LotHandler extends HttpServlet implements Serializable {
         try {
             LotEntity lotEntity = new LotEntity();
             lotEntity.setUuid(uuidAddLot);
-            lotEntity.setUuidUserSeller(uuidUser);
+            lotEntity.setUuidUserSeller(uuidUserSeller);
             lotEntity.setName(name);
             lotEntity.setInformation(info);
             lotEntity.setCost(cost);
@@ -112,6 +115,10 @@ public class LotHandler extends HttpServlet implements Serializable {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             logger.error(e.getLocalizedMessage());
             return false;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
 
