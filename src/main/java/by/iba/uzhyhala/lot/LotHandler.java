@@ -138,7 +138,7 @@ public class LotHandler extends HttpServlet implements Serializable {
                 "      \"old_cost\": " + Integer.parseInt(cost) + ",\n" +
                 "      \"new_cost\": " + Integer.parseInt(cost) + ",\n" +
                 "      \"date\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
-                "      \"time\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime())) + "\"\n" +
+                "      \"time\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())) + "\"\n" +
                 "    }\n" +
                 "  ]\n" +
                 "}";

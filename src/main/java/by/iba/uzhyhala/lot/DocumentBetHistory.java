@@ -45,7 +45,7 @@ public class DocumentBetHistory extends HttpServlet {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         Document document = new Document(PageSize.A4);
-        String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_DOC).format(new Date()));
+        String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
         String documentPassword = String.valueOf(UUID.randomUUID()).substring(0, 8);
         String toEncode = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
 
@@ -90,7 +90,7 @@ public class DocumentBetHistory extends HttpServlet {
             document.open();
             document.add(new Paragraph("Auction Diploma"));
             document.add(new Paragraph("Bet history"));
-            document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE_TIME).format(new Date()))));
+            document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date()))));
 
             BarcodeQRCode barcodeQRCode = new BarcodeQRCode(toEncode, 1000, 1000, null);
             Image codeQrImage = barcodeQRCode.getImage();

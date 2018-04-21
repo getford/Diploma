@@ -1,6 +1,6 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.admin.DocumentHandler;
+import by.iba.uzhyhala.lot.LotControl;
 import org.apache.log4j.Logger;
 
 public class TestHibernate {
@@ -51,8 +51,10 @@ public class TestHibernate {
 /*        StatisticHandler statisticHandler = new StatisticHandler();
         statisticHandler.getStatisticAddLotForDay();*/
 
+/*
         DocumentHandler documentHandler = new DocumentHandler();
         documentHandler.generatePDF();
+*/
 
         //  new LotControl("").getHistoryBets();
 
@@ -74,5 +76,9 @@ public class TestHibernate {
 
         Thread thread = new Thread();
         thread.run();*/
+
+
+        LotControl lotControl = new LotControl("d83a7aa9-a099-46e1-94a9-af145ac54b8e");
+        lotControl.returnEndTime();
     }
 }

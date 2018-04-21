@@ -19,17 +19,40 @@
 
         List<LotEntity> lotInfoList = null;
         List<BetHistoryTO> betHistoryList = null;
+        String timeEnd = null;
         try {
+            betHistoryList = CommonUtil.getHistoryBets(request.getParameter("uuid"));
             lotControl = new LotControl(request.getParameter("uuid"));
             lotInfoList = lotControl.getLotInfoByUuid();
-            betHistoryList = CommonUtil.getHistoryBets(request.getParameter("uuid"));
+            timeEnd = lotControl.returnEndTime();
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
         }
 
     %>
+    <script type="text/javascript">
+        function timer() {
+            var obj = document.getElementById('timer_inp');
+            obj.innerHTML--;
+
+            if (obj.innerHTML == 0) {
+                alert('Hello');
+                setTimeout(function () {
+                }, 1000);
+            }
+            else {
+                setTimeout(timer, 1000);
+            }
+        }
+        setTimeout(timer, 1000);
+    </script>
 </head>
 <body>
+<div id="timer_inp"><%=timeEnd%></div>
+<hr/>
+<br/>
+<br/>
+<br/>
 <%
     assert lotInfoList != null;
     if (lotInfoList.size() != 0) {

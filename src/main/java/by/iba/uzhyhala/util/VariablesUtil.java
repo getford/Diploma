@@ -33,10 +33,11 @@ public final class VariablesUtil {
     // Date format pattern's
     public static final String PATTERN_DATE = "dd-MM-yyyy";
     public static final String PATTERN_DATE_REVERSE = "yyyy-MM-dd";
-    public static final String PATTERN_DATE_DOC = "dd.MM.yyyy";
-    public static final String PATTERN_TIME = "HH:mm:ss.SSS";
-    public static final String PATTERN_TIME_DOC = "HH:mm:ss";
-    public static final String PATTERN_DATE_TIME = "dd/MM/yyyy, HH:mm:ss.SSS";
+    public static final String PATTERN_DATE_WITH_DOT = "dd.MM.yyyy";
+    public static final String PATTERN_TIME_WITH_MILLISECONDS = "HH:mm:ss.SSS";
+    public static final String PATTERN_TIME = "HH:mm:ss";
+    public static final String PATTERN_FULL_DATE_TIME = "dd/MM/yyyy, HH:mm:ss.SSS";
+    public static final String PATTERN_FULL_REVERSE_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 
     // Cookie creds
     public static final String COOKIE_KEY = "a7fca695-ae2b-4aea-bc17-e62106e14c57";
