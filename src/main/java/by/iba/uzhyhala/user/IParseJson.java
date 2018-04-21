@@ -1,4 +1,4 @@
-package by.iba.uzhyhala.api;
+package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 

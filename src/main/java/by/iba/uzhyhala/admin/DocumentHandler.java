@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -27,6 +28,7 @@ import java.util.UUID;
 public class DocumentHandler extends HttpServlet {
     private static final Logger logger = Logger.getLogger(DocumentHandler.class);
 
+    private byte[] base64document;
     private List<LotEntity> list = new LotHandler().getLots(VariablesUtil.QUERY_SELECT_ALL_LOT);
     private String userName;
     private String tableHead;
@@ -109,12 +111,20 @@ public class DocumentHandler extends HttpServlet {
             document.add(new Paragraph("---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
             document.add(new Paragraph("Created by: " + userName));
+
             document.close();
+
             logger.info("PDF document successfully generated");
             logger.info("Password\t" + documentPassword);
         } catch (DocumentException | FileNotFoundException e) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             logger.error(e.getLocalizedMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    public byte[] getBase64document() {
+        return base64document;
     }
 }

@@ -297,9 +297,9 @@
 <script>
     $(document).ready(function () {
         // Content widget with background image
-        let imageUrl = $('img.content-bg-img').attr('src');
-        $('.templatemo-content-img-bg').css('background-image', 'url(' + imageUrl + ')');
-        $('img.content-bg-img').hide();
+        let imageUrl = $('index.content-bg-index').attr('src');
+        $('.templatemo-content-index-bg').css('background-image', 'url(' + imageUrl + ')');
+        $('index.content-bg-index').hide();
     });
 </script>
 <script>

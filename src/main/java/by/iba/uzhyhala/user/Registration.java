@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.user;
 
-import by.iba.uzhyhala.api.IParseJson;
 import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.entity.PersonalInformationEntity;
@@ -32,7 +31,6 @@ public class Registration extends HttpServlet implements IParseJson {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
 
     private Gson gson = new Gson();
-    ;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Override
