@@ -30,25 +30,34 @@
         }
 
     %>
-    <script type="text/javascript">
-        function timer() {
-            var obj = document.getElementById('timer_inp');
-            obj.innerHTML--;
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-            if (obj.innerHTML == 0) {
-                alert('Hello');
-                setTimeout(function () {
-                }, 1000);
-            }
-            else {
-                setTimeout(timer, 1000);
-            }
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
         }
-        setTimeout(timer, 1000);
+
+        window.onload = function () {
+            let fiveMinutes = document.getElementById("start_ticks").value,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+        };
     </script>
 </head>
 <body>
-<div id="timer_inp"><%=timeEnd%></div>
+<div>Lot closes in <span id="time"></span></div>
+<input type="hidden" value="<%=timeEnd%>" id="start_ticks">
 <hr/>
 <br/>
 <br/>
