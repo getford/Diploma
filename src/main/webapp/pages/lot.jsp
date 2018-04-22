@@ -33,22 +33,23 @@
     <script>
         function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
-            setInterval(function () {
+            setInterval(() => {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    timer = duration;
+                if (--timer < -1) {
+                    alert("LOT CLOSED");
+                }
+                else {
+                    display.textContent = minutes + ":" + seconds;
                 }
             }, 1000);
         }
 
-        window.onload = function () {
+        window.onload = () => {
             let fiveMinutes = document.getElementById("start_ticks").value,
                 display = document.querySelector('#time');
             startTimer(fiveMinutes, display);

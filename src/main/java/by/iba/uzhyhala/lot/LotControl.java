@@ -76,7 +76,7 @@ public class LotControl extends HttpServlet {
             long diff = secondsEnd - secondsNow;
 
             if (diff < 0)
-                LOGGER.error("  ERROR TIME      < 0     ");
+                return "CLOSED";
             else {
                 // TODO: show time on page format MM:ss
                 LocalTime timeOfDay = LocalTime.ofSecondOfDay(diff);
