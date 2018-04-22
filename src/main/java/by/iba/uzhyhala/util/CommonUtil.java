@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class CommonUtil {
             }
             return betHistoryTO;
         } catch (Exception ex) {
-            LOGGER.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getMessage());
             return null;
         }
     }
@@ -106,5 +107,38 @@ public class CommonUtil {
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
         return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime());
+    }
+
+    public static boolean updateLotStatus(String status, String uuid, HttpServletRequest request) {
+        LOGGER.info("updateLotStatus method");
+        Session session = null;
+        try {
+            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(session, uuid), BetBulkTO.class);
+            betBulkTO.setStatus(status);
+
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
+                    .setParameter("status", status)
+                    .setParameter("uuid", uuid)
+                    .executeUpdate();
+            session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
+                    .setParameter("newBulk", new Gson().toJson(betBulkTO))
+                    .setParameter("uuid", uuid)
+                    .executeUpdate();
+
+            // TODO: get user email
+            new MailUtil().sendMailChangeLotStatus("", uuid, status, request);
+            return true;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: updateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return false;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 }

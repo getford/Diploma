@@ -36,7 +36,7 @@ public class BetHandler extends HttpServlet implements Serializable {
         this.uuidLot = req.getParameter("uuid_lot");
         try {
             String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime()));
-            doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow), timeNow);
+            doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow, req), timeNow);
 
             resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidLot);
         } catch (Exception ex) {
@@ -45,7 +45,7 @@ public class BetHandler extends HttpServlet implements Serializable {
         }
     }
 
-    private String prepareDoBet(int bet, String timeNow) {
+    private String prepareDoBet(int bet, String timeNow, HttpServletRequest request) {
         LOGGER.info(getClass().getName() + " prepareDoBet method");
         BetBulkTO betBulkTO = gson.fromJson(CommonUtil.getJsonBetBulk(session, uuidLot), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
@@ -67,7 +67,7 @@ public class BetHandler extends HttpServlet implements Serializable {
             } else {
                 betBulkTO.setUuidClient(uuidUser);
                 betBulkTO.setStatus(VariablesUtil.STATUS_LOT_SALES);
-                updateLotStatus(VariablesUtil.STATUS_LOT_SALES);
+                CommonUtil.updateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
 
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
@@ -103,25 +103,6 @@ public class BetHandler extends HttpServlet implements Serializable {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             // return null;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    }
-
-    private void updateLotStatus(String status) {
-        LOGGER.info(getClass().getName() + " updateLotStatus method");
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
-                    .setParameter("status", status)
-                    .setParameter("uuid", uuidLot)
-                    .executeUpdate();
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            LOGGER.error(ex.getLocalizedMessage());
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

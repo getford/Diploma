@@ -4,6 +4,7 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.MailUtil" %>
+<%@ page import="java.net.URL" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,12 +15,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%
+        URL url = new URL(String.valueOf(request.getRequestURL()));
         CookieUtil cookieUtil = new CookieUtil(request);
         LotControl lotControl = null;
 
         List<LotEntity> lotInfoList = null;
         List<BetHistoryTO> betHistoryList = null;
         String timeEnd = null;
+        String host = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort();
         try {
             betHistoryList = CommonUtil.getHistoryBets(request.getParameter("uuid"));
             lotControl = new LotControl(request.getParameter("uuid"));
@@ -28,23 +31,29 @@
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
         }
-
     %>
     <script>
         function startTimer(duration, display) {
-            let timer = duration, minutes, seconds;
+            let timer = duration,
+                minutes, seconds;
+
+            let flag = true;
             setInterval(() => {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+                if (flag) {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                if (--timer < -1) {
-                    alert("LOT CLOSED");
-                }
-                else {
-                    display.textContent = minutes + ":" + seconds;
+                    if (--timer < -1) {
+                        requestToUpdateLot();
+                        alert("CLOSED");
+                        flag = false;
+                        display.textContent = "CLOSED";
+                    } else {
+                        display.textContent = minutes + ":" + seconds;
+                    }
                 }
             }, 1000);
         }
@@ -54,11 +63,24 @@
                 display = document.querySelector('#time');
             startTimer(fiveMinutes, display);
         };
+
+        function requestToUpdateLot() {
+            $.ajax({
+                crossDomain: true,
+                type: "GET",
+                url: document.getElementById("host").value + "/status?uuid=" + document.getElementById("_uuid_lot").value,
+                success: (s) => {
+                    console.log(s);
+                }
+            });
+        }
     </script>
 </head>
 <body>
-<div>Lot closes in <span id="time"></span></div>
+<span id="time"></span>
 <input type="hidden" value="<%=timeEnd%>" id="start_ticks">
+<input type="hidden" value="<%=host%>" id="host">
+<input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
 <hr/>
 <br/>
 <br/>
@@ -112,11 +134,14 @@
                         </thead>
                         <%
                             assert betHistoryList != null;
-                            for (int i = 1; i < betHistoryList.size(); i++) {
-                                String name = betHistoryList.get(i).getUserName();
-                                String bet = String.valueOf(betHistoryList.get(i).getBet());
-                                String dateBet = betHistoryList.get(i).getDate();
-                                String timeBet = betHistoryList.get(i).getTime();
+                            for (int i = 0; i < betHistoryList.size(); i++) {
+                                if (i == 0)
+                                    continue;
+                                else {
+                                    String name = betHistoryList.get(i).getUserName();
+                                    String bet = String.valueOf(betHistoryList.get(i).getBet());
+                                    String dateBet = betHistoryList.get(i).getDate();
+                                    String timeBet = betHistoryList.get(i).getTime();
                         %>
                         <tbody id="betHistory">
                         <tr>
@@ -131,6 +156,7 @@
                         </tr>
                         </tbody>
                         <%
+                                }
                             }
                         %>
                     </table>
