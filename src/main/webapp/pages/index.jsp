@@ -1,554 +1,214 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Index - Auction Diploma</title>
-    <!-- Behavioral Meta Data -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="icon" type="image/png" href="/resources/images/index/small-logo-01.png">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,900italic,700italic,700,500italic,400italic,500,300italic,300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='/resources/css/indexpage.css' rel='stylesheet' type='text/css'>
-
-    <!-- SCRIPT -->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/jquery.scrollTo.min.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/jquery.localScroll.min.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/jquery-animate-css-rotate-scale.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/fastclick.min.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/jquery.animate-colors-min.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/jquery.animate-shadow-min.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/main.js"></script>
-    <script type="text/javascript" src="/resources/scripts/index/jquery.js.js"></script>
-
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description"
+          content="Minima is a minimal, clean HTML5 multi-purpose template, well-coded & commented code"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/index/reset.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/index/main.css">
+    <script type="text/javascript" src="/resources/scripts/index/jquery.js"></script>
+    <script type="text/javascript" src="/resources/scripts/index/main_head.js"></script>
 </head>
-
 <body>
 
-<a name="ancre"></a>
+<header>
 
-<!-- CACHE -->
-<div class="cache"></div>
-
-<!-- HEADER -->
-
-<div id="wrapper-header">
-    <div id="main-header" class="object">
-        <div class="logo"><img src="/resources/images/index/logo-burst.png" alt="logo platz" height="38" width="90"></div>
-        <div id="main_tip_search">
-            <form>
-                <input type="text" name="search" id="tip_search_input" list="search" autocomplete=off required>
-            </form>
-        </div>
-        <div id="stripes"></div>
+    <div class="wrapper">
+        <a href="#" class="logo"> <img src="/resources/images/index/logo.png" alt="" title="Minima"/> </a>
+        <nav>
+            <ul>
+                <li><a href="">Services</a></li>
+                <li><a href="">Our Story</a></li>
+                <li><a href="">Work</a></li>
+                <li><a href="">Journal</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+
+</header><!-- End Header -->
+
+<section class="billboard">
+    <section class="caption">
+        <p class="cap_title">Minima Clean & Minimal Template</p>
+        <p class="cap_desc">excepteur sint occaecat cupidatat non proident</p>
+        <a href="#">Start here <i></i></a>
+    </section>
+</section><!-- End billboard -->
+
+<!--	<section class="services wrapper">
+		<ul>
+			<li>
+				<index class="s_icons" src="/index/s1_icon.png" title="" alt=""/>
+				<h3>Duis aute irure</h3>
+				<p>Excepteur sint occaecat cupi datat non it proident, sunt in culpa qui officia dese runtorn mollit anim id est laborum.</p>
+			</li>
+			<li>
+				<index class="s_icons" src="/index/s2_icon.png" title="" alt=""/>
+				<h3>Duis aute irure</h3>
+				<p>Excepteur sint occaecat cupi datat non it proident, sunt in culpa qui officia dese runtorn mollit anim id est laborum.</p>
+			</li>
+			<li>
+				<index class="s_icons" src="/index/s3_icon.png" title="" alt=""/>
+				<h3>Duis aute irure</h3>
+				<p>Excepteur sint occaecat cupi datat non it proident, sunt in culpa qui officia dese runtorn mollit anim id est laborum.</p>
+			</li>
+		</ul>
+	</section> End services -->
+
+
+<!-- <section class="video wrapper">
+    <h3>sunt in culpa qui officia deserunt mollit</h3>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="ex_video">
+        <a href="#"><index src="/index/video.jpg" alt="" title=""/></a>
+    </div>
+</section>	End video -->
+<br/><br/>
+<section class="recent_work wrapper">
+    <h3 class="S_title">Recent Work</h3>
+
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project
+            <i></i>
+        </a>
+    </div>
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project 2
+            <i></i>
+        </a>
+    </div>
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project 3
+            <i></i>
+        </a>
+    </div>
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project 4
+            <i></i>
+        </a>
+    </div>
+</section>
+<section class="recent_work wrapper">
+
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project
+            <i></i>
+        </a>
+    </div>
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project 2
+            <i></i>
+        </a>
+    </div>
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project 3
+            <i></i>
+        </a>
+    </div>
+    <div class="work">
+        <a href="#" class="work_img">
+            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        </a>
+        <a href="#" class="work_title">
+            Brand Project 4
+            <i></i>
+        </a>
+    </div>
+</section><!-- End recent_work -->
+
+
+<section class="subscription">
+    <div class="wrapper">
+        <p class="title">join our subscribers.</p>
+        <p class="desc">10 000 sint occaecat cupidatat non proident sunt in culpa qui officia.</p>
+        <a href="#" class="start_btn">Click here to subscribe</a>
+    </div>
+</section><!-- End subscription -->
+
+
+<section class="social">
+    <a href="http://facebook.com/pixelhint" target="_blank" class="fb"></a>
+    <a href="http://twitter.com/pixelhint" target="_blank" class="t"></a>
+    <a href="http://dribbble.com/pixelhint" target="_blank" class="d"></a>
+    <a href="#" target="_blank" class="g"></a>
+</section><!-- End social -->
+
+
+<footer>
+    <div class="wrapper">
+        <div class="f_cols">
+            <h3>Location</h3>
+            <p>1401 South Grand Avenue Los Angeles, CA 90015 <span class="phone">(213) 748-2411</span></p>
+            <a href="#" class="map">see it in the map <span class="arrow">&nbsp;&rarr;</span></a>
+        </div>
+
+        <div class="f_cols">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Mission</a></li>
+                <li><a href="#">Journal</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="f_cols">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Policies</a></li>
+            </ul>
+        </div>
+
+        <div class="f_cols">
+            <h3>Minima.</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Template made by <a href="http://pixelhint.com" target="_blank">pixelhint.com</a></p>
+        </div>
+
+
+    </div>
+</footer><!-- End footer -->
+
+<div id="lightbox"></div>
+<div id="box">
+    <a href="" class="close"></a>
+    <form method="" action="">
+        <input type="text" id="email" placeholder="Email"/>
+        <input type="text" id="name" placeholder="Name"/>
+        <input type="submit" id="submit" value="Subscribe Now"/>
+    </form>
 </div>
-
-<!-- NAVBAR -->
-
-<div id="wrapper-navbar">
-    <div class="navbar object">
-        <div id="wrapper-sorting">
-            <div id="wrapper-title-1">
-                <div class="top-rated object">Top-rated</div>
-                <div id="fleche-nav-1"></div>
-            </div>
-
-            <div id="wrapper-title-2">
-                <a href="#"><div class="recent object">Recent</div></a>
-                <div id="fleche-nav-2"></div>
-            </div>
-
-            <div id="wrapper-title-3">
-                <a href="#"><div class="oldies object">Oldies</div></a>
-                <div id="fleche-nav-3"></div>
-            </div>
-        </div>
-        <div id="wrapper-bouton-icon">
-            <div id="bouton-ai"><img src="/resources/images/index/icon-ai.svg" alt="illustrator" title="Illustrator" height="28" width="28"></div>
-            <div id="bouton-psd"><img src="/resources/images/index/icon-psd.svg" alt="photoshop" title="Photoshop" height="28" width="28"></div>
-            <div id="bouton-theme"><img src="/resources/images/index/icon-themes.svg" alt="theme" title="Theme" height="28" width="28"></div>
-            <div id="bouton-font"><img src="/resources/images/index/icon-font.svg" alt="font" title="Font" height="28" width="28"></div>
-            <div id="bouton-photo"><img src="/resources/images/index/icon-photo.svg" alt="photo" title="Photo" height="28" width="28"></div>
-            <div id="bouton-premium"><img src="/resources/images/index/icon-premium.svg" alt="premium" title="Premium" height="28" width="28"></div>
-        </div>
-    </div>
-</div>
-
-<!-- FILTER -->
-
-<div id="main-container-menu" class="object">
-    <div class="container-menu">
-
-        <div id="main-cross">
-            <div id="cross-menu"></div>
-        </div>
-
-        <div id="main-small-logo">
-            <div class="small-logo"></div>
-        </div>
-
-        <div id="main-premium-ressource">
-            <div class="premium-ressource"><a href="#">Premium resources</a></div>
-        </div>
-
-        <div id="main-themes">
-            <div class="themes"><a href="#">Latest themes</a></div>
-        </div>
-
-        <div id="main-psd">
-            <div class="psd"><a href="#">PSD goodies</a></div>
-        </div>
-
-        <div id="main-ai">
-            <div class="ai"><a href="#">Illustrator freebies</a></div>
-        </div>
-
-        <div id="main-font">
-            <div class="font"><a href="#">Free fonts</a></div>
-        </div>
-
-        <div id="main-photo">
-            <div class="photo"><a href="#">Free stock photos</a></div>
-        </div>
-
-    </div>
-</div>
-
-
-<!-- PORTFOLIO -->
-
-<div id="wrapper-container">
-
-    <div class="container object">
-
-        <div id="main-container-image">
-
-            <section class="work">
-
-                <figure class="white">
-                    <a href="details.html">
-                        <img src="/resources/images/index/psd-4.jpg" alt="" />
-                        <dl>
-                            <dt>Wordpress theme</dt>
-                            <dd>Symphony is a responsive one page website template designed with sketches and coded with html5 and php. Freebie released by Lacoste Xavier.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Wordpress theme</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/font-1.jpg" alt="" />
-                        <dl>
-                            <dt>Free font</dt>
-                            <dd>Bavro is a minimal free font best suitable for posters and headlines. Designed and released by Marcelo Melo.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-font.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Free font</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/psd-1.jpg" alt="" />
-                        <dl>
-                            <dt>PSD Goodies</dt>
-                            <dd>A set of high resolution iPhone 6 and Nexus 5 mockups created with smart objects. Free PSD released by Ghani Pradita.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">PSD Goodies</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/psd-2.jpg" alt="" />
-                        <dl>
-                            <dt>PSD Goodies</dt>
-                            <dd>A set of 4 free photorealistic Nexus 5 mockups providing smart objects. Free PSD released by Craftwork.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">PSD Goodies</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/ai-1.jpg" alt="" />
-                        <dl>
-                            <dt>Illustrator freebies</dt>
-                            <dd>A set of 6 outline beer icons created with Adobe Illustrator. Free Ai designed and released by Justas Galaburda.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-ai.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Illustrator Freebies</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/theme-2.jpg" alt="" />
-                        <dl>
-                            <dt>Html theme</dt>
-                            <dd>Symphony is a responsive one page website template designed with sketches and coded with html5 and php. Freebie released by Lacoste Xavier.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-themes.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Html theme</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/psd-3.jpg" alt="" />
-                        <dl>
-                            <dt>PSD goodies</dt>
-                            <dd>A set of 9 high-quality Apple Watch mockups created with Photoshop smart objects. Free PSD released by Samuel Medvedowsky.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">PSD Goodies</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/font-2.jpg" alt="" />
-                        <dl>
-                            <dt>Free font</dt>
-                            <dd>Beyno is a free uppercase font with a futuristic feel and look. Designed and released by Fabian Korn.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-font.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Free font</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/font-3.jpg" alt="" />
-                        <dl>
-                            <dt>Wordpress theme</dt>
-                            <dd>Symphony is a responsive one page website template designed with sketches and coded with html5 and php. Freebie released by Lacoste Xavier.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-font.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Wordpress theme</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/ai-2.jpg" alt="" />
-                        <dl>
-                            <dt>Illustrator icons</dt>
-                            <dd>A set of 16 outline space icons created with Adobe Illustrator. Free Ai designed and released by Justas Galaburda.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-ai.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Illustrator icons</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/icons-1.jpg" alt="" />
-                        <dl>
-                            <dt>PSD icons</dt>
-                            <dd>Grap is a set of 9 simple but coloured icons created with Photoshop. Free PSD released by kamran bhatti.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">PSD icons</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/ui-1.jpg" alt="" />
-                        <dl>
-                            <dt>UI design</dt>
-                            <dd>Acess to our largest database of the web about the ui and look into a ton of professionnal tools</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-premium.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Premium ui</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/font-5.jpg" alt="" />
-                        <dl>
-                            <dt>Free font</dt>
-                            <dd>A set of 6 outline beer icons created with Adobe Illustrator. Free Ai designed and released by Justas Galaburda.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-font.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Free font</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/theme-2.jpg" alt="" />
-                        <dl>
-                            <dt>Html theme</dt>
-                            <dd>Symphony is a responsive one page website template designed with sketches and coded with html5 and php. Freebie released by Lacoste Xavier.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-themes.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Html theme</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/psd-5.jpg" alt="" />
-                        <dl>
-                            <dt>PSD mockup</dt>
-                            <dd>A very detailed Macbook Air mockup created with Photoshop and providing smart objects. Free PSD released by Barin Cristian.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">PSD mockup</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/icons-3.jpg" alt="" />
-                        <dl>
-                            <dt>PSD icons</dt>
-                            <dd>A set of 16 hand gestures icons you may find useful for your projects. Free PSD released by Rovane Durso.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-psd.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">PSD icons</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/font-4.jpg" alt="" />
-                        <dl>
-                            <dt>Free font</dt>
-                            <dd>Julep is an elegant and modern free font released in vector formats (Ai, EPS and PDF). Designed and released by Jeremy Ross.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-font.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Free font</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/theme-3.jpg" alt="" />
-                        <dl>
-                            <dt>HTML theme</dt>
-                            <dd>Gorgo is a free HTML portfolio template for freelancers, photographers, agencies, designers and other creative fields. Designed and released by Aristothemes.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-themes.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">HTML theme</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/font-6.jpg" alt="" />
-                        <dl>
-                            <dt>Free font</dt>
-                            <dd>REEF is a rounded font free for commercial and personal use. It's strength lies in simplicity and construction.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-font.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">Free font</div>
-                    </div>
-                </figure>
-
-                <figure class="white">
-                    <a href="#">
-                        <img src="/resources/images/index/theme-4.jpg" alt="" />
-                        <dl>
-                            <dt>HTML theme</dt>
-                            <dd>ActiveBox is a free responsive HTML template featured by clean and minimalistic design. Designed and coded by Kamal Chaneman.</dd>
-                        </dl>
-                    </a>
-                    <div id="wrapper-part-info">
-                        <div class="part-info-image"><img src="/resources/images/index/icon-themes.svg" alt="" width="28" height="28"/></div>
-                        <div id="part-info">HTML theme</div>
-                    </div>
-                </figure>
-
-            </section>
-
-        </div>
-
-    </div>
-
-    <div id="wrapper-oldnew">
-        <div class="oldnew">
-            <div class="wrapper-oldnew-prev">
-                <div id="oldnew-prev"></div>
-            </div>
-            <div class="wrapper-oldnew-next">
-                <div id="oldnew-next"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="wrapper-thank">
-        <div class="thank">
-            <div class="thank-text">pl<span style="letter-spacing:-5px;">a</span>tz</div>
-        </div>
-    </div>
-
-    <div id="main-container-footer">
-        <div class="container-footer">
-
-            <div id="row-1f">
-                <div class="text-row-1f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">What is Platz</span><br>Platz is a blog showcasing hand-picked free themes, design stuff, free fonts and other resources for web designers.</div>
-            </div>
-
-            <div id="row-2f">
-                <div class="text-row-2f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">How does it work</span><br>Platz offers you all the latest freebies found all over the fourth corners without to pay.</div>
-            </div>
-
-            <div id="row-3f">
-                <div class="text-row-3f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">Get in touch!</span><br>Subscribe our RSS or follow us on Facebook, Google+, Pinterest or Dribbble to keep updated.</div>
-            </div>
-
-            <div id="row-4f">
-                <div class="text-row-4f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">Newsletter</span><br>You will be informed monthly about the latest content avalaible.</div>
-
-                <div id="main_tip_newsletter">
-                    <form>
-                        <input type="text" name="newsletter" id="tip_newsletter_input" list="newsletter" autocomplete=off required>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div id="wrapper-copyright">
-        <div class="copyright">
-            <div class="copy-text object">Copyright © 2016. Template by <a style="color:#D0D1D4;" href="https://dcrazed.com/">Dcrazed</a></div>
-
-            <div class="wrapper-navbouton">
-                <div class="google object">g</div>
-                <div class="facebook object">f</div>
-                <div class="linkin object">i</div>
-                <div class="dribbble object">d</div>
-            </div>
-        </div>
-    </div>
-
-</div>
-<script>
-    /* PRELOADER */
-
-    function preloader() {
-        if (document.images) {
-            let img1 = new Image();
-            let img2 = new Image();
-            let img3 = new Image();
-            let img4 = new Image();
-            let img5 = new Image();
-            let img6 = new Image();
-            let img7 = new Image();
-            let img8 = new Image();
-            let img9 = new Image();
-            let img10 = new Image();
-            let img11 = new Image();
-            let img12 = new Image();
-            let img13 = new Image();
-            let img14 = new Image();
-            let img15 = new Image();
-            let img16 = new Image();
-            let img17 = new Image();
-            let img18 = new Image();
-            let img19 = new Image();
-            let img20 = new Image();
-
-            img1.src = "index/psd-4.jpg";
-            img2.src = "index/font-1.jpg";
-            img3.src = "index/psd-1.jpg";
-            img4.src = "index/psd-2.jpg";
-            img5.src = "index/ai-1.jpg";
-            img6.src = "index/theme-2.jpg";
-            img7.src = "index/psd-3.jpg";
-            img8.src = "index/font-2.jpg";
-            img9.src = "index/font-3.jpg";
-            img10.src = "index/ai-2.jpg";
-            img11.src = "index/icons-1.jpg";
-            img12.src = "index/ui-1.jpg";
-            img13.src = "index/font-5.jpg";
-            img14.src = "index/theme-2.jpg";
-            img15.src = "index/psd-5.jpg";
-            img16.src = "index/icons-3.jpg";
-            img17.src = "index/font-4.jpg";
-            img18.src = "index/theme-3.jpg";
-            img19.src = "index/font-6.jpg";
-            img20.src = "index/theme-4.jpg";
-        }
-    }
-    function addLoadEvent(func) {
-        let oldonload = window.onload;
-        if (typeof window.onload != 'function') {
-            window.onload = func;
-        } else {
-            window.onload = function() {
-                if (oldonload) {
-                    oldonload();
-                }
-                func();
-            }
-        }
-    }
-    addLoadEvent(preloader);
-
-</script>
 </body>
 </html>
-
-<%--
-</head>
-<body>
-<br/>
-<a href="/pages/auth.jsp">auth</a>
-<br/>
-<form action="/logout" method="post">
-    <a href="#">logout</a>
-</form>
-<br/>
-</body>
-</html>--%>

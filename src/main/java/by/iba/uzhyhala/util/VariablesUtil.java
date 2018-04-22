@@ -36,7 +36,8 @@ public final class VariablesUtil {
     public static final String PATTERN_DATE_WITH_DOT = "dd.MM.yyyy";
     public static final String PATTERN_TIME_WITH_MILLISECONDS = "HH:mm:ss.SSS";
     public static final String PATTERN_TIME = "HH:mm:ss";
-    public static final String PATTERN_FULL_DATE_TIME = "dd/MM/yyyy, HH:mm:ss.SSS";
+    public static final String PATTERN_FULL_DATE_TIME_WITH_MILLISECONDS = "dd/MM/yyyy, HH:mm:ss.SSS";
+    public static final String PATTERN_FULL_DATE_TIME = "dd/MM/yyyy, HH:mm:ss";
     public static final String PATTERN_FULL_REVERSE_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 
     // Cookie creds

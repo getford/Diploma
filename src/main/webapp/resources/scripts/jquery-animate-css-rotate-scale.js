@@ -91,7 +91,7 @@
     
     /*
     
-    Starting on line 3905 of jquery-1.3.2.js we have this code:
+    Starting on line 3905 of jquery-1.3.2.index we have this code:
     
     // We need to compute starting value
     if ( unit != "px" ) {

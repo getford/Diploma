@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 public class LotStatus extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotStatus.class);
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.debug(prepareUpdateStatus(req.getParameter("uuid"), req));

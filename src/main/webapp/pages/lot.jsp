@@ -39,6 +39,8 @@
 
             let flag = true;
             setInterval(() => {
+                if (!flag)
+                    document.getElementById("btn-do-bet").disabled = true;
                 if (flag) {
                     minutes = parseInt(timer / 60, 10);
                     seconds = parseInt(timer % 60, 10);
@@ -48,6 +50,9 @@
 
                     if (--timer < -1) {
                         requestToUpdateLot();
+                        document.getElementById("btn-do-bet").hidden = true;
+                        document.getElementById("input-cost-bet").hidden = true;
+                        document.getElementById('div-sale').style.display = 'block';
                         alert("CLOSED");
                         flag = false;
                         display.textContent = "CLOSED";
@@ -106,9 +111,10 @@
 <hr/>
 <form action="/bethandler" method="post">
     <h3>Сделать ставку</h3>
+    <span id="div-sale" style="display: none;">ПРОДАНО</span>
     <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-    <input type="text" name="cost" placeholder="min bet ">
-    <button type="submit" name="do_bet">Сделать ставку</button>
+    <input id="input-cost-bet" type="text" name="cost" placeholder="min bet ">
+    <button id="btn-do-bet" type="submit" name="do_bet">Сделать ставку</button>
 </form>
 <br/>
 <div class="container">
