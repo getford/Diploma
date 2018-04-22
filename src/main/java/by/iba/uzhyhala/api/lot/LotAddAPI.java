@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/api/infolot")
+@WebServlet(urlPatterns = "/api/lot/info")
 public class LotAddAPI extends HttpServlet {
     private static final Logger logger = Logger.getLogger(LotAddAPI.class);
     private Session session = null;

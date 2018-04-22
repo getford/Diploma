@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns = "/api/addlot")
+@WebServlet(urlPatterns = "/api/lot/add")
 public class LotHandlerAPI extends HttpServlet {
     private static final Logger logger = Logger.getLogger(LotHandlerAPI.class);
 
