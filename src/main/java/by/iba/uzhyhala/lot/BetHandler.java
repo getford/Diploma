@@ -102,7 +102,6 @@ public class BetHandler extends HttpServlet implements Serializable {
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
-            // return null;
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

@@ -41,8 +41,8 @@
             <ul>
                 <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a></li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
-                <li><a href="">Work</a></li>
-                <li><a href="">Journal</a></li>
+                <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
+                <li><a href="/pages/admin.jsp">Админ</a></li>
                 <li><a href="">Обратная связь</a></li>
             </ul>
         </nav>

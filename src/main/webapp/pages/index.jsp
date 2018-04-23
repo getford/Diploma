@@ -35,8 +35,8 @@
             <ul>
                 <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a></li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
-                <li><a href="">Work</a></li>
-                <li><a href="">Journal</a></li>
+                <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
+                <li><a href="/pages/admin.jsp">Админ</a></li>
                 <li><a href="">Обратная связь</a></li>
             </ul>
         </nav>
@@ -48,7 +48,7 @@
     <section class="caption">
         <p class="cap_title">Аукцион услуг</p>
         <p class="cap_desc">Скоро тут будет шикар...подожди-подожди...ная площадка для торгов</p>
-        <a href="#">Начнём <i></i></a>
+        <a href="#start">Начнём <i></i></a>
     </section>
 </section><!-- End billboard -->
 
@@ -83,6 +83,7 @@
 <br/><br/>
 <section class="recent_work wrapper">
     <h3 class="S_title">Новые лоты</h3>
+    <input type="hidden" id="start">
 
     <div class="work">
         <a href="#" class="work_img">
