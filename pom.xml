@@ -6,7 +6,7 @@
     <artifactId>auction</artifactId>
 
     <packaging>war</packaging>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
     <name>Diploma project Auction</name>
 
     <properties>

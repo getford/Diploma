@@ -82,6 +82,6 @@ public class TestHibernate {
         lotControl.returnEndTime();*/
 
         StatisticHandler statisticHandler = new StatisticHandler();
-        statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_END_DATE_LOT);
+        System.err.println(statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_END_DATE_LOT));
     }
 }

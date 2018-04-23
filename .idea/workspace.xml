@@ -77,14 +77,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StatisticHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StatisticHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+            <state relative-caret-position="231">
+              <caret line="28" column="72" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -93,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="370">
-              <caret line="84" column="93" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="93" />
+              <caret line="84" column="111" selection-start-line="84" selection-start-column="111" selection-end-line="84" selection-end-column="111" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,7 +113,7 @@
       <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
+            <state relative-caret-position="216">
               <caret line="119" column="13" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -114,6 +123,15 @@
                 <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
                 <element signature="method#updateLotStatus#0;class#CommonUtil#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -245,7 +263,6 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAddAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
@@ -259,8 +276,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -792,7 +810,7 @@
       <workItem from="1524362759162" duration="7185000" />
       <workItem from="1524373495959" duration="1148000" />
       <workItem from="1524374896567" duration="489000" />
-      <workItem from="1524381871291" duration="17569000" />
+      <workItem from="1524381871291" duration="18109000" />
     </task>
     <servers />
   </component>
@@ -829,7 +847,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242773000" />
+    <option name="totallyTimeSpent" value="243313000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -858,7 +876,7 @@
       <window_info anchor="right" id="JSF" order="3" weight="0.3297568" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.24964234" />
       <window_info id="UI Designer" order="1" />
-      <window_info active="true" anchor="bottom" id="Debug" order="14" sideWeight="0.61587983" visible="true" weight="0.35030302" />
+      <window_info anchor="bottom" id="Debug" order="14" sideWeight="0.61587983" visible="true" weight="0.35030302" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32848486" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49928468" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -870,7 +888,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="5" sideWeight="0.49499285" weight="0.37454545" />
       <window_info id="Persistence" order="3" sideWeight="0.53249097" side_tool="true" weight="0.3040057" />
       <window_info anchor="bottom" id="Database Console" order="6" sideWeight="0.49570817" weight="0.32848486" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.46750903" visible="true" weight="0.25107297" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.46750903" visible="true" weight="0.25107297" />
       <window_info anchor="right" id="Bean Validation" order="6" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.50423217" side_tool="true" weight="0.24606581" />
       <window_info anchor="bottom" id="SonarLint" order="0" weight="0.40242425" />
@@ -983,20 +1001,8 @@
           <properties />
           <option name="timeStamp" value="275" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java</url>
-          <line>73</line>
-          <properties />
-          <option name="timeStamp" value="312" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="317" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="318" />
+      <option name="time" value="321" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1017,7 +1023,7 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string />
+        <expression-string>dataForChart.substring(0, dataForChart.length() - 1)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1042,7 +1048,7 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + &quot;:00&quot;</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1052,7 +1058,7 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>CommonUtil.getHistoryBets(uuidLot).size() == 1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1173,13 +1179,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
           <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1365,13 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="96" column="67" lean-forward="true" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3738">
@@ -1459,9 +1451,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="28" column="72" selection-start-line="28" selection-start-column="72" selection-end-line="28" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="84" column="111" selection-start-line="84" selection-start-column="111" selection-end-line="84" selection-end-column="111" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
+        <state relative-caret-position="216">
           <caret line="119" column="13" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1474,23 +1493,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="84" column="93" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
