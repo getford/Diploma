@@ -21,11 +21,15 @@ public class StatisticHandler {
 
             List<Object[]> list = session.createSQLQuery(query).list();
             StringBuilder dataForChart = new StringBuilder();
+            String export = null;
             for (Object[] record : list) {
-                dataForChart.append("[\"").append(record[0]).append("\",").append(record[1]).append("],");
+                if (!String.valueOf(record[0]).equals("null"))
+                    dataForChart.append("[\"").append(record[0]).append("\",").append(record[1]).append("],");
+                else
+                    export = dataForChart.substring(0, dataForChart.length() - 1);
             }
-            LOGGER.debug(getClass().getName() + "\t" + dataForChart.substring(0, dataForChart.length() - 1));
-            return dataForChart.substring(0, dataForChart.length() - 1);
+            LOGGER.debug(getClass().getName() + "\t" + export);
+            return export;
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
