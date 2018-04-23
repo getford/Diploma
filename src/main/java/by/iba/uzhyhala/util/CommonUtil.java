@@ -33,6 +33,28 @@ public class CommonUtil {
         return result;
     }
 
+    public static String getUserLoginByUUID(String uuid) {
+        LOGGER.info("getUserLoginByUUID method");
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            String result = session.createQuery("SELECT a.login FROM " + VariablesUtil.ENTITY_AUTH_INFO
+                    + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
+            LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
+            return result;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return null;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
     public static String getUUIDUserByUUIDLot(Session session, String uuidLot) {
         String result = session.createSQLQuery("SELECT uuid_user_seller FROM lot WHERE uuid = '" + uuidLot + "'").list().get(0).toString();
         LOGGER.debug(CommonUtil.class.getName() + " getUUIDUserByUUIDLot return: " + result);
@@ -106,7 +128,7 @@ public class CommonUtil {
     public static String getLotDateEnd(String start, String plusSec) {
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
-        return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime());
+        return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
     }
 
     public static boolean updateLotStatus(String status, String uuid, HttpServletRequest request) {

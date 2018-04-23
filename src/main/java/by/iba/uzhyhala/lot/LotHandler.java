@@ -48,16 +48,18 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        String timeStart = req.getParameter("time_start") + ":00";
         try {
+            this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             boolean isLotAdd = addLot(
-                    new CookieUtil(req).getUserUuidFromToken(),
+                    uuidUser,
                     req.getParameter("name_lot"),
                     req.getParameter("info_lot"),
                     req.getParameter("cost"),
                     req.getParameter("blitz"),
                     req.getParameter("step"),
                     req.getParameter("date_start"),
-                    req.getParameter("time_start"),
+                    timeStart,
                     1);
             if (isLotAdd)
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
@@ -104,7 +106,7 @@ public class LotHandler extends HttpServlet implements Serializable {
 
             BetEntity betEntity = new BetEntity();
             betEntity.setUuid(uuidAddLot);
-            betEntity.setBulk(prepareBetBulk(uuidUser, uuidAddLot, lotEntity.getStatus(), cost, blitz, step));
+            betEntity.setBulk(prepareBetBulk(uuidUserSeller, uuidAddLot, lotEntity.getStatus(), cost, blitz, step));
 
             session.save(lotEntity);
             session.save(betEntity);

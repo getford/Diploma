@@ -284,8 +284,7 @@
                 </ul>
             </div>
             <footer class="text-right">
-                <p>Copyright &copy; 2084 Company Name
-                    | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                <p>Copyright &copy; 2018 Uladzimir Zhyhala inc.</p>
             </footer>
         </div>
     </div>

@@ -24,7 +24,7 @@ public final class VariablesUtil {
     public static final String STATUS_LOT_CLOSE = "close";
 
     // Email cred
-    static final String EMAIL_SUPPORT = "auction.diploma@gmail.com";
+    public static final String EMAIL_SUPPORT = "auction.diploma@gmail.com";
     static final String EMAIL_SUPPORT_PASSCODE = "diploma1234auction";
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
