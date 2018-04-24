@@ -3,6 +3,7 @@ package by.iba.uzhyhala.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.Cookie;
@@ -42,11 +43,15 @@ public class CookieUtil {
     }
 
     public String getUserUuidFromToken() throws IOException {
-        Jws<Claims> jws = Jwts.parser()
-                .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
-                .parseClaimsJws(token);
+        if (!StringUtils.isBlank(token)) {
+            Jws<Claims> jws = Jwts.parser()
+                    .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
+                    .parseClaimsJws(token);
 
-        return String.valueOf(jws.getBody().get("uuid"));
+            return String.valueOf(jws.getBody().get("uuid"));
+        } else {
+            return "Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found";
+        }
     }
 
     private String getRoleFromToken() throws UnsupportedEncodingException {

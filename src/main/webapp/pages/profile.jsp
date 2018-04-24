@@ -125,7 +125,7 @@
                                 <th>Date end</th>
                                 <th>Time start</th>
                                 <th>Time end</th>
-                                <th>Control</th>
+                                <%--<th>Control</th>--%>
                             </tr>
                             </thead>
                             <%
