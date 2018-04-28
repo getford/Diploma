@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +22,7 @@ public class LotAllAPI extends HttpServlet {
     private Session session = null;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             List<LotAllAPI> to = session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT).list();

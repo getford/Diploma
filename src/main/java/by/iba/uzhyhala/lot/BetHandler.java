@@ -67,7 +67,7 @@ public class BetHandler extends HttpServlet implements Serializable {
             } else {
                 betBulkTO.setUuidClient(uuidUser);
                 betBulkTO.setStatus(VariablesUtil.STATUS_LOT_SALES);
-                CommonUtil.updateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
+                CommonUtil.isUpdateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
 
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);

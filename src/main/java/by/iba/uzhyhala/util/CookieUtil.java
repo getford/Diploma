@@ -50,7 +50,8 @@ public class CookieUtil {
 
             return String.valueOf(jws.getBody().get("uuid"));
         } else {
-            return "Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found";
+            logger.info("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
+            return null;
         }
     }
 

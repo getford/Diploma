@@ -33,7 +33,7 @@
                                                       title="Auction Diploma Project"/> --%></a>
         <nav>
             <ul>
-                <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a></li>
+                <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a>(<%=userLogin%>)</li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
                 <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
                 <li><a href="/pages/admin.jsp">Админ</a></li>

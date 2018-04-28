@@ -131,8 +131,8 @@ public class CommonUtil {
         return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
     }
 
-    public static boolean updateLotStatus(String status, String uuid, HttpServletRequest request) {
-        LOGGER.info("updateLotStatus method");
+    public static boolean isUpdateLotStatus(String status, String uuid, HttpServletRequest request) {
+        LOGGER.info("isUpdateLotStatus method");
         Session session = null;
         try {
             BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(session, uuid), BetBulkTO.class);
@@ -154,7 +154,29 @@ public class CommonUtil {
             new MailUtil().sendMailChangeLotStatus("", uuid, status, request);
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: updateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return false;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    public static boolean isUserHaveApiKey(String uuid) {
+        LOGGER.info("isUserHaveApiKey method");
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            return session
+                    .createQuery("SELECT a.api_key FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+                    .setParameter("uuid", uuid)
+                    .list().size() > 0;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {

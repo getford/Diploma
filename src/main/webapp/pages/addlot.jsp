@@ -61,91 +61,59 @@
 <section class="recent_work wrapper">
     <h3 class="S_title">Заполните все поля</h3>
     <form action="/lothandler" method="post">
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="text" id="input-1" name="name_lot"/>
-					<label class="input__label input__label--madoka" for="input-1">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Название лота</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-1" name="name_lot"/>
+					<label class="input__label input__label--isao" for="input-1">
+						<span class="input__label-content input__label-content--isao">Название лота</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="text" id="input-2" name="info_lot"/>
-					<label class="input__label input__label--madoka" for="input-2">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Информация о лоте</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-2" name="info_lot"/>
+					<label class="input__label input__label--isao" for="input-2">
+						<span class="input__label-content input__label-content--isao">Информация о лоте</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="text" id="input-3" name="cost"/>
-					<label class="input__label input__label--madoka" for="input-3">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Начальная цена</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-3" name="cost"/>
+					<label class="input__label input__label--isao" for="input-3">
+						<span class="input__label-content input__label-content--isao">Начальная цена</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="text" id="input-4" name="blitz"/>
-					<label class="input__label input__label--madoka" for="input-4">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Блиц цена</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-4" name="blitz"/>
+					<label class="input__label input__label--isao" for="input-4">
+						<span class="input__label-content input__label-content--isao">Блиц цена</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="text" id="input-5" name="step"/>
-					<label class="input__label input__label--madoka" for="input-5">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Шаг цены</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-5" name="step"/>
+					<label class="input__label input__label--isao" for="input-5">
+						<span class="input__label-content input__label-content--isao">Шаг цены</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="date" id="input-6" name="date_start"/>
-					<label class="input__label input__label--madoka" for="input-6">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Когда на торги?</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="date" id="input-6" name="date_start"/>
+					<label class="input__label input__label--isao" for="input-6">
+						<span class="input__label-content input__label-content--isao">Когда на торги?</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="time" id="input-7" name="time_start"/>
-					<label class="input__label input__label--madoka" for="input-7">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">В какое время начать?</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="time" id="input-7" name="time_start"/>
+					<label class="input__label input__label--isao" for="input-7">
+						<span class="input__label-content input__label-content--isao">В какое время начать?</span>
 					</label>
         </span>
         <br/>
-        <span class="input input--madoka">
-					<input class="input__field input__field--madoka" type="text" id="input-8" name="cat"/>
-					<label class="input__label input__label--madoka" for="input-8">
-						<svg class="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77"
-                             preserveAspectRatio="none">
-							<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-						</svg>
-						<span class="input__label-content input__label-content--madoka">Категория</span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-8" name="cat"/>
+					<label class="input__label input__label--isao" for="input-8">
+						<span class="input__label-content input__label-content--isao">Категория</span>
 					</label>
         </span>
         <br/>
@@ -182,7 +150,6 @@
         <div class="f_cols">
             <p>Copyright &copy; 2018<span class="phone"> Uladzimir Zhyhala inc.</span></p>
         </div>
-
 
     </div>
 </footer><!-- End footer -->

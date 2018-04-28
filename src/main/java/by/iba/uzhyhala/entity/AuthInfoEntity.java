@@ -1,13 +1,12 @@
 package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "auth_info", schema = "public", catalog = "auction")
-public class AuthInfoEntity implements Serializable {
+public class AuthInfoEntity {
     private int id;
     private String login;
     private String password;
@@ -15,6 +14,7 @@ public class AuthInfoEntity implements Serializable {
     private String uuid;
     private String role;
     private Date createDate;
+    private String apiKey;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,7 +68,7 @@ public class AuthInfoEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "role", nullable = false, length = -1)
+    @Column(name = "role", nullable = false, length = 9)
     public String getRole() {
         return role;
     }
@@ -87,6 +87,16 @@ public class AuthInfoEntity implements Serializable {
         this.createDate = createDate;
     }
 
+    @Basic
+    @Column(name = "api_key", nullable = true, length = 50)
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,12 +108,13 @@ public class AuthInfoEntity implements Serializable {
                 Objects.equals(email, that.email) &&
                 Objects.equals(uuid, that.uuid) &&
                 Objects.equals(role, that.role) &&
-                Objects.equals(createDate, that.createDate);
+                Objects.equals(createDate, that.createDate) &&
+                Objects.equals(apiKey, that.apiKey);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, login, password, email, uuid, role, createDate);
+        return Objects.hash(id, login, password, email, uuid, role, createDate, apiKey);
     }
 }

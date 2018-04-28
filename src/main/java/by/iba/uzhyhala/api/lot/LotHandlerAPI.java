@@ -24,7 +24,7 @@ public class LotHandlerAPI extends HttpServlet {
         LotHandler lotHandler = new LotHandler();
         String body = null;
         String responseMessage = "";
-        boolean isLotAdd = false;
+        boolean isLotAdd;
 
         body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         logger.debug(getClass().getName() + body);
