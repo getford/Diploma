@@ -43,6 +43,8 @@ public class DocumentHandler extends HttpServlet {
         this.userName = "getford";
         // TODO: get parameter to get rows
         this.tableHead = "All lots";
+
+        generatePDF();
     }
 
     public void generatePDF() {
