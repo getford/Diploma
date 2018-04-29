@@ -1,5 +1,3 @@
-<%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.ReCaptchaUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -65,7 +63,8 @@
                     </span>
                     <br/>
                     <span class="input input--isao">
-					<input class="input__field input__field--isao" type="password" id="input-2" name="password" title=""/>
+					<input class="input__field input__field--isao" type="password" id="input-2" name="password"
+                           title=""/>
 					<label class="input__label input__label--isao" for="input-1">
 						<span class="input__label-content input__label-content--isao">Пароль</span>
 					</label>

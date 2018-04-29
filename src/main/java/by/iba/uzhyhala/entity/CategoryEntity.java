@@ -8,6 +8,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "category", schema = "public", catalog = "auction")
 public class CategoryEntity implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private int id;
     private String categoryName;
     private Collection<LotEntity> lotsById;

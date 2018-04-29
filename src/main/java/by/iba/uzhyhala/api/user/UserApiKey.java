@@ -31,13 +31,13 @@ public class UserApiKey extends HttpServlet {
             if (StringUtils.isBlank(CommonUtil.getUserLoginByUUID(uuid))) {
                 responseMessage = "{\"exception\":\"user uuid: " + uuid + " isn't correct\"}";
             } else {
-                if(CommonUtil.isUserHaveApiKey(uuid)){
-                session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
-                        .setParameter("key", key)
-                        .setParameter("uuid", uuid)
-                        .executeUpdate();
-                responseMessage = "{\"api_key\":\"" + key + "\"}";}
-                else {
+                if (CommonUtil.isUserHaveApiKey(uuid)) {
+                    session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
+                            .setParameter("key", key)
+                            .setParameter("uuid", uuid)
+                            .executeUpdate();
+                    responseMessage = "{\"api_key\":\"" + key + "\"}";
+                } else {
                     responseMessage = "{\"exception\":\"user uuid: " + uuid + " alredy have api_key\"}";
                 }
             }

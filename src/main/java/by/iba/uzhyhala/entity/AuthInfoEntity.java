@@ -80,11 +80,11 @@ public class AuthInfoEntity {
     @Basic
     @Column(name = "create_date", nullable = true)
     public Date getCreateDate() {
-        return createDate;
+        return new Date(createDate.getTime());
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.createDate = new Date(createDate.getTime());
     }
 
     @Basic

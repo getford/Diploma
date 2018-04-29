@@ -49,7 +49,7 @@ public class UserApiKeyTest {
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
 
-        when(mockHttpServletRequest.getParameter("uuid")).thenReturn("293f3466-ae17-4b47-ab64-77bf85006c1d");
+        when(mockHttpServletRequest.getParameter("uuid")).thenReturn("ca169d27-0a1c-41ca-aa2c-49a40a58149c");
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 

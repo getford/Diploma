@@ -40,7 +40,8 @@ public class LotAllAPI extends HttpServlet {
             }
         }
     }
-// TODO: RETURN INFO ALL LOTS
+
+    // TODO: RETURN INFO ALL LOTS
     public void test() {
         session = HibernateUtil.getSessionFactory().openSession();
         try {

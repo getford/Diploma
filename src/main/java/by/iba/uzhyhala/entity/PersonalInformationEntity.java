@@ -8,6 +8,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "personal_information", schema = "public", catalog = "auction")
 public class PersonalInformationEntity implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private int id;
     private String uuidUser;
     private String firstName;
@@ -58,11 +60,11 @@ public class PersonalInformationEntity implements Serializable {
     @Basic
     @Column(name = "bday", nullable = true)
     public Date getBday() {
-        return bday;
+        return new Date(bday.getTime());
     }
 
     public void setBday(Date bday) {
-        this.bday = bday;
+        this.bday = new Date(bday.getTime());
     }
 
     @Override

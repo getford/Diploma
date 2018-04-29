@@ -8,6 +8,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "feedback", schema = "public", catalog = "auction")
 public class FeedbackEntity implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private int id;
     private String uuid;
     private Integer idUser;
@@ -59,11 +61,11 @@ public class FeedbackEntity implements Serializable {
     @Basic
     @Column(name = "date", nullable = true)
     public Date getDate() {
-        return date;
+        return new Date(date.getTime());
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date = new Date(date.getTime());
     }
 
     @Override

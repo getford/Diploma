@@ -19,6 +19,7 @@ import java.util.*;
 @WebServlet(urlPatterns = "/bethandler")
 public class BetHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(BetHandler.class);
+    private static final long serialVersionUID = 1;
 
     private Session session = null;
     private String uuidLot;
