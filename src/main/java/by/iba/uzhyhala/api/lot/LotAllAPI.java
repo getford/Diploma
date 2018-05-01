@@ -2,6 +2,7 @@ package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.api.to.LotFullFieldTOAPI;
 import by.iba.uzhyhala.entity.LotEntity;
+import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
@@ -18,20 +19,25 @@ import java.util.List;
 @WebServlet(urlPatterns = "/api/lot/all")
 public class LotAllAPI extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(LotAllAPI.class);
+    private static final Logger LOGGER = Logger.getLogger(LotAllAPI.class);
     private Session session = null;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         session = HibernateUtil.getSessionFactory().openSession();
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
         try {
-            List<LotAllAPI> to = session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT).list();
+            if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
+                LOGGER.info("api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
+                List<LotAllAPI> to = session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT).list();
 
-            System.err.println(new Gson().toJson(to, LotFullFieldTOAPI.class));
+                System.err.println(new Gson().toJson(to, LotFullFieldTOAPI.class));
+                // resp.getWriter().write(CommonUtil.getJsonBetBulk(session, req.getParameter("uuid")));
+            }
+            else{
 
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            // resp.getWriter().write(CommonUtil.getJsonBetBulk(session, req.getParameter("uuid")));
+            }
         } catch (Exception ex) {
             resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
         } finally {

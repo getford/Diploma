@@ -185,4 +185,26 @@ public class CommonUtil {
             }
         }
     }
+
+    public static boolean isApiKeyValid(String key) {
+        LOGGER.info("isApiKeyValid method");
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            return session
+                    .createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE api_key = :key")
+                    .setParameter("key", key)
+                    .list().size() > 0;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return false;
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
 }

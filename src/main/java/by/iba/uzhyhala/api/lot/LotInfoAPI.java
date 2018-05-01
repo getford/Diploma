@@ -2,6 +2,8 @@ package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
+import by.iba.uzhyhala.util.VariablesUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
@@ -19,11 +21,22 @@ public class LotInfoAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Session session = HibernateUtil.getSessionFactory().openSession();
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        String message;
+        String uuidLot = req.getParameter("uuid");
         try {
-            LOGGER.info("uuid lot: " + req.getParameter("uuid"));
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            resp.getWriter().write(CommonUtil.getJsonBetBulk(session, req.getParameter("uuid")));
+            if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
+                LOGGER.info("uuid lot: " + uuidLot + ", api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
+                String bulk = CommonUtil.getJsonBetBulk(session, uuidLot);
+                if (!StringUtils.isBlank(bulk))
+                    message = bulk;
+                else
+                    message = "{\"uuid_lot\": \"" + uuidLot + "\",\"exception\": \"Info not found, please check uuid lot\"}";
+            } else {
+                message = "{\"exception\":\"Api key isnt valid\"}";
+            }
+            resp.getWriter().write(message);
         } catch (Exception ex) {
             resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
         } finally {

@@ -2,7 +2,9 @@ package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.api.to.LotTOAPI;
 import by.iba.uzhyhala.lot.LotHandler;
+import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
+import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -17,49 +19,50 @@ import java.util.stream.Collectors;
 
 @WebServlet(urlPatterns = "/api/lot/add")
 public class LotAddAPI extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(LotAddAPI.class);
+    private static final Logger LOGGER = Logger.getLogger(LotAddAPI.class);
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        LOGGER.info(getClass().getName() + "\t" + "doPost Method");
         LotHandler lotHandler = new LotHandler();
-        String body = null;
         String responseMessage = "";
-        boolean isLotAdd;
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
 
-        body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        logger.debug(getClass().getName() + body);
+        String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+        LOGGER.debug(getClass().getName() + body);
         LotTOAPI lotTOAPI = handleResponse(body);
         try {
-            if (validateRequest(lotTOAPI)) {
-                isLotAdd = lotHandler.addLot(
-                        lotTOAPI.getUuidUserSeller(),
-                        lotTOAPI.getName(),
-                        lotTOAPI.getInformation(),
-                        lotTOAPI.getCost(),
-                        lotTOAPI.getBlitzCost(),
-                        lotTOAPI.getStepCost(),
-                        lotTOAPI.getDateStart(),
-                        lotTOAPI.getTimeStart(),
-                        lotTOAPI.getIdCategory());
-
-                if (isLotAdd)
-                    responseMessage = "{\"message\":\"Success\"}";
-                else
-                    responseMessage = "{\"message\":\"Failed\"}";
+            if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
+                if (validateRequest(lotTOAPI)) {
+                    boolean isLotAdd = lotHandler.addLot(
+                            lotTOAPI.getUuidUserSeller(),
+                            lotTOAPI.getName(),
+                            lotTOAPI.getInformation(),
+                            lotTOAPI.getCost(),
+                            lotTOAPI.getBlitzCost(),
+                            lotTOAPI.getStepCost(),
+                            lotTOAPI.getDateStart(),
+                            lotTOAPI.getTimeStart(),
+                            lotTOAPI.getIdCategory());
+                    if (isLotAdd)
+                        responseMessage = "{\"message\":\"Success\"}";
+                    else
+                        responseMessage = "{\"message\":\"Failed\"}";
+                } else
+                    responseMessage = "{\"message\":\"There is one or more field(s) is empty\"}";
             } else
-                responseMessage = "{\"message\":\"There is one or more field(s) is empty\"}";
+                responseMessage = "{\"exception\":\"Api key isnt valid\"}";
+            resp.getWriter().write(responseMessage);
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + body + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
-            responseMessage = "{\"message\":\"There is one or more field(s) is empty\",\"exception\":\"" + ex.getLocalizedMessage() + "\"}";
-            logger.error(ex.getStackTrace());
-        } finally {
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            resp.getWriter().write(responseMessage);
+            resp.getWriter().write("{\"message\":\"There is one or more field(s) is empty\",\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            LOGGER.error(ex.getStackTrace());
         }
     }
 
     private boolean validateRequest(LotTOAPI to) {
+        LOGGER.info(getClass().getName() + "\t" + "validateRequest Method");
         return !StringUtils.isBlank(to.getUuidUserSeller()) &&
                 !StringUtils.isBlank(to.getName()) &&
                 !StringUtils.isBlank(to.getInformation()) &&

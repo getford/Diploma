@@ -53,7 +53,7 @@ public class Registration extends HttpServlet implements IParseJson {
         }
     }
 
-    private boolean doRegistration(String login, String password, String email) {
+    public boolean doRegistration(String login, String password, String email) {
         LOGGER.debug(this.getClass().getName() + ", method: doRegistration");
         String newUserUUID = UUID.randomUUID().toString();
 

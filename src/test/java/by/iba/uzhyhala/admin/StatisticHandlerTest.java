@@ -13,9 +13,6 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import javax.servlet.ServletException;
-import java.io.IOException;
-
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -36,7 +33,7 @@ public class StatisticHandlerTest {
     private Configuration configuration;
 
     @Before
-    public void init() throws Exception {
+    public void init() {
         initMocks(this);
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
@@ -44,7 +41,12 @@ public class StatisticHandlerTest {
     }
 
     @Test
-    public void test() throws IOException, ServletException {
+    public void testPrepareChartDataFormat() {
         Assert.assertNotNull(new StatisticHandler().prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_ADD_DATE_LOT));
+    }
+
+    @Test
+    public void testCountStatistic() {
+        Assert.assertNotNull(new StatisticHandler().countStatistic(VariablesUtil.QUERY_COUNT_START_LOT_TODAY));
     }
 }

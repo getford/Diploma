@@ -36,8 +36,7 @@
 <div class="templatemo-flex-row">
     <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
-            <div class="square"></div>
-            <h1>Visual Admin</h1>
+            <h1>AUCTION DIPLOMA, ADMIN</h1>
         </header>
         <div class="profile-photo-container">
             <img src="/resources/images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
@@ -95,7 +94,7 @@
                                     class="caret"></span></a>
                             </td>
                             <td>Edit</td>
-                            <td>Action</td>
+                            <%--<td>Action</td>--%>
                             <td>Delete</td>
                         </tr>
                         </thead>
@@ -121,7 +120,7 @@
                             <td><%=dateRegistration%>
                             </td>
                             <td><a href="" class="templatemo-edit-btn">Edit</a></td>
-                            <td><a href="" class="templatemo-link">Action</a></td>
+                            <%--<td><a href="" class="templatemo-link">Action</a></td>--%>
                             <td>
                                 <form action="/del" method="get" name="delete-form">
                                     <a href="/del?uuid-user=<%=userUuid%>" class="templatemo-link">Delete</a>
@@ -195,16 +194,9 @@
                 <div class="templatemo-content-widget white-bg col-2">
                     <i class="fa fa-times"></i>
                     <div class="media margin-bottom-30">
-                        <div class="media-left padding-right-25">
-                            <a href="#">
-                                <img class="media-object img-circle templatemo-img-bordered"
-                                     src="/resources/images/person.jpg"
-                                     alt="Sunset">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h2 class="media-heading text-uppercase blue-text">John Barnet</h2>
-                            <p>Project Manager</p>
+                        <div style="text-align: center" class="media-body">
+                            <h2 class="media-heading text-uppercase blue-text">Статистика за сегодня</h2>
+                            <p>Лоты</p>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -214,29 +206,22 @@
                                 <td>
                                     <div class="circle green-bg"></div>
                                 </td>
-                                <td>New Task Issued</td>
-                                <td>02</td>
+                                <td>Добвлено лотов за день</td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_ADD_LOT_TODAY)%></td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="circle pink-bg"></div>
                                 </td>
-                                <td>Task Pending</td>
-                                <td>22</td>
+                                <td>Завершено лотов за день</td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_END_LOT_TODAY)%></td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="circle blue-bg"></div>
                                 </td>
-                                <td>Inbox</td>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="circle yellow-bg"></div>
-                                </td>
-                                <td>New Notification</td>
-                                <td>18</td>
+                                <td>Начато торгов за день</td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_START_LOT_TODAY)%></td>
                             </tr>
                             </tbody>
                         </table>

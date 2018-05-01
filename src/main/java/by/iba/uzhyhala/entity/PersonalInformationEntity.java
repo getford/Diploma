@@ -60,11 +60,13 @@ public class PersonalInformationEntity implements Serializable {
     @Basic
     @Column(name = "bday", nullable = true)
     public Date getBday() {
-        return new Date(bday.getTime());
+        // return new Date(bday.getTime());
+        return bday;
     }
 
     public void setBday(Date bday) {
-        this.bday = new Date(bday.getTime());
+        // this.bday = new Date(bday.getTime());
+        this.bday = bday;
     }
 
     @Override

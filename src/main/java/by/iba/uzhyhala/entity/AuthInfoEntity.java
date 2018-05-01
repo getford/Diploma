@@ -80,11 +80,13 @@ public class AuthInfoEntity {
     @Basic
     @Column(name = "create_date", nullable = true)
     public Date getCreateDate() {
-        return new Date(createDate.getTime());
+        // return new Date(createDate.getTime());
+        return createDate;
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = new Date(createDate.getTime());
+        // this.createDate = new Date(createDate.getTime());
+        this.createDate = createDate;
     }
 
     @Basic
@@ -116,5 +118,19 @@ public class AuthInfoEntity {
     public int hashCode() {
 
         return Objects.hash(id, login, password, email, uuid, role, createDate, apiKey);
+    }
+
+    @Override
+    public String toString() {
+        return "AuthInfoEntity{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", uuid='" + uuid + '\'' +
+                ", role='" + role + '\'' +
+                ", createDate=" + createDate +
+                ", apiKey='" + apiKey + '\'' +
+                '}';
     }
 }

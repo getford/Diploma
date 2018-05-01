@@ -37,4 +37,22 @@ public class StatisticHandler {
             }
         }
     }
+
+    public String countStatistic(String query){
+        LOGGER.debug(getClass().getName() + "\t" + " countStatistic");
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            return String.valueOf(session.createSQLQuery(query).list().get(0));
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
+            throw new IllegalArgumentException("Cannot get data");
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
 }

@@ -1,5 +1,8 @@
 package by.iba.uzhyhala.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public final class VariablesUtil {
     private VariablesUtil() {
     }
@@ -65,8 +68,17 @@ public final class VariablesUtil {
             "GROUP BY date_end ORDER BY date_end ASC";
     public static final String QUERY_CHART_DATE_CREATE_USER = "SELECT create_date, count(create_date) FROM auth_info " +
             "GROUP BY create_date ORDER BY create_date ASC";
+
     // Query lot
     public static final String QUERY_SELECT_ALL_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
     public static final String QUERY_SELECT_USER_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
 
+    // Query count
+    public static final String QUERY_COUNT_ADD_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_add = '" + new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()) + "'";
+    public static final String QUERY_COUNT_END_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_end = '" + new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()) + "'";
+    public static final String QUERY_COUNT_START_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_start = '" + new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()) + "'";
+
+    // api
+    public static final String PARAMETER_API_KEY_NAME = "api_key";
+    public static final String TEST_API_KEY_NAME = "D2B331E0831A4C5683E17FDA0394723C";
 }

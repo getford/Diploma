@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.lot;
 
-
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;

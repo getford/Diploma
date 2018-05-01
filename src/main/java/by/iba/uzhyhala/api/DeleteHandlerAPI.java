@@ -19,9 +19,7 @@ public class DeleteHandlerAPI extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             String parameter = Pattern.compile("=").split(req.getQueryString())[0];
@@ -61,10 +59,6 @@ public class DeleteHandlerAPI extends HttpServlet {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get parameter from URL, pls contact with administrator");
-        } finally {
-            if (session != null) {
-                session.close();
-            }
         }
     }
 }

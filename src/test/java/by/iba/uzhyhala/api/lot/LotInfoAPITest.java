@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.api.lot;
 
+import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;
@@ -51,6 +52,7 @@ public class LotInfoAPITest {
         sessionFactory = configuration.buildSessionFactory();
 
         when(mockHttpServletRequest.getParameter("uuid")).thenReturn("5a132e1d-10c5-486c-886b-756fb4b3a1f8");
+        when(mockHttpServletRequest.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME)).thenReturn(VariablesUtil.TEST_API_KEY_NAME);
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 

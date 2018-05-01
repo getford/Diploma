@@ -6,7 +6,7 @@
     <artifactId>auction</artifactId>
 
     <packaging>war</packaging>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
     <name>Diploma project Auction</name>
 
     <licenses>
@@ -224,7 +224,7 @@
                         <id>report</id>
                         <phase>prepare-package</phase>
                         <goals>
-                            <goal>instrument</goal>
+                            <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>

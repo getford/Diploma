@@ -24,8 +24,11 @@ public class UserApiKey extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        String responseMessage = null;
+        String responseMessage;
         try {
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+
             String uuid = req.getParameter("uuid");
             String key = String.valueOf(UUID.randomUUID()).replaceAll("-", "").toUpperCase();
             if (StringUtils.isBlank(CommonUtil.getUserLoginByUUID(uuid))) {
@@ -40,21 +43,16 @@ public class UserApiKey extends HttpServlet {
                 } else {
                     responseMessage = "{\"exception\":\"user uuid: " + uuid + " alredy have api_key\"}";
                 }
+                resp.getWriter().write(responseMessage);
             }
         } catch (Exception ex) {
-            responseMessage = "{\"exception\":\"" + ex.getLocalizedMessage() + "\"}";
+            resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             LOGGER.error(ex.getLocalizedMessage());
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
         } finally {
             if (session.isOpen()) {
                 session.close();
             }
-
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            if (responseMessage == null)
-                responseMessage = "{\"exception\":\"Undefined error, please connect with admin " + VariablesUtil.EMAIL_SUPPORT + "\"}";
-            resp.getWriter().write(responseMessage);
         }
     }
 }
