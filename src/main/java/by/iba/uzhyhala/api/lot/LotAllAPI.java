@@ -34,8 +34,7 @@ public class LotAllAPI extends HttpServlet {
 
                 System.err.println(new Gson().toJson(to, LotFullFieldTOAPI.class));
                 // resp.getWriter().write(CommonUtil.getJsonBetBulk(session, req.getParameter("uuid")));
-            }
-            else{
+            } else {
 
             }
         } catch (Exception ex) {

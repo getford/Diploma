@@ -38,7 +38,7 @@ public class StatisticHandler {
         }
     }
 
-    public String countStatistic(String query){
+    public String countStatistic(String query) {
         LOGGER.debug(getClass().getName() + "\t" + " countStatistic");
         try {
             session = HibernateUtil.getSessionFactory().openSession();

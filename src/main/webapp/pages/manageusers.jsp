@@ -207,21 +207,24 @@
                                     <div class="circle green-bg"></div>
                                 </td>
                                 <td>Добвлено лотов за день</td>
-                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_ADD_LOT_TODAY)%></td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_ADD_LOT_TODAY)%>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="circle pink-bg"></div>
                                 </td>
                                 <td>Завершено лотов за день</td>
-                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_END_LOT_TODAY)%></td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_END_LOT_TODAY)%>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="circle blue-bg"></div>
                                 </td>
                                 <td>Начато торгов за день</td>
-                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_START_LOT_TODAY)%></td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_START_LOT_TODAY)%>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
