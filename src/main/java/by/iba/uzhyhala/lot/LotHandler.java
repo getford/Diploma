@@ -49,7 +49,7 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        String timeStart = req.getParameter("time_start") + ":00";
+        String timeStart = req.getParameter("time_start");
         try {
             this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             boolean isLotAdd = addLot(
@@ -96,9 +96,9 @@ public class LotHandler extends HttpServlet implements Serializable {
                     new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateStart)));
             /*lotEntity.setDateEnd(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
                     new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateEnd)));*/
-            lotEntity.setTimeStart(timeStart);
+            lotEntity.setTimeStart(timeStart + ":00");
             // lotEntity.setTimeEnd(timeEnd);
-            lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart, VariablesUtil.LOT_TIME_SEC));
+            lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart + ":00", VariablesUtil.LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
             if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(VariablesUtil.STATUS_LOT_ACTIVE);

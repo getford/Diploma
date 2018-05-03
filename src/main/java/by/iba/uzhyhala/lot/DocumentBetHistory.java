@@ -42,27 +42,26 @@ public class DocumentBetHistory extends HttpServlet {
     }
 
     private void generateDocHistoryBet(String uuidLot, HttpServletResponse resp, URL url) throws IOException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
 
         Document document = new Document(PageSize.A4);
         String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
         String documentPassword = String.valueOf(UUID.randomUUID()).substring(0, 8);
-        String toEncode = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
+        String toEncodeURLLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
+        String fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + uuidLot + ".pdf";
 
-        resp.setHeader("Content-Disposition", "attachment;filename=Bet_history_"
-                + timeNow.replaceAll(":", ".") + "_" + uuidLot + ".pdf");
+        resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
         resp.setContentType("application/pdf;charset=UTF-8");
 
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
             table.setTotalWidth(PageSize.A4.getWidth() - 10);
             table.setLockedWidth(true);
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-            table.addCell("User name");
-            table.addCell("Bet");
-            table.addCell("Date");
-            table.addCell("Time");
+            table.addCell("Пользователь");
+            table.addCell("Ставка");
+            table.addCell("Дата");
+            table.addCell("Время");
             table.setHeaderRows(1);
 
             PdfPCell[] cells = table.getRow(0).getCells();
@@ -89,10 +88,10 @@ public class DocumentBetHistory extends HttpServlet {
 
             document.open();
             document.add(new Paragraph("Auction Diploma"));
-            document.add(new Paragraph("Bet history"));
+            document.add(new Paragraph("История ставок"));
             document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date()))));
 
-            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(toEncode, 1000, 1000, null);
+            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(toEncodeURLLot, 1000, 1000, null);
             Image codeQrImage = barcodeQRCode.getImage();
             codeQrImage.setAbsolutePosition(469, 729);
             codeQrImage.scaleAbsolute(100, 100);
@@ -107,17 +106,15 @@ public class DocumentBetHistory extends HttpServlet {
             document.add(new Paragraph("\n"));
             document.add(new Paragraph("---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
-            document.add(new Paragraph("UUID Lot: " + uuidLot));
+            document.add(new Paragraph("UUID Лота: " + uuidLot));
+            document.add(new Paragraph("URL Лота: " + toEncodeURLLot));
             document.close();
             LOGGER.info("PDF document successfully generated");
+            LOGGER.info("Document name\t" + fileName);
             LOGGER.info("Password\t" + documentPassword);
         } catch (DocumentException | FileNotFoundException e) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
-        } finally {
-            if (session != null) {
-                session.close();
-            }
         }
     }
 }

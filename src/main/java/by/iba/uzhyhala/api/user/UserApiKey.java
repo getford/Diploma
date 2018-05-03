@@ -31,9 +31,9 @@ public class UserApiKey extends HttpServlet {
 
             String uuid = req.getParameter("uuid");
             String key = String.valueOf(UUID.randomUUID()).replaceAll("-", "").toUpperCase();
-            if (StringUtils.isBlank(CommonUtil.getUserLoginByUUID(uuid))) {
-                responseMessage = "{\"exception\":\"user uuid: " + uuid + " isn't correct\"}";
-            } else {
+            if (StringUtils.isBlank(CommonUtil.getUserLoginByUUID(uuid)))
+                resp.getWriter().write("{\"exception\":\"user uuid: " + uuid + " isn't correct\"}");
+            else {
                 if (CommonUtil.isUserHaveApiKey(uuid)) {
                     session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
                             .setParameter("key", key)
@@ -41,7 +41,7 @@ public class UserApiKey extends HttpServlet {
                             .executeUpdate();
                     responseMessage = "{\"api_key\":\"" + key + "\"}";
                 } else {
-                    responseMessage = "{\"exception\":\"user uuid: " + uuid + " alredy have api_key\"}";
+                    responseMessage = "{\"exception\":\"user uuid: " + uuid + " already have api_key\"}";
                 }
                 resp.getWriter().write(responseMessage);
             }

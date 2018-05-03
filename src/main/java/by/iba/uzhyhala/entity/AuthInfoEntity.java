@@ -15,6 +15,7 @@ public class AuthInfoEntity {
     private String role;
     private Date createDate;
     private String apiKey;
+    private int rate;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -80,12 +81,10 @@ public class AuthInfoEntity {
     @Basic
     @Column(name = "create_date", nullable = true)
     public Date getCreateDate() {
-        // return new Date(createDate.getTime());
         return createDate;
     }
 
     public void setCreateDate(Date createDate) {
-        // this.createDate = new Date(createDate.getTime());
         this.createDate = createDate;
     }
 
@@ -99,12 +98,23 @@ public class AuthInfoEntity {
         this.apiKey = apiKey;
     }
 
+    @Basic
+    @Column(name = "rate", nullable = false)
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AuthInfoEntity that = (AuthInfoEntity) o;
         return id == that.id &&
+                rate == that.rate &&
                 Objects.equals(login, that.login) &&
                 Objects.equals(password, that.password) &&
                 Objects.equals(email, that.email) &&
@@ -116,8 +126,7 @@ public class AuthInfoEntity {
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, login, password, email, uuid, role, createDate, apiKey);
+        return Objects.hash(id, login, password, email, uuid, role, createDate, apiKey, rate);
     }
 
     @Override
@@ -131,6 +140,7 @@ public class AuthInfoEntity {
                 ", role='" + role + '\'' +
                 ", createDate=" + createDate +
                 ", apiKey='" + apiKey + '\'' +
+                ", rate=" + rate +
                 '}';
     }
 }
