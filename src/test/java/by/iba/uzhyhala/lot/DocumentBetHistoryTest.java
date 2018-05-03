@@ -61,7 +61,7 @@ public class DocumentBetHistoryTest {
         BetHistoryTO to = new BetHistoryTO();
         to.setBet(10000);
         list.add(to);
-        
+
         mockStatic(CommonUtil.class);
         when(CommonUtil.getHistoryBets(UUID_LOT)).thenReturn(list);
     }
