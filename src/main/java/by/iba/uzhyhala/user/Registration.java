@@ -14,8 +14,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +32,6 @@ public class Registration extends HttpServlet implements IParseJson {
 
     private Gson gson = new Gson();
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter printWriter = resp.getWriter();

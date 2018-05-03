@@ -23,7 +23,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 public class RegistrationAPITest {
     private static final String REQUEST_BODY = "{\n" +
             "  \"login\": \"test\",\n" +
-            "  \"email\": \"test\",\n" +
+            "  \"email\": \"test@test.test\",\n" +
             "  \"password\": \"test\"\n" +
             "}";
 
