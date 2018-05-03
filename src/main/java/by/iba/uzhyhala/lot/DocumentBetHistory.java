@@ -2,7 +2,6 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.itextpdf.text.*;
@@ -11,13 +10,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -36,12 +33,13 @@ public class DocumentBetHistory extends HttpServlet {
         try {
             URL url = new URL(req.getRequestURL().toString());
             generateDocHistoryBet(req.getParameter("uuid_lot"), resp, url);
-        } catch (IOException e) {
-            LOGGER.error(e.getStackTrace());
+        } catch (IOException | DocumentException e) {
+            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            LOGGER.error(e.getLocalizedMessage());
         }
     }
 
-    private void generateDocHistoryBet(String uuidLot, HttpServletResponse resp, URL url) throws IOException {
+    private void generateDocHistoryBet(String uuidLot, HttpServletResponse resp, URL url) throws DocumentException, IOException {
 
         Document document = new Document(PageSize.A4);
         String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
@@ -52,69 +50,64 @@ public class DocumentBetHistory extends HttpServlet {
         resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
         resp.setContentType("application/pdf;charset=UTF-8");
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
-            table.setTotalWidth(PageSize.A4.getWidth() - 10);
-            table.setLockedWidth(true);
-            table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+        PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
+        table.setTotalWidth(PageSize.A4.getWidth() - 10);
+        table.setLockedWidth(true);
+        table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-            table.addCell("Пользователь");
-            table.addCell("Ставка");
-            table.addCell("Дата");
-            table.addCell("Время");
-            table.setHeaderRows(1);
+        table.addCell("First/Last name");
+        table.addCell("Bet");
+        table.addCell("Date");
+        table.addCell("Time");
+        table.setHeaderRows(1);
 
-            PdfPCell[] cells = table.getRow(0).getCells();
-            for (PdfPCell cell : cells) {
-                cell.setBackgroundColor(BaseColor.WHITE);
-            }
-
-            List<BetHistoryTO> list = CommonUtil.getHistoryBets(uuidLot);
-
-            assert list != null;
-            for (int i = 1; i < list.size(); i++) {
-                table.addCell(list.get(i).getUserName());
-                table.addCell(String.valueOf(list.get(i).getBet()));
-                table.addCell(list.get(i).getDate());
-                table.addCell(list.get(i).getTime());
-            }
-
-            PdfWriter pdfWriter = PdfWriter.getInstance(document, resp.getOutputStream());
-            pdfWriter.setEncryption(
-                    documentPassword.getBytes(Charset.forName("UTF-8")),
-                    VariablesUtil.PDF_OWNER_PASSCODE.getBytes(Charset.forName("UTF-8")),
-                    PdfWriter.ALLOW_COPY,
-                    PdfWriter.ENCRYPTION_AES_128);
-
-            document.open();
-            document.add(new Paragraph("Auction Diploma"));
-            document.add(new Paragraph("История ставок"));
-            document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date()))));
-
-            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(toEncodeURLLot, 1000, 1000, null);
-            Image codeQrImage = barcodeQRCode.getImage();
-            codeQrImage.setAbsolutePosition(469, 729);
-            codeQrImage.scaleAbsolute(100, 100);
-            document.add(codeQrImage);
-
-            document.add(new Paragraph("\n---------------------------------------------------------------" +
-                    "-------------------------------------------------------------------"));
-            document.add(new Paragraph("\n"));
-            document.add(new Paragraph("\n"));
-            document.add(table);
-
-            document.add(new Paragraph("\n"));
-            document.add(new Paragraph("---------------------------------------------------------------" +
-                    "-------------------------------------------------------------------"));
-            document.add(new Paragraph("UUID Лота: " + uuidLot));
-            document.add(new Paragraph("URL Лота: " + toEncodeURLLot));
-            document.close();
-            LOGGER.info("PDF document successfully generated");
-            LOGGER.info("Document name\t" + fileName);
-            LOGGER.info("Password\t" + documentPassword);
-        } catch (DocumentException | FileNotFoundException e) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
-            LOGGER.error(e.getLocalizedMessage());
+        PdfPCell[] cells = table.getRow(0).getCells();
+        for (PdfPCell cell : cells) {
+            cell.setBackgroundColor(BaseColor.WHITE);
         }
+
+        List<BetHistoryTO> list = CommonUtil.getHistoryBets(uuidLot);
+
+        assert list != null;
+        for (int i = 1; i < list.size(); i++) {
+            table.addCell(list.get(i).getUserName());
+            table.addCell(String.valueOf(list.get(i).getBet()));
+            table.addCell(list.get(i).getDate());
+            table.addCell(list.get(i).getTime());
+        }
+
+        PdfWriter pdfWriter = PdfWriter.getInstance(document, resp.getOutputStream());
+        pdfWriter.setEncryption(
+                documentPassword.getBytes(Charset.forName("UTF-8")),
+                VariablesUtil.PDF_OWNER_PASSCODE.getBytes(Charset.forName("UTF-8")),
+                PdfWriter.ALLOW_COPY,
+                PdfWriter.ENCRYPTION_AES_128);
+
+        document.open();
+        document.add(new Paragraph("Auction Diploma"));
+        document.add(new Paragraph("Bet history"));
+        document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date()))));
+
+        BarcodeQRCode barcodeQRCode = new BarcodeQRCode(toEncodeURLLot, 1000, 1000, null);
+        Image codeQrImage = barcodeQRCode.getImage();
+        codeQrImage.setAbsolutePosition(469, 729);
+        codeQrImage.scaleAbsolute(100, 100);
+        document.add(codeQrImage);
+
+        document.add(new Paragraph("\n---------------------------------------------------------------" +
+                "-------------------------------------------------------------------"));
+        document.add(new Paragraph("\n"));
+        document.add(new Paragraph("\n"));
+        document.add(table);
+
+        document.add(new Paragraph("\n"));
+        document.add(new Paragraph("---------------------------------------------------------------" +
+                "-------------------------------------------------------------------"));
+        document.add(new Paragraph("UUID lot: " + uuidLot));
+        document.add(new Paragraph("URL lot: " + toEncodeURLLot));
+//        document.close();
+        LOGGER.info("PDF document successfully generated");
+        LOGGER.info("Document name\t" + fileName);
+        LOGGER.info("Password\t" + documentPassword);
     }
 }
