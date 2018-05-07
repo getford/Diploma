@@ -117,7 +117,7 @@ public class DocumentBetHistory extends HttpServlet {
                 "-------------------------------------------------------------------"));
         document.add(new Paragraph("UUID lot: " + uuidLot));
         document.add(new Paragraph("URL lot: " + getLotUrl()));
-        document.close();
+//        document.close();
         LOGGER.info("PDF document successfully generated");
         LOGGER.info("Document name\t" + fileName);
         LOGGER.info("Password\t" + getDocumentPasscode());
