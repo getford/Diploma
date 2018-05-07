@@ -2,7 +2,6 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "bet", schema = "public", catalog = "auction")
@@ -42,21 +41,5 @@ public class BetEntity implements Serializable {
 
     public void setBulk(String bulk) {
         this.bulk = bulk;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BetEntity betEntity = (BetEntity) o;
-        return id == betEntity.id &&
-                Objects.equals(uuid, betEntity.uuid) &&
-                Objects.equals(bulk, betEntity.bulk);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, uuid, bulk);
     }
 }

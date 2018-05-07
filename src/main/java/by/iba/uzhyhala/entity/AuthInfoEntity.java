@@ -2,7 +2,6 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "auth_info", schema = "public", catalog = "auction")
@@ -106,27 +105,6 @@ public class AuthInfoEntity {
 
     public void setRate(int rate) {
         this.rate = rate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AuthInfoEntity that = (AuthInfoEntity) o;
-        return id == that.id &&
-                rate == that.rate &&
-                Objects.equals(login, that.login) &&
-                Objects.equals(password, that.password) &&
-                Objects.equals(email, that.email) &&
-                Objects.equals(uuid, that.uuid) &&
-                Objects.equals(role, that.role) &&
-                Objects.equals(createDate, that.createDate) &&
-                Objects.equals(apiKey, that.apiKey);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, login, password, email, uuid, role, createDate, apiKey, rate);
     }
 
     @Override

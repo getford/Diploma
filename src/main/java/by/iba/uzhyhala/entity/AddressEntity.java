@@ -2,7 +2,6 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "address", schema = "public", catalog = "auction")
@@ -86,25 +85,5 @@ public class AddressEntity implements Serializable {
 
     public void setZip(Integer zip) {
         this.zip = zip;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AddressEntity that = (AddressEntity) o;
-        return id == that.id &&
-                Objects.equals(uuidUser, that.uuidUser) &&
-                Objects.equals(country, that.country) &&
-                Objects.equals(city, that.city) &&
-                Objects.equals(street, that.street) &&
-                Objects.equals(house, that.house) &&
-                Objects.equals(zip, that.zip);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, uuidUser, country, city, street, house, zip);
     }
 }

@@ -2,7 +2,6 @@ package by.iba.uzhyhala.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "lot", schema = "public", catalog = "auction")
@@ -188,35 +187,6 @@ public class LotEntity implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        LotEntity lotEntity = (LotEntity) o;
-        return id == lotEntity.id &&
-                Objects.equals(uuid, lotEntity.uuid) &&
-                Objects.equals(uuidUserSeller, lotEntity.uuidUserSeller) &&
-                Objects.equals(name, lotEntity.name) &&
-                Objects.equals(information, lotEntity.information) &&
-                Objects.equals(cost, lotEntity.cost) &&
-                Objects.equals(blitzCost, lotEntity.blitzCost) &&
-                Objects.equals(stepCost, lotEntity.stepCost) &&
-                Objects.equals(dateAdd, lotEntity.dateAdd) &&
-                Objects.equals(dateStart, lotEntity.dateStart) &&
-                Objects.equals(dateEnd, lotEntity.dateEnd) &&
-                Objects.equals(timeStart, lotEntity.timeStart) &&
-                Objects.equals(timeEnd, lotEntity.timeEnd) &&
-                Objects.equals(uuidUserClient, lotEntity.uuidUserClient) &&
-                Objects.equals(idCategory, lotEntity.idCategory) &&
-                Objects.equals(status, lotEntity.status);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, uuid, uuidUserSeller, name, information, cost, blitzCost, stepCost, dateAdd, dateStart, dateEnd, timeStart, timeEnd, uuidUserClient, idCategory, status);
     }
 
     @ManyToOne

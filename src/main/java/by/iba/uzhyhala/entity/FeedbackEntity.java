@@ -3,7 +3,6 @@ package by.iba.uzhyhala.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "feedback", schema = "public", catalog = "auction")
@@ -66,24 +65,6 @@ public class FeedbackEntity implements Serializable {
 
     public void setDate(Date date) {
         this.date = new Date(date.getTime());
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FeedbackEntity that = (FeedbackEntity) o;
-        return id == that.id &&
-                Objects.equals(uuid, that.uuid) &&
-                Objects.equals(idUser, that.idUser) &&
-                Objects.equals(feedbackText, that.feedbackText) &&
-                Objects.equals(date, that.date);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, uuid, idUser, feedbackText, date);
     }
 
     @ManyToOne

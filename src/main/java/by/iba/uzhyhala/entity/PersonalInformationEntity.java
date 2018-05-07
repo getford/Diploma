@@ -3,7 +3,6 @@ package by.iba.uzhyhala.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "personal_information", schema = "public", catalog = "auction")
@@ -67,23 +66,5 @@ public class PersonalInformationEntity implements Serializable {
     public void setBday(Date bday) {
         // this.bday = new Date(bday.getTime());
         this.bday = bday;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PersonalInformationEntity that = (PersonalInformationEntity) o;
-        return id == that.id &&
-                Objects.equals(uuidUser, that.uuidUser) &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName) &&
-                Objects.equals(bday, that.bday);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, uuidUser, firstName, lastName, bday);
     }
 }
