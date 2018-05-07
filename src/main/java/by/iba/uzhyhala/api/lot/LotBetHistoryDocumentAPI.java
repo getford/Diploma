@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/api/document/bet-history")
@@ -28,7 +27,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                 LOGGER.info("uuid lot: " + req.getParameter("uuid") +
                         ", api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
                 DocumentBetHistory documentBetHistory = new DocumentBetHistory();
-                documentBetHistory.generateDocHistoryBet(req.getParameter("uuid"), req, resp, new URL(req.getRequestURL().toString()));
+                documentBetHistory.generateDocHistoryBet(req.getParameter("uuid"), req, resp);
 
                 resp.getWriter().write("{" +
                         "\"status\": " + resp.getStatus() + ",\n" +
