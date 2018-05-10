@@ -1,6 +1,6 @@
 package by.iba.uzhyhala.api.lot;
 
-import by.iba.uzhyhala.lot.DocumentBetHistory;
+import by.iba.uzhyhala.lot.DocumentHandler;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
@@ -26,14 +26,14 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
             if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
                 LOGGER.info("uuid lot: " + req.getParameter("uuid") +
                         ", api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
-                DocumentBetHistory documentBetHistory = new DocumentBetHistory();
-                documentBetHistory.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
+                DocumentHandler documentHandler = new DocumentHandler();
+                documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
 
                 resp.getWriter().write("{" +
                         "\"status\": " + resp.getStatus() + ",\n" +
-                        "\"passcode\":\"" + documentBetHistory.getDocumentPasscode() + "\"," +
-                        "\"url\":\"" + documentBetHistory.getLotUrl() + "\"," +
-                        "\"document\":\"" + documentBetHistory.getPdfEncode() + "\"}");
+                        "\"passcode\":\"" + documentHandler.getDocumentPasscode() + "\"," +
+                        "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
+                        "\"document\":\"" + documentHandler.getPdfEncode() + "\"}");
             } else
                 resp.getWriter().write("{\"exception\":\"API key isnt correct\"}");
         } catch (Exception ex) {
