@@ -5,15 +5,21 @@ import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class CommonUtil {
@@ -228,5 +234,46 @@ public class CommonUtil {
                 session.close();
             }
         }
+    }
+
+    public static File prepareExcelFileForAttach(Workbook workbook, String fileName, String extension) {
+        try {
+            File tempFile = File.createTempFile(fileName, extension);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            workbook.write(byteArrayOutputStream);
+
+            FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
+            fileOutputStream.write(byteArrayOutputStream.toByteArray());
+            fileOutputStream.close();
+
+            return tempFile;
+        } catch (IOException ex) {
+            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
+            return null;
+        }
+    }
+
+    public static Workbook createExcelFile(List<Map<String, String>> dataList, List<String> columnList, String sheetName) {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet(sheetName);
+        Row rowHeader = sheet.createRow(0);
+
+        for (int i = 0; i < columnList.size(); i++) {
+            Cell cell = rowHeader.createCell(i);
+            cell.setCellValue(String.valueOf(columnList.get(i)));
+        }
+
+        int rowNumber = 1;
+        for (Map<String, String> stringMap : dataList) {
+            Row row = sheet.createRow(rowNumber++);
+            int columnNumber = 0;
+            for (String column : columnList) {
+                Cell cell = row.createCell(columnNumber++);
+                cell.setCellValue(stringMap.get(column));
+            }
+        }
+        return workbook;
     }
 }

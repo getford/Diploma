@@ -1,13 +1,15 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.admin.StatisticHandler;
+import by.iba.uzhyhala.lot.DocumentBetHistory;
 import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
 
 public class TestHibernate {
     private static final Logger LOGGER = Logger.getLogger(TestHibernate.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 /*
 
         logger.debug("+++");
@@ -81,7 +83,33 @@ public class TestHibernate {
 /*        LotControl lotControl = new LotControl("d83a7aa9-a099-46e1-94a9-af145ac54b8e");
         lotControl.returnEndTime();*/
 
-        StatisticHandler statisticHandler = new StatisticHandler();
-        System.err.println(statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_END_DATE_LOT));
+//        StatisticHandler statisticHandler = new StatisticHandler();
+//        System.err.println(statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_END_DATE_LOT));
+
+
+/*        XSSFWorkbook xlsFile = new XSSFWorkbook(); // create a workbook
+        CreationHelper helper = xlsFile.getCreationHelper();
+        Sheet sheet1 = xlsFile.createSheet("Sheet #1"); // add a sheet to your workbook
+
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        xlsFile.write(bos); // write excel data to a byte array
+
+        File tempFile = File.createTempFile("qwe", ".xlsx");
+        File tempFile_ = File.createTempFile("qwe", ".txt");
+
+        FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
+        fileOutputStream.write(bos.toByteArray());
+        fileOutputStream.close();
+
+        MailUtil mailUtil = new MailUtil();
+        mailUtil.addAttachment(tempFile);
+        mailUtil.addAttachment(tempFile_);
+        mailUtil.sendErrorMailForAdmin("qwertyu");
+
+        System.err.println(tempFile.getAbsolutePath());
+        tempFile.delete();*/
+
+        new DocumentBetHistory().generateDocHistoryBetExcel("d83a7aa9-a099-46e1-94a9-af145ac54b8e", VariablesUtil.EXCEL_EXTENSION_XLSX);
     }
 }

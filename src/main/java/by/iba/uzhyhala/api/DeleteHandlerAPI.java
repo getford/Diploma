@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
@@ -43,14 +44,7 @@ public class DeleteHandlerAPI extends HttpServlet {
                     resp.sendRedirect("/pages/manageusers.jsp");
                     break;
                 case "uuid-lot":
-                    session.createQuery("DELETE FROM " + VariablesUtil.ENTITY_BET + " WHERE uuid = :uuid")
-                            .setParameter("uuid", uuid)
-                            .executeUpdate();
 
-                    session.createQuery("DELETE FROM " + VariablesUtil.ENTITY_LOT + " WHERE uuid = :uuid")
-                            .setParameter("uuid", uuid)
-                            .executeUpdate();
-                    resp.getWriter().write("{\"message\":\"Success\"}");
                     break;
                 default:
                     break;
@@ -60,5 +54,18 @@ public class DeleteHandlerAPI extends HttpServlet {
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get parameter from URL, pls contact with administrator");
         }
+    }
+
+    private void deleteLot(Session session, String uuidLot, HttpServletResponse resp) throws IOException {
+
+
+        session.createQuery("DELETE FROM " + VariablesUtil.ENTITY_BET + " WHERE uuid = :uuid")
+                .setParameter("uuid", uuidLot)
+                .executeUpdate();
+
+        session.createQuery("DELETE FROM " + VariablesUtil.ENTITY_LOT + " WHERE uuid = :uuid")
+                .setParameter("uuid", uuidLot)
+                .executeUpdate();
+        resp.getWriter().write("{\"message\":\"Success\"}");
     }
 }

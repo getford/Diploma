@@ -57,7 +57,7 @@ public class LotBetHistoryDocumentAPITest {
     }
 
     @Test
-    public void test() throws IOException {
+    public void testPDF() throws IOException {
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

@@ -208,12 +208,17 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.lucene:lucene-spatial:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.lucene:lucene-spellchecker:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.solr:solr-commons-csv:3.1.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: commons-codec:commons-codec:1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.lucene:lucene-smartcn:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.lucene:lucene-stempel:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hibernate:hibernate-commons-annotations:3.2.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.lucene:lucene-core:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jacoco:org.jacoco.agent:runtime:0.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi:3.13" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.13" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-schemas:3.13" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
   </component>
 </module>

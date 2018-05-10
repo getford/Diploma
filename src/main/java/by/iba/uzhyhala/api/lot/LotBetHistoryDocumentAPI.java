@@ -27,7 +27,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                 LOGGER.info("uuid lot: " + req.getParameter("uuid") +
                         ", api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
                 DocumentBetHistory documentBetHistory = new DocumentBetHistory();
-                documentBetHistory.generateDocHistoryBet(req.getParameter("uuid"), req, resp);
+                documentBetHistory.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
 
                 resp.getWriter().write("{" +
                         "\"status\": " + resp.getStatus() + ",\n" +

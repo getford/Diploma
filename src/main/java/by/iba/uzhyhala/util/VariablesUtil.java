@@ -26,12 +26,13 @@ public final class VariablesUtil {
     public static final String STATUS_LOT_WAIT = "wait";
     public static final String STATUS_LOT_CLOSE = "close";
 
-    // Email cred
+    // Email
     public static final String EMAIL_SUPPORT = "auction.diploma@gmail.com";
     static final String EMAIL_SUPPORT_PASSCODE = "diploma1234auction";
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
     static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
+    static final String EMAIL_CONTENT_TYPE = "text/html; charset=utf-8";
 
     // Date format pattern's
     public static final String PATTERN_DATE = "dd-MM-yyyy";
@@ -56,8 +57,10 @@ public final class VariablesUtil {
     // Regexp
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
 
-    // PDF
+    // Files
     public static final String PDF_OWNER_PASSCODE = "9cb6baf0";
+    public static final String EXCEL_EXTENSION_XLSX = ".xlsx";
+    public static final String EXCEL_EXTENSION_XLS = ".xls";
 
     // Query charts
     public static final String QUERY_CHART_DATA_ADD_DATE_LOT = "SELECT date_add, count(date_add) FROM lot " +

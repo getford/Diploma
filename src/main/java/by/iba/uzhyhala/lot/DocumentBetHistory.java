@@ -27,22 +27,24 @@ import java.util.List;
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentBetHistory extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentBetHistory.class);
-    private ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    private ByteArrayOutputStream byteArrayOutputStreamPDF = new ByteArrayOutputStream();
+    private ByteArrayOutputStream byteArrayOutputStreamExcel = new ByteArrayOutputStream();
     private String documentPasscode;
     private String urlLot;
+    private static String fileName = "Bet History";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        generateDocHistoryBet(req.getParameter("uuid_lot"), req, resp);
+        String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
+        fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + req.getParameter("uuid_lot") + ".pdf";
+        generateDocHistoryBetPDF(req.getParameter("uuid_lot"), req, resp);
 
     }
 
-    public void generateDocHistoryBet(String uuidLot, HttpServletRequest req, HttpServletResponse resp) {
+    public void generateDocHistoryBetPDF(String uuidLot, HttpServletRequest req, HttpServletResponse resp) {
         try {
             Document document = new Document(PageSize.A4);
             URL url = new URL(req.getRequestURL().toString());
-            String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
-            String fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + uuidLot + ".pdf";
 
             urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
             documentPasscode = String.valueOf(UUID.randomUUID()).substring(0, 8);
@@ -78,7 +80,7 @@ public class DocumentBetHistory extends HttpServlet {
             // check api call
             if (!StringUtils.isBlank(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
                 resp.setContentType("application/json");
-                pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStream);
+                pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStreamPDF);
             } else {
                 resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
                 resp.setContentType("application/pdf;charset=UTF-8");
@@ -128,8 +130,41 @@ public class DocumentBetHistory extends HttpServlet {
         }
     }
 
+    public void generateDocHistoryBetExcel(String uuidLot, String extension) {
+        List<Map<String, String>> dateList = new ArrayList<>();
+        List<BetHistoryTO> list = CommonUtil.getHistoryBets(uuidLot);
+
+        List<String> columnList = new ArrayList<>();
+        columnList.add("Name");
+        columnList.add("Bet");
+        columnList.add("Date");
+        columnList.add("Time");
+
+        assert list != null;
+        for (BetHistoryTO betHistoryTO : list) {
+            Map<String, String> map = new HashMap<>();
+            map.put(columnList.get(0), betHistoryTO.getUserName());
+            map.put(columnList.get(1), String.valueOf(betHistoryTO.getBet()));
+            map.put(columnList.get(2), betHistoryTO.getDate());
+            map.put(columnList.get(3), betHistoryTO.getTime());
+            dateList.add(map);
+        }
+
+        MailUtil mailUtil = new MailUtil();
+        mailUtil.addAttachment(CommonUtil.prepareExcelFileForAttach(
+                CommonUtil.createExcelFile(dateList, columnList, "Bet history"),
+                fileName, extension));
+        // TODO: send document
+        mailUtil.sendErrorMailForAdmin("");
+
+    }
+
     public String getPdfEncode() {
-        return Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+        return Base64.getEncoder().encodeToString(byteArrayOutputStreamPDF.toByteArray());
+    }
+
+    public String getExcelEncode() {
+        return Base64.getEncoder().encodeToString(byteArrayOutputStreamExcel.toByteArray());
     }
 
     public String getDocumentPasscode() {

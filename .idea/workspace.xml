@@ -19,6 +19,10 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/auction$DeleteHandlerAPITest.ic" NAME="DeleteHandlerAPITest Coverage Results" MODIFIED="1525889281942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>by.iba.uzhyhala.api.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/auction$All_in_auction__1_.ic" NAME="All in auction (1) Coverage Results" MODIFIED="1525889298190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/auction$All_in_auction.ic" NAME="All in auction Coverage Results" MODIFIED="1525686463284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/auction$DocumentBetHistoryTest.ic" NAME="DocumentBetHistoryTest Coverage Results" MODIFIED="1525686438215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>by.iba.uzhyhala.lot.*</FILTER>
@@ -74,11 +78,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="257" selection-start-line="257" selection-end-line="257" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
+                <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
+                <element signature="method#isUpdateLotStatus#0;class#CommonUtil#0" />
+                <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+                <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+                <element signature="method#prepareExcelFileForAttach#0;class#CommonUtil#0" />
+                <element signature="method#createExcelFile#0;class#CommonUtil#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LotBetHistoryDocumentAPITest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LotBetHistoryDocumentAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="29" column="93" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
+            <state relative-caret-position="392">
+              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,83 +118,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthInfoEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
+      <file leaf-file-name="DocumentBetHistory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+            <state relative-caret-position="224">
+              <caret line="38" column="111" selection-start-line="38" selection-start-column="111" selection-end-line="38" selection-end-column="111" />
+              <folding>
+                <element signature="method#generateDocHistoryBetPDF#0;class#DocumentBetHistory#0" />
+                <element signature="e#5807#5808#0" expanded="true" />
+                <element signature="e#5901#5902#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="VariablesUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="287">
+              <caret line="61" column="51" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddressEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java">
+      <file leaf-file-name="MailUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+            <state relative-caret-position="292">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BetEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
+      <file leaf-file-name="TestHibernate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedbackEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LotEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="189" column="5" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonalInformationEntity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LotAddAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAddAPI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="651">
+              <caret line="112" column="134" selection-start-line="112" selection-start-column="134" selection-end-line="112" selection-end-column="134" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,7 +187,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>del</find>
       <find>images/</find>
       <find>/resources/images/index/</find>
       <find>html</find>
@@ -219,6 +216,7 @@
       <find>.input__label-content--isao</find>
       <find>\\</find>
       <find>&quot;</find>
+      <find>name</find>
     </findStrings>
     <replaceStrings>
       <replace>LOGGER</replace>
@@ -259,9 +257,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/auth.jsp" />
-        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/CommonUtilTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/CommonUtilTest.java" />
         <option value="$PROJECT_DIR$/target/jacoco-ut/index.html" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/UserApiKeylTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/user/UserApiKeylTest.java" />
@@ -272,7 +267,6 @@
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotAddAPITest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotStatusTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/BetHandlerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
@@ -281,7 +275,6 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/UserRegTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/user/UserApiKeyTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/RegistrationAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/UserHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/UserApiKey.java" />
@@ -293,16 +286,12 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/user/RegistrationAPITest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/ReCaptchaUtilTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DocumentHandlerAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/DocumentHandlerAPI.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotInfoAPITest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AddressEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java" />
@@ -310,6 +299,15 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/DeleteHandlerAPITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java" />
+        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java" />
       </list>
     </option>
   </component>
@@ -449,38 +447,149 @@
               <item name="by" type="462c0819:PsiDirectoryNode" />
               <item name="iba" type="462c0819:PsiDirectoryNode" />
               <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="lot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
               <item name="Diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="lot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="lot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -544,7 +653,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in auction">
+  <component name="RunManager" selected="Application.TestHibernate">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -571,6 +680,23 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
+    <configuration name="All in auction (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="auction" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration name="All in auction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="auction" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -579,6 +705,38 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="DeleteHandlerAPITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="auction" />
+      <extension name="chronon">
+        <include>
+          <pattern>
+            <option name="PATTERN" value="by.iba.uzhyhala.api.**" />
+            <option name="ENABLED" value="true" />
+            <option name="INCLUDE" value="true" />
+          </pattern>
+        </include>
+      </extension>
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.iba.uzhyhala.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="by.iba.uzhyhala.api" />
+      <option name="MAIN_CLASS_NAME" value="by.iba.uzhyhala.api.DeleteHandlerAPITest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -641,70 +799,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="by.iba.uzhyhala.api.lot" />
       <option name="MAIN_CLASS_NAME" value="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPITest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="LotBetHistoryDocumentAPITest.testApiKeyNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="auction" />
-      <extension name="chronon">
-        <include>
-          <pattern>
-            <option name="PATTERN" value="by.iba.uzhyhala.api.lot.**" />
-            <option name="ENABLED" value="true" />
-            <option name="INCLUDE" value="true" />
-          </pattern>
-        </include>
-      </extension>
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.iba.uzhyhala.api.lot.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="by.iba.uzhyhala.api.lot" />
-      <option name="MAIN_CLASS_NAME" value="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPITest" />
-      <option name="METHOD_NAME" value="testApiKeyNull" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="RegistrationAPITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="auction" />
-      <extension name="chronon">
-        <include>
-          <pattern>
-            <option name="PATTERN" value="by.iba.uzhyhala.api.user.**" />
-            <option name="ENABLED" value="true" />
-            <option name="INCLUDE" value="true" />
-          </pattern>
-        </include>
-      </extension>
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.iba.uzhyhala.api.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="by.iba.uzhyhala.api.user" />
-      <option name="MAIN_CLASS_NAME" value="by.iba.uzhyhala.api.user.RegistrationAPITest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -858,19 +952,19 @@
     <list>
       <item itemvalue="Application.TestHibernate" />
       <item itemvalue="Tomcat Server.Tom" />
-      <item itemvalue="JUnit.RegistrationAPITest" />
       <item itemvalue="JUnit.LotBetHistoryDocumentAPITest" />
       <item itemvalue="JUnit.DocumentBetHistoryTest" />
-      <item itemvalue="JUnit.LotBetHistoryDocumentAPITest.testApiKeyNull" />
       <item itemvalue="JUnit.All in auction" />
+      <item itemvalue="JUnit.DeleteHandlerAPITest" />
+      <item itemvalue="JUnit.All in auction (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in auction (1)" />
+        <item itemvalue="JUnit.DeleteHandlerAPITest" />
         <item itemvalue="JUnit.All in auction" />
         <item itemvalue="JUnit.DocumentBetHistoryTest" />
         <item itemvalue="JUnit.LotBetHistoryDocumentAPITest" />
-        <item itemvalue="JUnit.LotBetHistoryDocumentAPITest.testApiKeyNull" />
-        <item itemvalue="JUnit.RegistrationAPITest" />
       </list>
     </recent_temporary>
   </component>
@@ -906,18 +1000,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DocumentBetHistoryTest - 2018.05.07 at 12h 20m 47s.xml">
-      <configuration name="DocumentBetHistoryTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DocumentBetHistoryTest - 2018.05.07 at 12h 22m 29s.xml">
-      <configuration name="DocumentBetHistoryTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LotBetHistoryDocumentAPITest_testApiKeyNull - 2018.05.07 at 12h 27m 32s.xml">
-      <configuration name="LotBetHistoryDocumentAPITest.testApiKeyNull" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DocumentBetHistoryTest - 2018.05.07 at 12h 34m 43s.xml">
-      <configuration name="DocumentBetHistoryTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DocumentBetHistoryTest - 2018.05.07 at 12h 36m 53s.xml">
       <configuration name="DocumentBetHistoryTest" configurationId="JUnit" />
     </history-entry>
@@ -936,9 +1018,21 @@
     <history-entry file="All_in_auction - 2018.05.07 at 12h 48m 36s.xml">
       <configuration name="All in auction" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DeleteHandlerAPITest - 2018.05.09 at 13h 08m 28s.xml">
+      <configuration name="DeleteHandlerAPITest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeleteHandlerAPITest - 2018.05.09 at 13h 08m 43s.xml">
+      <configuration name="DeleteHandlerAPITest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeleteHandlerAPITest - 2018.05.09 at 21h 08m 07s.xml">
+      <configuration name="DeleteHandlerAPITest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_auction_(1) - 2018.05.09 at 21h 09m 12s.xml">
+      <configuration name="All in auction (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302671000" />
+    <option name="totallyTimeSpent" value="318888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -953,117 +1047,118 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="16" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="16" sideWeight="0.49928468" weight="0.44484848" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.43633762" side_tool="true" weight="0.3272727" />
+      <window_info anchor="right" id="Palette" order="12" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="13" sideWeight="0.49928468" weight="0.44484848" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.43633762" side_tool="true" weight="0.3272727" />
       <window_info anchor="bottom" id="Application Servers" order="1" sideWeight="0.49713877" weight="0.32848486" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.3297568" />
-      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32969698" />
-      <window_info anchor="right" id="CDI" order="2" weight="0.3297568" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32969698" />
+      <window_info anchor="right" id="CDI" order="1" weight="0.3297568" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Database" order="4" weight="0.2539342" />
+      <window_info anchor="right" id="Database" order="2" weight="0.2539342" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
-      <window_info anchor="right" id="JSF" order="6" weight="0.3297568" />
-      <window_info anchor="right" id="Ant Build" order="19" weight="0.24964234" />
+      <window_info anchor="right" id="JSF" order="3" weight="0.3297568" />
+      <window_info anchor="right" id="Ant Build" order="13" weight="0.24964234" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="28" sideWeight="0.6151645" weight="0.32969698" />
-      <window_info anchor="bottom" id="TODO" order="20" weight="0.32848486" />
-      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.56366235" weight="0.3272727" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.6151645" weight="0.42563483" />
+      <window_info anchor="bottom" id="TODO" order="14" weight="0.32848486" />
+      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.56366235" weight="0.32648125" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32889965" />
-      <window_info anchor="right" id="Capture Analysis" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32848486" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="22" sideWeight="0.49356222" weight="0.41939393" />
-      <window_info anchor="bottom" id="Coverage" order="29" side_tool="true" weight="0.5949214" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="9" sideWeight="0.49499285" weight="0.4690909" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32889965" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32848486" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="15" sideWeight="0.49284694" weight="0.33857316" />
+      <window_info anchor="bottom" id="Coverage" order="29" sideWeight="0.5071531" side_tool="true" weight="0.4183797" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="5" sideWeight="0.49499285" weight="0.4690909" />
       <window_info id="Persistence" order="3" sideWeight="0.5216606" side_tool="true" weight="0.2546495" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.47522524" visible="true" weight="0.29399142" />
-      <window_info anchor="right" id="Bean Validation" order="12" weight="0.3297568" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.47522524" visible="true" weight="0.3211731" />
+      <window_info anchor="right" id="Bean Validation" order="6" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.5247748" side_tool="true" weight="0.23032904" />
-      <window_info anchor="bottom" id="Find" order="19" weight="0.32848486" />
-      <window_info anchor="right" id="Theme Preview" order="14" />
+      <window_info anchor="bottom" id="Find" order="11" weight="0.32848486" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="23" sideWeight="0.49356222" weight="0.41939393" />
-      <window_info anchor="right" id="Database" order="5" weight="0.2539342" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" sideWeight="0.49499285" weight="0.4690909" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="24" sideWeight="0.49356222" weight="0.41939393" />
+      <window_info anchor="right" id="Database" order="10" weight="0.2539342" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="16" sideWeight="0.49499285" weight="0.4690909" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Application Servers" order="2" sideWeight="0.49713877" weight="0.32848486" />
+      <window_info anchor="bottom" id="Application Servers" order="6" sideWeight="0.49713877" weight="0.32848486" />
       <window_info anchor="bottom" id="SonarLint" order="0" weight="0.40242425" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Palette" order="17" />
+      <window_info anchor="right" id="Palette&#9;" order="14" />
+      <window_info anchor="right" id="Palette" order="18" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
-      <window_info anchor="bottom" id="TODO" order="21" weight="0.32848486" />
+      <window_info anchor="bottom" id="TODO" order="23" weight="0.32848486" />
       <window_info content_ui="combo" id="Project" order="7" sideWeight="0.47833934" weight="0.2725322" />
-      <window_info anchor="bottom" id="Chronon" order="27" visible="true" weight="0.32969698" />
+      <window_info anchor="bottom" id="Chronon" order="28" visible="true" weight="0.32969698" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="21" weight="0.25" />
-      <window_info anchor="right" id="Maven Projects" order="1" weight="0.3297568" />
-      <window_info anchor="right" id="CDI" order="3" weight="0.3297568" />
-      <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49570817" weight="0.32848486" />
-      <window_info anchor="bottom" id="Message" order="18" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3297568" />
+      <window_info anchor="right" id="CDI" order="9" weight="0.3297568" />
+      <window_info anchor="bottom" id="Database Console" order="18" sideWeight="0.49570817" weight="0.32769045" />
+      <window_info anchor="bottom" id="Message" order="22" />
       <window_info anchor="right" id="Ant Build" order="20" weight="0.24964234" />
-      <window_info anchor="right" id="Capture Analysis" order="11" />
+      <window_info anchor="right" id="Capture Analysis" order="15" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
-      <window_info anchor="right" id="Theme Preview" order="15" />
+      <window_info anchor="right" id="Theme Preview" order="17" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.5216606" side_tool="true" weight="0.2546495" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.43633762" side_tool="true" weight="0.3272727" />
-      <window_info anchor="bottom" id="Cvs" order="25" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="26" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="19" sideWeight="0.43633762" side_tool="true" weight="0.3272727" />
+      <window_info anchor="bottom" id="Cvs" order="26" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="27" weight="0.4" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="bottom" id="Java Enterprise" order="6" weight="0.32889965" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32889965" />
       <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
-      <window_info anchor="right" id="Bean Validation" order="13" weight="0.3297568" />
-      <window_info anchor="bottom" id="Database Changes" order="15" weight="0.32969698" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32848486" />
-      <window_info anchor="right" id="JSF" order="7" weight="0.3297568" />
-      <window_info anchor="right" id="Commander" order="18" weight="0.4" />
+      <window_info anchor="right" id="Bean Validation" order="16" weight="0.3297568" />
+      <window_info anchor="bottom" id="Database Changes" order="20" weight="0.32969698" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32848486" />
+      <window_info anchor="right" id="JSF" order="11" weight="0.3297568" />
+      <window_info anchor="right" id="Commander" order="19" weight="0.4" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.56366235" weight="0.3272727" />
-      <window_info active="true" anchor="bottom" id="Debug" order="24" sideWeight="0.6151645" visible="true" weight="0.34666666" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="17" sideWeight="0.49928468" weight="0.44484848" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.56366235" weight="0.3272727" />
+      <window_info active="true" anchor="bottom" id="Debug" order="25" sideWeight="0.6151645" visible="true" weight="0.34666666" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="21" sideWeight="0.49928468" weight="0.44484848" />
     </layout>
     <layout-to-restore>
-      <window_info id="Persistence" order="3" sideWeight="0.53333336" side_tool="true" weight="0.2546495" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="9" sideWeight="0.49928468" weight="0.44484848" />
+      <window_info id="Persistence" order="3" sideWeight="0.5216606" side_tool="true" weight="0.2546495" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="10" sideWeight="0.49928468" weight="0.44484848" />
       <window_info anchor="bottom" id="Application Servers" order="1" sideWeight="0.49713877" weight="0.32848486" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="7" sideWeight="0.49570817" visible="true" weight="0.32769045" />
       <window_info anchor="right" id="Palette" order="8" />
-      <window_info anchor="bottom" id="Database Console" order="6" sideWeight="0.49570817" weight="0.32848486" />
+      <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="13" sideWeight="0.49356222" weight="0.41939393" />
       <window_info anchor="bottom" id="Cvs" order="15" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.24964234" />
-      <window_info anchor="right" id="JSF" order="3" weight="0.3297568" />
+      <window_info anchor="bottom" id="Chronon" order="17" visible="true" weight="0.32969698" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="5" sideWeight="0.49499285" weight="0.6181818" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="6" sideWeight="0.49499285" weight="0.4690909" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Commander" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.38483548" side_tool="true" weight="0.35030302" />
-      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49928468" weight="0.3272727" />
+      <window_info anchor="right" id="JSF" order="3" weight="0.3297568" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.43633762" side_tool="true" weight="0.3272727" />
+      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.56366235" weight="0.3272727" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32848486" />
       <window_info anchor="bottom" id="SonarLint" order="0" weight="0.40242425" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32889965" />
-      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32969698" />
-      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32848486" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32969698" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32848486" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.3297568" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.46666667" visible="true" weight="0.2546495" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32848486" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.47833934" weight="0.2725322" />
       <window_info anchor="right" id="Database" order="2" weight="0.2539342" />
-      <window_info anchor="bottom" id="Message" order="10" />
-      <window_info id="Web" order="4" sideWeight="0.50423217" side_tool="true" weight="0.24606581" />
-      <window_info anchor="bottom" id="Chronon" order="17" visible="true" weight="0.32969698" />
+      <window_info anchor="bottom" id="Message" order="11" />
+      <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
-      <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="CDI" order="1" weight="0.3297568" />
       <window_info anchor="bottom" id="Inspection" order="16" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="11" weight="0.32848486" />
+      <window_info anchor="bottom" id="Coverage" order="18" sideWeight="0.5071531" side_tool="true" weight="0.4183797" />
+      <window_info active="true" anchor="bottom" id="Debug" order="14" sideWeight="0.6151645" visible="true" weight="0.34666666" />
       <window_info anchor="right" id="Bean Validation" order="6" weight="0.3297568" />
-      <window_info anchor="bottom" id="Debug" order="14" sideWeight="0.6151645" visible="true" weight="0.34666666" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1123,18 +1218,19 @@
           <properties />
           <option name="timeStamp" value="392" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="403" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="403" />
+      <option name="time" value="423" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="documentBetHistory.getPdfEncode()" language="JAVA" />
-      </configuration>
-      <configuration name="Application">
-        <watch expression="secondsEnd" language="JAVA" />
-        <watch expression="secondsNow" language="JAVA" />
-        <watch expression="String.valueOf(record[0]).equals(&quot;null&quot;)" language="JAVA" />
-        <watch expression="dataForChart.substring(0, dataForChart.length() - 1)" language="JAVA" />
+        <watch expression="getPdfEncode()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1145,52 +1241,52 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
+        <expression-string>entr.getValue().toPath()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>entr.getValue()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tempFile.canRead()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tempFile.list()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tempFile.isInvalid()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tempFile.status</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tempFile.getTotalSpace()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>bos.toByteArray()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>getPdfEncode()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>documentBetHistory.getPdfEncode()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>byteArrayOutputStream.toByteArray()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>req.getRequestURL().toString()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>url</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>LocalDate.parse(dateOrTime, dateTimeFormatter)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>table.isSplitLate()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>table.isSkipFirstHeader()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>table.isNestable()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>table.isComplete()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1267,55 +1363,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/UserRegTOAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/address">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3507e0a0/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/auction.public.auth_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/personal_information">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-687">
-          <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/to/UserTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/UserHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1340,24 +1387,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/lot">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotStatusTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/user/UserApiKeyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
@@ -1372,13 +1405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-50">
           <caret line="307" selection-start-line="307" selection-end-line="307" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1435,23 +1461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/RegistrationAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
@@ -1483,20 +1492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="210" column="26" selection-start-line="210" selection-start-column="26" selection-end-line="210" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
-            <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
-            <element signature="method#isUpdateLotStatus#0;class#CommonUtil#0" />
-            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1522,13 +1517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAllAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1560,21 +1548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="62" column="57" lean-forward="true" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
-          <folding>
-            <element signature="e#5567#5568#0" expanded="true" />
-            <element signature="e#5661#5662#0" expanded="true" />
-            <element signature="e#5704#5705#0" expanded="true" />
-            <element signature="e#5743#5744#0" expanded="true" />
-            <element signature="e#5776#5777#0" expanded="true" />
-            <element signature="e#5805#5806#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/DocumentBetHistoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1582,34 +1555,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAddAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
+        <state relative-caret-position="285">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="29" column="93" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1641,10 +1590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        <state relative-caret-position="663">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1655,10 +1604,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/PersonalInformationEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        <state relative-caret-position="579">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAllAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="32" column="88" lean-forward="true" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/RegistrationAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/user/UserApiKeyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/DeleteHandlerAPITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="e#1876#1877#0" expanded="true" />
+            <element signature="e#1969#1970#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="2069" column="18" selection-start-line="2069" selection-start-column="18" selection-end-line="2069" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/src.zip!/java/nio/charset/Charset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="652" column="24" selection-start-line="652" selection-start-column="24" selection-end-line="652" selection-end-column="24" />
+          <folding>
+            <element signature="e#26078#26079#0" expanded="true" />
+            <element signature="e#26105#26106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetHistoryTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/lot">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="61" column="51" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/DocumentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+          <folding>
+            <element signature="e#5270#5271#0" expanded="true" />
+            <element signature="e#5307#5308#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="257" selection-start-line="257" selection-end-line="257" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
+            <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
+            <element signature="method#isUpdateLotStatus#0;class#CommonUtil#0" />
+            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+            <element signature="method#prepareExcelFileForAttach#0;class#CommonUtil#0" />
+            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/TestHibernate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="112" column="134" selection-start-line="112" selection-start-column="134" selection-end-line="112" selection-end-column="134" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="38" column="111" selection-start-line="38" selection-start-column="111" selection-end-line="38" selection-end-column="111" />
+          <folding>
+            <element signature="method#generateDocHistoryBetPDF#0;class#DocumentBetHistory#0" />
+            <element signature="e#5807#5808#0" expanded="true" />
+            <element signature="e#5901#5902#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
