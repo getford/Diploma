@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.lot;
 
+import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
@@ -31,12 +32,13 @@ public class DocumentBetHistory extends HttpServlet {
     private ByteArrayOutputStream byteArrayOutputStreamExcel = new ByteArrayOutputStream();
     private String documentPasscode;
     private String urlLot;
-    private static String fileName = "Bet History";
+    private static String fileName = "File_";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
-        fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + req.getParameter("uuid_lot") + ".pdf";
+        fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_"
+                + req.getParameter("uuid_lot") + VariablesUtil.PDF_EXTENSION;
         generateDocHistoryBetPDF(req.getParameter("uuid_lot"), req, resp);
 
     }
@@ -81,6 +83,7 @@ public class DocumentBetHistory extends HttpServlet {
             if (!StringUtils.isBlank(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
                 resp.setContentType("application/json");
                 pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStreamPDF);
+
             } else {
                 resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
                 resp.setContentType("application/pdf;charset=UTF-8");
@@ -121,6 +124,11 @@ public class DocumentBetHistory extends HttpServlet {
             document.add(new Paragraph("URL lot: " + getLotUrl()));
 
             document.close();
+
+            MailUtil mailUtil = new MailUtil();
+            mailUtil.addAttachment(CommonUtil.prepareFileForAttach(document,
+                    fileName, ".pdf"));
+
             LOGGER.info("PDF document successfully generated");
             LOGGER.info("Document name\t" + fileName);
             LOGGER.info("Password\t" + getDocumentPasscode());
@@ -151,12 +159,60 @@ public class DocumentBetHistory extends HttpServlet {
         }
 
         MailUtil mailUtil = new MailUtil();
-        mailUtil.addAttachment(CommonUtil.prepareExcelFileForAttach(
+        mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
                 CommonUtil.createExcelFile(dateList, columnList, "Bet history"),
                 fileName, extension));
         // TODO: send document
         mailUtil.sendErrorMailForAdmin("");
+    }
 
+    public void generateExcelDocLots(String query, String extension) {
+        List<Map<String, String>> dateList = new ArrayList<>();
+        List<LotEntity> lotEntityList = new LotHandler().getLots(query);
+
+        List<String> columnList = new ArrayList<>();
+        columnList.add("uuid");
+        columnList.add("uuid seller");
+        columnList.add("uuid client");
+        columnList.add("name");
+        columnList.add("information");
+        columnList.add("cost");
+        columnList.add("blitz cost");
+        columnList.add("step cost");
+        columnList.add("date add");
+        columnList.add("date start");
+        columnList.add("date end");
+        columnList.add("time start");
+        columnList.add("time end");
+        columnList.add("category");
+        columnList.add("status");
+
+        for (LotEntity lotEntity : lotEntityList) {
+            Map<String, String> map = new HashMap<>();
+            map.put(columnList.get(0), lotEntity.getUuid());
+            map.put(columnList.get(1), lotEntity.getUuidUserSeller());
+            map.put(columnList.get(2), lotEntity.getUuidUserClient());
+            map.put(columnList.get(3), lotEntity.getName());
+            map.put(columnList.get(4), lotEntity.getInformation());
+            map.put(columnList.get(5), lotEntity.getCost());
+            map.put(columnList.get(6), lotEntity.getBlitzCost());
+            map.put(columnList.get(7), lotEntity.getStepCost());
+            map.put(columnList.get(8), lotEntity.getDateAdd());
+            map.put(columnList.get(9), lotEntity.getDateStart());
+            map.put(columnList.get(10), lotEntity.getDateEnd());
+            map.put(columnList.get(11), lotEntity.getTimeStart());
+            map.put(columnList.get(12), lotEntity.getTimeEnd());
+            map.put(columnList.get(13), String.valueOf(lotEntity.getIdCategory()));
+            map.put(columnList.get(14), lotEntity.getStatus());
+            dateList.add(map);
+        }
+
+        MailUtil mailUtil = new MailUtil();
+        mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
+                CommonUtil.createExcelFile(dateList, columnList, "All lots"),
+                fileName, extension));
+        // TODO: send document
+        mailUtil.sendErrorMailForAdmin("");
     }
 
     public String getPdfEncode() {

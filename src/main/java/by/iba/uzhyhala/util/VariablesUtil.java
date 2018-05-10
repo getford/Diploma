@@ -56,9 +56,11 @@ public final class VariablesUtil {
 
     // Regexp
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+    public static final String REGEXP_DELETE_NUMBERS = "^([0-9]+)";
 
     // Files
     public static final String PDF_OWNER_PASSCODE = "9cb6baf0";
+    public static final String PDF_EXTENSION = ".pdf";
     public static final String EXCEL_EXTENSION_XLSX = ".xlsx";
     public static final String EXCEL_EXTENSION_XLS = ".xls";
 

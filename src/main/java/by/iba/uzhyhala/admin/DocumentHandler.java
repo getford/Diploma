@@ -28,7 +28,7 @@ public class DocumentHandler extends HttpServlet {
     private static final Logger logger = Logger.getLogger(DocumentHandler.class);
 
     private byte[] base64document;
-    private List<LotEntity> list = new LotHandler().getLots(VariablesUtil.QUERY_SELECT_ALL_LOT);
+    private List<LotEntity> lotEntityList = new LotHandler().getLots(VariablesUtil.QUERY_SELECT_ALL_LOT);
     private String userName;
     private String tableHead;
 
@@ -73,13 +73,13 @@ public class DocumentHandler extends HttpServlet {
             for (PdfPCell cell : cells) {
                 cell.setBackgroundColor(BaseColor.WHITE);
             }
-            for (int i = 1; i < list.size(); i++) {
-                table.addCell(list.get(i).getUuid());
-                table.addCell(list.get(i).getName());
-                table.addCell(list.get(i).getCost());
-                table.addCell(list.get(i).getDateAdd());
-                table.addCell(list.get(i).getDateEnd());
-                table.addCell(list.get(i).getStatus());
+            for (int i = 1; i < lotEntityList.size(); i++) {
+                table.addCell(lotEntityList.get(i).getUuid());
+                table.addCell(lotEntityList.get(i).getName());
+                table.addCell(lotEntityList.get(i).getCost());
+                table.addCell(lotEntityList.get(i).getDateAdd());
+                table.addCell(lotEntityList.get(i).getDateEnd());
+                table.addCell(lotEntityList.get(i).getStatus());
             }
 
             PdfWriter pdfWriter = PdfWriter.getInstance(document,

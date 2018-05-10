@@ -236,12 +236,22 @@ public class CommonUtil {
         }
     }
 
-    public static File prepareExcelFileForAttach(Workbook workbook, String fileName, String extension) {
+    public static File prepareFileForAttach(Object o, String fileName, String extension) {
         try {
             File tempFile = File.createTempFile(fileName, extension);
 
+            LOGGER.info("file name: " + tempFile.getName());
+            LOGGER.info("file path: " + tempFile.getAbsolutePath());
+
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            workbook.write(byteArrayOutputStream);
+            if (extension.equals(VariablesUtil.EXCEL_EXTENSION_XLSX) || extension.equals(VariablesUtil.EXCEL_EXTENSION_XLS)) {
+                LOGGER.info("prepareFileForAttach\textension: " + extension);
+                Workbook workbook = (Workbook) o;
+                workbook.write(byteArrayOutputStream);
+            }
+//            if(extension.equals(VariablesUtil.PDF_EXTENSION)){
+//
+//            }
 
             FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
             fileOutputStream.write(byteArrayOutputStream.toByteArray());
@@ -256,6 +266,7 @@ public class CommonUtil {
     }
 
     public static Workbook createExcelFile(List<Map<String, String>> dataList, List<String> columnList, String sheetName) {
+        LOGGER.info("createExcelFile method");
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet(sheetName);
         Row rowHeader = sheet.createRow(0);

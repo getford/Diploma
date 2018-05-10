@@ -110,6 +110,7 @@ public class TestHibernate {
         System.err.println(tempFile.getAbsolutePath());
         tempFile.delete();*/
 
-        new DocumentBetHistory().generateDocHistoryBetExcel("d83a7aa9-a099-46e1-94a9-af145ac54b8e", VariablesUtil.EXCEL_EXTENSION_XLSX);
+//        new DocumentBetHistory().generateDocHistoryBetExcel("d83a7aa9-a099-46e1-94a9-af145ac54b8e", VariablesUtil.EXCEL_EXTENSION_XLSX);
+        new DocumentBetHistory().generateExcelDocLots(VariablesUtil.QUERY_SELECT_ALL_LOT, VariablesUtil.EXCEL_EXTENSION_XLSX);
     }
 }
