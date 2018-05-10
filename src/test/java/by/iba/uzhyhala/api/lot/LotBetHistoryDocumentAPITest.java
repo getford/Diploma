@@ -28,7 +28,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class LotBetHistoryDocumentAPITest {
 
-    private static final String UUID_LOT = "4da89f5a-1fed-40cc-afd5-22e8eecd97dd";
+    public static final String UUID_LOT = "4da89f5a-1fed-40cc-afd5-22e8eecd97dd";
 
     @Mock
     private MockHttpServletRequest mockHttpServletRequest;
