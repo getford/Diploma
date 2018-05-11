@@ -21,22 +21,6 @@ public class PersonalInformationTO {
         this.zip = zip;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -51,51 +35,5 @@ public class PersonalInformationTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getHous() {
-        return house;
-    }
-
-    public void setHous(String house) {
-        this.house = house;
-    }
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-
-    @Override
-    public String toString() {
-        return "PersonalInformationTO{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", country='" + country + '\'' +
-                ", street='" + street + '\'' +
-                ", house='" + house + '\'' +
-                ", zip='" + zip + '\'' +
-                '}';
     }
 }

@@ -6,13 +6,6 @@ public class BetHistoryTO {
     private String date;
     private String time;
 
-    public BetHistoryTO(String userName, Integer bet, String date, String time) {
-        this.userName = userName;
-        this.bet = bet;
-        this.date = date;
-        this.time = time;
-    }
-
     public BetHistoryTO() {
 
     }
@@ -49,13 +42,4 @@ public class BetHistoryTO {
         this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return "BetHistoryTO{" +
-                "userName='" + userName + '\'' +
-                ", bet=" + bet +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
-                '}';
-    }
 }

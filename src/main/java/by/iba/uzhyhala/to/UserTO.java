@@ -49,23 +49,4 @@ public class UserTO extends PersonalInformationTO {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "UserTO{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", uuid='" + uuid + '\'' +
-                ", role='" + role + '\'' +
-                '}';
-    }
 }

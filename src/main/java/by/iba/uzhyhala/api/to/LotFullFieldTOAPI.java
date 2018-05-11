@@ -45,30 +45,6 @@ public class LotFullFieldTOAPI extends LotAddTOAPI {
         this.dateAdd = dateAdd;
     }
 
-    public String getDateEnd() {
-        return dateEnd;
-    }
-
-    public void setDateEnd(String dateEnd) {
-        this.dateEnd = dateEnd;
-    }
-
-    public String getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(String timeEnd) {
-        this.timeEnd = timeEnd;
-    }
-
-    public String getUuidUserClient() {
-        return uuidUserClient;
-    }
-
-    public void setUuidUserClient(String uuidUserClient) {
-        this.uuidUserClient = uuidUserClient;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -77,15 +53,4 @@ public class LotFullFieldTOAPI extends LotAddTOAPI {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "LotFullFieldTOAPI{" +
-                "uuid='" + uuid + '\'' +
-                ", dateAdd='" + dateAdd + '\'' +
-                ", dateEnd='" + dateEnd + '\'' +
-                ", timeEnd='" + timeEnd + '\'' +
-                ", uuidUserClient='" + uuidUserClient + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
 }

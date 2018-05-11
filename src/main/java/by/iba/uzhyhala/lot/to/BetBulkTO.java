@@ -10,21 +10,27 @@ public class BetBulkTO {
     @SerializedName("uuid_lot")
     @Expose
     private String uuidLot;
+
     @SerializedName("uuid_seller")
     @Expose
     private String uuidSeller;
+
     @SerializedName("uuid_client")
     @Expose
     private String uuidClient;
+
     @SerializedName("status")
     @Expose
     private String status;
+
     @SerializedName("blitz_cost")
     @Expose
     private Integer blitzCost;
+
     @SerializedName("step")
     @Expose
     private Integer step;
+
     @SerializedName("bets")
     @Expose
     private List<BetTO> bets = null;
@@ -35,18 +41,6 @@ public class BetBulkTO {
 
     public void setUuidLot(String uuidLot) {
         this.uuidLot = uuidLot;
-    }
-
-    public String getUuidSeller() {
-        return uuidSeller;
-    }
-
-    public void setUuidSeller(String uuidSeller) {
-        this.uuidSeller = uuidSeller;
-    }
-
-    public String getUuidClient() {
-        return uuidClient;
     }
 
     public void setUuidClient(String uuidClient) {
@@ -65,10 +59,6 @@ public class BetBulkTO {
         return blitzCost;
     }
 
-    public void setBlitzCost(Integer blitzCost) {
-        this.blitzCost = blitzCost;
-    }
-
     public Integer getStep() {
         return step;
     }
@@ -85,16 +75,4 @@ public class BetBulkTO {
         this.bets = bets;
     }
 
-    @Override
-    public String toString() {
-        return "BetBulkTO{" +
-                "uuidLot='" + uuidLot + '\'' +
-                ", uuidSeller='" + uuidSeller + '\'' +
-                ", uuidClient='" + uuidClient + '\'' +
-                ", status='" + status + '\'' +
-                ", blitzCost=" + blitzCost +
-                ", step=" + step +
-                ", bets=" + bets +
-                '}';
-    }
 }

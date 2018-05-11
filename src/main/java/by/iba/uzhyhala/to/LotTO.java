@@ -33,22 +33,6 @@ public class LotTO {
         this.uuidUserClient = uuidUserClient;
     }
 
-    public int getIdCategory() {
-        return idCategory;
-    }
-
-    public void setIdCategory(int idCategory) {
-        this.idCategory = idCategory;
-    }
-
-    public int getIdUserSeller() {
-        return idUserSeller;
-    }
-
-    public void setIdUserSeller(int idUserSeller) {
-        this.idUserSeller = idUserSeller;
-    }
-
     public String getUuid() {
         return uuid;
     }
@@ -65,14 +49,6 @@ public class LotTO {
         this.name = name;
     }
 
-    public String getInformation() {
-        return information;
-    }
-
-    public void setInformation(String information) {
-        this.information = information;
-    }
-
     public String getCost() {
         return cost;
     }
@@ -81,87 +57,11 @@ public class LotTO {
         this.cost = cost;
     }
 
-    public String getBlitzCost() {
-        return blitzCost;
-    }
-
-    public void setBlitzCost(String blitzCost) {
-        this.blitzCost = blitzCost;
-    }
-
-    public String getStepCost() {
-        return stepCost;
-    }
-
-    public void setStepCost(String stepCost) {
-        this.stepCost = stepCost;
-    }
-
     public String getDateAdd() {
         return dateAdd;
     }
 
     public void setDateAdd(String dateAdd) {
         this.dateAdd = dateAdd;
-    }
-
-    public String getDateStart() {
-        return dateStart;
-    }
-
-    public void setDateStart(String dateStart) {
-        this.dateStart = dateStart;
-    }
-
-    public String getDateEnd() {
-        return dateEnd;
-    }
-
-    public void setDateEnd(String dateEnd) {
-        this.dateEnd = dateEnd;
-    }
-
-    public String getTimeStart() {
-        return timeStart;
-    }
-
-    public void setTimeStart(String timeStart) {
-        this.timeStart = timeStart;
-    }
-
-    public String getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(String timeEnd) {
-        this.timeEnd = timeEnd;
-    }
-
-    public String getUuidUserClient() {
-        return uuidUserClient;
-    }
-
-    public void setUuidUserClient(String uuidUserClient) {
-        this.uuidUserClient = uuidUserClient;
-    }
-
-    @Override
-    public String toString() {
-        return "LotTO{" +
-                "idCategory=" + idCategory +
-                ", idUserSeller=" + idUserSeller +
-                ", uuid='" + uuid + '\'' +
-                ", name='" + name + '\'' +
-                ", information='" + information + '\'' +
-                ", cost='" + cost + '\'' +
-                ", blitzCost='" + blitzCost + '\'' +
-                ", stepCost='" + stepCost + '\'' +
-                ", dateAdd='" + dateAdd + '\'' +
-                ", dateStart='" + dateStart + '\'' +
-                ", dateEnd='" + dateEnd + '\'' +
-                ", timeStart='" + timeStart + '\'' +
-                ", timeEnd='" + timeEnd + '\'' +
-                ", uuidUserClient='" + uuidUserClient + '\'' +
-                '}';
     }
 }
