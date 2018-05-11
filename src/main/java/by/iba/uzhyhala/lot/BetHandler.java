@@ -41,7 +41,7 @@ public class BetHandler extends HttpServlet implements Serializable {
 
             resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidLot);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
         }
     }
@@ -101,7 +101,7 @@ public class BetHandler extends HttpServlet implements Serializable {
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         } finally {
             if (session != null && session.isOpen()) {

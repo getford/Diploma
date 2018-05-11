@@ -26,20 +26,46 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
             if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
                 LOGGER.info("uuid lot: " + req.getParameter("uuid") +
                         ", api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
-                DocumentHandler documentHandler = new DocumentHandler();
-                documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
-
-                resp.getWriter().write("{" +
-                        "\"status\": " + resp.getStatus() + ",\n" +
-                        "\"passcode\":\"" + documentHandler.getDocumentPasscode() + "\"," +
-                        "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
-                        "\"document\":\"" + documentHandler.getPdfEncode() + "\"}");
+                String type = req.getParameter("type");
+                switch (type) {
+                    case "pdf":
+                        resp.getWriter().write(documentPDF(req, resp));
+                        break;
+                    case "excel":
+                        resp.getWriter().write(documentExcel(req, resp));
+                        break;
+                    default:
+                        break;
+                }
             } else
                 resp.getWriter().write("{\"exception\":\"API key isnt correct\"}");
         } catch (Exception ex) {
             LOGGER.info(getClass().getName() + "\t" + "{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         }
+    }
+
+    private String documentPDF(HttpServletRequest req, HttpServletResponse resp) {
+        DocumentHandler documentHandler = new DocumentHandler();
+        documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
+
+        return "{" +
+                "\"status\": " + resp.getStatus() + ",\n" +
+                "\"type\": \"pdf\",\n" +
+                "\"passcode\":\"" + documentHandler.getDocumentPasscode() + "\"," +
+                "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
+                "\"document\":\"" + documentHandler.getPdfBetEncode() + "\"}";
+    }
+
+    private String documentExcel(HttpServletRequest req, HttpServletResponse resp) {
+        DocumentHandler documentHandler = new DocumentHandler();
+        documentHandler.generateExcelDocHistoryBet(req, req.getParameter("uuid"), VariablesUtil.EXCEL_EXTENSION_XLSX, false);
+
+        return "{" +
+                "\"status\": " + resp.getStatus() + ",\n" +
+                "\"type\": \"excel\"," +
+                "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
+                "\"document\":\"" + documentHandler.getExcelBetEncode() + "\"}";
     }
 }

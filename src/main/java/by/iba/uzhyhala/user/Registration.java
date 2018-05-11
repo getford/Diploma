@@ -44,7 +44,7 @@ public class Registration extends HttpServlet implements IParseJson {
                             req.getParameter("password"), req);
                     resp.sendRedirect("/pages/index.jsp");
                 } catch (IOException e) {
-                    new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(e.getStackTrace()));
+                    new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(e.getStackTrace()));
                 }
             }
         } else {
@@ -87,7 +87,7 @@ public class Registration extends HttpServlet implements IParseJson {
                 return false;
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {

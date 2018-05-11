@@ -9,10 +9,6 @@
         <welcome-file>/pages/index.jsp</welcome-file>
     </welcome-file-list>
 
-    <listener>
-        <listener-class>ApplicationInitializer</listener-class>
-    </listener>
-
     <error-page>
         <!-- Missing login -->
         <error-code>401</error-code>

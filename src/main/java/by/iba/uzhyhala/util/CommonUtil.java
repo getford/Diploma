@@ -4,6 +4,7 @@ import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -51,7 +52,7 @@ public class CommonUtil {
             LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
             return result;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("CommonUtil class, Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         } finally {
@@ -73,7 +74,7 @@ public class CommonUtil {
             LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
             return result;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("CommonUtil class, Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         } finally {
@@ -122,10 +123,25 @@ public class CommonUtil {
                     .setParameter("uuid", uuid).list().get(0));
 
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             return null;
         }
+    }
+
+    public static String getUserLoginFromCookie(HttpServletRequest request) {
+        LOGGER.info("getUserLoginFromCookie");
+
+        try {
+            CookieUtil cookieUtil = new CookieUtil(request);
+            if (cookieUtil.isFindCookie()) {
+                return CommonUtil.getUserLoginByUUID(cookieUtil.getUserUuidFromToken());
+            }
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            return "";
+        }
+        return "";
     }
 
     public static List<BetHistoryTO> getHistoryBets(String uuidLot) {
@@ -182,7 +198,7 @@ public class CommonUtil {
             new MailUtil().sendMailChangeLotStatus(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), uuid, status, request);
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {
@@ -204,7 +220,7 @@ public class CommonUtil {
                     .setParameter("uuid", uuid)
                     .list().size() > 0;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("CommonUtil class, Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {
@@ -226,7 +242,7 @@ public class CommonUtil {
                     .setParameter("key", key)
                     .list().size() > 0;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("CommonUtil class, Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("CommonUtil class, Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {
@@ -259,7 +275,7 @@ public class CommonUtil {
 
             return tempFile;
         } catch (IOException ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             return null;
         }
@@ -286,5 +302,10 @@ public class CommonUtil {
             }
         }
         return workbook;
+    }
+
+    public static boolean isApiCall(HttpServletRequest request) {
+        LOGGER.info("isApiCall method");
+        return !StringUtils.isBlank(request.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
     }
 }

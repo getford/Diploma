@@ -50,7 +50,7 @@ public class DeleteHandlerAPI extends HttpServlet {
                     break;
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get parameter from URL, pls contact with administrator");
         }

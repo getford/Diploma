@@ -1,6 +1,6 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,15 +13,19 @@
     <script type="text/javascript" src="/resources/scripts/index/jquery.js"></script>
     <script type="text/javascript" src="/resources/scripts/index/main_head.js"></script>
     <%
-        CookieUtil cookieUtil = new CookieUtil(request);
-        String userLogin = CommonUtil.getUserLoginByUUID(cookieUtil.getUserUuidFromToken());
-        //   if (!StringUtils.isBlank(uuidUser)) {
-        try {
-
-        } catch (Exception e) {
-            response.getWriter().write("CATCH BLOCK ERROR");
+        String userLogin = CommonUtil.getUserLoginFromCookie(request);
+        boolean isDisableLink = false;
+        if (!StringUtils.isBlank(userLogin)){
+            isDisableLink = true;
         }
-        //   }
+//        if (!StringUtils.isBlank(userLogin)) {
+//            userLogin = "";
+//            try {
+//
+//            } catch (Exception e) {
+//                response.getWriter().write("CATCH BLOCK ERROR");
+//            }
+//        }
     %>
 </head>
 <body>

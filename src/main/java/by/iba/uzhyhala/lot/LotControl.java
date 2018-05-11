@@ -33,7 +33,7 @@ public class LotControl extends HttpServlet {
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
             this.idUser = CommonUtil.getIdUserByLoginEmail(session, loginOrEmail, type);*/
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         } /*finally {
             if (session != null && session.isOpen()) {
                 session.close();

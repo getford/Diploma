@@ -27,7 +27,7 @@ public class Profile {
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
             this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, type);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

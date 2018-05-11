@@ -55,7 +55,7 @@ public class LotAddAPI extends HttpServlet {
                 responseMessage = "{\"exception\":\"Api key isnt valid\"}";
             resp.getWriter().write(responseMessage);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + body + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + body + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
             resp.getWriter().write("{\"message\":\"There is one or more field(s) is empty\",\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             LOGGER.error(ex.getStackTrace());
         }

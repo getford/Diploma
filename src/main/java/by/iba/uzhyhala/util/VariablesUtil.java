@@ -32,7 +32,9 @@ public final class VariablesUtil {
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
     static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
-    static final String EMAIL_CONTENT_TYPE = "text/html; charset=utf-8";
+    static final String EMAIL_CONTENT_TYPE_HTML = "text/html; charset=utf-8";
+    static final String EMAIL_CONTENT_TYPE_PLAIN = "text/plain; charset=utf-8";
+    static final String EMAIL_TITLE_PART= "[AUCTION DIPLOMA] ";
 
     // Date format pattern's
     public static final String PATTERN_DATE = "dd-MM-yyyy";
@@ -76,7 +78,6 @@ public final class VariablesUtil {
 
     // Query lot
     public static final String QUERY_SELECT_ALL_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
-    public static final String QUERY_SELECT_USER_LOT = "SELECT l FROM " + ENTITY_LOT + " l ORDER BY date_add ASC";
 
     // Query count
     public static final String QUERY_COUNT_ADD_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_add = '"

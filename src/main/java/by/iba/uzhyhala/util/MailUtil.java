@@ -17,12 +17,12 @@ import java.util.*;
 
 public class MailUtil {
     private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
-    private static String timeNow;
+    private static String timeNow
+            = new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
 
     private Map<String, File> attachments = new HashMap<>();
 
     private void setupParametersForMessage(String email, String subject, String mailBody) {
-        timeNow = new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
         try {
             Properties props = new Properties();
             props.put("mail.smtp.host", VariablesUtil.EMAIL_HOST);
@@ -50,17 +50,17 @@ public class MailUtil {
                 }
 
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setContent(mailBody, VariablesUtil.EMAIL_CONTENT_TYPE);
+                messageBodyPart.setContent(mailBody, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
                 multipart.addBodyPart(messageBodyPart);
 
                 message.setContent(multipart);
             } else {
-                message.setContent(mailBody, VariablesUtil.EMAIL_CONTENT_TYPE);
+                message.setContent(mailBody, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
             }
 
             message.setFrom(new InternetAddress(VariablesUtil.EMAIL_SUPPORT));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject(subject);
+            message.setSubject(VariablesUtil.EMAIL_TITLE_PART + subject);
             Transport.send(message);
             LOGGER.info("Sent message to [ " + email + " ] successfully.");
         } catch (MessagingException | IOException e) {
@@ -68,12 +68,20 @@ public class MailUtil {
         }
     }
 
-    public void sendErrorMailForAdmin(String error) {
+    public void sendErrorMail(String error) {
         String mailBody = "" +
                 "<br/>" + timeNow +
                 "<br/>" + error +
                 "<br/>";
         setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody);
+    }
+
+    public void sendSimpleEmailWithAttachment(String email) {
+        String mailBody = "" +
+                "<br/>" + timeNow +
+                "<br/>Добрый день, найдите прикрепленные файлы в письме." +
+                "<br/>С уважением";
+        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Attachment files " + timeNow, mailBody);
     }
 
     public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {

@@ -1,6 +1,6 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,15 +19,9 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/input/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
     <%
-        CookieUtil cookieUtil = new CookieUtil(request);
-        String userLogin = CommonUtil.getUserLoginByUUID(cookieUtil.getUserUuidFromToken());
-        //   if (!StringUtils.isBlank(uuidUser)) {
-        try {
-
-        } catch (Exception e) {
-            response.getWriter().write("CATCH BLOCK ERROR");
-        }
-        //   }
+        String userLogin = CommonUtil.getUserLoginFromCookie(request);
+        if (StringUtils.isBlank(userLogin))
+            response.sendRedirect("/pages/auth.jsp");
     %>
 </head>
 <body>
@@ -39,7 +33,7 @@
                                                       title="Auction Diploma Project"/> --%></a>
         <nav>
             <ul>
-                <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a></li>
+                <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a>(<%=userLogin%>)</li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
                 <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
                 <li><a href="/pages/admin.jsp">Админ</a></li>

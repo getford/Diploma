@@ -118,7 +118,7 @@ public class DocumentHandler extends HttpServlet {
             logger.info("PDF document successfully generated");
             logger.info("Password\t" + documentPassword);
         } catch (DocumentException | FileNotFoundException e) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             logger.error(e.getLocalizedMessage());
         }
     }

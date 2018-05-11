@@ -22,7 +22,7 @@ public class UserHandler {
             String query = "SELECT a FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a";
             return session.createQuery(query).list();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get data");
         } finally {

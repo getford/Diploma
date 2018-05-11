@@ -28,7 +28,7 @@ public class StatisticHandler {
             LOGGER.debug(getClass().getName() + "\t" + dataForChart.substring(0, dataForChart.length() - 1));
             return dataForChart.substring(0, dataForChart.length() - 1);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get data");
         } finally {
@@ -46,7 +46,7 @@ public class StatisticHandler {
 
             return String.valueOf(session.createSQLQuery(query).list().get(0));
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get data");
         } finally {

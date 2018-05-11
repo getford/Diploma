@@ -6,7 +6,7 @@
     <artifactId>auction</artifactId>
 
     <packaging>war</packaging>
-    <version>4.5.1</version>
+    <version>4.5.3</version>
     <name>Diploma project Auction</name>
 
     <licenses>
@@ -35,36 +35,16 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.0</version>
         </dependency>
-        <!--        <dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-core</artifactId>
-                    <version>3.6.7.Final</version>
-                </dependency>-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-envers</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-        <!--        <dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-annotations</artifactId>
-                    <version>3.5.6-Final</version>
-                </dependency>-->
-        <!--        <dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-validator</artifactId>
-                    <version>4.0.2.GA</version>
-                </dependency>-->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>1.0.0.GA</version>
         </dependency>
-        <!--<dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.12.1.GA</version>
-        </dependency>-->
         <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>

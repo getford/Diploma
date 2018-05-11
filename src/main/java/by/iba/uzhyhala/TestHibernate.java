@@ -105,7 +105,7 @@ public class TestHibernate {
         MailUtil mailUtil = new MailUtil();
         mailUtil.addAttachment(tempFile);
         mailUtil.addAttachment(tempFile_);
-        mailUtil.sendErrorMailForAdmin("qwertyu");
+        mailUtil.sendErrorMail("qwertyu");
 
         System.err.println(tempFile.getAbsolutePath());
         tempFile.delete();*/

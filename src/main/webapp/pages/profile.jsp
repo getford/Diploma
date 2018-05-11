@@ -4,7 +4,7 @@
 <%@ page import="by.iba.uzhyhala.lot.LotHandler" %>
 <%@ page import="by.iba.uzhyhala.user.Profile" %>
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -15,22 +15,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%
-        CookieUtil cookieUtil = new CookieUtil(request);
         Profile profile = null;
-        LotHandler lotHandler = null;
+        LotHandler lotHandler;
 
         List<PersonalInformationEntity> personalInformationEntityList = null;
         List<AddressEntity> addressEntityList = null;
         List<LotEntity> userLotList = null;
-        if (cookieUtil.isFindCookie()) {
+        String userLogin = CommonUtil.getUserLoginFromCookie(request);
+        if (StringUtils.isBlank(userLogin))
+            response.sendRedirect("/pages/auth.jsp");
+        else {
             profile = new Profile(request.getParameter("user").toLowerCase());
             lotHandler = new LotHandler(request.getParameter("user").toLowerCase());
 
             personalInformationEntityList = profile.getUserPersonalInformation();
             addressEntityList = profile.getUserAddress();
             userLotList = lotHandler.getUserLot();
-        } else {
-            response.sendRedirect("/");
         }
         assert personalInformationEntityList != null;
     %>

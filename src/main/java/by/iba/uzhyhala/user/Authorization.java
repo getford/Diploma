@@ -48,7 +48,7 @@ public class Authorization extends HttpServlet {
             return session.createSQLQuery("select uuid, role from auth_info where " + type + " = '" +
                     loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         } finally {
@@ -66,7 +66,7 @@ public class Authorization extends HttpServlet {
                     type + " = :cred").setParameter("cred", cred);
             return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         } finally {

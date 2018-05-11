@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Arrays;
 
 public class ReCaptchaUtil {
     private static final String URL = "https://www.google.com/recaptcha/api/siteverify";
@@ -25,7 +26,7 @@ public class ReCaptchaUtil {
             URL url = new URL(URL);
             HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection();
 
-            // add reuqest header
+            // add request header
             httpsURLConnection.setRequestMethod("POST");
             httpsURLConnection.setRequestProperty("User-Agent", USER_AGENT);
             httpsURLConnection.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
@@ -51,8 +52,9 @@ public class ReCaptchaUtil {
             JsonObject jsonObject = jsonElement.getAsJsonObject();
 
             return jsonObject.get("success").getAsBoolean();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            ex.printStackTrace();
             return false;
         }
     }

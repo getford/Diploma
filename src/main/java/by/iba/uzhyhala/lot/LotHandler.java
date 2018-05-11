@@ -39,7 +39,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
             this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, type);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -69,7 +69,7 @@ public class LotHandler extends HttpServlet implements Serializable {
                 printWriter.println("Add lot have some error");
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
         }
     }
@@ -115,7 +115,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             session.clear();
             return true;
         } catch (Exception e) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             logger.error(e.getLocalizedMessage());
             return false;
         } finally {

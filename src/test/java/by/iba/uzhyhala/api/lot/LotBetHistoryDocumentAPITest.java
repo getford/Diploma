@@ -58,6 +58,13 @@ public class LotBetHistoryDocumentAPITest {
 
     @Test
     public void testPDF() throws IOException {
+        when(mockHttpServletRequest.getParameter("type")).thenReturn("pdf");
+        new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
+    }
+
+    @Test
+    public void testExcel() throws IOException {
+        when(mockHttpServletRequest.getParameter("type")).thenReturn("excel");
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
     }
 }
