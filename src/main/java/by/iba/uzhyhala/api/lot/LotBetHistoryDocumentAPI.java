@@ -28,13 +28,14 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                         ", api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
                 String type = req.getParameter("type");
                 switch (type) {
-                    case "pdf":
+                    case VariablesUtil.PDF:
                         resp.getWriter().write(documentPDF(req, resp));
                         break;
-                    case "excel":
+                    case VariablesUtil.EXCEL:
                         resp.getWriter().write(documentExcel(req, resp));
                         break;
                     default:
+                        resp.getWriter().write(documentPdfAndExcel(req, resp));
                         break;
                 }
             } else
@@ -52,9 +53,9 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
 
         return "{" +
                 "\"status\": " + resp.getStatus() + ",\n" +
-                "\"type\": \"pdf\",\n" +
-                "\"passcode\":\"" + documentHandler.getDocumentPasscode() + "\"," +
                 "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
+                "\"type\": \"" + VariablesUtil.PDF + "\",\n" +
+                "\"passcode\":\"" + documentHandler.getDocumentPasscode() + "\"," +
                 "\"document\":\"" + documentHandler.getPdfBetEncode() + "\"}";
     }
 
@@ -64,8 +65,23 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
 
         return "{" +
                 "\"status\": " + resp.getStatus() + ",\n" +
-                "\"type\": \"excel\"," +
                 "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
+                "\"type\": \"" + VariablesUtil.EXCEL + "\"," +
                 "\"document\":\"" + documentHandler.getExcelBetEncode() + "\"}";
+    }
+
+    private String documentPdfAndExcel(HttpServletRequest req, HttpServletResponse resp) {
+        DocumentHandler documentHandler = new DocumentHandler();
+        documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
+        documentHandler.generateExcelDocHistoryBet(req, req.getParameter("uuid"), VariablesUtil.EXCEL_EXTENSION_XLSX, false);
+
+        return "{" +
+                "\"status\": " + resp.getStatus() + ",\n" +
+                "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
+                "\"type_" + VariablesUtil.PDF + "\": \"" + VariablesUtil.PDF + "\",\n" +
+                "\"passcode_" + VariablesUtil.PDF + "\":\"" + documentHandler.getDocumentPasscode() + "\"," +
+                "\"document_" + VariablesUtil.PDF + "\":\"" + documentHandler.getPdfBetEncode() + "\"," +
+                "\"type_" + VariablesUtil.EXCEL + "\": \"" + VariablesUtil.EXCEL + "\"," +
+                "\"document_" + VariablesUtil.EXCEL + "\":\"" + documentHandler.getExcelBetEncode() + "\"}";
     }
 }

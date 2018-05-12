@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.api.to.LotFullFieldTOAPI;
-import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
@@ -30,9 +29,9 @@ public class LotAllAPI extends HttpServlet {
         try {
             if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
                 LOGGER.info("api_key: " + req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
-                List<LotAllAPI> to = session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT).list();
+               // List<LotAllAPI> to = session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT).list();
 
-                System.err.println(new Gson().toJson(to, LotFullFieldTOAPI.class));
+               // System.err.println(new Gson().toJson(to, LotFullFieldTOAPI.class));
                 // resp.getWriter().write(CommonUtil.getJsonBetBulk(session, req.getParameter("uuid")));
             } else {
 
@@ -50,7 +49,7 @@ public class LotAllAPI extends HttpServlet {
     public void test() {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Object[] to = session.createSQLQuery("SELECT " +
+            List<LotFullFieldTOAPI> to = session.createSQLQuery("SELECT " +
                     "uuid," +
                     "uuid_user_seller," +
                     "name," +
@@ -64,10 +63,13 @@ public class LotAllAPI extends HttpServlet {
                     "time_start," +
                     "time_end," +
                     "uuid_user_client," +
-                    "id_category," +
-                    "status FROM lot").list().toArray();
+                   // "id_category," +
+                    "status " +
+                    "FROM lot").getResultList();
 
-            System.err.println(new Gson().toJson(to, LotEntity.class));
+      //      List<LotEntity> to = session.createQuery("SELECT l FROM LotEntity l").getResultList();
+
+            System.err.println(new Gson().toJson(to, LotFullFieldTOAPI.class));
 
         } catch (Exception ex) {
             System.err.println("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");

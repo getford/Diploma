@@ -65,6 +65,10 @@ public final class VariablesUtil {
     public static final String PDF_EXTENSION = ".pdf";
     public static final String EXCEL_EXTENSION_XLSX = ".xlsx";
     public static final String EXCEL_EXTENSION_XLS = ".xls";
+    public static final String PDF = "pdf";
+    public static final String EXCEL = "excel";
+
+
 
     // Query charts
     public static final String QUERY_CHART_DATA_ADD_DATE_LOT = "SELECT date_add, count(date_add) FROM lot " +

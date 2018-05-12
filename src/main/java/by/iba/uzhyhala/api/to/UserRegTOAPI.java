@@ -37,5 +37,5 @@ public class UserRegTOAPI {
     public String getPasscode() {
         return passcode;
     }
-    
+
 }

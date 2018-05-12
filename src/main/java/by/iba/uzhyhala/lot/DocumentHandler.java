@@ -129,7 +129,7 @@ public class DocumentHandler extends HttpServlet {
 
             MailUtil mailUtil = new MailUtil();
             mailUtil.addAttachment(CommonUtil.prepareFileForAttach(document,
-                    fileName, ".pdf"));
+                    fileName, VariablesUtil.PDF_EXTENSION));
 
             LOGGER.info("PDF document successfully generated");
             LOGGER.info("Document name\t" + fileName);
@@ -181,7 +181,8 @@ public class DocumentHandler extends HttpServlet {
                 bytesExcel = new byte[(int) file.length()];
                 fis.read(bytesExcel);
             } catch (IOException e) {
-                e.printStackTrace();
+                new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+                LOGGER.error(e.getLocalizedMessage());
             }
         }
     }

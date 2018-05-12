@@ -22,7 +22,7 @@ public class LotEntity implements Serializable {
     private String timeStart;
     private String timeEnd;
     private String uuidUserClient;
-    private Integer idCategory;
+    private int idCategory;
     private String status;
     private BetEntity betByUuid;
     private FeedbackEntity feedbackByUuid;
@@ -30,7 +30,7 @@ public class LotEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false, unique = true)
     public int getId() {
         return id;
     }
