@@ -26,7 +26,6 @@ public class MailUtilTest {
     @Test
     public void test() {
         new MailUtil().sendErrorMail("");
-        new MailUtil().sendMailRegistration("", "", "", mockHttpServletRequest);
-        new MailUtil().sendMailChangeLotStatus("", "", "", mockHttpServletRequest);
+        new MailUtil().sendMail("", "", "");
     }
 }
