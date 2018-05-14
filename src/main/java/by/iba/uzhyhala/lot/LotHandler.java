@@ -22,8 +22,7 @@ import java.util.UUID;
 public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final long serialVersionUID = 6295721900470243790L;
-
-    private String type;
+    
     private String uuidUser;
     private String uuidAddLot;
 
@@ -34,8 +33,7 @@ public class LotHandler extends HttpServlet implements Serializable {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(getClass().getName() + " constructor");
-            this.type = CommonUtil.loginOrEmail(loginOrEmail);
-            this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, type);
+            this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, CommonUtil.loginOrEmail(loginOrEmail));
         } catch (Exception e) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
@@ -135,11 +133,6 @@ public class LotHandler extends HttpServlet implements Serializable {
                 "    }\n" +
                 "  ]\n" +
                 "}";
-    }
-
-    public void deleteLot(String uuid) {
-        LOGGER.debug(getClass().getName() + " deleteLot");
-
     }
 
     public List<LotEntity> getLots(String query) {
