@@ -39,11 +39,10 @@ public class LotBetHistoryDocumentAPITest {
     @Before
     public void init() throws Exception {
         initMocks(this);
+        mockStatic(CommonUtil.class);
+
         when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(VariablesUtil.TEST_URL));
         when(mockHttpServletRequest.getParameter("uuid_lot")).thenReturn(UUID_LOT);
-
-        when(mockHttpServletRequest.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))
-                .thenReturn(VariablesUtil.TEST_API_KEY_NAME);
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
 
         List<BetHistoryTO> list = new ArrayList<>();
@@ -51,20 +50,22 @@ public class LotBetHistoryDocumentAPITest {
         to.setBet(10000);
         list.add(to);
 
-        mockStatic(CommonUtil.class);
         when(CommonUtil.getHistoryBets(UUID_LOT)).thenReturn(list);
         when(CommonUtil.isApiKeyValid(VariablesUtil.TEST_API_KEY_NAME)).thenReturn(true);
     }
 
     @Test
-    public void testPDF() throws IOException {
-        when(mockHttpServletRequest.getParameter("type")).thenReturn("pdf");
-        new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
-    }
+    public void test() throws IOException {
+        when(mockHttpServletRequest.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))
+                .thenReturn(VariablesUtil.TEST_API_KEY_NAME);
 
-    @Test
-    public void testExcel() throws IOException {
-        when(mockHttpServletRequest.getParameter("type")).thenReturn("excel");
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.PDF);
+        new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
+
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.EXCEL);
+        new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
+
+        when(mockHttpServletRequest.getParameter("type")).thenReturn("");
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
     }
 }
