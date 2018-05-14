@@ -7,8 +7,8 @@ import java.sql.Date;
 @Entity
 @Table(name = "personal_information", schema = "public", catalog = "auction")
 public class PersonalInformationEntity implements Serializable {
-    private static final long serialVersionUID = 1;
 
+    private static final long serialVersionUID = -1178846911523194106L;
     private int id;
     private String uuidUser;
     private String firstName;

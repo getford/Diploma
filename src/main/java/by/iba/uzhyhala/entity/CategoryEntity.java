@@ -7,8 +7,8 @@ import java.util.Collection;
 @Entity
 @Table(name = "category", schema = "public", catalog = "auction")
 public class CategoryEntity implements Serializable {
-    private static final long serialVersionUID = 1;
 
+    private static final long serialVersionUID = -5571327862025947109L;
     private int id;
     private String categoryName;
     private Collection<LotEntity> lotsById;

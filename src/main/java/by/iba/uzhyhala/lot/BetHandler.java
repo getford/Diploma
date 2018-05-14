@@ -78,6 +78,8 @@ public class BetHandler extends HttpServlet implements Serializable {
                 betTO.setUuidUser(uuidUser);
                 betTO.setTime(timeNow);
 
+                // TODO: set date end, change logic
+
                 betTOList.add(betTO);
                 betBulkTO.setBets(betTOList);
             }

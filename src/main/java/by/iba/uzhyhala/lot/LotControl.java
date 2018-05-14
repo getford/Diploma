@@ -25,20 +25,7 @@ public class LotControl extends HttpServlet {
     private String uuidLot;
 
     public LotControl(String uuidLot) {
-        try {
-            this.uuidLot = uuidLot;
-      /*    session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            LOGGER.debug(getClass().getName() + " constructor");
-            this.type = CommonUtil.loginOrEmail(loginOrEmail);
-            this.idUser = CommonUtil.getIdUserByLoginEmail(session, loginOrEmail, type);*/
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
-        } /*finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }*/
+        this.uuidLot = uuidLot;
     }
 
     public List<LotEntity> getLotInfoByUuid() {

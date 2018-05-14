@@ -21,7 +21,7 @@ import java.util.UUID;
 @WebServlet(urlPatterns = "/lothandler")
 public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 6295721900470243790L;
 
     private Session session;
     private String type;

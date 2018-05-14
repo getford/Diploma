@@ -131,11 +131,7 @@
     <input type="hidden" value="<%=host%>" id="host">
     <input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
     <%
-        if (timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
-    %>
-    <span id="start_ticks_span">ПРОДАНО</span>
-    <%
-    } else {
+        if (!timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
     %>
     <h1 id="title_time">Осталось времени: <span id="time"></span></h1>
     <input type="hidden" value="<%=timeEnd%>" id="start_ticks">
@@ -145,12 +141,10 @@
         <input id="input-cost-bet" type="text" name="cost" placeholder="Не менее <%=lotInfoList.get(0).getStepCost()%>">
         <button id="btn-do-bet" type="submit" name="do_bet">Сделать ставку</button>
     </form>
+    <hr/>
     <%
         }
         assert lotInfoList != null;
-    %>
-    <hr/>
-    <%
         if (lotInfoList.size() != 0) {
     %>
     <h3><%=lotInfoList.get(0).getUuid()%>

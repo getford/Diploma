@@ -27,7 +27,7 @@ public final class VariablesUtil {
     public static final String STATUS_LOT_CLOSE = "close";
 
     // russian lot status
-    public static final String STATUS_RUS_LOT_ACTIVE = "Активный";
+    public static final String STATUS_RUS_LOT_ACTIVE = "Доступен для ставок";
     public static final String STATUS_RUS_LOT_SALES = "Продано";
     public static final String STATUS_RUS_LOT_WAIT = "В ожидании";
     public static final String STATUS_RUS_LOT_CLOSE = "Закрыт";

@@ -7,8 +7,8 @@ import java.sql.Date;
 @Entity
 @Table(name = "feedback", schema = "public", catalog = "auction")
 public class FeedbackEntity implements Serializable {
-    private static final long serialVersionUID = 1;
 
+    private static final long serialVersionUID = 9167851454506425718L;
     private int id;
     private String uuid;
     private Integer idUser;

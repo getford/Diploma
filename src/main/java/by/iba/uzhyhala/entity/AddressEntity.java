@@ -6,8 +6,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "address", schema = "public", catalog = "auction")
 public class AddressEntity implements Serializable {
-    private static final long serialVersionUID = 1;
 
+    private static final long serialVersionUID = -6042940327249917249L;
     private int id;
     private String uuidUser;
     private String country;

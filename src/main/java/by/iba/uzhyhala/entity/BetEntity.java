@@ -6,8 +6,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "bet", schema = "public", catalog = "auction")
 public class BetEntity implements Serializable {
-    private static final long serialVersionUID = 1;
 
+    private static final long serialVersionUID = -4773465060718156001L;
     private int id;
     private String uuid;
     private String bulk;

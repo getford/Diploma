@@ -201,7 +201,7 @@ public class CommonUtil {
                     "<p>Здравствуйте,</p>" +
                     "<p>Уведомляем вас о том, что статус вашего лота, был успешно изменен</p>" +
                     "<p>" +
-                    "<b>Новый статус: </b>" + status + "" +
+                    "<b>Новый статус: </b>" + translateLotStatus(status) + "" +
                     "<br/><b>Уникальный идентификатор лота: </b>" + uuid + "</p>" +
                     "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "\">" +
                     "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "</a></p>";
