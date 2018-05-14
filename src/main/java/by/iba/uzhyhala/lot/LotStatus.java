@@ -26,7 +26,7 @@ public class LotStatus extends HttpServlet {
         } else {
             isChangeStatus = CommonUtil.isUpdateLotStatus(VariablesUtil.STATUS_LOT_CLOSE, uuidLot, request);
         }
-        LOGGER.info(getClass().getName() + "\t" + isChangeStatus);
+        LOGGER.info(isChangeStatus);
         return isChangeStatus;
     }
 }

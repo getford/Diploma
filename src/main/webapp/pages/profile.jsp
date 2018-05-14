@@ -4,9 +4,9 @@
 <%@ page import="by.iba.uzhyhala.lot.LotHandler" %>
 <%@ page import="by.iba.uzhyhala.user.Profile" %>
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
-<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

@@ -14,7 +14,6 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import javax.servlet.ServletException;
 import java.io.*;
 
 import static org.mockito.MockitoAnnotations.initMocks;

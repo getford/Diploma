@@ -2,8 +2,6 @@ package by.iba.uzhyhala;
 
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
-
 public class TestHibernate {
     private static final Logger LOGGER = Logger.getLogger(TestHibernate.class);
 

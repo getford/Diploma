@@ -82,7 +82,7 @@ public class DocumentHandler extends HttpServlet {
                 LOGGER.error(e.getLocalizedMessage());
                 resp.sendRedirect(redirectUrl);
             } catch (IOException ex) {
-                new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
+                new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
                 LOGGER.error(ex.getLocalizedMessage());
             }
         }
@@ -199,7 +199,7 @@ public class DocumentHandler extends HttpServlet {
             LOGGER.info("Document name\t" + fileName);
             LOGGER.info("Password\t" + getDocumentPasscode());
         } catch (IOException | DocumentException e) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
         }
     }
@@ -243,7 +243,7 @@ public class DocumentHandler extends HttpServlet {
                 URL url = new URL(req.getRequestURL().toString());
                 urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
             } catch (MalformedURLException e) {
-                new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+                new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 LOGGER.error(e.getLocalizedMessage());
             }
             File file = new File(String.valueOf(CommonUtil.prepareFileForAttach(
@@ -254,7 +254,7 @@ public class DocumentHandler extends HttpServlet {
                 bytesExcel = new byte[(int) file.length()];
                 fis.read(bytesExcel);
             } catch (IOException e) {
-                new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+                new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 LOGGER.error(e.getLocalizedMessage());
             }
         }

@@ -77,7 +77,7 @@ public class Authorization extends HttpServlet {
                             VariablesUtil.COOKIE_KEY.getBytes("UTF-8")
                     )
                     .compact();
-            LOGGER.info(getClass().getName() + " token create successfully");
+            LOGGER.info(" token create successfully");
 
             Cookie cookie = new Cookie(VariablesUtil.COOKIE_AUTH_NAME, token);
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown

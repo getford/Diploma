@@ -23,7 +23,6 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     private String uuidLot;
     private String uuidUser;
-    private String errorMessage;
     private Gson gson = new Gson();
 
     public BetHandler() {
@@ -40,13 +39,13 @@ public class BetHandler extends HttpServlet implements Serializable {
 
             resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidLot);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
         }
     }
 
     private String prepareDoBet(int bet, String timeNow, HttpServletRequest request) {
-        LOGGER.info(getClass().getName() + " prepareDoBet method");
+        LOGGER.info("PrepareDoBet method");
         BetBulkTO betBulkTO = gson.fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
@@ -88,7 +87,7 @@ public class BetHandler extends HttpServlet implements Serializable {
     }
 
     private void doBet(String jsonBulk, String time) {
-        LOGGER.info(getClass().getName() + " doBet method");
+        LOGGER.info("doBet method");
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -102,7 +101,7 @@ public class BetHandler extends HttpServlet implements Serializable {
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         }
     }

@@ -20,7 +20,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        LOGGER.info(getClass().getName() + "\t" + "doGet method");
+        LOGGER.info("doGet method");
         try {
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
@@ -42,9 +42,9 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
             } else
                 resp.getWriter().write("{\"exception\":\"API key isnt correct\"}");
         } catch (Exception ex) {
-            LOGGER.info(getClass().getName() + "\t" + "{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            LOGGER.info("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
-            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
     }
 

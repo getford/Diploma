@@ -44,7 +44,7 @@
             lotInfoList = lotControl.getLotInfoByUuid();
             timeEnd = lotControl.returnEndTime();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
     %>
     <script>

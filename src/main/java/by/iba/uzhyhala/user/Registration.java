@@ -54,7 +54,7 @@ public class Registration extends HttpServlet {
 
                     resp.sendRedirect("/pages/index.jsp");
                 } catch (IOException e) {
-                    new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(e.getStackTrace()));
+                    new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 }
             }
         } else {
@@ -63,7 +63,7 @@ public class Registration extends HttpServlet {
     }
 
     public boolean doRegistration(String login, String password, String email) {
-        LOGGER.debug(this.getClass().getName() + ", method: doRegistration");
+        LOGGER.debug(this.", method: doRegistration");
         String newUserUUID = UUID.randomUUID().toString();
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -95,7 +95,7 @@ public class Registration extends HttpServlet {
                 return false;
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         }

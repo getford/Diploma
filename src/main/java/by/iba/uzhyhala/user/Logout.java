@@ -20,7 +20,7 @@ public class Logout extends HttpServlet {
         try {
             doPost(req, resp);
         } catch (IOException e) {
-            LOGGER.error(getClass().getName() + "\n" + Arrays.toString(e.getStackTrace()));
+            LOGGER.error(Arrays.toString(e.getStackTrace()));
         }
     }
 

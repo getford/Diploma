@@ -24,14 +24,14 @@ public class LotAddAPI extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        LOGGER.info(getClass().getName() + "\t" + "doPost Method");
+        LOGGER.info("doPost Method");
         LotHandler lotHandler = new LotHandler();
         String responseMessage = "";
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
         String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        LOGGER.debug(getClass().getName() + body);
+        LOGGER.debug(body);
         LotTOAPI lotTOAPI = handleResponse(body);
         try {
             if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
@@ -56,14 +56,14 @@ public class LotAddAPI extends HttpServlet {
                 responseMessage = "{\"exception\":\"Api key isnt valid\"}";
             resp.getWriter().write(responseMessage);
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + body + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(body + Arrays.toString(ex.getStackTrace()));
             resp.getWriter().write("{\"message\":\"There is one or more field(s) is empty\",\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             LOGGER.error(ex.getStackTrace());
         }
     }
 
     private boolean validateRequest(LotTOAPI to) {
-        LOGGER.info(getClass().getName() + "\t" + "validateRequest Method");
+        LOGGER.info("validateRequest Method");
         return !StringUtils.isBlank(to.getUuidUserSeller()) &&
                 !StringUtils.isBlank(to.getName()) &&
                 !StringUtils.isBlank(to.getInformation()) &&

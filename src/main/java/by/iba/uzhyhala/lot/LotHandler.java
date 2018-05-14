@@ -22,7 +22,7 @@ import java.util.UUID;
 public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final long serialVersionUID = 6295721900470243790L;
-    
+
     private String uuidUser;
     private String uuidAddLot;
 
@@ -32,10 +32,10 @@ public class LotHandler extends HttpServlet implements Serializable {
     public LotHandler(String loginOrEmail) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            LOGGER.debug(getClass().getName() + " constructor");
+            LOGGER.debug(" constructor");
             this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, CommonUtil.loginOrEmail(loginOrEmail));
         } catch (Exception e) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
         }
     }
@@ -62,14 +62,14 @@ public class LotHandler extends HttpServlet implements Serializable {
                 printWriter.println("Add lot have some error");
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
         }
     }
 
     // TODO: id category
     public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
-        LOGGER.debug(getClass().getName() + " addLot");
+        LOGGER.debug(" addLot");
 
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime());
         this.uuidAddLot = UUID.randomUUID().toString();
@@ -107,7 +107,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             session.clear();
             return true;
         } catch (Exception e) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
             return false;
         }
@@ -136,23 +136,23 @@ public class LotHandler extends HttpServlet implements Serializable {
     }
 
     public List<LotEntity> getLots(String query) {
-        LOGGER.debug(getClass().getName() + " showLots");
+        LOGGER.debug(" showLots");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery(query).getResultList();
         } catch (Exception e) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
         }
         return null;
     }
 
     public List<LotEntity> getUserLot() {
-        LOGGER.debug(getClass().getName() + " getUserLot");
+        LOGGER.debug(" getUserLot");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuidUserSeller = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidUser).getResultList();
         } catch (Exception e) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
         }
         return null;

@@ -51,7 +51,7 @@ public class UserApiKey extends HttpServlet {
         } catch (Exception ex) {
             resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             LOGGER.error(ex.getLocalizedMessage());
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         } finally {
             if (session.isOpen()) {
                 session.close();

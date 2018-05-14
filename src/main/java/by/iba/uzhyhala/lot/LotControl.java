@@ -25,12 +25,12 @@ public class LotControl extends HttpServlet {
     private Session session;
     private String uuidLot;
 
-    LotControl(String uuidLot) {
+    public LotControl(String uuidLot) {
         this.uuidLot = uuidLot;
     }
 
     public List<LotEntity> getLotInfoByUuid() {
-        LOGGER.debug(getClass().getName() + " getLotInfoByUuid");
+        LOGGER.debug(" getLotInfoByUuid");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidLot).getResultList();
@@ -67,7 +67,7 @@ public class LotControl extends HttpServlet {
                 return String.valueOf(diff);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         }
         return null;

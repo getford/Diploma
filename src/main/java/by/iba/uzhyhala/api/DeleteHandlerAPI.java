@@ -26,8 +26,8 @@ public class DeleteHandlerAPI extends HttpServlet {
 
             String parameter = Pattern.compile("=").split(req.getQueryString())[0];
             String uuid = Pattern.compile("=").split(req.getQueryString())[1];
-            LOGGER.info(getClass().getName() + "\t" + "parameter: " + parameter);
-            LOGGER.info(getClass().getName() + "\t" + "uuid: " + uuid);
+            LOGGER.info("parameter: " + parameter);
+            LOGGER.info("uuid: " + uuid);
             switch (parameter) {
                 case "uuid-user":
                     session.createQuery("DELETE FROM " + VariablesUtil.ENTITY_ADDRESS + " WHERE uuid_user = :uuid")
@@ -51,7 +51,7 @@ public class DeleteHandlerAPI extends HttpServlet {
                     break;
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get parameter from URL, pls contact with administrator");
         }
