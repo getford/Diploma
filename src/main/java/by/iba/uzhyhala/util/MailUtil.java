@@ -84,6 +84,15 @@ public class MailUtil {
         setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Attachment files " + timeNow, mailBody);
     }
 
+    public void sendPdfFileWithPasscode(String email, String docPasscode) {
+        String mailBody = "" +
+                "<br/>" + timeNow +
+                "<br/>Добрый день, найдите прикрепленные файлы в письме." +
+                "<br/>Пароль для открытия файла: " + docPasscode +
+                "<br/>С уважением";
+        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Attachment files " + timeNow, mailBody);
+    }
+
     public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {
         try {
             URL url = new URL(request.getRequestURL().toString());

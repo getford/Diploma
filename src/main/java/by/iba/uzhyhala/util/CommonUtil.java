@@ -265,9 +265,9 @@ public class CommonUtil {
                 Workbook workbook = (Workbook) o;
                 workbook.write(byteArrayOutputStream);
             }
-//            if(extension.equals(VariablesUtil.PDF_EXTENSION)){
-//
-//            }
+            if(extension.equals(VariablesUtil.PDF_EXTENSION)){
+                byteArrayOutputStream = (ByteArrayOutputStream) o;
+            }
 
             FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
             fileOutputStream.write(byteArrayOutputStream.toByteArray());

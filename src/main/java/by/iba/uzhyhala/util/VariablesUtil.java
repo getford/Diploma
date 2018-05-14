@@ -68,8 +68,6 @@ public final class VariablesUtil {
     public static final String PDF = "pdf";
     public static final String EXCEL = "excel";
 
-
-
     // Query charts
     public static final String QUERY_CHART_DATA_ADD_DATE_LOT = "SELECT date_add, count(date_add) FROM lot " +
             "GROUP BY date_add ORDER BY date_add ASC";

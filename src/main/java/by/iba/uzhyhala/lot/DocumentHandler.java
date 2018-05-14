@@ -39,13 +39,50 @@ public class DocumentHandler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
-        fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_"
-                + req.getParameter("uuid_lot") + VariablesUtil.PDF_EXTENSION;
-        generateDocHistoryBetPDF(req.getParameter("uuid_lot"), req, resp);
+        String uuidLot = req.getParameter("uuid_lot");
+        String redirectUrl = "/pages/lot.jsp?uuid=" + uuidLot;
+        fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + uuidLot;
+
+        try {
+            switch (req.getParameter("send-mail")) {
+                case "true":
+                    if (req.getParameter("type").equals(VariablesUtil.PDF)) {
+                        fileName += VariablesUtil.PDF_EXTENSION;
+                        generateDocHistoryBetPDF(uuidLot, req, resp, true);
+                    } else if (req.getParameter("type").equals(VariablesUtil.EXCEL)) {
+                        fileName += VariablesUtil.EXCEL_EXTENSION_XLSX;
+                        generateExcelDocHistoryBet(req, uuidLot, VariablesUtil.EXCEL_EXTENSION_XLSX, true);
+                    }
+                    LOGGER.info("Document " + fileName + " create/send successfully");
+                    resp.sendRedirect(redirectUrl);
+                    break;
+                case "false":
+                    if (req.getParameter("type").equals(VariablesUtil.PDF)) {
+                        fileName += VariablesUtil.PDF_EXTENSION;
+                        generateDocHistoryBetPDF(uuidLot, req, resp, false);
+                    } else if (req.getParameter("type").equals(VariablesUtil.EXCEL)) {
+                        generateExcelDocHistoryBet(req, uuidLot, VariablesUtil.EXCEL_EXTENSION_XLSX, false);
+                    }
+                    LOGGER.info("Document " + fileName + " create/send successfully");
+                    resp.sendRedirect(redirectUrl);
+                    break;
+                default:
+                    LOGGER.error("Error: document " + fileName + " don't create/send successfully");
+                    break;
+            }
+        } catch (Exception e) {
+            try {
+                LOGGER.error(e.getLocalizedMessage());
+                resp.sendRedirect(redirectUrl);
+            } catch (IOException ex) {
+                new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
+                LOGGER.error(ex.getLocalizedMessage());
+            }
+        }
 
     }
 
-    public void generateDocHistoryBetPDF(String uuidLot, HttpServletRequest req, HttpServletResponse resp) {
+    public void generateDocHistoryBetPDF(String uuidLot, HttpServletRequest req, HttpServletResponse resp, boolean isSendMail) {
         try {
             Document document = new Document(PageSize.A4);
             URL url = new URL(req.getRequestURL().toString());
@@ -82,21 +119,27 @@ public class DocumentHandler extends HttpServlet {
             PdfWriter pdfWriter = null;
 
             // check api call
-            if (!StringUtils.isBlank(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
+            if (!StringUtils.isBlank(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME)) && !isSendMail) {
                 resp.setContentType("application/json");
                 pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStreamPDF);
 
             } else {
-                resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
-                resp.setContentType("application/pdf;charset=UTF-8");
-                pdfWriter = PdfWriter.getInstance(document, resp.getOutputStream());
+                if (!isSendMail) {
+                    resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+                    resp.setContentType("application/pdf;charset=UTF-8");
+                    pdfWriter = PdfWriter.getInstance(document, resp.getOutputStream());
+                } else {
+                    pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStreamPDF);
+                }
             }
 
+            // passcode for document
             pdfWriter.setEncryption(
                     getDocumentPasscode().getBytes(StandardCharsets.UTF_8),
                     VariablesUtil.PDF_OWNER_PASSCODE.getBytes(StandardCharsets.UTF_8),
                     PdfWriter.ALLOW_COPY,
-                    PdfWriter.ENCRYPTION_AES_128);
+                    PdfWriter.ENCRYPTION_AES_128
+            );
 
             document.open();
 
@@ -127,9 +170,16 @@ public class DocumentHandler extends HttpServlet {
 
             document.close();
 
-            MailUtil mailUtil = new MailUtil();
-            mailUtil.addAttachment(CommonUtil.prepareFileForAttach(document,
-                    fileName, VariablesUtil.PDF_EXTENSION));
+            if (isSendMail) {
+                MailUtil mailUtil = new MailUtil();
+                mailUtil.addAttachment(CommonUtil.prepareFileForAttach(byteArrayOutputStreamPDF,
+                        fileName, VariablesUtil.PDF_EXTENSION)
+                );
+                // TODO: send document
+                mailUtil.sendPdfFileWithPasscode("", documentPasscode);
+            } else {
+                LOGGER.info("Send document not required");
+            }
 
             LOGGER.info("PDF document successfully generated");
             LOGGER.info("Document name\t" + fileName);

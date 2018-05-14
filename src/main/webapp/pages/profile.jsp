@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/index/reset.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/index/main.css">
+    <script type="text/javascript" src="/resources/scripts/index/jquery.js"></script>
+    <script type="text/javascript" src="/resources/scripts/index/main_head.js"></script>
+
+    <%-- FOR INPUT --%>
+    <link rel="stylesheet" type="text/css" href="/resources/css/input/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/fonts/input/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/input/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
     <%
         Profile profile = null;
         LotHandler lotHandler;
@@ -36,68 +46,95 @@
     %>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="panel panel-warning">
-                <div class="panel-heading" style="text-align: center;"><h3>Profile info</h3>
-                </div>
-            </div>
-            <table class="table table-condensed">
-                <thead></thead>
-                <tbody>
-                <tr>
-                    <td><b>Uuid: </b><%=profile.getUuidUser()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Name: </b><%=personalInformationEntityList.get(0).getFirstName()%>   <%=personalInformationEntityList.get(0).getLastName()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Bday: </b><%=personalInformationEntityList.get(0).getBday()%>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+<header>
 
-        <div class="col-sm-5">
-            <div class="panel panel-warning">
-                <div class="panel-heading" style="text-align: center;"><h3>Address</h3>
+    <div class="wrapper">
+        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1> <%--<img src="/resources/images/index/logo.png" alt=""
+                                                      title="Auction Diploma Project"/> --%></a>
+        <nav>
+            <ul>
+                <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a>(<%=userLogin%>)</li>
+                <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
+                <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
+                <li><a href="/pages/admin.jsp">Админ</a></li>
+                <li><a href="">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header><!-- End Header -->
+
+<section class="billboard">
+    <section class="caption">
+        <p class="cap_title">Профиль</p>
+        <p class="cap_desc">Скоро тут будет шикар...подожди-подожди...ная площадка для торгов</p>
+    </section>
+</section><!-- End billboard -->
+
+<section class="recent_work wrapper">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="panel panel-warning">
+                    <div class="panel-heading" style="text-align: center;"><h3>Profile info</h3>
+                    </div>
                 </div>
+                <table class="table table-condensed">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td><b>Uuid: </b><%=profile.getUuidUser()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Name: </b><%=personalInformationEntityList.get(0).getFirstName()%>   <%=personalInformationEntityList.get(0).getLastName()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Bday: </b><%=personalInformationEntityList.get(0).getBday()%>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <table class="table table-condensed">
-                <thead></thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <b>Country: </b><%=addressEntityList.get(0).getCountry()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>City: </b><%=addressEntityList.get(0).getCity()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Street: </b><%=addressEntityList.get(0).getStreet()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>House: </b><%=addressEntityList.get(0).getHouse()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Zip: </b><%=addressEntityList.get(0).getZip()%>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+
+            <div class="col-sm-5">
+                <div class="panel panel-warning">
+                    <div class="panel-heading" style="text-align: center;"><h3>Address</h3>
+                    </div>
+                </div>
+                <table class="table table-condensed">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <b>Country: </b><%=addressEntityList.get(0).getCountry()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>City: </b><%=addressEntityList.get(0).getCity()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Street: </b><%=addressEntityList.get(0).getStreet()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>House: </b><%=addressEntityList.get(0).getHouse()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Zip: </b><%=addressEntityList.get(0).getZip()%>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-
+</section>
 <div class="container">
     <div class="row">
         <div class="col-sm-10">

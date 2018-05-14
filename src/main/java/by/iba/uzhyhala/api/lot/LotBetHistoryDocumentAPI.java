@@ -49,7 +49,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
 
     private String documentPDF(HttpServletRequest req, HttpServletResponse resp) {
         DocumentHandler documentHandler = new DocumentHandler();
-        documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
+        documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp, false);
 
         return "{" +
                 "\"status\": " + resp.getStatus() + ",\n" +
@@ -72,7 +72,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
 
     private String documentPdfAndExcel(HttpServletRequest req, HttpServletResponse resp) {
         DocumentHandler documentHandler = new DocumentHandler();
-        documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp);
+        documentHandler.generateDocHistoryBetPDF(req.getParameter("uuid"), req, resp, false);
         documentHandler.generateExcelDocHistoryBet(req, req.getParameter("uuid"), VariablesUtil.EXCEL_EXTENSION_XLSX, false);
 
         return "{" +
