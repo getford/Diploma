@@ -67,6 +67,9 @@
                         requestToUpdateLot();
                         document.getElementById("btn-do-bet").hidden = true;
                         document.getElementById("input-cost-bet").hidden = true;
+                        document.getElementById("time").hidden = true;
+                        document.getElementById("title_time").hidden = true;
+                        document.getElementById("do_bet_title").hidden = true;
                         document.getElementById('div-sale').style.display = 'block';
                         alert("ЛОТ ЗАКРЫТ");
                         flag = false;
@@ -125,15 +128,29 @@
 
 <br/><br/>
 <section class="recent_work wrapper">
-    <%--<h3 class="S_title">Заполните все поля</h3>--%>
-    <h1>Осталось времени: <span id="time"></span></h1>
-    <input type="hidden" value="<%=timeEnd%>" id="start_ticks">
     <input type="hidden" value="<%=host%>" id="host">
     <input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
-    <hr/>
-
     <%
+        if (timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
+    %>
+    <span id="start_ticks_span">ПРОДАНО</span>
+    <%
+    } else {
+    %>
+    <h1 id="title_time">Осталось времени: <span id="time"></span></h1>
+    <input type="hidden" value="<%=timeEnd%>" id="start_ticks">
+    <form action="/bethandler" method="post">
+        <h3 id="do_bet_title">Сделать ставку: <span id="div-sale" style="display: none;">ПРОДАНО</span></h3>
+        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+        <input id="input-cost-bet" type="text" name="cost" placeholder="Не менее <%=lotInfoList.get(0).getStepCost()%>">
+        <button id="btn-do-bet" type="submit" name="do_bet">Сделать ставку</button>
+    </form>
+    <%
+        }
         assert lotInfoList != null;
+    %>
+    <hr/>
+    <%
         if (lotInfoList.size() != 0) {
     %>
     <h3><%=lotInfoList.get(0).getUuid()%>
@@ -142,9 +159,55 @@
     </h3>
     <h3><%=lotInfoList.get(0).getInformation()%>
     </h3>
+    <h3><%=lotInfoList.get(0).getStatus()%>
+    </h3>
     <%
         }
     %>
+    <hr/>
+    <br/>
+    <div class="container">
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Пользователь</th>
+                    <th>Ставка</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                </tr>
+                </thead>
+                <%
+                    assert betHistoryList != null;
+                    for (int i = 0; i < betHistoryList.size(); i++) {
+                        if (i == 0)
+                            continue;
+                        else {
+                            String name = betHistoryList.get(i).getUserName();
+                            String bet = String.valueOf(betHistoryList.get(i).getBet());
+                            String dateBet = betHistoryList.get(i).getDate();
+                            String timeBet = betHistoryList.get(i).getTime();
+                %>
+                <tbody>
+                <tr>
+                    <td><%=name%>
+                    </td>
+                    <td><%=bet%>
+                    </td>
+                    <td><%=dateBet%>
+                    </td>
+                    <td><%=timeBet%>
+                    </td>
+                </tr>
+                </tbody>
+                <%
+                        }
+                    }
+                %>
+            </table>
+        </div>
+    </div>
+    <br/>
     <hr/>
     <form action="/generatehistorybets" method="post">
         <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
@@ -170,69 +233,6 @@
         <input type="hidden" name="send-mail" value="false">
         <button type="submit" name="generate_doc_excel">Скачать Excel</button>
     </form>
-    <hr/>
-    <form action="/bethandler" method="post">
-        <h3>Сделать ставку</h3>
-        <span id="div-sale" style="display: none;">ПРОДАНО</span>
-        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-        <input id="input-cost-bet" type="text" name="cost" placeholder="min bet ">
-        <button id="btn-do-bet" type="submit" name="do_bet">Сделать ставку</button>
-    </form>
-    <br/>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-10">
-                <div class="panel panel-success">
-                    <a href="#betHistorySpoiler" class="btn btn-success btn-md btn-block" data-toggle="collapse"
-                       style="text-align: center;">
-                        <h4>History bets</h4>
-                    </a>
-                    <div class="panel-body">
-                        <input class="form-control" id="betHistoryInput" type="text" placeholder="Search..">
-                        <br>
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>Пользователь</th>
-                                <th>Ставка</th>
-                                <th>Дата</th>
-                                <th>Время</th>
-
-                            </tr>
-                            </thead>
-                            <%
-                                assert betHistoryList != null;
-                                for (int i = 0; i < betHistoryList.size(); i++) {
-                                    if (i == 0)
-                                        continue;
-                                    else {
-                                        String name = betHistoryList.get(i).getUserName();
-                                        String bet = String.valueOf(betHistoryList.get(i).getBet());
-                                        String dateBet = betHistoryList.get(i).getDate();
-                                        String timeBet = betHistoryList.get(i).getTime();
-                            %>
-                            <tbody id="betHistory">
-                            <tr>
-                                <td><%=name%>
-                                </td>
-                                <td><%=bet%>
-                                </td>
-                                <td><%=dateBet%>
-                                </td>
-                                <td><%=timeBet%>
-                                </td>
-                            </tr>
-                            </tbody>
-                            <%
-                                    }
-                                }
-                            %>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <!-- End recent_work -->
 
@@ -242,7 +242,7 @@
             <p>BLR, Minsk<span class="phone"><%=VariablesUtil.EMAIL_SUPPORT%></span></p>
         </div>
 
-        <%-- <div class="f_cols">
+        <%--<div class="f_cols">
              <h3>Company</h3>
              <ul>
                  <li><a href="#">Our Story</a></li>
@@ -268,99 +268,3 @@
     </div>
 </footer><!-- End footer -->
 </body>
-
-<%--
-</head>
-<body>
-<span id="time"></span>
-<input type="hidden" value="<%=timeEnd%>" id="start_ticks">
-<input type="hidden" value="<%=host%>" id="host">
-<input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
-<hr/>
-<br/>
-<br/>
-<br/>
-<%
-    assert lotInfoList != null;
-    if (lotInfoList.size() != 0) {
-%>
-<h3><%=lotInfoList.get(0).getUuid()%>
-</h3>
-<h3><%=lotInfoList.get(0).getName()%>
-</h3>
-<h3><%=lotInfoList.get(0).getInformation()%>
-</h3>
-<%
-    }
-%>
-<hr/>
-<form action="/generatehistorybets" method="post">
-    <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-    <button type="submit" name="generate_doc">Генерировать отчет</button>
-</form>
-<hr/>
-<form action="/bethandler" method="post">
-    <h3>Сделать ставку</h3>
-    <span id="div-sale" style="display: none;">ПРОДАНО</span>
-    <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-    <input id="input-cost-bet" type="text" name="cost" placeholder="min bet ">
-    <button id="btn-do-bet" type="submit" name="do_bet">Сделать ставку</button>
-</form>
-<br/>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-10">
-            <div class="panel panel-success">
-                <a href="#betHistorySpoiler" class="btn btn-success btn-md btn-block" data-toggle="collapse"
-                   style="text-align: center;">
-                    <h4>History bets</h4>
-                </a>
-                <div class="panel-body">
-                    <input class="form-control" id="betHistoryInput" type="text" placeholder="Search..">
-                    <br>
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Пользователь</th>
-                            <th>Ставка</th>
-                            <th>Дата</th>
-                            <th>Время</th>
-
-                        </tr>
-                        </thead>
-                        <%
-                            assert betHistoryList != null;
-                            for (int i = 0; i < betHistoryList.size(); i++) {
-                                if (i == 0)
-                                    continue;
-                                else {
-                                    String name = betHistoryList.get(i).getUserName();
-                                    String bet = String.valueOf(betHistoryList.get(i).getBet());
-                                    String dateBet = betHistoryList.get(i).getDate();
-                                    String timeBet = betHistoryList.get(i).getTime();
-                        %>
-                        <tbody id="betHistory">
-                        <tr>
-                            <td><%=name%>
-                            </td>
-                            <td><%=bet%>
-                            </td>
-                            <td><%=dateBet%>
-                            </td>
-                            <td><%=timeBet%>
-                            </td>
-                        </tr>
-                        </tbody>
-                        <%
-                                }
-                            }
-                        %>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
---%>

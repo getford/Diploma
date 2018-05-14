@@ -76,7 +76,7 @@ public class LotControl extends HttpServlet {
             long diff = secondsEnd - secondsNow;
 
             if (diff < 0)
-                return "CLOSED";
+                return VariablesUtil.STATUS_LOT_CLOSE;
             else {
                 // TODO: show time on page format MM:ss
                 LocalTime timeOfDay = LocalTime.ofSecondOfDay(diff);
@@ -85,6 +85,7 @@ public class LotControl extends HttpServlet {
                 return String.valueOf(diff);
             }
         } catch (Exception ex) {
+            new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         } finally {
             if (session != null && session.isOpen()) {

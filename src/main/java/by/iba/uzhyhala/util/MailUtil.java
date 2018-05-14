@@ -108,7 +108,7 @@ public class MailUtil {
                     "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?login=" + login + "\">" +
                     "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?user=" + login + "</a></p>";
 
-            setupParametersForMessage(VariablesUtil.EMAIL_TEST, subject, mailBody);
+            setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, subject, mailBody);
         } catch (MalformedURLException e) {
             LOGGER.error(e.getMessage());
         }
@@ -126,7 +126,7 @@ public class MailUtil {
                     "<br/><b>Уникальный идентификатор лота: </b>" + uuidLot + "</p>" +
                     "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot + "\">" +
                     "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot + "</a></p>";
-            setupParametersForMessage(VariablesUtil.EMAIL_TEST, subject, mailBody);
+            setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, subject, mailBody);
         } catch (MalformedURLException e) {
             LOGGER.error(e.getMessage());
         }

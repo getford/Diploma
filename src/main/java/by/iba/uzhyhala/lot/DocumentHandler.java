@@ -61,6 +61,7 @@ public class DocumentHandler extends HttpServlet {
                         fileName += VariablesUtil.PDF_EXTENSION;
                         generateDocHistoryBetPDF(uuidLot, req, resp, false);
                     } else if (req.getParameter("type").equals(VariablesUtil.EXCEL)) {
+                        fileName += VariablesUtil.EXCEL_EXTENSION_XLSX;
                         generateExcelDocHistoryBet(req, uuidLot, VariablesUtil.EXCEL_EXTENSION_XLSX, false);
                     }
                     LOGGER.info("Document " + fileName + " create/send successfully");
