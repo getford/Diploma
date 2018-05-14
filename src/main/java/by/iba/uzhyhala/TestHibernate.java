@@ -7,7 +7,7 @@ import java.io.IOException;
 public class TestHibernate {
     private static final Logger LOGGER = Logger.getLogger(TestHibernate.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 /*
 
         logger.debug("+++");
@@ -23,7 +23,7 @@ public class TestHibernate {
 /*
         Registration doRegistration = new Registration();
        *//* doRegistration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");
-        MailUtil sendMail = new MailUtil();*//*
+        MailUtil sendSimpleHtmlMail = new MailUtil();*//*
 
         LotHandler lotHandler = new LotHandler();
 

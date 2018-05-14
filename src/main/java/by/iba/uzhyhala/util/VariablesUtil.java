@@ -40,7 +40,7 @@ public final class VariablesUtil {
     static final String EMAIL_TEST = "o5m2bxu1.1dp@20email.eu";
     static final String EMAIL_CONTENT_TYPE_HTML = "text/html; charset=utf-8";
     static final String EMAIL_CONTENT_TYPE_PLAIN = "text/plain; charset=utf-8";
-    static final String EMAIL_TITLE_PART= "[AUCTION DIPLOMA] ";
+    static final String EMAIL_TITLE_PART = "[AUCTION DIPLOMA] ";
 
     // Date format pattern's
     public static final String PATTERN_DATE = "dd-MM-yyyy";

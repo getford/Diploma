@@ -5,7 +5,6 @@ import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -181,7 +180,7 @@ public class CommonUtil {
                     "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "\">" +
                     "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "</a></p>";
 
-            new MailUtil().sendMail(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), body, subject);
+            new MailUtil().sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), body, subject);
             return true;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
@@ -275,11 +274,6 @@ public class CommonUtil {
         return workbook;
     }
 
-    public static boolean isApiCall(HttpServletRequest request) {
-        LOGGER.info("isApiCall method");
-        return !StringUtils.isBlank(request.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
-    }
-
     public static String translateLotStatus(String englishStatus) {
         LOGGER.info("translateLotStatus\t" + englishStatus);
         switch (englishStatus) {
@@ -292,7 +286,7 @@ public class CommonUtil {
             case VariablesUtil.STATUS_LOT_CLOSE:
                 return VariablesUtil.STATUS_RUS_LOT_CLOSE;
             default:
-                return "Неопределено, обратитесь в поддержку" + VariablesUtil.EMAIL_SUPPORT;
+                return "Статус не определены, обратитесь в поддержку" + VariablesUtil.EMAIL_SUPPORT;
         }
     }
 }

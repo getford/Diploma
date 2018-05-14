@@ -12,7 +12,7 @@ public class HibernateUtil {
         try {
             return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         } catch (RuntimeException ex) {
-            LOGGER.error("Initial SessionFactory creation failed.\n" + ex.getLocalizedMessage());
+            LOGGER.error("Initial SessionFactory creation failed.\t" + ex.getLocalizedMessage());
             throw new ExceptionInInitializerError(ex);
         }
     }

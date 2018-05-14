@@ -50,7 +50,7 @@ public class Registration extends HttpServlet {
 
                     String subject = "";
 
-                    new MailUtil().sendMail(req.getParameter("email"), body, subject);
+                    new MailUtil().sendSimpleHtmlMail(req.getParameter("email"), body, subject);
 
                     resp.sendRedirect("/pages/index.jsp");
                 } catch (IOException e) {

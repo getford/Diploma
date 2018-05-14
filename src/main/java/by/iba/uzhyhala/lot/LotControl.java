@@ -41,7 +41,7 @@ public class LotControl extends HttpServlet {
     }
 
     public String returnEndTime() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession();) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String timeEnd = String.valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));
 
             DateFormat dateFormat = new SimpleDateFormat(VariablesUtil.PATTERN_TIME);

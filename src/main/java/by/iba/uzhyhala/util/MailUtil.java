@@ -19,7 +19,7 @@ public class MailUtil {
 
     private Map<String, File> attachments = new HashMap<>();
 
-    private void setupParametersForMessage(String email, String subject, String mailBody) {
+    private void setupParametersForMessage(String email, String subject, String mailBody, String contentType) {
         try {
             Properties props = new Properties();
             props.put("mail.smtp.host", VariablesUtil.EMAIL_HOST);
@@ -47,12 +47,12 @@ public class MailUtil {
                 }
 
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setContent(mailBody, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
+                messageBodyPart.setContent(mailBody, contentType);
                 multipart.addBodyPart(messageBodyPart);
 
                 message.setContent(multipart);
             } else {
-                message.setContent(mailBody, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
+                message.setContent(mailBody, contentType);
             }
 
             message.setFrom(new InternetAddress(VariablesUtil.EMAIL_SUPPORT));
@@ -65,8 +65,12 @@ public class MailUtil {
         }
     }
 
-    public void sendMail(String to, String body, String subject) {
-        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, subject, body);
+    public void sendSimpleHtmlMail(String to, String body, String subject) {
+        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, subject, body, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
+    }
+
+    public void sendSimplePlainMail(String to, String body, String subject) {
+        setupParametersForMessage(to, subject, body, VariablesUtil.EMAIL_CONTENT_TYPE_PLAIN);
     }
 
     public void sendErrorMail(String error) {
@@ -74,7 +78,7 @@ public class MailUtil {
                 "<br/>" + timeNow +
                 "<br/><br/>" + error +
                 "<br/>";
-        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody);
+        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
     }
 
     public void addAttachment(File file) {

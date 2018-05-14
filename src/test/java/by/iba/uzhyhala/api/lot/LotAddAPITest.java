@@ -66,7 +66,7 @@ public class LotAddAPITest {
     }
 
     @Test
-    public void test() throws IOException, ServletException {
+    public void test() throws IOException {
         new LotAddAPI().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

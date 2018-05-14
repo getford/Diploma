@@ -190,7 +190,7 @@ public class DocumentHandler extends HttpServlet {
                         "<br/><br/>С уважением";
 
                 // TODO: send document
-                mailUtil.sendMail("", body, subject + uuidLot);
+                mailUtil.sendSimpleHtmlMail("", body, subject + uuidLot);
             } else {
                 LOGGER.info("Send document not required");
             }
@@ -237,7 +237,7 @@ public class DocumentHandler extends HttpServlet {
                     "<br/>Адрес лота: <b>" + urlLot + "</b>" +
                     "<br/><br/>С уважением";
 
-            mailUtil.sendMail("", body, subject + uuidLot);
+            mailUtil.sendSimpleHtmlMail("", body, subject + uuidLot);
         } else {
             try {
                 URL url = new URL(req.getRequestURL().toString());
@@ -312,7 +312,7 @@ public class DocumentHandler extends HttpServlet {
                 "<br/><br/>С уважением";
 
         // TODO: send document
-        mailUtil.sendMail("", body, subject);
+        mailUtil.sendSimpleHtmlMail("", body, subject);
     }
 
     public String getPdfBetEncode() {

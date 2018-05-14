@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @WebServlet(urlPatterns = "/api/user/reg")
 public class RegistrationAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(RegistrationAPI.class);
+    private static final long serialVersionUID = 5498881908205110216L;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

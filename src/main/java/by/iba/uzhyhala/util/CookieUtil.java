@@ -19,24 +19,23 @@ public class CookieUtil {
     private boolean isFindCookie = false;
 
     public CookieUtil(HttpServletRequest req) {
-        Cookie[] cookies = req.getCookies();
-
-        if (cookies != null) {
-            for (Cookie c : cookies) {
-                if (c.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)) {
-                    token = c.getValue();
+        if (req.getCookies() != null) {
+            for (Cookie cookie : req.getCookies()) {
+                if (cookie.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)) {
+                    token = cookie.getValue();
                     isFindCookie = true;
-                    LOGGER.info(getClass().getName() + " constructor, token: " + token);
+                    LOGGER.info("Constructor, token: " + token);
                 }
             }
         } else {
             isFindCookie = false;
+            LOGGER.error("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
         }
     }
 
     public boolean isAdmin(Cookie[] cookies) throws UnsupportedEncodingException {
-        for (Cookie cooky : cookies) {
-            if (cooky.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)
                     && getRoleFromToken().equalsIgnoreCase(VariablesUtil.ROLE_ADMIN))
                 return true;
         }
@@ -62,7 +61,6 @@ public class CookieUtil {
             Jws<Claims> jws = Jwts.parser()
                     .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
                     .parseClaimsJws(token);
-
             return String.valueOf(jws.getBody().get("uuid"));
         } else {
             LOGGER.info("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
@@ -74,7 +72,6 @@ public class CookieUtil {
         Jws<Claims> jws = Jwts.parser()
                 .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
-
         return String.valueOf(jws.getBody().get("role"));
     }
 

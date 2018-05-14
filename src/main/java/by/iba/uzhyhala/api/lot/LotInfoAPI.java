@@ -20,7 +20,7 @@ public class LotInfoAPI extends HttpServlet {
 
     @SuppressFBWarnings("XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER")
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         String message;

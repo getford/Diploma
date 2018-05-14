@@ -20,6 +20,7 @@ import java.util.UUID;
 @WebServlet("/getapikey")
 public class UserApiKey extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(UserApiKey.class);
+    private static final long serialVersionUID = -8938087671620948934L;
 
     @SuppressFBWarnings({"XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER", "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"})
     @Override
