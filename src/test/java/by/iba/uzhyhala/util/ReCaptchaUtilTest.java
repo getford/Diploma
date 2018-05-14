@@ -21,7 +21,7 @@ public class ReCaptchaUtilTest {
 
     @Test
     public void testIf() {
-        new ReCaptchaUtil().verify(null);
+        ReCaptchaUtil.verify(null);
     }
 
     @Test
@@ -29,6 +29,7 @@ public class ReCaptchaUtilTest {
         URL url = mock(URL.class);
         whenNew(URL.class).withArguments(URL).thenReturn(url);
         when(url.openConnection()).thenReturn(httpsURLConnection);
-        new ReCaptchaUtil().verify("true");
+        ReCaptchaUtil.verify("true");
+        ReCaptchaUtil.verify("false");
     }
 }

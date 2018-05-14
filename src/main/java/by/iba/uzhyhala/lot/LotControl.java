@@ -25,7 +25,7 @@ public class LotControl extends HttpServlet {
     private Session session;
     private String uuidLot;
 
-    public LotControl(String uuidLot) {
+    LotControl(String uuidLot) {
         this.uuidLot = uuidLot;
     }
 

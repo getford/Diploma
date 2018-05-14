@@ -1,5 +1,7 @@
 package by.iba.uzhyhala.entity;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -56,6 +58,7 @@ public class PersonalInformationEntity implements Serializable {
         this.lastName = lastName;
     }
 
+    @SuppressFBWarnings("EI_EXPOSE_REP")
     @Basic
     @Column(name = "bday", nullable = true)
     public Date getBday() {
@@ -63,6 +66,7 @@ public class PersonalInformationEntity implements Serializable {
         return bday;
     }
 
+    @SuppressFBWarnings("EI_EXPOSE_REP2")
     public void setBday(Date bday) {
         // this.bday = new Date(bday.getTime());
         this.bday = bday;

@@ -1,9 +1,12 @@
 package by.iba.uzhyhala.entity;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
+@SuppressFBWarnings("SE_BAD_FIELD")
 @Entity
 @Table(name = "feedback", schema = "public", catalog = "auction")
 public class FeedbackEntity implements Serializable {

@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.BarcodeQRCode;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -41,6 +42,7 @@ public class DocumentHandler extends HttpServlet {
     private static String subject = "Корреспонденция по лоту ";
 
 
+    @SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String uuidLot = req.getParameter("uuid_lot");

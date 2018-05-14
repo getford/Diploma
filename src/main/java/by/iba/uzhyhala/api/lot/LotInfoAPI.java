@@ -2,6 +2,7 @@ package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -17,6 +18,7 @@ public class LotInfoAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotInfoAPI.class);
     private static final long serialVersionUID = -5847046564494053976L;
 
+    @SuppressFBWarnings("XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER")
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");

@@ -1,5 +1,7 @@
 package by.iba.uzhyhala.entity;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -77,12 +79,14 @@ public class AuthInfoEntity {
         this.role = role;
     }
 
+    @SuppressFBWarnings("EI_EXPOSE_REP")
     @Basic
     @Column(name = "create_date", nullable = true)
     public Date getCreateDate() {
         return createDate;
     }
 
+    @SuppressFBWarnings("EI_EXPOSE_REP2")
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
