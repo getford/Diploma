@@ -198,11 +198,12 @@ public class CommonUtil {
         LOGGER.info("isUserHaveApiKey method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
-            return session
-                    .createQuery("SELECT a.api_key FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+            int length = session
+                    .createSQLQuery("SELECT api_key FROM auth_info WHERE uuid = :uuid")
                     .setParameter("uuid", uuid)
-                    .list().size() > 0;
+                    .getResultList().get(0).toString().length();
+
+            return length == VariablesUtil.TEST_API_KEY_NAME.length();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("CommonUtil class, Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());

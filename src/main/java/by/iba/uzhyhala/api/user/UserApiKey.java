@@ -34,7 +34,7 @@ public class UserApiKey extends HttpServlet {
             if (StringUtils.isBlank(CommonUtil.getUserLoginByUUID(uuid)))
                 resp.getWriter().write("{\"exception\":\"user uuid: " + uuid + " isn't correct\"}");
             else {
-                if (CommonUtil.isUserHaveApiKey(uuid)) {
+                if (!CommonUtil.isUserHaveApiKey(uuid)) {
                     session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
                             .setParameter("key", key)
                             .setParameter("uuid", uuid)

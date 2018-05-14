@@ -26,7 +26,7 @@ public class RegistrationAPI extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
 
         String responseMessage = "";
-        UserRegTOAPI userRegTOAPI = handleResponse(req.getReader().lines().collect(Collectors.joining(System.lineSeparator())));
+        UserRegTOAPI userRegTOAPI = new Gson().fromJson(req.getReader().lines().collect(Collectors.joining(System.lineSeparator())), UserRegTOAPI.class);
         LOGGER.info(getClass().getName() + "\t" + "userRegTOAPI: " + userRegTOAPI.toString());
         if (validateRequest(userRegTOAPI)) {
             if (Pattern.compile(VariablesUtil.REGEXP_EMAIL,
@@ -53,9 +53,5 @@ public class RegistrationAPI extends HttpServlet {
         return !StringUtils.isBlank(to.getLogin()) &&
                 !StringUtils.isBlank(to.getEmail()) &&
                 !StringUtils.isBlank(to.getPasscode());
-    }
-
-    private UserRegTOAPI handleResponse(String args) {
-        return new Gson().fromJson(args, UserRegTOAPI.class);
     }
 }
