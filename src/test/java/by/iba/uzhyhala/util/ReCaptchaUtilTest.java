@@ -14,7 +14,6 @@ import static org.powermock.api.mockito.PowerMockito.*;
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
 public class ReCaptchaUtilTest {
-    private static final String URL = "https://www.google.com/recaptcha/api/siteverify";
 
     @Mock
     private HttpsURLConnection httpsURLConnection;
@@ -27,7 +26,7 @@ public class ReCaptchaUtilTest {
     @Test
     public void test() throws Exception {
         URL url = mock(URL.class);
-        whenNew(URL.class).withArguments(URL).thenReturn(url);
+        whenNew(URL.class).withArguments(ReCaptchaUtil.URL).thenReturn(url);
         when(url.openConnection()).thenReturn(httpsURLConnection);
         ReCaptchaUtil.verify("true");
         ReCaptchaUtil.verify("false");

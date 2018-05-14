@@ -29,8 +29,6 @@ public class Registration extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
     private static final long serialVersionUID = -7067000206036155152L;
 
-    private Gson gson = new Gson();
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter printWriter = resp.getWriter();
@@ -70,7 +68,7 @@ public class Registration extends HttpServlet {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            AuthInfoEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
+            AuthInfoEntity authInfoEntity = new Gson().fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
             if (isLoginAndEmailEmpty(session, authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
 
                 authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
@@ -116,6 +114,6 @@ public class Registration extends HttpServlet {
         authInfoEntity.setLogin(login);
         authInfoEntity.setPassword(password);
         authInfoEntity.setEmail(email);
-        return gson.toJson(authInfoEntity);
+        return new Gson().toJson(authInfoEntity);
     }
 }

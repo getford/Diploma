@@ -6,6 +6,7 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -31,7 +32,7 @@
         List<PersonalInformationEntity> personalInformationEntityList = null;
         List<AddressEntity> addressEntityList = null;
         List<LotEntity> userLotList = null;
-        String userLogin = CommonUtil.getUserLoginFromCookie(request);
+        String userLogin = CookieUtil.getUserLoginFromCookie(request);
         if (StringUtils.isBlank(userLogin))
             response.sendRedirect("/pages/auth.jsp");
         else {

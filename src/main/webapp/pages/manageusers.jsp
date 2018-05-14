@@ -1,6 +1,6 @@
 <%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
 <%@ page import="by.iba.uzhyhala.entity.AuthInfoEntity" %>
-<%@ page import="by.iba.uzhyhala.user.UserHandler" %>
+<%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,11 +24,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <%
-        UserHandler userHandler = new UserHandler();
         StatisticHandler statisticHandler = new StatisticHandler();
-        List<AuthInfoEntity> authInfoEntityList = userHandler.getAllUser();
+        List<AuthInfoEntity> authInfoEntityList = CommonUtil.getAllUser();
         String lineChartCreateForDay = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATE_CREATE_USER);
-
     %>
 </head>
 <body>

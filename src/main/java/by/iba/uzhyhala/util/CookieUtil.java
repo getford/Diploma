@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 
 public class CookieUtil {
     private static final Logger LOGGER = Logger.getLogger(CookieUtil.class);
@@ -40,6 +41,20 @@ public class CookieUtil {
                 return true;
         }
         return false;
+    }
+
+    public static String getUserLoginFromCookie(HttpServletRequest request) {
+        LOGGER.info("getUserLoginFromCookie");
+        try {
+            CookieUtil cookieUtil = new CookieUtil(request);
+            if (cookieUtil.isFindCookie()) {
+                return CommonUtil.getUserLoginByUUID(cookieUtil.getUserUuidFromToken());
+            }
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            return "";
+        }
+        return "";
     }
 
     public String getUserUuidFromToken() throws IOException {

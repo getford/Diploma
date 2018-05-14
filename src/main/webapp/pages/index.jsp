@@ -1,6 +1,7 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,7 +14,7 @@
     <script type="text/javascript" src="/resources/scripts/index/jquery.js"></script>
     <script type="text/javascript" src="/resources/scripts/index/main_head.js"></script>
     <%
-        String userLogin = CommonUtil.getUserLoginFromCookie(request);
+        String userLogin = CookieUtil.getUserLoginFromCookie(request);
         boolean isDisableLink = false;
         if (!StringUtils.isBlank(userLogin)){
             isDisableLink = true;

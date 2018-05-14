@@ -1,6 +1,7 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/input/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
     <%
-        String userLogin = CommonUtil.getUserLoginFromCookie(request);
+        String userLogin = CookieUtil.getUserLoginFromCookie(request);
         if (StringUtils.isBlank(userLogin))
             response.sendRedirect("/pages/auth.jsp");
     %>

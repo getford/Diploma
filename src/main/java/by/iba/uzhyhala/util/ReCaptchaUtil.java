@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.Arrays;
 
 public class ReCaptchaUtil {
-    private static final String URL = "https://www.google.com/recaptcha/api/siteverify";
+    public static final String URL = "https://www.google.com/recaptcha/api/siteverify";
     private static final String SECRET = "6LfAwFAUAAAAAP9YGQNaD3jOzgN7YiN7qD5b4cJd";
     public static final String PUBLIC = "6LfAwFAUAAAAAJYuBmiEiv8Io3FMUHmlKzUPXIQ3";
     private final static String USER_AGENT = "Mozilla/5.0";

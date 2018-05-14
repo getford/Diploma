@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.util;
 
+import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
@@ -98,32 +99,27 @@ public class CommonUtil {
         return null;
     }
 
+    public static List<AuthInfoEntity> getAllUser() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            return session.createQuery("SELECT a FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a").list();
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("getAllUser\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
+            return new ArrayList<>();
+        }
+    }
+
     public static String getJsonBetBulk(String uuid) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return String.valueOf(session.createQuery("SELECT b.bulk FROM " + VariablesUtil.ENTITY_BET + " b WHERE uuid = :uuid")
                     .setParameter("uuid", uuid).list().get(0));
-
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             return null;
         }
-    }
-
-    public static String getUserLoginFromCookie(HttpServletRequest request) {
-        LOGGER.info("getUserLoginFromCookie");
-
-        try {
-            CookieUtil cookieUtil = new CookieUtil(request);
-            if (cookieUtil.isFindCookie()) {
-                return CommonUtil.getUserLoginByUUID(cookieUtil.getUserUuidFromToken());
-            }
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
-            return "";
-        }
-        return "";
     }
 
     public static List<BetHistoryTO> getHistoryBets(String uuidLot) {
