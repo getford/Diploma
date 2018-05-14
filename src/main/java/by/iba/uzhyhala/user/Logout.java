@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/logout")
 public class Logout extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(Logout.class);
     private static final long serialVersionUID = 1296230515763603800L;
 
-    public Logout(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-            doPost(req, resp);
-        } catch (IOException e) {
-            LOGGER.error(Arrays.toString(e.getStackTrace()));
-        }
-    }
+//    public Logout(HttpServletRequest req, HttpServletResponse resp) {
+//        try {
+//            doPost(req, resp);
+//        } catch (IOException e) {
+//            LOGGER.error(Arrays.toString(e.getStackTrace()));
+//        }
+//    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -31,6 +30,6 @@ public class Logout extends HttpServlet {
         cookie.setPath("/");
 
         resp.addCookie(cookie);
-        resp.sendRedirect("/pages/");
+        resp.sendRedirect("/pages/index.jsp");
     }
 }

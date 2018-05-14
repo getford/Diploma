@@ -63,7 +63,7 @@ public class Registration extends HttpServlet {
     }
 
     public boolean doRegistration(String login, String password, String email) {
-        LOGGER.debug(this.", method: doRegistration");
+        LOGGER.debug("method: doRegistration");
         String newUserUUID = UUID.randomUUID().toString();
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

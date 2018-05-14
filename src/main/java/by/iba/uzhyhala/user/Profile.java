@@ -31,7 +31,9 @@ public class Profile {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" getUserPersonalInformation");
-            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid").setParameter("uuid", uuidUser).list();
+            return session
+                    .createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid")
+                    .setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -43,7 +45,9 @@ public class Profile {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" getUserPersonalInformation");
-            return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE uuid_user = :uuid").setParameter("uuid", uuidUser).list();
+            return session
+                    .createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE uuid_user = :uuid")
+                    .setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());

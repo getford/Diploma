@@ -22,7 +22,6 @@ public class LotControl extends HttpServlet {
     private static final String ZERO_TIME = "00:00:00";
     private static final long serialVersionUID = 4795526489089370744L;
 
-    private Session session;
     private String uuidLot;
 
     public LotControl(String uuidLot) {
