@@ -71,7 +71,7 @@ public class MailUtil {
     public void sendErrorMail(String error) {
         String mailBody = "" +
                 "<br/>" + timeNow +
-                "<br/>" + error +
+                "<br/><br/>" + error +
                 "<br/>";
         setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody);
     }
@@ -84,12 +84,13 @@ public class MailUtil {
         setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Attachment files " + timeNow, mailBody);
     }
 
-    public void sendPdfFileWithPasscode(String email, String docPasscode) {
+    public void sendPdfFileWithPasscode(String email, String docPasscode, String urlLot) {
         String mailBody = "" +
                 "<br/>" + timeNow +
                 "<br/>Добрый день, найдите прикрепленные файлы в письме." +
-                "<br/>Пароль для открытия файла: " + docPasscode +
-                "<br/>С уважением";
+                "<br/>Адрес лота: <b>" + urlLot + "</b>" +
+                "<br/>Пароль для открытия файла: <b>" + docPasscode + "</b>" +
+                "<br/><br/>С уважением";
         setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Attachment files " + timeNow, mailBody);
     }
 

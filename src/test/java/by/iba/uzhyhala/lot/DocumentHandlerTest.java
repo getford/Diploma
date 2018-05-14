@@ -6,6 +6,7 @@ import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.struts.mock.MockHttpServletRequest;
+import org.apache.struts.mock.MockHttpServletResponse;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +33,9 @@ public class DocumentHandlerTest {
     private MockHttpServletRequest mockHttpServletRequest;
 
     @Mock
+    private MockHttpServletResponse mockHttpServletResponse;
+
+    @Mock
     private File file;
 
     @Mock
@@ -47,10 +51,9 @@ public class DocumentHandlerTest {
         list.add(to);
 
         mockStatic(CommonUtil.class);
-        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer("http://localhost:8080/"));
+        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(VariablesUtil.TEST_URL));
 
-//        whenNew(File.class).withAnyArguments().thenReturn(file);
-//        whenNew(FileInputStream.class).withArguments(Matchers.anyString()).thenReturn(fileInputStream);
+        whenNew(MockHttpServletResponse.class).withAnyArguments().thenReturn(mockHttpServletResponse);
 
         when(CommonUtil.getHistoryBets(LotBetHistoryDocumentAPITest.UUID_LOT)).thenReturn(list);
         when(CommonUtil.prepareFileForAttach(new Object(), "File name",
@@ -62,9 +65,24 @@ public class DocumentHandlerTest {
     }
 
     @Test
-    public void testGenerateDocHistoryBetExcel() {
-        new DocumentHandler().generateExcelDocHistoryBet(mockHttpServletRequest, LotBetHistoryDocumentAPITest.UUID_LOT, VariablesUtil.EXCEL_EXTENSION_XLSX, true);
-        //      new DocumentHandler().generateExcelDocHistoryBet(mockHttpServletRequest, LotBetHistoryDocumentAPITest.UUID_LOT, VariablesUtil.EXCEL_EXTENSION_XLSX, false);
+    public void testDoPost() {
+        when(mockHttpServletRequest.getParameter("uuid")).thenReturn(LotBetHistoryDocumentAPITest.UUID_LOT);
+
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.PDF);
+        when(mockHttpServletRequest.getParameter("send-mail")).thenReturn("true");
+        new DocumentHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.PDF);
+        when(mockHttpServletRequest.getParameter("send-mail")).thenReturn("false");
+        new DocumentHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.EXCEL);
+        when(mockHttpServletRequest.getParameter("send-mail")).thenReturn("true");
+        new DocumentHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.EXCEL);
+        when(mockHttpServletRequest.getParameter("send-mail")).thenReturn("false");
+        new DocumentHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 
     @Test

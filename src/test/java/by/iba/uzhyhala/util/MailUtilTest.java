@@ -20,7 +20,7 @@ public class MailUtilTest {
     @Before
     public void init() {
         initMocks(this);
-        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer("http://localhost:8080/"));
+        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(VariablesUtil.TEST_URL));
     }
 
     @Test

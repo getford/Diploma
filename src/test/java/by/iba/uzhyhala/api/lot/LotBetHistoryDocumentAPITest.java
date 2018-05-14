@@ -39,7 +39,7 @@ public class LotBetHistoryDocumentAPITest {
     @Before
     public void init() throws Exception {
         initMocks(this);
-        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer("http://localhost:8080/"));
+        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(VariablesUtil.TEST_URL));
         when(mockHttpServletRequest.getParameter("uuid_lot")).thenReturn(UUID_LOT);
 
         when(mockHttpServletRequest.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))

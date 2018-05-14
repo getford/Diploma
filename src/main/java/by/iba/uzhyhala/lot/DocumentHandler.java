@@ -176,7 +176,7 @@ public class DocumentHandler extends HttpServlet {
                         fileName, VariablesUtil.PDF_EXTENSION)
                 );
                 // TODO: send document
-                mailUtil.sendPdfFileWithPasscode("", documentPasscode);
+                mailUtil.sendPdfFileWithPasscode("", documentPasscode, urlLot);
             } else {
                 LOGGER.info("Send document not required");
             }

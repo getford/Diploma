@@ -91,5 +91,8 @@ public final class VariablesUtil {
 
     // api
     public static final String PARAMETER_API_KEY_NAME = "api_key";
+
+    // test
     public static final String TEST_API_KEY_NAME = "D2B331E0831A4C5683E17FDA0394723C";
+    public static final String TEST_URL = "http://localhost:8080/";
 }

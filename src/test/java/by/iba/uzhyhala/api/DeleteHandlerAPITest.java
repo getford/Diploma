@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.api;
 
+import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;
@@ -23,7 +24,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class DeleteHandlerAPITest {
 
-    private static final String QUERY_DELETE_LOT = "http://localhost:8080/del?" +
+    private static final String QUERY_DELETE_LOT = VariablesUtil.TEST_URL + "del?" +
             "uuid-lot=5c6b7e7c-aa1a-4e9a-94eb-31e9fe81f4c2&api_key=D2B331E0831A4C5683E17FDA0394723C";
 
     @Mock
