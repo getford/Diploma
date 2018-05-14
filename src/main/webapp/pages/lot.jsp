@@ -159,12 +159,13 @@
     </h3>
     <h3><%=lotInfoList.get(0).getInformation()%>
     </h3>
-    <h3><%=lotInfoList.get(0).getStatus()%>
+    <h3><%=CommonUtil.translateLotStatus(lotInfoList.get(0).getStatus())%>
     </h3>
     <%
         }
     %>
     <hr/>
+    <h3 style="text-align: center"><span>История ставок</span></h3>
     <br/>
     <div class="container">
         <div class="row">

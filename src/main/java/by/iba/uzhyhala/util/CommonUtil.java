@@ -18,6 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -194,8 +195,18 @@ public class CommonUtil {
                     .setParameter("uuid", uuid)
                     .executeUpdate();
 
-            // TODO: get user email
-            new MailUtil().sendMailChangeLotStatus(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), uuid, status, request);
+            URL url = new URL(String.valueOf(request.getRequestURL()));
+            String subject = "Статус лота был успешно изменен";
+            String body = "<br/> " + new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
+                    "<p>Здравствуйте,</p>" +
+                    "<p>Уведомляем вас о том, что статус вашего лота, был успешно изменен</p>" +
+                    "<p>" +
+                    "<b>Новый статус: </b>" + status + "" +
+                    "<br/><b>Уникальный идентификатор лота: </b>" + uuid + "</p>" +
+                    "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "\">" +
+                    "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "</a></p>";
+
+            new MailUtil().sendMail(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), body, subject);
             return true;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
@@ -265,7 +276,7 @@ public class CommonUtil {
                 Workbook workbook = (Workbook) o;
                 workbook.write(byteArrayOutputStream);
             }
-            if(extension.equals(VariablesUtil.PDF_EXTENSION)){
+            if (extension.equals(VariablesUtil.PDF_EXTENSION)) {
                 byteArrayOutputStream = (ByteArrayOutputStream) o;
             }
 
@@ -307,5 +318,21 @@ public class CommonUtil {
     public static boolean isApiCall(HttpServletRequest request) {
         LOGGER.info("isApiCall method");
         return !StringUtils.isBlank(request.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME));
+    }
+
+    public static String translateLotStatus(String englishStatus) {
+        LOGGER.info("translateLotStatus\t" + englishStatus);
+        switch (englishStatus) {
+            case VariablesUtil.STATUS_LOT_ACTIVE:
+                return VariablesUtil.STATUS_RUS_LOT_ACTIVE;
+            case VariablesUtil.STATUS_LOT_SALES:
+                return VariablesUtil.STATUS_RUS_LOT_SALES;
+            case VariablesUtil.STATUS_LOT_WAIT:
+                return VariablesUtil.STATUS_RUS_LOT_WAIT;
+            case VariablesUtil.STATUS_LOT_CLOSE:
+                return VariablesUtil.STATUS_RUS_LOT_CLOSE;
+            default:
+                return "Неопределено, обратитесь в поддержку" + VariablesUtil.EMAIL_SUPPORT;
+        }
     }
 }

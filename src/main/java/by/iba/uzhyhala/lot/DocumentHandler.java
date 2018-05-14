@@ -35,10 +35,12 @@ public class DocumentHandler extends HttpServlet {
     private String urlLot;
     private static String fileName = "File_";
     private byte[] bytesExcel = null;
+    private static String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
+    private static String subject = "Корреспонденция по лоту ";
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
         String uuidLot = req.getParameter("uuid_lot");
         String redirectUrl = "/pages/lot.jsp?uuid=" + uuidLot;
         fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + uuidLot;
@@ -176,8 +178,15 @@ public class DocumentHandler extends HttpServlet {
                 mailUtil.addAttachment(CommonUtil.prepareFileForAttach(byteArrayOutputStreamPDF,
                         fileName, VariablesUtil.PDF_EXTENSION)
                 );
+
+                String body = "<br/>" + timeNow +
+                        "<br/>Добрый день, найдите прикрепленные файлы в письме." +
+                        "<br/>Адрес лота: <b>" + urlLot + "</b>" +
+                        "<br/>Пароль для открытия файла: <b>" + documentPasscode + "</b>" +
+                        "<br/><br/>С уважением";
+
                 // TODO: send document
-                mailUtil.sendPdfFileWithPasscode("", documentPasscode, urlLot);
+                mailUtil.sendMail("", body, subject + uuidLot);
             } else {
                 LOGGER.info("Send document not required");
             }
@@ -217,8 +226,14 @@ public class DocumentHandler extends HttpServlet {
             mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
                     CommonUtil.createExcelFile(dateList, columnList, sheetName),
                     fileName, extension));
+
             // TODO: send document
-            mailUtil.sendSimpleEmailWithAttachment("");
+            String body = "<br/>" + timeNow +
+                    "<br/>Добрый день, найдите прикрепленные файлы в письме." +
+                    "<br/>Адрес лота: <b>" + urlLot + "</b>" +
+                    "<br/><br/>С уважением";
+
+            mailUtil.sendMail("", body, subject + uuidLot);
         } else {
             try {
                 URL url = new URL(req.getRequestURL().toString());
@@ -283,8 +298,14 @@ public class DocumentHandler extends HttpServlet {
         mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
                 CommonUtil.createExcelFile(dateList, columnList, "All lots"),
                 fileName, extension));
+
+        String subject = "Корреспоненция по всем лотам";
+        String body = "<br/>" + timeNow +
+                "<br/>Добрый день, найдите прикрепленные файлы в письме." +
+                "<br/><br/>С уважением";
+
         // TODO: send document
-        mailUtil.sendSimpleEmailWithAttachment("");
+        mailUtil.sendMail("", body, subject);
     }
 
     public String getPdfBetEncode() {

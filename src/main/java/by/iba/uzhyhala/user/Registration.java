@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -39,9 +40,22 @@ public class Registration extends HttpServlet implements IParseJson {
             if (doRegistration(req.getParameter("login"), req.getParameter("password"),
                     req.getParameter("email"))) {
                 try {
-                    new MailUtil().sendMailRegistration(req.getParameter("email"),
-                            req.getParameter("login"),
-                            req.getParameter("password"), req);
+                    URL url = new URL(req.getRequestURL().toString());
+                    String login = req.getParameter("login");
+                    String body = "<br/> " + new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
+                            "<p>Hello,</p>" +
+                            "<p>You will be successfully registered in Auction</p>" +
+                            "<p>" +
+                            "<b>Your login: </b>" + login + "" +
+                            "<br/><b>Your password: </b>" + req.getParameter("password") + "" +
+                            "</p>" +
+                            "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?login=" + login + "\">" +
+                            "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?user=" + login + "</a></p>";
+
+                    String subject = "";
+
+                    new MailUtil().sendMail(req.getParameter("email"), body, subject);
+
                     resp.sendRedirect("/pages/index.jsp");
                 } catch (IOException e) {
                     new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(e.getStackTrace()));
