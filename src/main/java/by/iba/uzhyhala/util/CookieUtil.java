@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class CookieUtil {
-    private static final Logger logger = Logger.getLogger(CookieUtil.class);
+    private static final Logger LOGGER = Logger.getLogger(CookieUtil.class);
 
     private String token = null;
     private boolean isFindCookie = false;
@@ -25,7 +25,7 @@ public class CookieUtil {
                 if (c.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)) {
                     token = c.getValue();
                     isFindCookie = true;
-                    logger.info(getClass().getName() + " constructor, token: " + token);
+                    LOGGER.info(getClass().getName() + " constructor, token: " + token);
                 }
             }
         } else {
@@ -50,7 +50,7 @@ public class CookieUtil {
 
             return String.valueOf(jws.getBody().get("uuid"));
         } else {
-            logger.info("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
+            LOGGER.info("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
             return null;
         }
     }

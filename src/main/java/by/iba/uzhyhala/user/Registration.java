@@ -3,13 +3,11 @@ package by.iba.uzhyhala.user;
 import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.entity.PersonalInformationEntity;
-import by.iba.uzhyhala.to.UserTO;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.ReCaptchaUtil;
 import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -24,12 +22,12 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @WebServlet(urlPatterns = "/registration")
-public class Registration extends HttpServlet implements IParseJson {
+public class Registration extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
+    private static final long serialVersionUID = -7067000206036155152L;
 
     private Gson gson = new Gson();
 
@@ -113,18 +111,11 @@ public class Registration extends HttpServlet implements IParseJson {
         return query.list().isEmpty();
     }
 
-    @Override
-    public String prepareInputString(String login, String password, String email) {
+    private String prepareInputString(String login, String password, String email) {
         AuthInfoEntity authInfoEntity = new AuthInfoEntity();
         authInfoEntity.setLogin(login);
         authInfoEntity.setPassword(password);
         authInfoEntity.setEmail(email);
         return gson.toJson(authInfoEntity);
-    }
-
-    @Override
-    public List<AuthInfoEntity> handleInputString(String json) {
-        return gson.fromJson(json, new TypeToken<List<UserTO>>() {
-        }.getType());
     }
 }

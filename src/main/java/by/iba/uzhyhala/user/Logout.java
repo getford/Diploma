@@ -13,14 +13,14 @@ import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/logout")
 public class Logout extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(Logout.class);
+    private static final Logger LOGGER = Logger.getLogger(Logout.class);
     private static final long serialVersionUID = 1296230515763603800L;
 
     public Logout(HttpServletRequest req, HttpServletResponse resp) {
         try {
             doPost(req, resp);
         } catch (IOException e) {
-            logger.error(getClass().getName() + "\n" + Arrays.toString(e.getStackTrace()));
+            LOGGER.error(getClass().getName() + "\n" + Arrays.toString(e.getStackTrace()));
         }
     }
 
