@@ -23,7 +23,6 @@ public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final long serialVersionUID = 6295721900470243790L;
 
-    private Session session;
     private String type;
     private String uuidUser;
     private String uuidAddLot;
@@ -32,8 +31,7 @@ public class LotHandler extends HttpServlet implements Serializable {
     }
 
     public LotHandler(String loginOrEmail) {
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(getClass().getName() + " constructor");
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
@@ -41,10 +39,6 @@ public class LotHandler extends HttpServlet implements Serializable {
         } catch (Exception e) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -77,13 +71,12 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     // TODO: id category
     public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
         LOGGER.debug(getClass().getName() + " addLot");
 
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime());
         this.uuidAddLot = UUID.randomUUID().toString();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             LotEntity lotEntity = new LotEntity();
             lotEntity.setUuid(uuidAddLot);
             lotEntity.setUuidUserSeller(uuidUserSeller);
@@ -119,10 +112,6 @@ public class LotHandler extends HttpServlet implements Serializable {
             new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
             return false;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -155,33 +144,23 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     public List<LotEntity> getLots(String query) {
         LOGGER.debug(getClass().getName() + " showLots");
-        session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery(query).getResultList();
         } catch (Exception e) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }
 
     public List<LotEntity> getUserLot() {
         LOGGER.debug(getClass().getName() + " getUserLot");
-        session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuidUserSeller = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidUser).getResultList();
         } catch (Exception e) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }

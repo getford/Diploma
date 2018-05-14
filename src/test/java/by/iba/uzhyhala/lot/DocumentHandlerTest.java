@@ -16,7 +16,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +33,6 @@ public class DocumentHandlerTest {
 
     @Mock
     private MockHttpServletResponse mockHttpServletResponse;
-
-    @Mock
-    private File file;
-
-    @Mock
-    private FileInputStream fileInputStream;
 
     @Before
     public void init() throws Exception {

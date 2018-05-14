@@ -43,9 +43,7 @@ public class CommonUtil {
 
     public static String getUserLoginByUUID(String uuid) {
         LOGGER.info("getUserLoginByUUID method");
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             String result = session.createQuery("SELECT a.login FROM " + VariablesUtil.ENTITY_AUTH_INFO
@@ -56,18 +54,12 @@ public class CommonUtil {
             new MailUtil().sendErrorMail("CommonUtil class, Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public static String getUserEmailByUUID(String uuid) {
         LOGGER.info("getUserEmailByUUID method");
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             String result = session.createQuery("SELECT a.email FROM " + VariablesUtil.ENTITY_AUTH_INFO
@@ -78,10 +70,6 @@ public class CommonUtil {
             new MailUtil().sendErrorMail("CommonUtil class, Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -99,27 +87,20 @@ public class CommonUtil {
     }
 
     public static String getCategoryById(int id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             String s = session.createQuery("SELECT c.category_name FROM " + VariablesUtil.ENTITY_CATEGORY + " c WHERE id = :id")
                     .setParameter("id", id).getResultList().get(0).toString();
             return s;
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }
 
-    public static String getJsonBetBulk(Session session, String uuid) {
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+    public static String getJsonBetBulk(String uuid) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
             return String.valueOf(session.createQuery("SELECT b.bulk FROM " + VariablesUtil.ENTITY_BET + " b WHERE uuid = :uuid")
                     .setParameter("uuid", uuid).list().get(0));
 
@@ -150,7 +131,7 @@ public class CommonUtil {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(session, uuidLot), BetBulkTO.class);
+            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
             List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
 
             List<BetHistoryTO> betHistoryTO = new ArrayList<>();
@@ -178,12 +159,10 @@ public class CommonUtil {
 
     public static boolean isUpdateLotStatus(String status, String uuid, HttpServletRequest request) {
         LOGGER.info("isUpdateLotStatus method");
-        Session session = null;
-        try {
-            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(session, uuid), BetBulkTO.class);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuid), BetBulkTO.class);
             betBulkTO.setStatus(status);
 
-            session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
             session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
@@ -212,18 +191,12 @@ public class CommonUtil {
             new MailUtil().sendErrorMail("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public static boolean isUserHaveApiKey(String uuid) {
         LOGGER.info("isUserHaveApiKey method");
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             return session
@@ -234,18 +207,12 @@ public class CommonUtil {
             new MailUtil().sendErrorMail("CommonUtil class, Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public static boolean isApiKeyValid(String key) {
         LOGGER.info("isApiKeyValid method");
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             return session
@@ -256,10 +223,6 @@ public class CommonUtil {
             new MailUtil().sendErrorMail("CommonUtil class, Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 

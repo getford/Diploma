@@ -21,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
@@ -30,10 +31,11 @@ import java.util.List;
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentHandler extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentHandler.class);
+    private static final long serialVersionUID = 1016213373588804043L;
     private ByteArrayOutputStream byteArrayOutputStreamPDF = new ByteArrayOutputStream();
     private String documentPasscode;
     private String urlLot;
-    private static String fileName = "File_";
+    private String fileName = "File_";
     private byte[] bytesExcel = null;
     private static String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
     private static String subject = "Корреспонденция по лоту ";
@@ -238,12 +240,15 @@ public class DocumentHandler extends HttpServlet {
             try {
                 URL url = new URL(req.getRequestURL().toString());
                 urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
+            } catch (MalformedURLException e) {
+                new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(e.getStackTrace()));
+                LOGGER.error(e.getLocalizedMessage());
+            }
+            File file = new File(String.valueOf(CommonUtil.prepareFileForAttach(
+                    CommonUtil.createExcelFile(dateList, columnList, sheetName),
+                    fileName, extension)));
 
-                File file = new File(String.valueOf(CommonUtil.prepareFileForAttach(
-                        CommonUtil.createExcelFile(dateList, columnList, sheetName),
-                        fileName, extension)));
-
-                FileInputStream fis = new FileInputStream(file);
+            try (FileInputStream fis = new FileInputStream(file)) {
                 bytesExcel = new byte[(int) file.length()];
                 fis.read(bytesExcel);
             } catch (IOException e) {

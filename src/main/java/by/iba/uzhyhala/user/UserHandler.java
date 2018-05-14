@@ -15,8 +15,7 @@ public class UserHandler {
     private Session session;
 
     public List<AuthInfoEntity> getAllUser() {
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             String query = "SELECT a FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a";
@@ -25,10 +24,6 @@ public class UserHandler {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get data");
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 }

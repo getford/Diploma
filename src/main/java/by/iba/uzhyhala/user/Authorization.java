@@ -25,6 +25,7 @@ public class Authorization extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(Authorization.class);
     private static final String REDIRECT_INDEX_PAGE = "/pages/index.jsp";
     private static final String REDIRECT_AUTH_PAGE = "/pages/auth.jsp";
+    private static final long serialVersionUID = 3172204188621956218L;
 
     private String type;
 
@@ -42,26 +43,20 @@ public class Authorization extends HttpServlet {
     }
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createSQLQuery("select uuid, role from auth_info where " + type + " = '" +
                     loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     private boolean isPasswordValid(String cred, String password) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " +
                     type + " = :cred").setParameter("cred", cred);
             return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
@@ -69,10 +64,6 @@ public class Authorization extends HttpServlet {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -80,7 +71,6 @@ public class Authorization extends HttpServlet {
         try {
             String token = Jwts.builder()
                     .setSubject("AuthToken")
-                    //.setExpiration(new Date(1300819380))
                     .claim("uuid", uuid)
                     .claim("role", role)
                     .signWith(SignatureAlgorithm.HS512,
@@ -93,6 +83,7 @@ public class Authorization extends HttpServlet {
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown
             resp.addCookie(cookie);
         } catch (UnsupportedEncodingException e) {
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getMessage());
         }
     }

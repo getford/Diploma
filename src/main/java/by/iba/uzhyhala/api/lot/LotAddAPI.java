@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @WebServlet(urlPatterns = "/api/lot/add")
 public class LotAddAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotAddAPI.class);
+    private static final long serialVersionUID = 7419178022015023781L;
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

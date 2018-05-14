@@ -20,6 +20,7 @@ import java.util.List;
 public class LotControl extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final String ZERO_TIME = "00:00:00";
+    private static final long serialVersionUID = 4795526489089370744L;
 
     private Session session;
     private String uuidLot;
@@ -30,23 +31,17 @@ public class LotControl extends HttpServlet {
 
     public List<LotEntity> getLotInfoByUuid() {
         LOGGER.debug(getClass().getName() + " getLotInfoByUuid");
-        session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidLot).getResultList();
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public String returnEndTime() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession();) {
             String timeEnd = String.valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));
 
             DateFormat dateFormat = new SimpleDateFormat(VariablesUtil.PATTERN_TIME);
@@ -74,10 +69,6 @@ public class LotControl extends HttpServlet {
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n\n\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }

@@ -11,12 +11,9 @@ import java.util.List;
 public class StatisticHandler {
     private static final Logger LOGGER = Logger.getLogger(StatisticHandler.class);
 
-    private Session session;
-
     public String prepareChartDataFormat(String query) {    // return [date, count]
         LOGGER.debug(getClass().getName() + "\t" + " prepareChartDataFormat");
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
             List<Object[]> list = session.createSQLQuery(query).list();
@@ -31,28 +28,18 @@ public class StatisticHandler {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get data");
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public String countStatistic(String query) {
         LOGGER.debug(getClass().getName() + "\t" + " countStatistic");
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
             return String.valueOf(session.createSQLQuery(query).list().get(0));
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             throw new IllegalArgumentException("Cannot get data");
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 }

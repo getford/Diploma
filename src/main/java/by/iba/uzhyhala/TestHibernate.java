@@ -1,6 +1,5 @@
 package by.iba.uzhyhala;
 
-import by.iba.uzhyhala.api.lot.LotAllAPI;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -112,6 +111,6 @@ public class TestHibernate {
 //        new DocumentHandler().generateExcelDocHistoryBet("d83a7aa9-a099-46e1-94a9-af145ac54b8e", VariablesUtil.EXCEL_EXTENSION_XLSX);
 //        new DocumentHandler().generateExcelDocLots(VariablesUtil.QUERY_SELECT_ALL_LOT, VariablesUtil.EXCEL_EXTENSION_XLSX);
 
-        new LotAllAPI().test();
+//        new LotAllAPI().test();
     }
 }

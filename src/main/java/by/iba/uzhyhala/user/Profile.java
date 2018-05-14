@@ -15,54 +15,40 @@ import java.util.List;
 public class Profile {
     private static final Logger logger = Logger.getLogger(Profile.class);
 
-    private Session session;
     private String type;
     private String uuidUser;
 
     public Profile(String loginOrEmail) {
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             logger.debug(getClass().getName() + " constructor");
             this.type = CommonUtil.loginOrEmail(loginOrEmail);
             this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, type);
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public List<PersonalInformationEntity> getUserPersonalInformation() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             logger.debug(getClass().getName() + " getUserPersonalInformation");
             return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid").setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }
 
     public List<AddressEntity> getUserAddress() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             logger.debug(getClass().getName() + " getUserPersonalInformation");
             return session.createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE uuid_user = :uuid").setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }

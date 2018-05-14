@@ -19,9 +19,8 @@ import java.util.*;
 @WebServlet(urlPatterns = "/bethandler")
 public class BetHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(BetHandler.class);
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 835606950246195611L;
 
-    private Session session = null;
     private String uuidLot;
     private String uuidUser;
     private String errorMessage;
@@ -48,7 +47,7 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     private String prepareDoBet(int bet, String timeNow, HttpServletRequest request) {
         LOGGER.info(getClass().getName() + " prepareDoBet method");
-        BetBulkTO betBulkTO = gson.fromJson(CommonUtil.getJsonBetBulk(session, uuidLot), BetBulkTO.class);
+        BetBulkTO betBulkTO = gson.fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
 
@@ -90,9 +89,9 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     private void doBet(String jsonBulk, String time) {
         LOGGER.info(getClass().getName() + " doBet method");
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
                     .setParameter("newBulk", jsonBulk)
                     .setParameter("uuid", uuidLot)
@@ -105,10 +104,6 @@ public class BetHandler extends HttpServlet implements Serializable {
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 }

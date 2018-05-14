@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/status")
 public class LotStatus extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotStatus.class);
+    private static final long serialVersionUID = -363251488504441394L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {

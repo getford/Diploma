@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 @WebServlet(urlPatterns = "/del")
 public class DeleteHandlerAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DeleteHandlerAPI.class);
+    private static final long serialVersionUID = -2744742351941480652L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IllegalArgumentException {

@@ -16,6 +16,7 @@ import java.util.Arrays;
 @WebServlet(urlPatterns = "/api/document/bet-history")
 public class LotBetHistoryDocumentAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotBetHistoryDocumentAPI.class);
+    private static final long serialVersionUID = 2780709724219293504L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
