@@ -44,6 +44,7 @@ public final class VariablesUtil {
 
     // Date format pattern's
     public static final String PATTERN_DATE = "dd-MM-yyyy";
+    public static final String PATTERN_DATE_FOR_CHARTS = "MM-dd-yyyy";
     public static final String PATTERN_DATE_REVERSE = "yyyy-MM-dd";
     public static final String PATTERN_DATE_WITH_DOT = "dd.MM.yyyy";
     public static final String PATTERN_TIME_WITH_MILLISECONDS = "HH:mm:ss.SSS";

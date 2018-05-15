@@ -297,7 +297,7 @@
         data.addColumn('number', 'Count users');
         data.addRows([<%=lineChartCreateForDay%>]);
         data.sort({column: 0, desc: true});
-        
+
         console.log(<%=lineChartCreateForDay%>);
 
         let options = {
