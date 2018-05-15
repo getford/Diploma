@@ -348,7 +348,7 @@ public class CommonUtil {
                             .executeUpdate();
                     break;
             }
-            LOGGER.info("Rate " + type + " " + uuid + " was " + goal + " successfully");
+            LOGGER.info("Rate " + type + " " + uuid + " " + goal + " was successfully updated");
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: changeRate\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());

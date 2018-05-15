@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/fonts/input/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%
         Profile profile = null;
         LotHandler lotHandler;
@@ -74,7 +75,7 @@
 </section><!-- End billboard -->
 
 <section class="recent_work wrapper">
-<br/>
+    <br/>
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
@@ -146,16 +147,17 @@
         <input type="hidden" name="uuid_" value="<%=profile.getUuidUser()%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
-        <button type="submit" name="rate_plus">+1</button>
+        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_up</i></button>
     </form>
     <form action="/changerate" method="post">
         <input type="hidden" name="login_or_email" value="<%=userLogin%>">
         <input type="hidden" name="uuid_" value="<%=profile.getUuidUser()%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
-        <button type="submit" name="rate_plus">-1</button>
+        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i></button>
     </form>
 </section>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-10">
@@ -251,5 +253,19 @@
         </div>
     </div>
 </div>
+<!-- End recent_work -->
+
+<footer>
+    <div class="wrapper">
+        <div class="f_cols">
+            <p>BLR, Minsk<span class="phone"><%=VariablesUtil.EMAIL_SUPPORT%></span></p>
+        </div>
+
+        <div class="f_cols">
+            <p>Copyright &copy; 2018<span class="phone"> Uladzimir Zhyhala inc.</span></p>
+        </div>
+
+    </div>
+</footer><!-- End footer -->
 </body>
 </html>

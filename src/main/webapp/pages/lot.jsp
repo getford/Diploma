@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/fonts/input/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Lot - Diploma Auction</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -147,16 +148,64 @@
         assert lotInfoList != null;
         if (lotInfoList.size() != 0) {
     %>
-    <h3><%=lotInfoList.get(0).getUuid()%>
-    </h3>
-    <h3><%=lotInfoList.get(0).getName()%>
-    </h3>
-    <h3><%=lotInfoList.get(0).getInformation()%>
-    </h3>
-    <h3><%=CommonUtil.translateLotStatus(lotInfoList.get(0).getStatus())%>
-    </h3>
-    <h3><%=CommonUtil.getRate(lotInfoList.get(0).getUuid(), VariablesUtil.LOT)%>
-    </h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <table class="table table-condensed">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td><b>Uuid: </b><%=lotInfoList.get(0).getUuid()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Название: </b><%=lotInfoList.get(0).getName()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Описание: </b><%=lotInfoList.get(0).getInformation()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Статус: </b><i><%=CommonUtil.translateLotStatus(lotInfoList.get(0).getStatus())%>
+                        </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Рейтинг: </b><%=CommonUtil.getRate(lotInfoList.get(0).getUuid(), VariablesUtil.LOT)%>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-5">
+                <table class="table table-condensed">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <b>Стартовая цена: </b><%=lotInfoList.get(0).getCost()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Блиц цена: </b><%=lotInfoList.get(0).getBlitzCost()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Минимальная ставка: </b><%=lotInfoList.get(0).getStepCost()%>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <%
         }
     %>
@@ -210,39 +259,45 @@
         <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
         <input type="hidden" name="send-mail" value="true">
-        <button type="submit" name="generate_doc_pdf_mail">PDF на почту</button>
-    </form>
-    <form action="/generatehistorybets" method="post">
-        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
-        <input type="hidden" name="send-mail" value="false">
-        <button type="submit" name="generate_doc_pdf">Скачать PDF</button>
+        <button style="font-size:24px" type="submit" name="generate_doc_pdf_mail">PDF<i
+                class="material-icons">mail</i>
+        </button>
     </form>
     <form action="/generatehistorybets" method="post">
         <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
         <input type="hidden" name="send-mail" value="true">
-        <button type="submit" name="generate_doc_excel_mail">Excel на почту</button>
+        <button style="font-size:24px" type="submit" name="generate_doc_excel_mail">Excel<i
+                class="material-icons">mail</i></button>
+    </form>
+    <form action="/generatehistorybets" method="post">
+        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+        <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
+        <input type="hidden" name="send-mail" value="false">
+        <button style="font-size:24px" type="submit" name="generate_doc_pdf">PDF<i
+                class="material-icons">file_download</i></button>
     </form>
     <form action="/generatehistorybets" method="post">
         <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
         <input type="hidden" name="send-mail" value="false">
-        <button type="submit" name="generate_doc_excel">Скачать Excel</button>
+        <button style="font-size:24px" type="submit" name="generate_doc_excel">Excel<i class="material-icons">file_download</i>
+        </button>
     </form>
-
     <hr/>
     <form action="/changerate" method="post">
         <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
-        <button type="submit" name="rate_plus">+1</button>
+        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_up</i>
+        </button>
     </form>
     <form action="/changerate" method="post">
         <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
-        <button type="submit" name="rate_plus">-1</button>
+        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i>
+        </button>
     </form>
 </section>
 <!-- End recent_work -->
@@ -251,25 +306,6 @@
     <div class="wrapper">
         <div class="f_cols">
             <p>BLR, Minsk<span class="phone"><%=VariablesUtil.EMAIL_SUPPORT%></span></p>
-        </div>
-
-        <%--<div class="f_cols">
-             <h3>Company</h3>
-             <ul>
-                 <li><a href="#">Our Story</a></li>
-                 <li><a href="#">Mission</a></li>
-                 <li><a href="#">Journal</a></li>
-                 <li><a href="#">Careers</a></li>
-             </ul>
-         </div>--%>
-
-        <div class="f_cols">
-            <h3>Support</h3>
-            <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Policies</a></li>
-            </ul>
         </div>
 
         <div class="f_cols">

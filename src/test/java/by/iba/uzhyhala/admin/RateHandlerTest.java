@@ -3,6 +3,10 @@ package by.iba.uzhyhala.admin;
 import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,12 +16,25 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.IOException;
 
+import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class RateHandlerTest {
-    private static final String UUID = "5c6b7e7c-aa1a-4e9a-94eb-31e9fe81f4c2";
+    private static final String UUID = "27a68e9a-6927-4503-822b-3186af513e89";
+
+    @Mock
+    private SessionFactory sessionFactory;
+
+    @Mock
+    private Session session;
+
+    @Mock
+    private Transaction transaction;
+
+    @Mock
+    private Configuration configuration;
 
     @Mock
     private MockHttpServletRequest mockHttpServletRequest;
@@ -28,6 +45,11 @@ public class RateHandlerTest {
 
     @Before
     public void init() {
+        initMocks(this);
+        when(sessionFactory.openSession()).thenReturn(session);
+        when(session.beginTransaction()).thenReturn(transaction);
+        sessionFactory = configuration.buildSessionFactory();
+
         when(mockHttpServletRequest.getParameter("uuid_")).thenReturn(UUID);
         when(mockHttpServletRequest.getParameter("goal")).thenReturn(VariablesUtil.LOT);
         when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.RATE_PLUS);

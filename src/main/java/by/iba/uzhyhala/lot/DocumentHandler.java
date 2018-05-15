@@ -166,6 +166,7 @@ public class DocumentHandler extends HttpServlet {
             document.add(new Paragraph("\n---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
             document.add(new Paragraph("\n"));
+            document.add(new Paragraph("Rate: " + CommonUtil.getRate(uuidLot, VariablesUtil.LOT)));
             document.add(new Paragraph("\n"));
             document.add(table);
 
