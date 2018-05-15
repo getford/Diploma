@@ -276,7 +276,6 @@ public class CommonUtil {
     }
 
     public static String translateLotStatus(String englishStatus) {
-        LOGGER.info("translateLotStatus\t" + englishStatus);
         switch (englishStatus) {
             case VariablesUtil.STATUS_LOT_ACTIVE:
                 return VariablesUtil.STATUS_RUS_LOT_ACTIVE;

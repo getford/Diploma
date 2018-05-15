@@ -111,18 +111,4 @@ public class AuthInfoEntity {
         this.rate = rate;
     }
 
-    @Override
-    public String toString() {
-        return "AuthInfoEntity{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", uuid='" + uuid + '\'' +
-                ", role='" + role + '\'' +
-                ", createDate=" + createDate +
-                ", apiKey='" + apiKey + '\'' +
-                ", rate=" + rate +
-                '}';
-    }
 }

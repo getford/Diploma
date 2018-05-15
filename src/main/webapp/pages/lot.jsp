@@ -132,7 +132,7 @@
     <input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
     <%
         if (!timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
-    %>
+            assert lotInfoList != null;%>
     <h1 id="title_time">Осталось времени: <span id="time"></span></h1>
     <input type="hidden" value="<%=timeEnd%>" id="start_ticks">
     <form action="/bethandler" method="post">
@@ -154,6 +154,8 @@
     <h3><%=lotInfoList.get(0).getInformation()%>
     </h3>
     <h3><%=CommonUtil.translateLotStatus(lotInfoList.get(0).getStatus())%>
+    </h3>
+    <h3><%=CommonUtil.getRate(lotInfoList.get(0).getUuid(), VariablesUtil.LOT)%>
     </h3>
     <%
         }
@@ -227,6 +229,20 @@
         <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
         <input type="hidden" name="send-mail" value="false">
         <button type="submit" name="generate_doc_excel">Скачать Excel</button>
+    </form>
+
+    <hr/>
+    <form action="/changerate" method="post">
+        <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
+        <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
+        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
+        <button type="submit" name="rate_plus">+1</button>
+    </form>
+    <form action="/changerate" method="post">
+        <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
+        <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
+        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
+        <button type="submit" name="rate_plus">-1</button>
     </form>
 </section>
 <!-- End recent_work -->

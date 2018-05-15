@@ -5,6 +5,7 @@
 <%@ page import="by.iba.uzhyhala.user.Profile" %>
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
+<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -73,7 +74,7 @@
 </section><!-- End billboard -->
 
 <section class="recent_work wrapper">
-
+<br/>
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
@@ -90,11 +91,15 @@
                     </tr>
                     <tr>
                         <td>
-                            <b>Name: </b><%=personalInformationEntityList.get(0).getFirstName()%>   <%=personalInformationEntityList.get(0).getLastName()%>
+                            <b>Имя: </b><%=personalInformationEntityList.get(0).getFirstName()%>   <%=personalInformationEntityList.get(0).getLastName()%>
                         </td>
                     </tr>
                     <tr>
-                        <td><b>Bday: </b><%=personalInformationEntityList.get(0).getBday()%>
+                        <td><b>Дата рождения: </b><%=personalInformationEntityList.get(0).getBday()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Рейтинг: </b><%=CommonUtil.getRate(profile.getUuidUser(), VariablesUtil.USER)%>
                         </td>
                     </tr>
                     </tbody>
@@ -111,23 +116,23 @@
                     <tbody>
                     <tr>
                         <td>
-                            <b>Country: </b><%=addressEntityList.get(0).getCountry()%>
+                            <b>Страна: </b><%=addressEntityList.get(0).getCountry()%>
                         </td>
                     </tr>
                     <tr>
-                        <td><b>City: </b><%=addressEntityList.get(0).getCity()%>
+                        <td><b>Город: </b><%=addressEntityList.get(0).getCity()%>
                         </td>
                     </tr>
                     <tr>
-                        <td><b>Street: </b><%=addressEntityList.get(0).getStreet()%>
+                        <td><b>Улица: </b><%=addressEntityList.get(0).getStreet()%>
                         </td>
                     </tr>
                     <tr>
-                        <td><b>House: </b><%=addressEntityList.get(0).getHouse()%>
+                        <td><b>Дом: </b><%=addressEntityList.get(0).getHouse()%>
                         </td>
                     </tr>
                     <tr>
-                        <td><b>Zip: </b><%=addressEntityList.get(0).getZip()%>
+                        <td><b>Индекс: </b><%=addressEntityList.get(0).getZip()%>
                         </td>
                     </tr>
                     </tbody>
@@ -135,6 +140,21 @@
             </div>
         </div>
     </div>
+    <hr/>
+    <form action="/changerate" method="post">
+        <input type="hidden" name="login_or_email" value="<%=userLogin%>">
+        <input type="hidden" name="uuid_" value="<%=profile.getUuidUser()%>">
+        <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
+        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
+        <button type="submit" name="rate_plus">+1</button>
+    </form>
+    <form action="/changerate" method="post">
+        <input type="hidden" name="login_or_email" value="<%=userLogin%>">
+        <input type="hidden" name="uuid_" value="<%=profile.getUuidUser()%>">
+        <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
+        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
+        <button type="submit" name="rate_plus">-1</button>
+    </form>
 </section>
 <div class="container">
     <div class="row">
@@ -171,7 +191,7 @@
                                     String id = lot.getUuid();
                                     String name = lot.getName();
                                     String information = lot.getInformation();
-                                    String status = lot.getStatus();
+                                    String status = CommonUtil.translateLotStatus(lot.getStatus());
                                     String category = CommonUtil.getCategoryById(lot.getIdCategory());
                                     String cost = lot.getCost();
                                     String blitzCost = lot.getBlitzCost();

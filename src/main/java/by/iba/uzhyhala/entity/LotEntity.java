@@ -24,6 +24,7 @@ public class LotEntity implements Serializable {
     private String uuidUserClient;
     private int idCategory;
     private String status;
+    private int rate;
     private BetEntity betByUuid;
     private FeedbackEntity feedbackByUuid;
     private CategoryEntity categoryByIdCategory;
@@ -187,6 +188,16 @@ public class LotEntity implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Basic
+    @Column(name = "rate", nullable = false)
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
     @ManyToOne
