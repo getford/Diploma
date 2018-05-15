@@ -101,4 +101,10 @@ public final class VariablesUtil {
     // test
     public static final String TEST_API_KEY_NAME = "D2B331E0831A4C5683E17FDA0394723C";
     public static final String TEST_URL = "http://localhost:8080/";
+
+    // rate
+    public static final String RATE_PLUS = "plus";
+    public static final String RATE_MINUS = "minus";
+    public static final String LOT = "lot";
+    public static final String USER = "user";
 }

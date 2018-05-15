@@ -1,5 +1,7 @@
 package by.iba.uzhyhala;
 
+import by.iba.uzhyhala.util.CommonUtil;
+import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.log4j.Logger;
 
 public class TestHibernate {
@@ -110,5 +112,7 @@ public class TestHibernate {
 //        new DocumentHandler().generateExcelDocLots(VariablesUtil.QUERY_SELECT_ALL_LOT, VariablesUtil.EXCEL_EXTENSION_XLSX);
 
 //        new LotAllAPI().test();
+
+        CommonUtil.changeRate("ca169d27-0a1c-41ca-aa2c-49a40a58149c", VariablesUtil.RATE_PLUS, VariablesUtil.USER);
     }
 }

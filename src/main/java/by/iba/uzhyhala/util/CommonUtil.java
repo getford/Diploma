@@ -5,6 +5,7 @@ import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -51,7 +52,7 @@ public class CommonUtil {
             LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
             return result;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail("CommonUtil class, Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         }
@@ -67,7 +68,7 @@ public class CommonUtil {
             LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
             return result;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail("CommonUtil class, Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return null;
         }
@@ -183,7 +184,7 @@ public class CommonUtil {
             new MailUtil().sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), body, subject);
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail("CommonUtil class, Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         }
@@ -200,7 +201,7 @@ public class CommonUtil {
 
             return length == VariablesUtil.TEST_API_KEY_NAME.length();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail("CommonUtil class, Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         }
@@ -216,7 +217,7 @@ public class CommonUtil {
                     .setParameter("key", key)
                     .list().size() > 0;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMail("CommonUtil class, Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail("Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
             return false;
         }
@@ -287,6 +288,71 @@ public class CommonUtil {
                 return VariablesUtil.STATUS_RUS_LOT_CLOSE;
             default:
                 return "Статус не определены, обратитесь в поддержку" + VariablesUtil.EMAIL_SUPPORT;
+        }
+    }
+
+    public static int getRate(String uuid, String type) {
+        LOGGER.info("getRate method");
+        int currentRate = 0;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+
+            switch (type) {
+                case VariablesUtil.LOT:
+                    currentRate = Integer.parseInt(String.valueOf(session
+                            .createQuery("SELECT a.rate FROM " + VariablesUtil.ENTITY_LOT + " a WHERE uuid = :uuid")
+                            .setParameter("uuid", uuid)
+                            .list().get(0)));
+                    break;
+                case VariablesUtil.USER:
+                    currentRate = Integer.parseInt(String.valueOf(session
+                            .createQuery("SELECT a.rate FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+                            .setParameter("uuid", uuid)
+                            .list().get(0)));
+                    break;
+                default:
+                    break;
+            }
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("Method: getRate\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return currentRate;
+        }
+        return currentRate;
+    }
+
+    @SuppressFBWarnings("SF_SWITCH_NO_DEFAULT")
+    public static void changeRate(String uuid, String goal, String type) {
+        LOGGER.info("changeRate method");
+        int rate = getRate(uuid, type);
+        switch (goal) {
+            case VariablesUtil.RATE_PLUS:
+                rate += 1;
+                break;
+            case VariablesUtil.RATE_MINUS:
+                rate -= 1;
+        }
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            switch (type) {
+                case VariablesUtil.LOT:
+                    session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET rate = :rate WHERE uuid = :uuid")
+                            .setParameter("rate", rate)
+                            .setParameter("uuid", uuid)
+                            .executeUpdate();
+                    break;
+                case VariablesUtil.USER:
+                    session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET rate = :rate WHERE uuid = :uuid")
+                            .setParameter("rate", rate)
+                            .setParameter("uuid", uuid)
+                            .executeUpdate();
+                    break;
+            }
+            LOGGER.info("Rate " + type + " " + uuid + " was " + goal + " successfully");
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("Method: changeRate\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
         }
     }
 }
