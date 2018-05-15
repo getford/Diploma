@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 
 @WebServlet(urlPatterns = "/status")
 public class LotStatus extends HttpServlet {
@@ -21,7 +22,7 @@ public class LotStatus extends HttpServlet {
 
     private boolean prepareUpdateStatus(String uuidLot, HttpServletRequest request) {
         boolean isChangeStatus;
-        if (CommonUtil.getHistoryBets(uuidLot).size() > 1) {
+        if (Objects.requireNonNull(CommonUtil.getHistoryBets(uuidLot)).size() > 1) {
             isChangeStatus = CommonUtil.isUpdateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
         } else {
             isChangeStatus = CommonUtil.isUpdateLotStatus(VariablesUtil.STATUS_LOT_CLOSE, uuidLot, request);

@@ -47,6 +47,8 @@
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
+        assert betHistoryList != null;
+        assert lotInfoList != null;
         int currentCost = CommonUtil.getCurrentCost(betHistoryList) + Integer.parseInt(lotInfoList.get(0).getCost());
     %>
     <script>
@@ -104,10 +106,8 @@
 <body>
 
 <header>
-
     <div class="wrapper">
-        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1> <%--<img src="/resources/images/index/logo.png" alt=""
-                                                      title="Auction Diploma Project"/> --%></a>
+        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1></a>
         <nav>
             <ul>
                 <li><a href="/pages/profile.jsp">Профиль</a></li>
@@ -118,7 +118,6 @@
             </ul>
         </nav>
     </div>
-
 </header><!-- End Header -->
 
 <section class="billboard">
@@ -134,8 +133,9 @@
     <input type="hidden" value="<%=lotInfoList.get(0).getStatus()%>" id="english_status">
     <input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
     <%
+        assert timeEnd != null;
         if (!timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
-            assert lotInfoList != null;%>
+    %>
     <h1 id="title_time">Осталось времени: <span id="time"></span></h1>
     <input type="hidden" value="<%=timeEnd%>" id="start_ticks">
     <form action="/bethandler" method="post">
@@ -161,11 +161,8 @@
     <%
             }
         }
-        assert lotInfoList != null;
         if (lotInfoList.size() != 0) {
-            assert betHistoryList != null;
     %>
-
     <hr/>
     <h3 style="text-align: center"><span>Информация о лоте</span></h3>
     <div class="container">
@@ -250,7 +247,6 @@
                 </tr>
                 </thead>
                 <%
-                    assert betHistoryList != null;
                     for (int i = 0; i < betHistoryList.size(); i++) {
                         if (i == 0)
                             continue;
