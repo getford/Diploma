@@ -3,7 +3,6 @@ package by.iba.uzhyhala.api.user;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -16,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
+
+import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_AUTH_INFO;
+
 
 @WebServlet("/getapikey")
 public class UserApiKey extends HttpServlet {
@@ -38,7 +40,7 @@ public class UserApiKey extends HttpServlet {
                 resp.getWriter().write("{\"exception\":\"user uuid: " + uuid + " isn't correct\"}");
             else {
                 if (!CommonUtil.isUserHaveApiKey(uuid)) {
-                    session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
+                    session.createQuery("UPDATE " + ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
                             .setParameter("key", key)
                             .setParameter("uuid", uuid)
                             .executeUpdate();

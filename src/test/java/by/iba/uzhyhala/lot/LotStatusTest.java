@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.lot;
 
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;
@@ -18,8 +17,10 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
+import static by.iba.uzhyhala.util.VariablesUtil.TEST_URL;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.*;
+
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
@@ -54,7 +55,7 @@ public class LotStatusTest {
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
 
         URL url = mock(URL.class);
-        whenNew(URL.class).withArguments(VariablesUtil.TEST_URL).thenReturn(url);
+        whenNew(URL.class).withArguments(TEST_URL).thenReturn(url);
     }
 
     @Test

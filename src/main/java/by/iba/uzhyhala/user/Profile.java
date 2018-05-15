@@ -5,12 +5,14 @@ import by.iba.uzhyhala.entity.PersonalInformationEntity;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_ADDRESS;
+import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_PERSONAL_INFORMATION;
 
 public class Profile {
     private static final Logger LOGGER = Logger.getLogger(Profile.class);
@@ -32,7 +34,7 @@ public class Profile {
             session.beginTransaction();
             LOGGER.debug(" getUserPersonalInformation");
             return session
-                    .createQuery("SELECT p FROM " + VariablesUtil.ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid")
+                    .createQuery("SELECT p FROM " + ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid")
                     .setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
@@ -46,7 +48,7 @@ public class Profile {
             session.beginTransaction();
             LOGGER.debug(" getUserPersonalInformation");
             return session
-                    .createQuery("SELECT p FROM " + VariablesUtil.ENTITY_ADDRESS + " p WHERE uuid_user = :uuid")
+                    .createQuery("SELECT p FROM " + ENTITY_ADDRESS + " p WHERE uuid_user = :uuid")
                     .setParameter("uuid", uuidUser).list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));

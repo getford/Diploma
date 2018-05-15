@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.user;
 
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.log4j.Logger;
 
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static by.iba.uzhyhala.util.VariablesUtil.COOKIE_AUTH_NAME;
 
 @WebServlet(urlPatterns = "/logout")
 public class Logout extends HttpServlet {
@@ -25,7 +26,7 @@ public class Logout extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Cookie cookie = new Cookie(VariablesUtil.COOKIE_AUTH_NAME, "");
+        Cookie cookie = new Cookie(COOKIE_AUTH_NAME, "");
         cookie.setMaxAge(0);
         cookie.setPath("/");
 

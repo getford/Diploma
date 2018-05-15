@@ -2,7 +2,10 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.entity.BetEntity;
 import by.iba.uzhyhala.entity.LotEntity;
-import by.iba.uzhyhala.util.*;
+import by.iba.uzhyhala.util.CommonUtil;
+import by.iba.uzhyhala.util.CookieUtil;
+import by.iba.uzhyhala.util.HibernateUtil;
+import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
@@ -17,6 +20,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 
 @WebServlet(urlPatterns = "/lothandler")
 public class LotHandler extends HttpServlet implements Serializable {
@@ -71,7 +77,7 @@ public class LotHandler extends HttpServlet implements Serializable {
     public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
         LOGGER.debug(" addLot");
 
-        String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime());
+        String dateNow = new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime());
         this.uuidAddLot = UUID.randomUUID().toString();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -84,18 +90,18 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setBlitzCost(blitz);
             lotEntity.setStepCost(step);
             lotEntity.setDateAdd(dateNow);
-            lotEntity.setDateStart(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
-                    new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateStart)));
-            /*lotEntity.setDateEnd(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(
-                    new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).parse(dateEnd)));*/
+            lotEntity.setDateStart(new SimpleDateFormat(PATTERN_DATE).format(
+                    new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateStart)));
+            /*lotEntity.setDateEnd(new SimpleDateFormat(PATTERN_DATE).format(
+                    new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateEnd)));*/
             lotEntity.setTimeStart(timeStart + ":00");
             // lotEntity.setTimeEnd(timeEnd);
-            lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart + ":00", VariablesUtil.LOT_TIME_SEC));
+            lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
             if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
-                lotEntity.setStatus(VariablesUtil.STATUS_LOT_ACTIVE);
+                lotEntity.setStatus(STATUS_LOT_ACTIVE);
             else
-                lotEntity.setStatus(VariablesUtil.STATUS_LOT_WAIT);
+                lotEntity.setStatus(STATUS_LOT_WAIT);
 
             BetEntity betEntity = new BetEntity();
             betEntity.setUuid(uuidAddLot);
@@ -128,8 +134,8 @@ public class LotHandler extends HttpServlet implements Serializable {
                 "      \"bet\": 0,\n" +
                 "      \"old_cost\": " + Integer.parseInt(cost) + ",\n" +
                 "      \"new_cost\": " + Integer.parseInt(cost) + ",\n" +
-                "      \"date\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
-                "      \"time\": \"" + String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())) + "\"\n" +
+                "      \"date\": \"" + String.valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
+                "      \"time\": \"" + String.valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())) + "\"\n" +
                 "    }\n" +
                 "  ]\n" +
                 "}";
@@ -149,7 +155,7 @@ public class LotHandler extends HttpServlet implements Serializable {
     public List<LotEntity> getUserLot() {
         LOGGER.debug(" getUserLot");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuidUserSeller = :uuid", LotEntity.class)
+            return session.createQuery("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidUser).getResultList();
         } catch (Exception e) {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));

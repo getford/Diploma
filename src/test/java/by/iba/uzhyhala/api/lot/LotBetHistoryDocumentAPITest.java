@@ -2,7 +2,6 @@ package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.junit.Before;
@@ -19,9 +18,11 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static org.powermock.api.mockito.PowerMockito.when;
+
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(CommonUtil.class)
@@ -41,7 +42,7 @@ public class LotBetHistoryDocumentAPITest {
         initMocks(this);
         mockStatic(CommonUtil.class);
 
-        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(VariablesUtil.TEST_URL));
+        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(TEST_URL));
         when(mockHttpServletRequest.getParameter("uuid_lot")).thenReturn(UUID_LOT);
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
 
@@ -51,18 +52,18 @@ public class LotBetHistoryDocumentAPITest {
         list.add(to);
 
         when(CommonUtil.getHistoryBets(UUID_LOT)).thenReturn(list);
-        when(CommonUtil.isApiKeyValid(VariablesUtil.TEST_API_KEY_NAME)).thenReturn(true);
+        when(CommonUtil.isApiKeyValid(TEST_API_KEY_NAME)).thenReturn(true);
     }
 
     @Test
     public void test() throws IOException {
-        when(mockHttpServletRequest.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))
-                .thenReturn(VariablesUtil.TEST_API_KEY_NAME);
+        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME))
+                .thenReturn(TEST_API_KEY_NAME);
 
-        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.PDF);
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(PDF);
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
 
-        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.EXCEL);
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(EXCEL);
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
 
         when(mockHttpServletRequest.getParameter("type")).thenReturn("");

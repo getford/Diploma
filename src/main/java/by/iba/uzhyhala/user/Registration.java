@@ -6,7 +6,6 @@ import by.iba.uzhyhala.entity.PersonalInformationEntity;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.ReCaptchaUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -24,6 +23,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 @WebServlet(urlPatterns = "/registration")
 public class Registration extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
@@ -38,7 +39,7 @@ public class Registration extends HttpServlet {
                 try {
                     URL url = new URL(req.getRequestURL().toString());
                     String login = req.getParameter("login");
-                    String body = "<br/> " + new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
+                    String body = "<br/> " + new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                             "<p>Hello,</p>" +
                             "<p>You will be successfully registered in Auction</p>" +
                             "<p>" +
@@ -74,9 +75,9 @@ public class Registration extends HttpServlet {
                 authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
                 authInfoEntity.setPassword(authInfoEntity.getPassword());
                 authInfoEntity.setEmail(authInfoEntity.getEmail());
-                authInfoEntity.setRole(VariablesUtil.ROLE_USER);
+                authInfoEntity.setRole(ROLE_USER);
                 authInfoEntity.setUuid(newUserUUID);
-                authInfoEntity.setCreateDate(java.sql.Date.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime())));
+                authInfoEntity.setCreateDate(java.sql.Date.valueOf(new SimpleDateFormat(PATTERN_DATE_REVERSE).format(new Date().getTime())));
 
                 PersonalInformationEntity personalInformationEntity = new PersonalInformationEntity();
                 personalInformationEntity.setUuidUser(newUserUUID);
@@ -103,7 +104,7 @@ public class Registration extends HttpServlet {
 
     private boolean isLoginAndEmailEmpty(Session session, String login, String email) {
         Query query = session.createQuery("SELECT a.login, a.email FROM " +
-                VariablesUtil.ENTITY_AUTH_INFO + " a WHERE login = :login AND email = :email");
+                ENTITY_AUTH_INFO + " a WHERE login = :login AND email = :email");
         query.setParameter("login", login);
         query.setParameter("email", email);
         return query.list().isEmpty();

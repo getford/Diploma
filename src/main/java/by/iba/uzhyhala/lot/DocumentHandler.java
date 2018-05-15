@@ -4,7 +4,6 @@ import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BarcodeQRCode;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -29,6 +28,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
+
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentHandler extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentHandler.class);
@@ -38,7 +40,7 @@ public class DocumentHandler extends HttpServlet {
     private String urlLot;
     private String fileName = "File_";
     private byte[] bytesExcel = null;
-    private static String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date()));
+    private static String timeNow = String.valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date()));
     private static String subject = "Корреспонденция по лоту ";
 
 
@@ -52,23 +54,23 @@ public class DocumentHandler extends HttpServlet {
         try {
             switch (req.getParameter("send-mail")) {
                 case "true":
-                    if (req.getParameter("type").equals(VariablesUtil.PDF)) {
-                        fileName += VariablesUtil.PDF_EXTENSION;
+                    if (req.getParameter("type").equals(PDF)) {
+                        fileName += PDF_EXTENSION;
                         generateDocHistoryBetPDF(uuidLot, req, resp, true);
-                    } else if (req.getParameter("type").equals(VariablesUtil.EXCEL)) {
-                        fileName += VariablesUtil.EXCEL_EXTENSION_XLSX;
-                        generateExcelDocHistoryBet(req, uuidLot, VariablesUtil.EXCEL_EXTENSION_XLSX, true);
+                    } else if (req.getParameter("type").equals(EXCEL)) {
+                        fileName += EXCEL_EXTENSION_XLSX;
+                        generateExcelDocHistoryBet(req, uuidLot, EXCEL_EXTENSION_XLSX, true);
                     }
                     LOGGER.info("Document " + fileName + " create/send successfully");
                     resp.sendRedirect(redirectUrl);
                     break;
                 case "false":
-                    if (req.getParameter("type").equals(VariablesUtil.PDF)) {
-                        fileName += VariablesUtil.PDF_EXTENSION;
+                    if (req.getParameter("type").equals(PDF)) {
+                        fileName += PDF_EXTENSION;
                         generateDocHistoryBetPDF(uuidLot, req, resp, false);
-                    } else if (req.getParameter("type").equals(VariablesUtil.EXCEL)) {
-                        fileName += VariablesUtil.EXCEL_EXTENSION_XLSX;
-                        generateExcelDocHistoryBet(req, uuidLot, VariablesUtil.EXCEL_EXTENSION_XLSX, false);
+                    } else if (req.getParameter("type").equals(EXCEL)) {
+                        fileName += EXCEL_EXTENSION_XLSX;
+                        generateExcelDocHistoryBet(req, uuidLot, EXCEL_EXTENSION_XLSX, false);
                     }
                     LOGGER.info("Document " + fileName + " create/send successfully");
                     resp.sendRedirect(redirectUrl);
@@ -126,7 +128,7 @@ public class DocumentHandler extends HttpServlet {
             PdfWriter pdfWriter = null;
 
             // check api call
-            if (!StringUtils.isBlank(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME)) && !isSendMail) {
+            if (!StringUtils.isBlank(req.getParameter(PARAMETER_API_KEY_NAME)) && !isSendMail) {
                 resp.setContentType("application/json");
                 pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStreamPDF);
 
@@ -143,7 +145,7 @@ public class DocumentHandler extends HttpServlet {
             // passcode for document
             pdfWriter.setEncryption(
                     getDocumentPasscode().getBytes(StandardCharsets.UTF_8),
-                    VariablesUtil.PDF_OWNER_PASSCODE.getBytes(StandardCharsets.UTF_8),
+                    PDF_OWNER_PASSCODE.getBytes(StandardCharsets.UTF_8),
                     PdfWriter.ALLOW_COPY,
                     PdfWriter.ENCRYPTION_AES_128
             );
@@ -155,7 +157,7 @@ public class DocumentHandler extends HttpServlet {
 
             document.add(new Paragraph("Auction Diploma"));
             document.add(new Paragraph("Bet history"));
-            document.add(new Paragraph(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date()))));
+            document.add(new Paragraph(String.valueOf(new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date()))));
 
             BarcodeQRCode barcodeQRCode = new BarcodeQRCode(getLotUrl(), 1000, 1000, null);
             Image codeQrImage = barcodeQRCode.getImage();
@@ -166,7 +168,7 @@ public class DocumentHandler extends HttpServlet {
             document.add(new Paragraph("\n---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
             document.add(new Paragraph("\n"));
-            document.add(new Paragraph("Rate: " + CommonUtil.getRate(uuidLot, VariablesUtil.LOT)));
+            document.add(new Paragraph("Rate: " + CommonUtil.getRate(uuidLot, LOT)));
             document.add(new Paragraph("\n"));
             document.add(table);
 
@@ -181,7 +183,7 @@ public class DocumentHandler extends HttpServlet {
             if (isSendMail) {
                 MailUtil mailUtil = new MailUtil();
                 mailUtil.addAttachment(CommonUtil.prepareFileForAttach(byteArrayOutputStreamPDF,
-                        fileName, VariablesUtil.PDF_EXTENSION)
+                        fileName, PDF_EXTENSION)
                 );
 
                 String body = "<br/>" + timeNow +

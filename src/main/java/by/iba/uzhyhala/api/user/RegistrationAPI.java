@@ -2,7 +2,6 @@ package by.iba.uzhyhala.api.user;
 
 import by.iba.uzhyhala.api.to.UserRegTOAPI;
 import by.iba.uzhyhala.user.Registration;
-import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -14,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static by.iba.uzhyhala.util.VariablesUtil.REGEXP_EMAIL;
+
 
 @WebServlet(urlPatterns = "/api/user/reg")
 public class RegistrationAPI extends HttpServlet {
@@ -30,7 +32,7 @@ public class RegistrationAPI extends HttpServlet {
         UserRegTOAPI userRegTOAPI = new Gson().fromJson(req.getReader().lines().collect(Collectors.joining(System.lineSeparator())), UserRegTOAPI.class);
         LOGGER.info("userRegTOAPI: " + userRegTOAPI.toString());
         if (validateRequest(userRegTOAPI)) {
-            if (Pattern.compile(VariablesUtil.REGEXP_EMAIL,
+            if (Pattern.compile(REGEXP_EMAIL,
                     Pattern.CASE_INSENSITIVE).matcher(userRegTOAPI.getEmail()).find()) {
                 boolean isUserReg = new Registration().doRegistration(
                         userRegTOAPI.getLogin(),

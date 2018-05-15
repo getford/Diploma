@@ -3,7 +3,6 @@ package by.iba.uzhyhala.user;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.log4j.Logger;
@@ -18,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+
+import static by.iba.uzhyhala.util.VariablesUtil.*;
 
 @WebServlet(urlPatterns = "/auth")
 public class Authorization extends HttpServlet {
@@ -57,7 +58,7 @@ public class Authorization extends HttpServlet {
     private boolean isPasswordValid(String cred, String password) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            Query query = session.createQuery("SELECT a.password FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE " +
+            Query query = session.createQuery("SELECT a.password FROM " + ENTITY_AUTH_INFO + " a WHERE " +
                     type + " = :cred").setParameter("cred", cred);
             return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
         } catch (Exception ex) {
@@ -74,12 +75,12 @@ public class Authorization extends HttpServlet {
                     .claim("uuid", uuid)
                     .claim("role", role)
                     .signWith(SignatureAlgorithm.HS512,
-                            VariablesUtil.COOKIE_KEY.getBytes("UTF-8")
+                            COOKIE_KEY.getBytes("UTF-8")
                     )
                     .compact();
             LOGGER.info(" token create successfully");
 
-            Cookie cookie = new Cookie(VariablesUtil.COOKIE_AUTH_NAME, token);
+            Cookie cookie = new Cookie(COOKIE_AUTH_NAME, token);
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown
             resp.addCookie(cookie);
         } catch (UnsupportedEncodingException e) {

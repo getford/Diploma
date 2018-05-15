@@ -4,7 +4,6 @@ import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -19,6 +18,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 @WebServlet(urlPatterns = "/status")
 public class LotStatus extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotStatus.class);
@@ -28,9 +29,9 @@ public class LotStatus extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         boolean isChangeStatus;
         if (Objects.requireNonNull(CommonUtil.getHistoryBets(req.getParameter("uuid"))).size() > 1) {
-            isChangeStatus = isUpdateLotStatus(VariablesUtil.STATUS_LOT_SALES, req.getParameter("uuid"), req);
+            isChangeStatus = isUpdateLotStatus(STATUS_LOT_SALES, req.getParameter("uuid"), req);
         } else {
-            isChangeStatus = isUpdateLotStatus(VariablesUtil.STATUS_LOT_CLOSE, req.getParameter("uuid"), req);
+            isChangeStatus = isUpdateLotStatus(STATUS_LOT_CLOSE, req.getParameter("uuid"), req);
         }
         LOGGER.info("isChangeStatus: " + isChangeStatus);
     }
@@ -43,26 +44,26 @@ public class LotStatus extends HttpServlet {
 
             session.beginTransaction();
 
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
+            session.createQuery("UPDATE " + ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
                     .setParameter("status", status)
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET date_end = :dateEnd WHERE uuid = :uuid")
-                    .setParameter("dateEnd", new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()))
+            session.createQuery("UPDATE " + ENTITY_LOT + " SET date_end = :dateEnd WHERE uuid = :uuid")
+                    .setParameter("dateEnd", new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()))
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET uuid_user_client = :uuidUserClient WHERE uuid = :uuid")
+            session.createQuery("UPDATE " + ENTITY_LOT + " SET uuid_user_client = :uuidUserClient WHERE uuid = :uuid")
                     .setParameter("uuidUserClient", betBulkTO.getUuidClient())
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
+            session.createQuery("UPDATE " + ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
                     .setParameter("newBulk", new Gson().toJson(betBulkTO))
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
 
             URL url = new URL(String.valueOf(request.getRequestURL()));
             String subject = "Статус лота был успешно изменен";
-            String body = "<br/> " + new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
+            String body = "<br/> " + new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                     "<p>Здравствуйте,</p>" +
                     "<p>Уведомляем вас о том, что статус вашего лота, был успешно изменен</p>" +
                     "<p>" +

@@ -2,7 +2,10 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
-import by.iba.uzhyhala.util.*;
+import by.iba.uzhyhala.util.CommonUtil;
+import by.iba.uzhyhala.util.CookieUtil;
+import by.iba.uzhyhala.util.HibernateUtil;
+import by.iba.uzhyhala.util.MailUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -15,6 +18,9 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 
 @WebServlet(urlPatterns = "/bethandler")
 public class BetHandler extends HttpServlet implements Serializable {
@@ -34,7 +40,7 @@ public class BetHandler extends HttpServlet implements Serializable {
         this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
         this.uuidLot = req.getParameter("uuid_lot");
         try {
-            String timeNow = String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME).format(new Date().getTime()));
+            String timeNow = String.valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date().getTime()));
             doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow, req), timeNow);
 
             resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidLot);
@@ -51,11 +57,11 @@ public class BetHandler extends HttpServlet implements Serializable {
         BetTO betTO = new BetTO();
 
         int size = betBulkTO.getBets().size() - 1;
-        if (betBulkTO.getStatus().equals(VariablesUtil.STATUS_LOT_ACTIVE) && bet >= betBulkTO.getStep()) {
+        if (betBulkTO.getStatus().equals(STATUS_LOT_ACTIVE) && bet >= betBulkTO.getStep()) {
             if (bet < betBulkTO.getBlitzCost()) {
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
-                betTO.setDate(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())));
+                betTO.setDate(String.valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));
                 betTO.setOldCost(betBulkTO.getBets().get(size).getNewCost());
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);
@@ -65,12 +71,12 @@ public class BetHandler extends HttpServlet implements Serializable {
                 betBulkTO.setBets(betTOList);
             } else {
                 betBulkTO.setUuidClient(uuidUser);
-                betBulkTO.setStatus(VariablesUtil.STATUS_LOT_SALES);
-                new LotStatus().isUpdateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
+                betBulkTO.setStatus(STATUS_LOT_SALES);
+                new LotStatus().isUpdateLotStatus(STATUS_LOT_SALES, uuidLot, request);
 
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
-                betTO.setDate(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime())));
+                betTO.setDate(String.valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));
                 betTO.setOldCost(betBulkTO.getBets().get(size).getNewCost());
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);
@@ -89,13 +95,13 @@ public class BetHandler extends HttpServlet implements Serializable {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
+            session.createQuery("UPDATE " + ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
                     .setParameter("newBulk", jsonBulk)
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
 
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET time_end = :timeEnd WHERE uuid = :uuid")
-                    .setParameter("timeEnd", CommonUtil.getLotDateEnd(time, VariablesUtil.LOT_TIME_AFTER_BET_SEC))
+            session.createQuery("UPDATE " + ENTITY_LOT + " SET time_end = :timeEnd WHERE uuid = :uuid")
+                    .setParameter("timeEnd", CommonUtil.getLotDateEnd(time, LOT_TIME_AFTER_BET_SEC))
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
         } catch (Exception ex) {

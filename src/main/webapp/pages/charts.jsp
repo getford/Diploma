@@ -1,5 +1,5 @@
 <%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
-<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,9 +20,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <%
         StatisticHandler statisticHandler = new StatisticHandler();
-        String lineChartAddDateLot = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_ADD_DATE_LOT);
-        String lineChartStartDateLot = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_START_DATE_LOT);
-        String lineChartEndDateLot = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_END_DATE_LOT);
+        String lineChartAddDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_ADD_DATE_LOT, LOT);
+        String lineChartStartDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_START_DATE_LOT, LOT);
+        String lineChartEndDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_END_DATE_LOT, LOT);
     %>
 </head>
 <body>

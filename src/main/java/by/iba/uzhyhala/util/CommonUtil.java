@@ -14,29 +14,29 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.Pattern;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 public class CommonUtil {
     private static final Logger LOGGER = Logger.getLogger(CommonUtil.class);
 
     public static String loginOrEmail(String loginOrEmail) {
-        String result = Pattern.compile(VariablesUtil.REGEXP_EMAIL,
+        String result = Pattern.compile(REGEXP_EMAIL,
                 Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? "email" : "login";
         LOGGER.debug(CommonUtil.class.getName() + " loginOrEmail return: " + result);
         return result;
     }
 
     public static String getUUIDUserByLoginEmail(Session session, String loginOrEmail, String type) {
-        String result = session.createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO
+        String result = session.createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO
                 + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();
         LOGGER.debug(CommonUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
         return result;
@@ -47,7 +47,7 @@ public class CommonUtil {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
-            String result = session.createQuery("SELECT a.login FROM " + VariablesUtil.ENTITY_AUTH_INFO
+            String result = session.createQuery("SELECT a.login FROM " + ENTITY_AUTH_INFO
                     + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
             LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
             return result;
@@ -63,7 +63,7 @@ public class CommonUtil {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
-            String result = session.createQuery("SELECT a.email FROM " + VariablesUtil.ENTITY_AUTH_INFO
+            String result = session.createQuery("SELECT a.email FROM " + ENTITY_AUTH_INFO
                     + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
             LOGGER.debug(CommonUtil.class.getName() + " getUserEmailByUUID return: " + result);
             return result;
@@ -90,7 +90,7 @@ public class CommonUtil {
     public static String getCategoryById(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            String s = session.createQuery("SELECT c.category_name FROM " + VariablesUtil.ENTITY_CATEGORY + " c WHERE id = :id")
+            String s = session.createQuery("SELECT c.category_name FROM " + ENTITY_CATEGORY + " c WHERE id = :id")
                     .setParameter("id", id).getResultList().get(0).toString();
             return s;
         } catch (Exception ex) {
@@ -102,7 +102,7 @@ public class CommonUtil {
     public static List<AuthInfoEntity> getAllUser() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT a FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a").list();
+            return session.createQuery("SELECT a FROM " + ENTITY_AUTH_INFO + " a").list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("getAllUser\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
@@ -113,7 +113,7 @@ public class CommonUtil {
     public static String getJsonBetBulk(String uuid) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return String.valueOf(session.createQuery("SELECT b.bulk FROM " + VariablesUtil.ENTITY_BET + " b WHERE uuid = :uuid")
+            return String.valueOf(session.createQuery("SELECT b.bulk FROM " + ENTITY_BET + " b WHERE uuid = :uuid")
                     .setParameter("uuid", uuid).list().get(0));
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
@@ -155,7 +155,7 @@ public class CommonUtil {
     }
 
     public static String getLotDateEnd(String start, String plusSec) {
-        String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime());
+        String dateNow = new SimpleDateFormat(PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
         return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
     }
@@ -169,7 +169,7 @@ public class CommonUtil {
                     .setParameter("uuid", uuid)
                     .getResultList().get(0).toString().length();
 
-            return length == VariablesUtil.TEST_API_KEY_NAME.length();
+            return length == TEST_API_KEY_NAME.length();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -183,7 +183,7 @@ public class CommonUtil {
             session.beginTransaction();
 
             return session
-                    .createQuery("SELECT a.uuid FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE api_key = :key")
+                    .createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO + " a WHERE api_key = :key")
                     .setParameter("key", key)
                     .list().size() > 0;
         } catch (Exception ex) {
@@ -201,12 +201,12 @@ public class CommonUtil {
             LOGGER.info("file path: " + tempFile.getAbsolutePath());
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            if (extension.equals(VariablesUtil.EXCEL_EXTENSION_XLSX) || extension.equals(VariablesUtil.EXCEL_EXTENSION_XLS)) {
+            if (extension.equals(EXCEL_EXTENSION_XLSX) || extension.equals(EXCEL_EXTENSION_XLS)) {
                 LOGGER.info("prepareFileForAttach\textension: " + extension);
                 Workbook workbook = (Workbook) o;
                 workbook.write(byteArrayOutputStream);
             }
-            if (extension.equals(VariablesUtil.PDF_EXTENSION)) {
+            if (extension.equals(PDF_EXTENSION)) {
                 byteArrayOutputStream = (ByteArrayOutputStream) o;
             }
 
@@ -247,16 +247,16 @@ public class CommonUtil {
 
     public static String translateLotStatus(String englishStatus) {
         switch (englishStatus) {
-            case VariablesUtil.STATUS_LOT_ACTIVE:
-                return VariablesUtil.STATUS_RUS_LOT_ACTIVE;
-            case VariablesUtil.STATUS_LOT_SALES:
-                return VariablesUtil.STATUS_RUS_LOT_SALES;
-            case VariablesUtil.STATUS_LOT_WAIT:
-                return VariablesUtil.STATUS_RUS_LOT_WAIT;
-            case VariablesUtil.STATUS_LOT_CLOSE:
-                return VariablesUtil.STATUS_RUS_LOT_CLOSE;
+            case STATUS_LOT_ACTIVE:
+                return STATUS_RUS_LOT_ACTIVE;
+            case STATUS_LOT_SALES:
+                return STATUS_RUS_LOT_SALES;
+            case STATUS_LOT_WAIT:
+                return STATUS_RUS_LOT_WAIT;
+            case STATUS_LOT_CLOSE:
+                return STATUS_RUS_LOT_CLOSE;
             default:
-                return "Статус не определены, обратитесь в поддержку" + VariablesUtil.EMAIL_SUPPORT;
+                return "Статус не определены, обратитесь в поддержку" + EMAIL_SUPPORT;
         }
     }
 
@@ -267,15 +267,15 @@ public class CommonUtil {
             session.beginTransaction();
 
             switch (type) {
-                case VariablesUtil.LOT:
+                case LOT:
                     currentRate = Integer.parseInt(String.valueOf(session
-                            .createQuery("SELECT a.rate FROM " + VariablesUtil.ENTITY_LOT + " a WHERE uuid = :uuid")
+                            .createQuery("SELECT a.rate FROM " + ENTITY_LOT + " a WHERE uuid = :uuid")
                             .setParameter("uuid", uuid)
                             .list().get(0)));
                     break;
-                case VariablesUtil.USER:
+                case USER:
                     currentRate = Integer.parseInt(String.valueOf(session
-                            .createQuery("SELECT a.rate FROM " + VariablesUtil.ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+                            .createQuery("SELECT a.rate FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
                             .setParameter("uuid", uuid)
                             .list().get(0)));
                     break;
@@ -295,24 +295,24 @@ public class CommonUtil {
         LOGGER.info("changeRate method");
         int rate = getRate(uuid, type);
         switch (goal) {
-            case VariablesUtil.RATE_PLUS:
+            case RATE_PLUS:
                 rate += 1;
                 break;
-            case VariablesUtil.RATE_MINUS:
+            case RATE_MINUS:
                 rate -= 1;
         }
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             switch (type) {
-                case VariablesUtil.LOT:
-                    session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET rate = :rate WHERE uuid = :uuid")
+                case LOT:
+                    session.createQuery("UPDATE " + ENTITY_LOT + " SET rate = :rate WHERE uuid = :uuid")
                             .setParameter("rate", rate)
                             .setParameter("uuid", uuid)
                             .executeUpdate();
                     break;
-                case VariablesUtil.USER:
-                    session.createQuery("UPDATE " + VariablesUtil.ENTITY_AUTH_INFO + " SET rate = :rate WHERE uuid = :uuid")
+                case USER:
+                    session.createQuery("UPDATE " + ENTITY_AUTH_INFO + " SET rate = :rate WHERE uuid = :uuid")
                             .setParameter("rate", rate)
                             .setParameter("uuid", uuid)
                             .executeUpdate();

@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.admin;
 
 import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.log4j.Logger;
 
@@ -10,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static by.iba.uzhyhala.util.VariablesUtil.LOT;
+import static by.iba.uzhyhala.util.VariablesUtil.USER;
 
 @WebServlet(urlPatterns = "/changerate")
 public class RateHandler extends HttpServlet {
@@ -23,10 +25,10 @@ public class RateHandler extends HttpServlet {
         LOGGER.info("doPost method");
         CommonUtil.changeRate(req.getParameter("uuid_"), req.getParameter("goal"), req.getParameter("type"));
         switch (req.getParameter("type")) {
-            case VariablesUtil.LOT:
+            case LOT:
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + req.getParameter("uuid_"));
                 break;
-            case VariablesUtil.USER:
+            case USER:
                 resp.sendRedirect("/pages/profile.jsp?user=" + req.getParameter("login_or_email"));
                 break;
         }

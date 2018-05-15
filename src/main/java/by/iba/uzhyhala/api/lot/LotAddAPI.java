@@ -4,7 +4,6 @@ import by.iba.uzhyhala.api.to.LotTOAPI;
 import by.iba.uzhyhala.lot.LotHandler;
 import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -16,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+
+import static by.iba.uzhyhala.util.VariablesUtil.PARAMETER_API_KEY_NAME;
+
 
 @WebServlet(urlPatterns = "/api/lot/add")
 public class LotAddAPI extends HttpServlet {
@@ -34,7 +36,7 @@ public class LotAddAPI extends HttpServlet {
         LOGGER.debug(body);
         LotTOAPI lotTOAPI = handleResponse(body);
         try {
-            if (CommonUtil.isApiKeyValid(req.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME))) {
+            if (CommonUtil.isApiKeyValid(req.getParameter(PARAMETER_API_KEY_NAME))) {
                 if (validateRequest(lotTOAPI)) {
                     boolean isLotAdd = lotHandler.addLot(
                             lotTOAPI.getUuidUserSeller(),

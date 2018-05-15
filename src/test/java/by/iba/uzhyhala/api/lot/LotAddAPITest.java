@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.api.lot;
 
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;
@@ -16,8 +15,11 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.*;
 
+import static by.iba.uzhyhala.util.VariablesUtil.PARAMETER_API_KEY_NAME;
+import static by.iba.uzhyhala.util.VariablesUtil.TEST_API_KEY_NAME;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
+
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
@@ -60,7 +62,7 @@ public class LotAddAPITest {
         sessionFactory = configuration.buildSessionFactory();
 
         when(mockHttpServletRequest.getReader()).thenReturn(new BufferedReader(new StringReader(REQUEST_BODY)));
-        when(mockHttpServletRequest.getParameter(VariablesUtil.PARAMETER_API_KEY_NAME)).thenReturn(VariablesUtil.TEST_API_KEY_NAME);
+        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME)).thenReturn(TEST_API_KEY_NAME);
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 

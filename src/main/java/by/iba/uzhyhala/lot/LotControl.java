@@ -3,7 +3,6 @@ package by.iba.uzhyhala.lot;
 import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
@@ -15,6 +14,9 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 
 @WebServlet(urlPatterns = "/lotcontrol")
 public class LotControl extends HttpServlet {
@@ -31,7 +33,7 @@ public class LotControl extends HttpServlet {
     public List<LotEntity> getLotInfoByUuid() {
         LOGGER.debug(" getLotInfoByUuid");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT l FROM " + VariablesUtil.ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
+            return session.createQuery("SELECT l FROM " + ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidLot).getResultList();
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
@@ -43,21 +45,21 @@ public class LotControl extends HttpServlet {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String timeEnd = String.valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));
 
-            DateFormat dateFormat = new SimpleDateFormat(VariablesUtil.PATTERN_TIME);
+            DateFormat dateFormat = new SimpleDateFormat(PATTERN_TIME);
             Date reference = dateFormat.parse(ZERO_TIME);
             Date date = dateFormat.parse(timeEnd);
             LOGGER.debug("TIME END: " + date);
             long secondsEnd = (date.getTime() - reference.getTime()) / 1000L;
 
             reference = dateFormat.parse(ZERO_TIME);
-            date = dateFormat.parse(String.valueOf(new SimpleDateFormat(VariablesUtil.PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())));
+            date = dateFormat.parse(String.valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())));
             LOGGER.debug("TIME NOW: " + date);
             long secondsNow = (date.getTime() - reference.getTime()) / 1000L;
 
             long diff = secondsEnd - secondsNow;
 
             if (diff < 0)
-                return VariablesUtil.STATUS_LOT_CLOSE;
+                return STATUS_LOT_CLOSE;
             else {
                 // TODO: show time on page format MM:ss
                 LocalTime timeOfDay = LocalTime.ofSecondOfDay(diff);

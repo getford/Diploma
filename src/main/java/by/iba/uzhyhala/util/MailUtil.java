@@ -12,24 +12,26 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 public class MailUtil {
     private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
     private static String timeNow
-            = new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
+            = new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime());
 
     private Map<String, File> attachments = new HashMap<>();
 
     private void setupParametersForMessage(String email, String subject, String mailBody, String contentType) {
         try {
             Properties props = new Properties();
-            props.put("mail.smtp.host", VariablesUtil.EMAIL_HOST);
-            props.put("mail.smtp.port", VariablesUtil.EMAIL_PORT);
+            props.put("mail.smtp.host", EMAIL_HOST);
+            props.put("mail.smtp.port", EMAIL_PORT);
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.starttls.enable", "true");
 
             Authenticator auth = new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(VariablesUtil.EMAIL_SUPPORT, VariablesUtil.EMAIL_SUPPORT_PASSCODE);
+                    return new PasswordAuthentication(EMAIL_SUPPORT, EMAIL_SUPPORT_PASSCODE);
                 }
             };
             Session session = Session.getInstance(props, auth);
@@ -55,9 +57,9 @@ public class MailUtil {
                 message.setContent(mailBody, contentType);
             }
 
-            message.setFrom(new InternetAddress(VariablesUtil.EMAIL_SUPPORT));
+            message.setFrom(new InternetAddress(EMAIL_SUPPORT));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject(VariablesUtil.EMAIL_TITLE_PART + subject);
+            message.setSubject(EMAIL_TITLE_PART + subject);
             Transport.send(message);
             LOGGER.info("Sent message to [ " + email + " ] successfully.");
         } catch (MessagingException | IOException e) {
@@ -66,11 +68,11 @@ public class MailUtil {
     }
 
     public void sendSimpleHtmlMail(String to, String body, String subject) {
-        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, subject, body, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
+        setupParametersForMessage(EMAIL_SUPPORT, subject, body, EMAIL_CONTENT_TYPE_HTML);
     }
 
     public void sendSimplePlainMail(String to, String body, String subject) {
-        setupParametersForMessage(to, subject, body, VariablesUtil.EMAIL_CONTENT_TYPE_PLAIN);
+        setupParametersForMessage(to, subject, body, EMAIL_CONTENT_TYPE_PLAIN);
     }
 
     public void sendErrorMail(String error) {
@@ -78,7 +80,7 @@ public class MailUtil {
                 "<br/>" + timeNow +
                 "<br/><br/>" + error +
                 "<br/>";
-        setupParametersForMessage(VariablesUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody, VariablesUtil.EMAIL_CONTENT_TYPE_HTML);
+        setupParametersForMessage(EMAIL_SUPPORT, "Error " + timeNow, mailBody, EMAIL_CONTENT_TYPE_HTML);
     }
 
     public void addAttachment(File file) {

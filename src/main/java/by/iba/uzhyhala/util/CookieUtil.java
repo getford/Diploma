@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
+import static by.iba.uzhyhala.util.VariablesUtil.*;
+
 public class CookieUtil {
     private static final Logger LOGGER = Logger.getLogger(CookieUtil.class);
 
@@ -21,7 +23,7 @@ public class CookieUtil {
     public CookieUtil(HttpServletRequest req) {
         if (req.getCookies() != null) {
             for (Cookie cookie : req.getCookies()) {
-                if (cookie.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)) {
+                if (cookie.getName().equals(COOKIE_AUTH_NAME)) {
                     token = cookie.getValue();
                     isFindCookie = true;
                     LOGGER.info("Constructor, token: " + token);
@@ -29,14 +31,14 @@ public class CookieUtil {
             }
         } else {
             isFindCookie = false;
-            LOGGER.error("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
+            LOGGER.error("Cookie with name " + COOKIE_AUTH_NAME + " not found");
         }
     }
 
     public boolean isAdmin(Cookie[] cookies) throws UnsupportedEncodingException {
         for (Cookie cookie : cookies) {
-            if (cookie.getName().equals(VariablesUtil.COOKIE_AUTH_NAME)
-                    && getRoleFromToken().equalsIgnoreCase(VariablesUtil.ROLE_ADMIN))
+            if (cookie.getName().equals(COOKIE_AUTH_NAME)
+                    && getRoleFromToken().equalsIgnoreCase(ROLE_ADMIN))
                 return true;
         }
         return false;
@@ -59,18 +61,18 @@ public class CookieUtil {
     public String getUserUuidFromToken() throws IOException {
         if (!StringUtils.isBlank(token)) {
             Jws<Claims> jws = Jwts.parser()
-                    .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
+                    .setSigningKey(COOKIE_KEY.getBytes("UTF-8"))
                     .parseClaimsJws(token);
             return String.valueOf(jws.getBody().get("uuid"));
         } else {
-            LOGGER.info("Cookie with name " + VariablesUtil.COOKIE_AUTH_NAME + " not found");
+            LOGGER.info("Cookie with name " + COOKIE_AUTH_NAME + " not found");
             return null;
         }
     }
 
     private String getRoleFromToken() throws UnsupportedEncodingException {
         Jws<Claims> jws = Jwts.parser()
-                .setSigningKey(VariablesUtil.COOKIE_KEY.getBytes("UTF-8"))
+                .setSigningKey(COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
         return String.valueOf(jws.getBody().get("role"));
     }

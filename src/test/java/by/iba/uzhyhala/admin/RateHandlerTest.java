@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.admin;
 
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;
@@ -16,6 +15,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.IOException;
 
+import static by.iba.uzhyhala.util.VariablesUtil.LOT;
+import static by.iba.uzhyhala.util.VariablesUtil.RATE_PLUS;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -51,8 +52,8 @@ public class RateHandlerTest {
         sessionFactory = configuration.buildSessionFactory();
 
         when(mockHttpServletRequest.getParameter("uuid_")).thenReturn(UUID);
-        when(mockHttpServletRequest.getParameter("goal")).thenReturn(VariablesUtil.LOT);
-        when(mockHttpServletRequest.getParameter("type")).thenReturn(VariablesUtil.RATE_PLUS);
+        when(mockHttpServletRequest.getParameter("goal")).thenReturn(LOT);
+        when(mockHttpServletRequest.getParameter("type")).thenReturn(RATE_PLUS);
     }
 
     @Test

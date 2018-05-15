@@ -1,8 +1,11 @@
 package by.iba.uzhyhala;
 
 import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.VariablesUtil;
 import org.apache.log4j.Logger;
+
+import static by.iba.uzhyhala.util.VariablesUtil.RATE_PLUS;
+import static by.iba.uzhyhala.util.VariablesUtil.USER;
+
 
 public class TestHibernate {
     private static final Logger LOGGER = Logger.getLogger(TestHibernate.class);
@@ -34,7 +37,7 @@ public class TestHibernate {
         /*Registration registration = new Registration();
         registration.doRegistration("qwe", "qwe", "qwe@qwe.qwe");*/
 
-        // new MailUtil().testSendMail(VariablesUtil.EMAIL_TEST, "qwe", "qqq");
+        // new MailUtil().testSendMail(EMAIL_TEST, "qwe", "qqq");
 
 /*        Profile profile = new Profile("qwe@qwe.qwe");
         profile.getUserPersonalInformation();*/
@@ -63,7 +66,7 @@ public class TestHibernate {
         System.err.println(s);
         System.err.println(String.valueOf(s).substring(0, 8));*/
 
-        //   System.err.println(CommonUtil.getLotDateEnd("10:02:10.000", VariablesUtil.LOT_TIME_SEC));
+        //   System.err.println(CommonUtil.getLotDateEnd("10:02:10.000", LOT_TIME_SEC));
 
 /*        LocalDateTime localDateTime = LocalDateTime.parse("2018-04-16T19:20:17.866");
         System.err.println(localDateTime.toLocalTime());
@@ -82,7 +85,7 @@ public class TestHibernate {
         lotControl.returnEndTime();*/
 
 //        StatisticHandler statisticHandler = new StatisticHandler();
-//        System.err.println(statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATA_END_DATE_LOT));
+//        System.err.println(statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_END_DATE_LOT));
 
 
 /*        XSSFWorkbook xlsFile = new XSSFWorkbook(); // create a workbook
@@ -108,11 +111,11 @@ public class TestHibernate {
         System.err.println(tempFile.getAbsolutePath());
         tempFile.delete();*/
 
-//        new DocumentHandler().generateExcelDocHistoryBet("d83a7aa9-a099-46e1-94a9-af145ac54b8e", VariablesUtil.EXCEL_EXTENSION_XLSX);
-//        new DocumentHandler().generateExcelDocLots(VariablesUtil.QUERY_SELECT_ALL_LOT, VariablesUtil.EXCEL_EXTENSION_XLSX);
+//        new DocumentHandler().generateExcelDocHistoryBet("d83a7aa9-a099-46e1-94a9-af145ac54b8e", EXCEL_EXTENSION_XLSX);
+//        new DocumentHandler().generateExcelDocLots(QUERY_SELECT_ALL_LOT, EXCEL_EXTENSION_XLSX);
 
 //        new LotAllAPI().test();
 
-        CommonUtil.changeRate("ca169d27-0a1c-41ca-aa2c-49a40a58149c", VariablesUtil.RATE_PLUS, VariablesUtil.USER);
+        CommonUtil.changeRate("ca169d27-0a1c-41ca-aa2c-49a40a58149c", RATE_PLUS, USER);
     }
 }

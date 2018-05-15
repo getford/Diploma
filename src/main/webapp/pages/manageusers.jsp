@@ -3,6 +3,8 @@
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="java.util.List" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.USER" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.QUERY_CHART_DATE_CREATE_USER" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,7 +28,7 @@
     <%
         StatisticHandler statisticHandler = new StatisticHandler();
         List<AuthInfoEntity> authInfoEntityList = CommonUtil.getAllUser();
-        String lineChartCreateForDay = statisticHandler.prepareChartDataFormat(VariablesUtil.QUERY_CHART_DATE_CREATE_USER);
+        String lineChartCreateForDay = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATE_CREATE_USER, USER);
     %>
 </head>
 <body>

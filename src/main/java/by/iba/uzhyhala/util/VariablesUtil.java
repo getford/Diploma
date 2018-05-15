@@ -44,7 +44,6 @@ public final class VariablesUtil {
 
     // Date format pattern's
     public static final String PATTERN_DATE = "dd-MM-yyyy";
-    public static final String PATTERN_DATE_FOR_CHARTS = "MM-dd-yyyy";
     public static final String PATTERN_DATE_REVERSE = "yyyy-MM-dd";
     public static final String PATTERN_DATE_WITH_DOT = "dd.MM.yyyy";
     public static final String PATTERN_TIME_WITH_MILLISECONDS = "HH:mm:ss.SSS";
@@ -90,11 +89,11 @@ public final class VariablesUtil {
 
     // Query count
     public static final String QUERY_COUNT_ADD_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_add = '"
-            + new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()) + "'";
+            + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()) + "'";
     public static final String QUERY_COUNT_END_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_end = '"
-            + new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()) + "'";
+            + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()) + "'";
     public static final String QUERY_COUNT_START_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_start = '"
-            + new SimpleDateFormat(VariablesUtil.PATTERN_DATE).format(new Date().getTime()) + "'";
+            + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()) + "'";
 
     // api
     public static final String PARAMETER_API_KEY_NAME = "api_key";
