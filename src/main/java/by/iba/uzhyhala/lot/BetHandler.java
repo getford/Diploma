@@ -66,7 +66,7 @@ public class BetHandler extends HttpServlet implements Serializable {
             } else {
                 betBulkTO.setUuidClient(uuidUser);
                 betBulkTO.setStatus(VariablesUtil.STATUS_LOT_SALES);
-                CommonUtil.isUpdateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
+                new LotStatus().isUpdateLotStatus(VariablesUtil.STATUS_LOT_SALES, uuidLot, request);
 
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
@@ -75,8 +75,6 @@ public class BetHandler extends HttpServlet implements Serializable {
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);
                 betTO.setTime(timeNow);
-
-                // TODO: set date end, change logic
 
                 betTOList.add(betTO);
                 betBulkTO.setBets(betTOList);
@@ -96,8 +94,8 @@ public class BetHandler extends HttpServlet implements Serializable {
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
 
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET time_end = :dateEnd WHERE uuid = :uuid")
-                    .setParameter("dateEnd", CommonUtil.getLotDateEnd(time, VariablesUtil.LOT_TIME_AFTER_BET_SEC))
+            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET time_end = :timeEnd WHERE uuid = :uuid")
+                    .setParameter("timeEnd", CommonUtil.getLotDateEnd(time, VariablesUtil.LOT_TIME_AFTER_BET_SEC))
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
         } catch (Exception ex) {

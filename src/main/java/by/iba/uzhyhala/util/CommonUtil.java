@@ -160,43 +160,6 @@ public class CommonUtil {
         return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
     }
 
-    public static boolean isUpdateLotStatus(String status, String uuid, HttpServletRequest request) {
-        LOGGER.info("isUpdateLotStatus method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuid), BetBulkTO.class);
-            betBulkTO.setStatus(status);
-
-            session.beginTransaction();
-
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_LOT + " SET status = :status WHERE uuid = :uuid")
-                    .setParameter("status", status)
-                    .setParameter("uuid", uuid)
-                    .executeUpdate();
-            session.createQuery("UPDATE " + VariablesUtil.ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
-                    .setParameter("newBulk", new Gson().toJson(betBulkTO))
-                    .setParameter("uuid", uuid)
-                    .executeUpdate();
-
-            URL url = new URL(String.valueOf(request.getRequestURL()));
-            String subject = "Статус лота был успешно изменен";
-            String body = "<br/> " + new SimpleDateFormat(VariablesUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
-                    "<p>Здравствуйте,</p>" +
-                    "<p>Уведомляем вас о том, что статус вашего лота, был успешно изменен</p>" +
-                    "<p>" +
-                    "<b>Новый статус: </b>" + translateLotStatus(status) + "" +
-                    "<br/><b>Уникальный идентификатор лота: </b>" + uuid + "</p>" +
-                    "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "\">" +
-                    "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuid + "</a></p>";
-
-            new MailUtil().sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(session, uuid)), body, subject);
-            return true;
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMail("Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
-            LOGGER.error(ex.getLocalizedMessage());
-            return false;
-        }
-    }
-
     public static boolean isUserHaveApiKey(String uuid) {
         LOGGER.info("isUserHaveApiKey method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

@@ -75,4 +75,7 @@ public class BetBulkTO {
         this.bets = bets;
     }
 
+    public String getUuidClient() {
+        return uuidClient;
+    }
 }

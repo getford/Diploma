@@ -114,6 +114,7 @@
         data.addColumn('string', 'Date');
         data.addColumn('number', 'Add lots for date');
         data.addRows([<%=lineChartAddDateLot%>]);
+        data.sort({column: 0, desc: true});
 
         console.log(<%=lineChartAddDateLot%>);
 
@@ -140,6 +141,7 @@
         data.addColumn('string', 'Date');
         data.addColumn('number', 'Start date sale lots');
         data.addRows([<%=lineChartStartDateLot%>]);
+        data.sort({column: 0, desc: true});
 
         console.log(<%=lineChartStartDateLot%>);
 
@@ -166,6 +168,7 @@
         data.addColumn('string', 'Date');
         data.addColumn('number', 'End date sale lots');
         data.addRows([<%=lineChartEndDateLot%>]);
+        data.sort({column: 0, desc: true});
 
         console.log(<%=lineChartEndDateLot%>);
 
