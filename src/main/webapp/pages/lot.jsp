@@ -47,6 +47,7 @@
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
+        int currentCost = CommonUtil.getCurrentCost(betHistoryList) + Integer.parseInt(lotInfoList.get(0).getCost());
     %>
     <script>
         function startTimer(duration, display) {
@@ -130,6 +131,7 @@
 <br/><br/>
 <section class="recent_work wrapper">
     <input type="hidden" value="<%=host%>" id="host">
+    <input type="hidden" value="<%=lotInfoList.get(0).getStatus()%>" id="english_status">
     <input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
     <%
         if (!timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
@@ -144,11 +146,28 @@
     </form>
     <hr/>
     <%
+    } else {
+        if (betHistoryList.size() != 1) {
+    %>
+    <h1>
+        <span style="color: green">Победитель: <%=betHistoryList.get(betHistoryList.size() - 1).getUserName()%>, цена: <%=currentCost%></span>
+    </h1>
+    <%
+    } else {
+    %>
+    <h1>
+        <span style="color: red">Продажа лота не состоялась</span>
+    </h1>
+    <%
+            }
         }
         assert lotInfoList != null;
         if (lotInfoList.size() != 0) {
+            assert betHistoryList != null;
     %>
 
+    <hr/>
+    <h3 style="text-align: center"><span>Информация о лоте</span></h3>
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
@@ -156,7 +175,7 @@
                     <thead></thead>
                     <tbody>
                     <tr>
-                        <td><b>Uuid: </b><%=lotInfoList.get(0).getUuid()%>
+                        <td><b>UUID: </b><%=lotInfoList.get(0).getUuid()%>
                         </td>
                     </tr>
                     <tr>
@@ -168,8 +187,10 @@
                         <td><b>Описание: </b><%=lotInfoList.get(0).getInformation()%>
                         </td>
                     </tr>
-                    <tr>
-                        <td><b>Статус: </b><i><%=CommonUtil.translateLotStatus(lotInfoList.get(0).getStatus())%>
+                    <tr id="status_lot" onload="changeStatusColor();">
+                        <td>
+                            <b>Статус: </b><i
+                                id="status_text"><%=CommonUtil.translateLotStatus(lotInfoList.get(0).getStatus())%>
                         </i>
                         </td>
                     </tr>
@@ -200,7 +221,12 @@
                             <b>Минимальная ставка: </b><%=lotInfoList.get(0).getStepCost()%>
                         </td>
                     </tr>
-
+                    <tr style="background-color: #d7d7d7">
+                        <td>
+                            <b>Текущая
+                                цена: </b><%=currentCost%>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -235,6 +261,22 @@
                             String timeBet = betHistoryList.get(i).getTime();
                 %>
                 <tbody>
+                <%
+                    if (i == betHistoryList.size() - 1) {
+                %>
+                <tr style="background-color: springgreen">
+                    <td><%=name%>
+                    </td>
+                    <td><%=bet%>
+                    </td>
+                    <td><%=dateBet%>
+                    </td>
+                    <td><%=timeBet%>
+                    </td>
+                </tr>
+                <%
+                } else {
+                %>
                 <tr>
                     <td><%=name%>
                     </td>
@@ -245,6 +287,9 @@
                     <td><%=timeBet%>
                     </td>
                 </tr>
+                <%
+                    }
+                %>
                 </tbody>
                 <%
                         }
@@ -315,3 +360,28 @@
     </div>
 </footer><!-- End footer -->
 </body>
+<script>
+    function changeStatusColor() {
+        if (document.getElementById("english_status").value === "sales")
+            document.getElementById("status_lot").style.color = "#1d9b07";
+
+        // switch (document.getElementById("english_status").value) {
+        //     case "active":
+        //         document.getElementById("status_lot").style.color = "green";
+        //         break;
+        //     case "sales":
+        //         document.getElementById("status_lot").style.color = "red";
+        //         break;
+        //     case "wait":
+        //         document.getElementById("status_lot").style.color = "yellow";
+        //         break;
+        //     case "close":
+        //         document.getElementById("status_lot").style.color = "red";
+        //         break;
+        //     default:
+        //         document.getElementById("status_lot").style.color = "black";
+        //         break;
+        // }
+    }
+</script>
+</html>

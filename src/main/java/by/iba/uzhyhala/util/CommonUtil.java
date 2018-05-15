@@ -147,6 +147,13 @@ public class CommonUtil {
         }
     }
 
+    public static int getCurrentCost(List<BetHistoryTO> betHistoryTO) {
+        int current = 0;
+        for (BetHistoryTO to : betHistoryTO)
+            current += to.getBet();
+        return current;
+    }
+
     public static String getLotDateEnd(String start, String plusSec) {
         String dateNow = new SimpleDateFormat(VariablesUtil.PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
