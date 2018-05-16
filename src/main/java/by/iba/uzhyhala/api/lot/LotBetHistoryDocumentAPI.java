@@ -44,8 +44,13 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
             } else
                 resp.getWriter().write("{\"exception\":\"API key isnt correct\"}");
         } catch (Exception ex) {
+            try {
+                resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            } catch (Exception e) {
+                LOGGER.error(e.getLocalizedMessage());
+                new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            }
             LOGGER.info("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
-            resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
     }

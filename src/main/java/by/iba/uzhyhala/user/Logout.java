@@ -26,6 +26,7 @@ public class Logout extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        LOGGER.info("doPost method");
         Cookie cookie = new Cookie(COOKIE_AUTH_NAME, "");
         cookie.setMaxAge(0);
         cookie.setPath("/");

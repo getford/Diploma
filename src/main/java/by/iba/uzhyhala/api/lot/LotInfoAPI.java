@@ -1,6 +1,7 @@
 package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.util.CommonUtil;
+import by.iba.uzhyhala.util.MailUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.VariablesUtil.PARAMETER_API_KEY_NAME;
 
@@ -39,7 +41,12 @@ public class LotInfoAPI extends HttpServlet {
             }
             resp.getWriter().write(message);
         } catch (Exception ex) {
-            resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            try {
+                resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            } catch (Exception e) {
+                LOGGER.error(e.getLocalizedMessage());
+                new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            }
         }
     }
 }
