@@ -142,7 +142,7 @@ public class CommonUtil {
             return betHistoryTO;
         } catch (Exception ex) {
             LOGGER.error(ex.getMessage());
-            return null;
+            return new ArrayList<>();
         }
     }
 

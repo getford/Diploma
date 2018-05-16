@@ -8,7 +8,6 @@ import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.ReCaptchaUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 import javax.servlet.annotation.WebServlet;
@@ -100,11 +99,12 @@ public class Registration extends HttpServlet {
     }
 
     private boolean isLoginAndEmailEmpty(Session session, String login, String email) {
-        Query query = session.createQuery("SELECT a.login, a.email FROM " +
-                ENTITY_AUTH_INFO + " a WHERE login = :login AND email = :email");
-        query.setParameter("login", login);
-        query.setParameter("email", email);
-        return query.list().isEmpty();
+        return session.createQuery("SELECT a.login, a.email FROM " +
+                ENTITY_AUTH_INFO + " a WHERE login = :login AND email = :email")
+                .setParameter("login", login)
+                .setParameter("email", email)
+                .list()
+                .isEmpty();
     }
 
     private String prepareInputString(String login, String password, String email) {

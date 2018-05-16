@@ -69,8 +69,10 @@ public class LotStatus extends HttpServlet {
                     "<p>" +
                     "<b>Новый статус: </b>" + CommonUtil.translateLotStatus(status) + "" +
                     "<br/><b>Уникальный идентификатор лота: </b>" + uuidLot + "</p>" +
-                    "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot + "\">" +
-                    "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot + "</a></p>";
+                    "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort()
+                    + "/pages/lot.jsp?uuid=" + uuidLot + "\">" + url.getProtocol() + "://" + url.getHost() + ":"
+                    + url.getPort() + "/pages/lot.jsp?uuid="
+                    + uuidLot + "</a></p>";
 
             new MailUtil().sendSimpleHtmlMail(CommonUtil.getUserEmailByUUID(
                     CommonUtil.getUUIDUserByUUIDLot(session, uuidLot)), body, subject);

@@ -62,13 +62,11 @@ public class PersonalInformationEntity implements Serializable {
     @Basic
     @Column(name = "bday", nullable = true)
     public Date getBday() {
-        // return new Date(bday.getTime());
         return bday;
     }
 
     @SuppressFBWarnings("EI_EXPOSE_REP2")
     public void setBday(Date bday) {
-        // this.bday = new Date(bday.getTime());
         this.bday = bday;
     }
 }
