@@ -34,6 +34,8 @@ import static by.iba.uzhyhala.util.VariablesUtil.*;
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentHandler extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentHandler.class);
+    private static final String BET_HISTORY = "Bet history";
+    private static final String RESIRECT_URL_PATH = "/pages/lot.jsp?uuid=";
     private static final long serialVersionUID = 1016213373588804043L;
     private ByteArrayOutputStream byteArrayOutputStreamPDF = new ByteArrayOutputStream();
     private String documentPasscode;
@@ -48,7 +50,7 @@ public class DocumentHandler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String uuidLot = req.getParameter("uuid_lot");
-        String redirectUrl = "/pages/lot.jsp?uuid=" + uuidLot;
+        String redirectUrl = RESIRECT_URL_PATH + uuidLot;
         fileName = "Bet_history_" + timeNow.replaceAll(":", ".") + "_" + uuidLot;
 
         try {
@@ -96,7 +98,7 @@ public class DocumentHandler extends HttpServlet {
             Document document = new Document(PageSize.A4);
             URL url = new URL(req.getRequestURL().toString());
 
-            urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
+            urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + RESIRECT_URL_PATH + uuidLot;
             documentPasscode = String.valueOf(UUID.randomUUID()).substring(0, 8);
 
             PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
@@ -153,10 +155,10 @@ public class DocumentHandler extends HttpServlet {
             document.open();
 
             document.addAuthor("Auction Diploma");
-            document.addTitle("Bet history");
+            document.addTitle(BET_HISTORY);
 
             document.add(new Paragraph("Auction Diploma"));
-            document.add(new Paragraph("Bet history"));
+            document.add(new Paragraph(BET_HISTORY));
             document.add(new Paragraph(String.valueOf(new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date()))));
 
             BarcodeQRCode barcodeQRCode = new BarcodeQRCode(getLotUrl(), 1000, 1000, null);
@@ -208,7 +210,6 @@ public class DocumentHandler extends HttpServlet {
     }
 
     public void generateExcelDocHistoryBet(HttpServletRequest req, String uuidLot, String extension, boolean isSendMail) {
-        String sheetName = "Bet history";
         List<Map<String, String>> dateList = new ArrayList<>();
         List<BetHistoryTO> list = CommonUtil.getHistoryBets(uuidLot);
 
@@ -231,7 +232,7 @@ public class DocumentHandler extends HttpServlet {
         if (isSendMail) {
             MailUtil mailUtil = new MailUtil();
             mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
-                    CommonUtil.createExcelFile(dateList, columnList, sheetName),
+                    CommonUtil.createExcelFile(dateList, columnList, BET_HISTORY),
                     fileName, extension));
 
             // TODO: send document
@@ -244,13 +245,13 @@ public class DocumentHandler extends HttpServlet {
         } else {
             try {
                 URL url = new URL(req.getRequestURL().toString());
-                urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/lot.jsp?uuid=" + uuidLot;
+                urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + RESIRECT_URL_PATH + uuidLot;
             } catch (MalformedURLException e) {
                 new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 LOGGER.error(e.getLocalizedMessage());
             }
             File file = new File(String.valueOf(CommonUtil.prepareFileForAttach(
-                    CommonUtil.createExcelFile(dateList, columnList, sheetName),
+                    CommonUtil.createExcelFile(dateList, columnList, BET_HISTORY),
                     fileName, extension)));
 
             try (FileInputStream fis = new FileInputStream(file)) {

@@ -29,7 +29,6 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     private String uuidLot;
     private String uuidUser;
-    private Gson gson = new Gson();
 
     public BetHandler() {
 
@@ -37,9 +36,9 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
-        this.uuidLot = req.getParameter("uuid_lot");
         try {
+            this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
+            this.uuidLot = req.getParameter("uuid_lot");
             String timeNow = String.valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date().getTime()));
             doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow, req), timeNow);
 
@@ -52,7 +51,7 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     private String prepareDoBet(int bet, String timeNow, HttpServletRequest request) {
         LOGGER.info("PrepareDoBet method");
-        BetBulkTO betBulkTO = gson.fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
+        BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
 
@@ -87,7 +86,7 @@ public class BetHandler extends HttpServlet implements Serializable {
             }
         }
 
-        return gson.toJson(betBulkTO);
+        return new Gson().toJson(betBulkTO);
     }
 
     private void doBet(String jsonBulk, String time) {

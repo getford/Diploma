@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 
 @WebServlet(urlPatterns = "/lothandler")
@@ -92,13 +93,10 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setDateAdd(dateNow);
             lotEntity.setDateStart(new SimpleDateFormat(PATTERN_DATE).format(
                     new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateStart)));
-            /*lotEntity.setDateEnd(new SimpleDateFormat(PATTERN_DATE).format(
-                    new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateEnd)));*/
             lotEntity.setTimeStart(timeStart + ":00");
-            // lotEntity.setTimeEnd(timeEnd);
             lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
-            if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
+            if (valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(STATUS_LOT_ACTIVE);
             else
                 lotEntity.setStatus(STATUS_LOT_WAIT);
@@ -134,8 +132,8 @@ public class LotHandler extends HttpServlet implements Serializable {
                 "      \"bet\": 0,\n" +
                 "      \"old_cost\": " + Integer.parseInt(cost) + ",\n" +
                 "      \"new_cost\": " + Integer.parseInt(cost) + ",\n" +
-                "      \"date\": \"" + String.valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
-                "      \"time\": \"" + String.valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())) + "\"\n" +
+                "      \"date\": \"" + valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
+                "      \"time\": \"" + valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())) + "\"\n" +
                 "    }\n" +
                 "  ]\n" +
                 "}";
