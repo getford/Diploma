@@ -1,8 +1,5 @@
 <component name="libraryTable">
   <library name="Maven: org.hibernate:hibernate-core:5.2.16.Final">
-    <ANNOTATIONS>
-      <root url="file://$PROJECT_DIR$/../Course-project-Bug-tracking-system-jsp" />
-    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.16.Final/hibernate-core-5.2.16.Final.jar!/" />
     </CLASSES>
