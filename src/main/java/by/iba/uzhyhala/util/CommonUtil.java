@@ -82,7 +82,7 @@ public class CommonUtil {
 
     public static String getUserFirstLastNameByUUID(Session session, String uuid) {
         Object[] object = session.createSQLQuery("SELECT first_name, last_name FROM personal_information WHERE uuid_user = '" + uuid + "'").list().toArray();
-        String result = String.valueOf(((Object[]) object[0])[0]) + " " + String.valueOf(((Object[]) object[0])[1]);
+        String result = String.valueOf(((Object[]) object[0])[0]) + " " + ((Object[]) object[0])[1];
         LOGGER.debug(CommonUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
         return result;
     }
@@ -90,9 +90,8 @@ public class CommonUtil {
     public static String getCategoryById(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            String s = session.createQuery("SELECT c.category_name FROM " + ENTITY_CATEGORY + " c WHERE id = :id")
+            return session.createQuery("SELECT c.category_name FROM " + ENTITY_CATEGORY + " c WHERE id = :id")
                     .setParameter("id", id).getResultList().get(0).toString();
-            return s;
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
         }
@@ -210,10 +209,9 @@ public class CommonUtil {
                 byteArrayOutputStream = (ByteArrayOutputStream) o;
             }
 
-            FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
-            fileOutputStream.write(byteArrayOutputStream.toByteArray());
-            fileOutputStream.close();
-
+            try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile)) {
+                fileOutputStream.write(byteArrayOutputStream.toByteArray());
+            }
             return tempFile;
         } catch (IOException ex) {
             new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
@@ -294,29 +292,26 @@ public class CommonUtil {
     public static void changeRate(String uuid, String goal, String type) {
         LOGGER.info("changeRate method");
         int rate = getRate(uuid, type);
-        switch (goal) {
-            case RATE_PLUS:
-                rate += 1;
-                break;
-            case RATE_MINUS:
-                rate -= 1;
+        if (RATE_PLUS.equals(goal)) {
+            rate += 1;
+        } else if (RATE_MINUS.equals(goal)) {
+            rate -= 1;
         }
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            switch (type) {
-                case LOT:
-                    session.createQuery("UPDATE " + ENTITY_LOT + " SET rate = :rate WHERE uuid = :uuid")
-                            .setParameter("rate", rate)
-                            .setParameter("uuid", uuid)
-                            .executeUpdate();
-                    break;
-                case USER:
-                    session.createQuery("UPDATE " + ENTITY_AUTH_INFO + " SET rate = :rate WHERE uuid = :uuid")
-                            .setParameter("rate", rate)
-                            .setParameter("uuid", uuid)
-                            .executeUpdate();
-                    break;
+            if (LOT.equals(type)) {
+                session.createQuery("UPDATE " + ENTITY_LOT + " SET rate = :rate WHERE uuid = :uuid")
+                        .setParameter("rate", rate)
+                        .setParameter("uuid", uuid)
+                        .executeUpdate();
+
+            } else if (USER.equals(type)) {
+                session.createQuery("UPDATE " + ENTITY_AUTH_INFO + " SET rate = :rate WHERE uuid = :uuid")
+                        .setParameter("rate", rate)
+                        .setParameter("uuid", uuid)
+                        .executeUpdate();
+
             }
             LOGGER.info("Rate " + type + " " + uuid + " " + goal + " was successfully updated");
         } catch (Exception ex) {

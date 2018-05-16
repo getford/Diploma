@@ -30,6 +30,7 @@ public class MailUtil {
             props.put("mail.smtp.starttls.enable", "true");
 
             Authenticator auth = new Authenticator() {
+                @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(EMAIL_SUPPORT, EMAIL_SUPPORT_PASSCODE);
                 }

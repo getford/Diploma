@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class LotControl extends HttpServlet {
                     .setParameter("uuid", uuidLot).getResultList();
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
-            return null;
+            return new ArrayList<>();
         }
     }
 
@@ -61,7 +62,6 @@ public class LotControl extends HttpServlet {
             if (diff < 0)
                 return STATUS_LOT_CLOSE;
             else {
-                // TODO: show time on page format MM:ss
                 LocalTime timeOfDay = LocalTime.ofSecondOfDay(diff);
                 String time = String.valueOf(timeOfDay);
                 LOGGER.debug("DIFF TIME: " + time);

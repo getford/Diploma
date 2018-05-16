@@ -13,7 +13,6 @@ import java.util.List;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 
-
 public class StatisticHandler {
     private static final Logger LOGGER = Logger.getLogger(StatisticHandler.class);
 
@@ -29,7 +28,7 @@ public class StatisticHandler {
                     if (type.equals(LOT))
                         dataForChart.append("[\"").append(changeDataFormat(record[0])).append("\",").append(record[1]).append("],");
                     if (type.equals(USER))
-                        dataForChart.append("[\"").append(changeDataFormat(record[0])).append("\",").append(record[1]).append("],");
+                        dataForChart.append("[\"").append(record[0]).append("\",").append(record[1]).append("],");
                 }
             }
             LOGGER.debug(dataForChart.substring(0, dataForChart.length() - 1));

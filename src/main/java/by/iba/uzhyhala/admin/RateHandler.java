@@ -1,6 +1,7 @@
 package by.iba.uzhyhala.admin;
 
 import by.iba.uzhyhala.util.CommonUtil;
+import by.iba.uzhyhala.util.MailUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.log4j.Logger;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.VariablesUtil.LOT;
 import static by.iba.uzhyhala.util.VariablesUtil.USER;
@@ -21,16 +23,17 @@ public class RateHandler extends HttpServlet {
 
     @SuppressFBWarnings({"SF_SWITCH_NO_DEFAULT", "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"})
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.info("doPost method");
         CommonUtil.changeRate(req.getParameter("uuid_"), req.getParameter("goal"), req.getParameter("type"));
-        switch (req.getParameter("type")) {
-            case LOT:
+        try {
+            if (req.getParameter("type").equals(LOT))
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + req.getParameter("uuid_"));
-                break;
-            case USER:
+            if (req.getParameter("type").equals(USER))
                 resp.sendRedirect("/pages/profile.jsp?user=" + req.getParameter("login_or_email"));
-                break;
+        } catch (IOException ex) {
+            LOGGER.error(ex.getLocalizedMessage());
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
     }
 }

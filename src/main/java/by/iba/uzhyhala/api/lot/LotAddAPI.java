@@ -29,13 +29,14 @@ public class LotAddAPI extends HttpServlet {
         LOGGER.info("doPost Method");
         LotHandler lotHandler = new LotHandler();
         String responseMessage = "";
+        String body = "";
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-
-        String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        LOGGER.debug(body);
-        LotTOAPI lotTOAPI = handleResponse(body);
         try {
+            body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+            LOGGER.debug(body);
+            LotTOAPI lotTOAPI = handleResponse(body);
+
             if (CommonUtil.isApiKeyValid(req.getParameter(PARAMETER_API_KEY_NAME))) {
                 if (validateRequest(lotTOAPI)) {
                     boolean isLotAdd = lotHandler.addLot(

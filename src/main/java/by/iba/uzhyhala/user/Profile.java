@@ -8,6 +8,7 @@ import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class Profile {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         }
-        return null;
+        return new ArrayList<>();
     }
 
     public List<AddressEntity> getUserAddress() {
@@ -54,7 +55,7 @@ public class Profile {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         }
-        return null;
+        return new ArrayList<>();
     }
 
     public String getUuidUser() {

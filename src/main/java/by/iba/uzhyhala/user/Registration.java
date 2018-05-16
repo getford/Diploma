@@ -15,7 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -31,14 +30,14 @@ public class Registration extends HttpServlet {
     private static final long serialVersionUID = -7067000206036155152L;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        PrintWriter printWriter = resp.getWriter();
-        if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
-            if (doRegistration(req.getParameter("login"), req.getParameter("password"),
-                    req.getParameter("email"))) {
-                try {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            PrintWriter printWriter = resp.getWriter();
+            String email = req.getParameter("email");
+            String login = req.getParameter("login");
+            if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
+                if (doRegistration(login, req.getParameter("password"), email)) {
                     URL url = new URL(req.getRequestURL().toString());
-                    String login = req.getParameter("login");
                     String body = "<br/> " + new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                             "<p>Hello,</p>" +
                             "<p>You will be successfully registered in Auction</p>" +
@@ -48,18 +47,16 @@ public class Registration extends HttpServlet {
                             "</p>" +
                             "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?login=" + login + "\">" +
                             "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?user=" + login + "</a></p>";
-
                     String subject = "";
-
-                    new MailUtil().sendSimpleHtmlMail(req.getParameter("email"), body, subject);
-
+                    new MailUtil().sendSimpleHtmlMail(email, body, subject);
                     resp.sendRedirect("/pages/index.jsp");
-                } catch (IOException e) {
-                    new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 }
+            } else {
+                printWriter.println("<font color=red>You missed the Captcha.</font>");
             }
-        } else {
-            printWriter.println("<font color=red>You missed the Captcha.</font>");
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
         }
     }
 

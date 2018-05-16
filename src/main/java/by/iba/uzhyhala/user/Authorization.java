@@ -32,14 +32,19 @@ public class Authorization extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        this.type = CommonUtil.loginOrEmail(req.getParameter("login_or_email")).toLowerCase();
-        if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
-            Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
-            assert obj != null;
-            setAuthCookie(((Object[]) obj[0])[0].toString(), String.valueOf(((Object[]) obj[0])[1]), resp);
-            resp.sendRedirect(REDIRECT_INDEX_PAGE);
-        } else {
-            resp.sendRedirect(REDIRECT_AUTH_PAGE);
+        try {
+            String loginOrEmail = req.getParameter("login_or_email");
+            type = CommonUtil.loginOrEmail(loginOrEmail).toLowerCase();
+            if (isPasswordValid(loginOrEmail, req.getParameter("password"))) {
+                Object[] obj = getUserUuidAndRole(loginOrEmail.toLowerCase());
+                setAuthCookie(((Object[]) obj[0])[0].toString(), String.valueOf(((Object[]) obj[0])[1]), resp);
+                resp.sendRedirect(REDIRECT_INDEX_PAGE);
+            } else {
+                resp.sendRedirect(REDIRECT_AUTH_PAGE);
+            }
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
         }
     }
 
@@ -51,7 +56,7 @@ public class Authorization extends HttpServlet {
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
-            return null;
+            return new Object[0];
         }
     }
 

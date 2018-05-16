@@ -18,7 +18,6 @@ import java.util.UUID;
 
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_AUTH_INFO;
 
-
 @WebServlet("/getapikey")
 public class UserApiKey extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(UserApiKey.class);
@@ -27,10 +26,10 @@ public class UserApiKey extends HttpServlet {
     @SuppressFBWarnings({"XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER", "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"})
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
         String responseMessage;
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
 
@@ -51,13 +50,14 @@ public class UserApiKey extends HttpServlet {
                 resp.getWriter().write(responseMessage);
             }
         } catch (Exception ex) {
-            resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            try {
+                resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
+            } catch (Exception e) {
+                LOGGER.error(e.getLocalizedMessage());
+                new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            }
             LOGGER.error(ex.getLocalizedMessage());
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 }
