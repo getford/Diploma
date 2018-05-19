@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.lot;
 
-import by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPITest;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -24,7 +23,6 @@ import static org.powermock.api.mockito.PowerMockito.when;
 import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
-//@PrepareForTest(CommonUtil.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class DocumentHandlerTest {
 
@@ -59,14 +57,15 @@ public class DocumentHandlerTest {
 
     @Test
     public void testDoPost() {
+        String UUID_LOT = "2ee7fa10-6c2a-4980-bd8e-be174c273d53";
 
-        getHistoryBets(LotBetHistoryDocumentAPITest.UUID_LOT);
+        getHistoryBets(UUID_LOT);
         prepareFileForAttach(new XSSFWorkbook(), "File name",
                 EXCEL_EXTENSION_XLSX);
 
         createExcelFile(new ArrayList<>(), new ArrayList<>(), "Sheet name");
 
-        when(mockHttpServletRequest.getParameter("uuid")).thenReturn(LotBetHistoryDocumentAPITest.UUID_LOT);
+        when(mockHttpServletRequest.getParameter("uuid")).thenReturn(UUID_LOT);
 
         when(mockHttpServletRequest.getParameter("type")).thenReturn(PDF);
         when(mockHttpServletRequest.getParameter("send-mail")).thenReturn("true");

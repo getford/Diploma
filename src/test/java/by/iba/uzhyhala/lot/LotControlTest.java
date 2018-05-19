@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.lot;
 
-import by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPITest;
 import by.iba.uzhyhala.util.CommonUtil;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -27,6 +26,8 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class LotControlTest {
 
+    private static final String UUID_LOT = "2ee7fa10-6c2a-4980-bd8e-be174c273d53";
+
     @Mock
     private SessionFactory sessionFactory;
 
@@ -52,17 +53,17 @@ public class LotControlTest {
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
 
-        when(mockHttpServletRequest.getParameter("uuid")).thenReturn(LotBetHistoryDocumentAPITest.UUID_LOT);
+        when(mockHttpServletRequest.getParameter("uuid")).thenReturn(UUID_LOT);
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 
     @Test
     public void testGetLotInfoByUuid() {
-        new LotControl(LotBetHistoryDocumentAPITest.UUID_LOT).getLotInfoByUuid();
+        new LotControl(UUID_LOT).getLotInfoByUuid();
     }
 
     @Test
     public void testReturnTimeEnd() {
-        new LotControl(LotBetHistoryDocumentAPITest.UUID_LOT).returnEndTime();
+        new LotControl(UUID_LOT).returnEndTime();
     }
 }

@@ -23,7 +23,6 @@ import static by.iba.uzhyhala.util.VariablesUtil.TEST_API_KEY_NAME;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
-
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class LotInfoAPITest {

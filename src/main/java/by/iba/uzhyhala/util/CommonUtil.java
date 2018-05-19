@@ -29,6 +29,9 @@ import static java.lang.String.valueOf;
 public class CommonUtil {
     private static final Logger LOGGER = Logger.getLogger(CommonUtil.class);
 
+    private CommonUtil() {
+    }
+
     public static String loginOrEmail(String loginOrEmail) {
         LOGGER.info("loginOrEmail method");
         return Pattern.compile(REGEXP_EMAIL,
