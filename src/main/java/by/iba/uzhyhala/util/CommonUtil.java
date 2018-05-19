@@ -74,10 +74,17 @@ public class CommonUtil {
         }
     }
 
-    public static String getUUIDUserByUUIDLot(Session session, String uuidLot) {
-        String result = session.createSQLQuery("SELECT uuid_user_seller FROM lot WHERE uuid = '" + uuidLot + "'").list().get(0).toString();
-        LOGGER.debug(CommonUtil.class.getName() + " getUUIDUserByUUIDLot return: " + result);
-        return result;
+    public static String getUUIDUserByUUIDLot(String uuidLot) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            String result = session.createSQLQuery("SELECT uuid_user_seller FROM lot WHERE uuid = '" + uuidLot + "'").list().get(0).toString();
+            LOGGER.debug(CommonUtil.class.getName() + " getUUIDUserByUUIDLot return: " + result);
+            return result;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return null;
+        }
     }
 
     public static String getUserFirstLastNameByUUID(Session session, String uuid) {

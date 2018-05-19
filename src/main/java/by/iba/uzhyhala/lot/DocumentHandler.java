@@ -2,7 +2,6 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BarcodeQRCode;
@@ -28,8 +27,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
+import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
-
 
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentHandler extends HttpServlet {
@@ -117,7 +116,7 @@ public class DocumentHandler extends HttpServlet {
                 cell.setBackgroundColor(BaseColor.WHITE);
             }
 
-            List<BetHistoryTO> list = CommonUtil.getHistoryBets(uuidLot);
+            List<BetHistoryTO> list = getHistoryBets(uuidLot);
 
             assert list != null;
             for (int i = 1; i < list.size(); i++) {
@@ -170,7 +169,7 @@ public class DocumentHandler extends HttpServlet {
             document.add(new Paragraph("\n---------------------------------------------------------------" +
                     "-------------------------------------------------------------------"));
             document.add(new Paragraph("\n"));
-            document.add(new Paragraph("Rate: " + CommonUtil.getRate(uuidLot, LOT)));
+            document.add(new Paragraph("Rate: " + getRate(uuidLot, LOT)));
             document.add(new Paragraph("\n"));
             document.add(table);
 
@@ -184,7 +183,7 @@ public class DocumentHandler extends HttpServlet {
 
             if (isSendMail) {
                 MailUtil mailUtil = new MailUtil();
-                mailUtil.addAttachment(CommonUtil.prepareFileForAttach(byteArrayOutputStreamPDF,
+                mailUtil.addAttachment(prepareFileForAttach(byteArrayOutputStreamPDF,
                         fileName, PDF_EXTENSION)
                 );
 
@@ -211,7 +210,7 @@ public class DocumentHandler extends HttpServlet {
 
     public void generateExcelDocHistoryBet(HttpServletRequest req, String uuidLot, String extension, boolean isSendMail) {
         List<Map<String, String>> dateList = new ArrayList<>();
-        List<BetHistoryTO> list = CommonUtil.getHistoryBets(uuidLot);
+        List<BetHistoryTO> list = getHistoryBets(uuidLot);
 
         List<String> columnList = new ArrayList<>();
         columnList.add("Name");
@@ -231,8 +230,8 @@ public class DocumentHandler extends HttpServlet {
 
         if (isSendMail) {
             MailUtil mailUtil = new MailUtil();
-            mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
-                    CommonUtil.createExcelFile(dateList, columnList, BET_HISTORY),
+            mailUtil.addAttachment(prepareFileForAttach(
+                    createExcelFile(dateList, columnList, BET_HISTORY),
                     fileName, extension));
 
             // TODO: send document
@@ -250,8 +249,8 @@ public class DocumentHandler extends HttpServlet {
                 new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 LOGGER.error(e.getLocalizedMessage());
             }
-            File file = new File(String.valueOf(CommonUtil.prepareFileForAttach(
-                    CommonUtil.createExcelFile(dateList, columnList, BET_HISTORY),
+            File file = new File(String.valueOf(prepareFileForAttach(
+                    createExcelFile(dateList, columnList, BET_HISTORY),
                     fileName, extension)));
 
             try (FileInputStream fis = new FileInputStream(file)) {
@@ -306,17 +305,16 @@ public class DocumentHandler extends HttpServlet {
         }
 
         MailUtil mailUtil = new MailUtil();
-        mailUtil.addAttachment(CommonUtil.prepareFileForAttach(
-                CommonUtil.createExcelFile(dateList, columnList, "All lots"),
+        mailUtil.addAttachment(prepareFileForAttach(
+                createExcelFile(dateList, columnList, "All lots"),
                 fileName, extension));
 
-        String subject = "Корреспоненция по всем лотам";
         String body = "<br/>" + timeNow +
                 "<br/>Добрый день, найдите прикрепленные файлы в письме." +
                 "<br/><br/>С уважением";
 
         // TODO: send document
-        mailUtil.sendSimpleHtmlMail("", body, subject);
+        mailUtil.sendSimpleHtmlMail("", body, "Корреспоненция по всем лотам");
     }
 
     public String getPdfBetEncode() {

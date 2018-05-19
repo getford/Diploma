@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.api.lot;
 
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static by.iba.uzhyhala.util.CommonUtil.getJsonBetBulk;
+import static by.iba.uzhyhala.util.CommonUtil.isApiKeyValid;
 import static by.iba.uzhyhala.util.VariablesUtil.PARAMETER_API_KEY_NAME;
 
 
@@ -29,9 +30,9 @@ public class LotInfoAPI extends HttpServlet {
         String message;
         String uuidLot = req.getParameter("uuid");
         try {
-            if (CommonUtil.isApiKeyValid(req.getParameter(PARAMETER_API_KEY_NAME))) {
+            if (isApiKeyValid(req.getParameter(PARAMETER_API_KEY_NAME))) {
                 LOGGER.info("uuid lot: " + uuidLot + ", api_key: " + req.getParameter(PARAMETER_API_KEY_NAME));
-                String bulk = CommonUtil.getJsonBetBulk(uuidLot);
+                String bulk = getJsonBetBulk(uuidLot);
                 if (!StringUtils.isBlank(bulk))
                     message = bulk;
                 else

@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.admin;
 
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.log4j.Logger;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static by.iba.uzhyhala.util.CommonUtil.changeRate;
 import static by.iba.uzhyhala.util.VariablesUtil.LOT;
 import static by.iba.uzhyhala.util.VariablesUtil.USER;
 
@@ -25,7 +25,7 @@ public class RateHandler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.info("doPost method");
-        CommonUtil.changeRate(req.getParameter("uuid_"), req.getParameter("goal"), req.getParameter("type"));
+        changeRate(req.getParameter("uuid_"), req.getParameter("goal"), req.getParameter("type"));
         try {
             if (req.getParameter("type").equals(LOT))
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + req.getParameter("uuid_"));

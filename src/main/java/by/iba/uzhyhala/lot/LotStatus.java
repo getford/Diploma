@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import com.google.gson.Gson;
@@ -18,6 +17,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 
 @WebServlet(urlPatterns = "/status")
@@ -28,7 +28,7 @@ public class LotStatus extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         boolean isChangeStatus;
-        if (Objects.requireNonNull(CommonUtil.getHistoryBets(req.getParameter("uuid"))).size() > 1) {
+        if (Objects.requireNonNull(getHistoryBets(req.getParameter("uuid"))).size() > 1) {
             isChangeStatus = isUpdateLotStatus(STATUS_LOT_SALES, req.getParameter("uuid"), req);
         } else {
             isChangeStatus = isUpdateLotStatus(STATUS_LOT_CLOSE, req.getParameter("uuid"), req);
@@ -39,7 +39,7 @@ public class LotStatus extends HttpServlet {
     public boolean isUpdateLotStatus(String status, String uuidLot, HttpServletRequest request) {
         LOGGER.info("isUpdateLotStatus method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
+            BetBulkTO betBulkTO = new Gson().fromJson(getJsonBetBulk(uuidLot), BetBulkTO.class);
             betBulkTO.setStatus(status);
 
             session.beginTransaction();
@@ -67,15 +67,15 @@ public class LotStatus extends HttpServlet {
                     "<p>Здравствуйте,</p>" +
                     "<p>Уведомляем вас о том, что статус вашего лота, был успешно изменен</p>" +
                     "<p>" +
-                    "<b>Новый статус: </b>" + CommonUtil.translateLotStatus(status) + "" +
+                    "<b>Новый статус: </b>" + translateLotStatus(status) + "" +
                     "<br/><b>Уникальный идентификатор лота: </b>" + uuidLot + "</p>" +
                     "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort()
                     + "/pages/lot.jsp?uuid=" + uuidLot + "\">" + url.getProtocol() + "://" + url.getHost() + ":"
                     + url.getPort() + "/pages/lot.jsp?uuid="
                     + uuidLot + "</a></p>";
 
-            new MailUtil().sendSimpleHtmlMail(CommonUtil.getUserEmailByUUID(
-                    CommonUtil.getUUIDUserByUUIDLot(session, uuidLot)), body, subject);
+            new MailUtil().sendSimpleHtmlMail(getUserEmailByUUID(
+                    getUUIDUserByUUIDLot(uuidLot)), body, subject);
             return true;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));

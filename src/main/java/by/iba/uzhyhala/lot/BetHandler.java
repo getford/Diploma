@@ -2,7 +2,6 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.CookieUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
@@ -19,6 +18,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static by.iba.uzhyhala.util.CommonUtil.getJsonBetBulk;
+import static by.iba.uzhyhala.util.CommonUtil.getLotDateEnd;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 
 
@@ -51,7 +52,7 @@ public class BetHandler extends HttpServlet implements Serializable {
 
     private String prepareDoBet(int bet, String timeNow, HttpServletRequest request) {
         LOGGER.info("PrepareDoBet method");
-        BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
+        BetBulkTO betBulkTO = new Gson().fromJson(getJsonBetBulk(uuidLot), BetBulkTO.class);
         List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
         BetTO betTO = new BetTO();
 
@@ -100,7 +101,7 @@ public class BetHandler extends HttpServlet implements Serializable {
                     .executeUpdate();
 
             session.createQuery("UPDATE " + ENTITY_LOT + " SET time_end = :timeEnd WHERE uuid = :uuid")
-                    .setParameter("timeEnd", CommonUtil.getLotDateEnd(time, LOT_TIME_AFTER_BET_SEC))
+                    .setParameter("timeEnd", getLotDateEnd(time, LOT_TIME_AFTER_BET_SEC))
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
         } catch (Exception ex) {

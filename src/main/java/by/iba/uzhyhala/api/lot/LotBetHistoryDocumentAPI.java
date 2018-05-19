@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.lot.DocumentHandler;
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static by.iba.uzhyhala.util.CommonUtil.isApiKeyValid;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
-
 
 @WebServlet(urlPatterns = "/api/document/bet-history")
 public class LotBetHistoryDocumentAPI extends HttpServlet {
@@ -26,7 +25,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
         try {
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
-            if (CommonUtil.isApiKeyValid(req.getParameter(PARAMETER_API_KEY_NAME))) {
+            if (isApiKeyValid(req.getParameter(PARAMETER_API_KEY_NAME))) {
                 LOGGER.info("uuid lot: " + req.getParameter("uuid") +
                         ", api_key: " + req.getParameter(PARAMETER_API_KEY_NAME));
                 String type = req.getParameter("type");

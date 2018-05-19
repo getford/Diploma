@@ -51,8 +51,7 @@ public class Authorization extends HttpServlet {
     private Object[] getUserUuidAndRole(String loginOrEmail) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createSQLQuery("select uuid, role from auth_info where " + type + " = '" +
-                    loginOrEmail + "'").list().toArray();
+            return session.createSQLQuery("select uuid, role from auth_info where " + type + " = '" + loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());

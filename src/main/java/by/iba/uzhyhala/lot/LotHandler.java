@@ -2,7 +2,6 @@ package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.entity.BetEntity;
 import by.iba.uzhyhala.entity.LotEntity;
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.CookieUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
@@ -16,19 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
+import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
-import static java.lang.String.valueOf;
-
 
 @WebServlet(urlPatterns = "/lothandler")
 public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final long serialVersionUID = 6295721900470243790L;
+    private static final String NEW_LINE = "\",\n";
 
     private String uuidUser;
     private String uuidAddLot;
@@ -40,7 +36,7 @@ public class LotHandler extends HttpServlet implements Serializable {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" constructor");
-            this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, CommonUtil.loginOrEmail(loginOrEmail));
+            this.uuidUser = getUUIDUserByLoginEmail(session, loginOrEmail, loginOrEmail(loginOrEmail));
         } catch (Exception e) {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
@@ -94,9 +90,9 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setDateStart(new SimpleDateFormat(PATTERN_DATE).format(
                     new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateStart)));
             lotEntity.setTimeStart(timeStart + ":00");
-            lotEntity.setTimeEnd(CommonUtil.getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
+            lotEntity.setTimeEnd(getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
-            if (valueOf(dateNow).equals(lotEntity.getDateStart()))
+            if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(STATUS_LOT_ACTIVE);
             else
                 lotEntity.setStatus(STATUS_LOT_WAIT);
@@ -119,21 +115,21 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     private String prepareBetBulk(String uuidUser, String uuidLot, String status, String cost, String blitz, String step) {
         return "{\n" +
-                "  \"uuid_lot\": \"" + uuidLot + "\",\n" +
-                "  \"uuid_seller\": \"" + uuidUser + "\",\n" +
+                "  \"uuid_lot\": \"" + uuidLot + NEW_LINE +
+                "  \"uuid_seller\": \"" + uuidUser + NEW_LINE +
                 "  \"uuid_client\": \"\",\n" +
-                "  \"status\": \"" + status + "\",\n" +
-                "  \"blitz_cost\": \"" + Integer.parseInt(blitz) + "\",\n" +
-                "  \"step\": \"" + Integer.parseInt(step) + "\",\n" +
+                "  \"status\": \"" + status + NEW_LINE +
+                "  \"blitz_cost\": \"" + Integer.parseInt(blitz) + NEW_LINE +
+                "  \"step\": \"" + Integer.parseInt(step) + NEW_LINE +
                 "  \"bets\": [\n" +
                 "    {\n" +
-                "      \"uuid_user\": \"" + uuidUser + "\",\n" +
-                "      \"uuid_bet\": \"" + UUID.randomUUID().toString() + "\",\n" +
+                "      \"uuid_user\": \"" + uuidUser + NEW_LINE +
+                "      \"uuid_bet\": \"" + UUID.randomUUID().toString() + NEW_LINE +
                 "      \"bet\": 0,\n" +
                 "      \"old_cost\": " + Integer.parseInt(cost) + ",\n" +
                 "      \"new_cost\": " + Integer.parseInt(cost) + ",\n" +
-                "      \"date\": \"" + valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())) + "\",\n" +
-                "      \"time\": \"" + valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())) + "\"\n" +
+                "      \"date\": \"" + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()) + NEW_LINE +
+                "      \"time\": \"" + new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime()) + "\"\n" +
                 "    }\n" +
                 "  ]\n" +
                 "}";
@@ -147,7 +143,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
         }
-        return null;
+        return new ArrayList<>();
     }
 
     public List<LotEntity> getUserLot() {
@@ -159,6 +155,6 @@ public class LotHandler extends HttpServlet implements Serializable {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
         }
-        return null;
+        return new ArrayList<>();
     }
 }

@@ -1,33 +1,44 @@
 package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPITest;
-import by.iba.uzhyhala.lot.to.BetHistoryTO;
-import by.iba.uzhyhala.util.CommonUtil;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
+import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static org.powermock.api.mockito.PowerMockito.*;
-
+import static org.powermock.api.mockito.PowerMockito.when;
+import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(CommonUtil.class)
+//@PrepareForTest(CommonUtil.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class DocumentHandlerTest {
+
+    @Mock
+    private SessionFactory sessionFactory;
+
+    @Mock
+    private Session session;
+
+    @Mock
+    private Transaction transaction;
+
+    @Mock
+    private Configuration configuration;
 
     @Mock
     private MockHttpServletRequest mockHttpServletRequest;
@@ -38,28 +49,23 @@ public class DocumentHandlerTest {
     @Before
     public void init() throws Exception {
         initMocks(this);
+        when(sessionFactory.openSession()).thenReturn(session);
+        when(session.beginTransaction()).thenReturn(transaction);
+        sessionFactory = configuration.buildSessionFactory();
 
-        List<BetHistoryTO> list = new ArrayList<>();
-        BetHistoryTO to = new BetHistoryTO();
-        to.setBet(10000);
-        list.add(to);
-
-        mockStatic(CommonUtil.class);
         when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(TEST_URL));
-
         whenNew(MockHttpServletResponse.class).withAnyArguments().thenReturn(mockHttpServletResponse);
-
-        when(CommonUtil.getHistoryBets(LotBetHistoryDocumentAPITest.UUID_LOT)).thenReturn(list);
-        when(CommonUtil.prepareFileForAttach(new Object(), "File name",
-                EXCEL_EXTENSION_XLSX)).thenReturn(File.createTempFile("prefix", "suffix"));
-
-        List<Map<String, String>> dateList = new ArrayList<>();
-        List<String> columnList = new ArrayList<>();
-        when(CommonUtil.createExcelFile(dateList, columnList, "Sheet name")).thenReturn(new XSSFWorkbook());
     }
 
     @Test
     public void testDoPost() {
+
+        getHistoryBets(LotBetHistoryDocumentAPITest.UUID_LOT);
+        prepareFileForAttach(new XSSFWorkbook(), "File name",
+                EXCEL_EXTENSION_XLSX);
+
+        createExcelFile(new ArrayList<>(), new ArrayList<>(), "Sheet name");
+
         when(mockHttpServletRequest.getParameter("uuid")).thenReturn(LotBetHistoryDocumentAPITest.UUID_LOT);
 
         when(mockHttpServletRequest.getParameter("type")).thenReturn(PDF);
