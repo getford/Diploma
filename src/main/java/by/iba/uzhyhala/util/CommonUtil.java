@@ -30,30 +30,22 @@ public class CommonUtil {
 
     public static String loginOrEmail(String loginOrEmail) {
         LOGGER.info("loginOrEmail method");
-        String result = Pattern.compile(REGEXP_EMAIL,
+        return Pattern.compile(REGEXP_EMAIL,
                 Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? "email" : "login";
-        LOGGER.debug("loginOrEmail return: " + result);
-        return result;
     }
 
     public static String getUUIDUserByLoginEmail(Session session, String loginOrEmail, String type) {
         LOGGER.info("getUUIDUserByLoginEmail method");
-
-        String result = session.createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO
+        return session.createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO
                 + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();
-        LOGGER.debug("getUUIDUserByLoginEmail return: " + result);
-        return result;
     }
 
     public static String getUserLoginByUUID(String uuid) {
         LOGGER.info("getUserLoginByUUID method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
-            String result = session.createQuery("SELECT a.login FROM " + ENTITY_AUTH_INFO
+            return session.createQuery("SELECT a.login FROM " + ENTITY_AUTH_INFO
                     + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
-            LOGGER.debug(" getUserEmailByUUID return: " + result);
-            return result;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -65,11 +57,8 @@ public class CommonUtil {
         LOGGER.info("getUserEmailByUUID method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
-            String result = session.createQuery("SELECT a.email FROM " + ENTITY_AUTH_INFO
+            return session.createQuery("SELECT a.email FROM " + ENTITY_AUTH_INFO
                     + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
-            LOGGER.debug(" getUserEmailByUUID return: " + result);
-            return result;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -82,13 +71,11 @@ public class CommonUtil {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            String result = session
+            return session
                     .createSQLQuery("SELECT uuid_user_seller FROM lot WHERE uuid = '" + uuidLot + "'")
                     .list()
                     .get(0)
                     .toString();
-            LOGGER.debug(" getUUIDUserByUUIDLot return: " + result);
-            return result;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -103,7 +90,7 @@ public class CommonUtil {
                 .createSQLQuery("SELECT first_name, last_name FROM personal_information WHERE uuid_user = '" + uuid + "'")
                 .list().toArray();
         String result = String.valueOf(((Object[]) object[0])[0]) + " " + ((Object[]) object[0])[1];
-        LOGGER.debug(" getUUIDUserByLoginEmail return: " + result);
+        LOGGER.debug("return: " + result);
         return result;
     }
 
@@ -242,9 +229,9 @@ public class CommonUtil {
                 Workbook workbook = (Workbook) o;
                 workbook.write(byteArrayOutputStream);
             }
-            if (extension.equals(PDF_EXTENSION)) {
+
+            if (extension.equals(PDF_EXTENSION))
                 byteArrayOutputStream = (ByteArrayOutputStream) o;
-            }
 
             try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile)) {
                 fileOutputStream.write(byteArrayOutputStream.toByteArray());
@@ -291,7 +278,7 @@ public class CommonUtil {
             case STATUS_LOT_CLOSE:
                 return STATUS_RUS_LOT_CLOSE;
             default:
-                LOGGER.error("translateLotStatus method, default case\tСтатус не определен, обратитесь в поддержку: " + EMAIL_SUPPORT);
+                LOGGER.error("Статус не определен, обратитесь в поддержку: " + EMAIL_SUPPORT);
                 return "Статус не определен, обратитесь в поддержку" + EMAIL_SUPPORT;
         }
     }
@@ -302,23 +289,20 @@ public class CommonUtil {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
 
-            switch (type) {
-                case LOT:
-                    currentRate = Integer.parseInt(String.valueOf(session
-                            .createQuery("SELECT a.rate FROM " + ENTITY_LOT + " a WHERE uuid = :uuid")
-                            .setParameter("uuid", uuid)
-                            .list()
-                            .get(0)));
-                    break;
-                case USER:
-                    currentRate = Integer.parseInt(String.valueOf(session
-                            .createQuery("SELECT a.rate FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
-                            .setParameter("uuid", uuid)
-                            .list()
-                            .get(0)));
-                    break;
-                default:
-                    break;
+            if (LOT.equals(type)) {
+                currentRate = Integer.parseInt(String.valueOf(session
+                        .createQuery("SELECT a.rate FROM " + ENTITY_LOT + " a WHERE uuid = :uuid")
+                        .setParameter("uuid", uuid)
+                        .list()
+                        .get(0)));
+
+            } else if (USER.equals(type)) {
+                currentRate = Integer.parseInt(String.valueOf(session
+                        .createQuery("SELECT a.rate FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+                        .setParameter("uuid", uuid)
+                        .list()
+                        .get(0)));
+
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getRate\n" + Arrays.toString(ex.getStackTrace()));
