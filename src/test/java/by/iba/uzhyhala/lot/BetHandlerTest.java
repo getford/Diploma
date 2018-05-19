@@ -23,6 +23,9 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class BetHandlerTest {
+
+    private static final String UUID_LOT = "5a50702c-8c4e-4eaf-8a97-70d11afdff53";
+
     @Mock
     private SessionFactory sessionFactory;
 
@@ -48,7 +51,7 @@ public class BetHandlerTest {
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
 
-        when(mockHttpServletRequest.getParameter("uuid_lot")).thenReturn("4da89f5a-1fed-40cc-afd5-22e8eecd97dd");
+        when(mockHttpServletRequest.getParameter("uuid_lot")).thenReturn(UUID_LOT);
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 
