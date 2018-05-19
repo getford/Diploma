@@ -118,38 +118,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserApiKey.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/UserApiKey.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DeleteHandlerAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
               <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LotAddAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAddAPI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-463">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistrationAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/RegistrationAPI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -205,11 +178,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
               <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="293" column="116" selection-start-line="293" selection-start-column="116" selection-end-line="293" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CookieUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-205">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/user/RegistrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -237,7 +237,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>input input--madoka</find>
       <find>input__label input__label--madoka</find>
       <find>input__label-content input__label-content--isao</find>
       <find>isao</find>
@@ -267,6 +266,7 @@
       <find>assertNotNull(</find>
       <find>4da</find>
       <find>CommonUtil.</find>
+      <find>CommonUtil.class.getName() +</find>
     </findStrings>
     <replaceStrings>
       <replace>/resources/</replace>
@@ -348,7 +348,6 @@
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/admin/RateHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/CommonUtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/RateHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java" />
@@ -358,6 +357,7 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
       </list>
     </option>
   </component>
@@ -495,6 +495,46 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="by" type="462c0819:PsiDirectoryNode" />
+              <item name="iba" type="462c0819:PsiDirectoryNode" />
+              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -515,7 +555,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="JPA.DatabaseSchemaImportDialog" value="6780e94f-6688-4eb9-af27-6a4b0e1ff1df" />
-    <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.60541725" />
+    <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.5673499" />
     <property name="SearchEverywhereHistoryKey" value="getLotDateEnd&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil#getLotDateEnd&#10;timeE&#9;PSI&#9;JAVA://by.iba.uzhyhala.entity.LotEntity#getTimeEnd&#10;logger&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.HibernateUtil#logger&#10;getLots&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotHandler#getLots&#10;setupParametersForMessage&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.MailUtil#setupParametersForMessage&#10;returnEndTime&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotControl#returnEndTime&#10;Hi&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/TestHibernate.java&#10;Bet &#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.BetHandler#doBet&#10;new Simple&#9;PSI&#9;JAVA://com.sun.media.sound.EmergencySoundbank#newSimpleDrumSample&#10;Hiberna&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/TestHibernate.java&#10;all lot&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.VariablesUtil#QUERY_SELECT_ALL_LOT&#10;Addlot&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotHandler#addLot&#10;doBet&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.BetHandler#doBet&#10;history&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java&#10;Hibe&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.HibernateUtil&#10;createSQL&#9;PSI&#9;JAVA://org.hibernate.query.QueryProducer#createSQLQuery&#10;debug&#9;ACTION&#9;Debug&#10;getHis&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil#getHistoryBets&#10;status &#9;ACTION&#9;Javaee.RefreshDeploymentStatus&#10;status&#9;FILE&#9;jar:///Users/vladimirzhigalo/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/transaction/Status.class&#10;pom&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/pom.xml&#10;LotTO&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -935,7 +975,7 @@
       <workItem from="1526025326167" duration="42241000" />
       <workItem from="1526337911938" duration="22697000" />
       <workItem from="1526427986090" duration="428000" />
-      <workItem from="1526428463926" duration="11084000" />
+      <workItem from="1526428463926" duration="11896000" />
     </task>
     <servers />
   </component>
@@ -972,7 +1012,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="407154000" />
+    <option name="totallyTimeSpent" value="407966000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1122,14 +1162,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java</url>
-          <line>219</line>
-          <properties />
-          <option name="timeStamp" value="526" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="528" />
     </breakpoint-manager>
     <watches-manager>
@@ -1338,13 +1370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -1436,13 +1461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/user/RegistrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1543,17 +1561,6 @@
             <element signature="e#2229#2230#0" expanded="true" />
             <element signature="e#2275#2276#0" expanded="true" />
             <element signature="e#2309#2310#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="118" column="39" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="39" />
-          <folding>
-            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
-            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
           </folding>
         </state>
       </provider>
@@ -1659,6 +1666,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/user/RegistrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="293" column="116" selection-start-line="293" selection-start-column="116" selection-end-line="293" selection-end-column="116" />
         </state>
       </provider>
     </entry>
