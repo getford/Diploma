@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.UUID;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
@@ -33,7 +36,7 @@ public class LotHandler extends HttpServlet implements Serializable {
     public LotHandler() {
     }
 
-    public LotHandler(String loginOrEmail) {
+    LotHandler(String loginOrEmail) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" constructor");
@@ -58,7 +61,8 @@ public class LotHandler extends HttpServlet implements Serializable {
                     req.getParameter("step").trim(),
                     req.getParameter("date_start").trim(),
                     timeStart.trim(),
-                    1);
+                    Integer.parseInt(req.getParameter("id_category"))
+            );
             if (isLotAdd)
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
             else {
@@ -71,11 +75,13 @@ public class LotHandler extends HttpServlet implements Serializable {
         }
     }
 
-    // TODO: id category
-    public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz, String step, String dateStart, String timeStart, int idCat) {
+    public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz,
+                          String step, String dateStart, String timeStart, int idCat) throws ParseException {
         LOGGER.debug(" addLot");
 
         String dateNow = new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime());
+        String dateStartParsed = new SimpleDateFormat(PATTERN_DATE).format(
+                new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateStart));
         this.uuidAddLot = UUID.randomUUID().toString();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -88,11 +94,11 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setBlitzCost(blitz);
             lotEntity.setStepCost(step);
             lotEntity.setDateAdd(dateNow);
-            lotEntity.setDateStart(new SimpleDateFormat(PATTERN_DATE).format(
-                    new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateStart)));
+            lotEntity.setDateStart(dateStartParsed);
             lotEntity.setTimeStart(timeStart + ":00");
             lotEntity.setTimeEnd(getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
+
             if (valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(STATUS_LOT_ACTIVE);
             else
@@ -134,28 +140,5 @@ public class LotHandler extends HttpServlet implements Serializable {
                 "    }\n" +
                 "  ]\n" +
                 "}";
-    }
-
-    public List<LotEntity> getLots(String query) {
-        LOGGER.debug(" showLots");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery(query).getResultList();
-        } catch (Exception e) {
-            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
-            LOGGER.error(e.getLocalizedMessage());
-        }
-        return new ArrayList<>();
-    }
-
-    public List<LotEntity> getUserLot() {
-        LOGGER.debug(" getUserLot");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = :uuid", LotEntity.class)
-                    .setParameter("uuid", uuidUser).getResultList();
-        } catch (Exception e) {
-            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
-            LOGGER.error(e.getLocalizedMessage());
-        }
-        return new ArrayList<>();
     }
 }

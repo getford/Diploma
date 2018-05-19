@@ -1,6 +1,8 @@
 package by.iba.uzhyhala.util;
 
 import by.iba.uzhyhala.entity.AuthInfoEntity;
+import by.iba.uzhyhala.entity.CategoryEntity;
+import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
@@ -357,5 +359,27 @@ public class CommonUtil {
             new MailUtil().sendErrorMail("Method: changeRate\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         }
+    }
+
+    public static List<LotEntity> getLots(String query) {
+        LOGGER.debug("getLots");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery(query).getResultList();
+        } catch (Exception e) {
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            LOGGER.error(e.getLocalizedMessage());
+        }
+        return new ArrayList<>();
+    }
+
+    public static List<CategoryEntity> getCategories() {
+        LOGGER.debug("getCategories");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT c FROM " + ENTITY_CATEGORY + " c").getResultList();
+        } catch (Exception e) {
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            LOGGER.error(e.getLocalizedMessage());
+        }
+        return new ArrayList<>();
     }
 }

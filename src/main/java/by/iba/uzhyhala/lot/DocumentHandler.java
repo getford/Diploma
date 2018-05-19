@@ -264,7 +264,7 @@ public class DocumentHandler extends HttpServlet {
 
     public void generateExcelDocLots(String query, String extension) {
         List<Map<String, String>> dateList = new ArrayList<>();
-        List<LotEntity> lotEntityList = new LotHandler().getLots(query);
+        List<LotEntity> lotEntityList = getLots(query);
 
         List<String> columnList = new ArrayList<>();
         columnList.add("uuid");

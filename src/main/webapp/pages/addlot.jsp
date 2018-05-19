@@ -1,6 +1,9 @@
+<%@ page import="by.iba.uzhyhala.entity.CategoryEntity" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="java.util.List" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getCategories" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -105,7 +108,18 @@
         </span>
         <br/>
         <span class="input input--isao">
-					<input class="input__field input__field--isao" type="text" id="input-8" name="cat"/>
+					<%--<input class="input__field input__field--isao" type="text" id="input-8" name="cat"/>--%>
+            <select class="form-control" id="input-8" name="id_category" title="">
+                            <option value="" disabled selected>Выберите категорию</option>
+                            <%
+                                List<CategoryEntity> categoryEntityList = getCategories();
+                                for (CategoryEntity category : categoryEntityList) {
+                                    int id = category.getId();
+                                    String name = category.getCategoryName();
+                            %>
+                            <option value="<%=id%>"><%=name%></option>
+                <%}%>
+            </select>
 					<label class="input__label input__label--isao" for="input-8">
 						<span class="input__label-content input__label-content--isao">Категория</span>
 					</label>

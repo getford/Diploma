@@ -8,6 +8,7 @@
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.ENTITY_LOT" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -43,7 +44,7 @@
 
             personalInformationEntityList = profile.getUserPersonalInformation();
             addressEntityList = profile.getUserAddress();
-            userLotList = lotHandler.getUserLot();
+            userLotList = lotHandler.getLots("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = :uuid");
         }
         assert personalInformationEntityList != null;
     %>

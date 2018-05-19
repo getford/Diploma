@@ -57,7 +57,5 @@ public class LotHandlerTest {
     public void test() {
         LotHandler lotHandler = new LotHandler("qwe");
         lotHandler.doPost(mockHttpServletRequest, mockHttpServletResponse);
-        lotHandler.getUserLot();
-
     }
 }
