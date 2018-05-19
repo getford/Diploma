@@ -193,7 +193,8 @@ public class DocumentHandler extends HttpServlet {
                         "<br/>Пароль для открытия файла: <b>" + documentPasscode + "</b>" +
                         "<br/><br/>С уважением";
 
-                // TODO: send document
+
+                // TODO: mailUtil.sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(uuidLot)), body, subject + uuidLot);
                 mailUtil.sendSimpleHtmlMail("", body, subject + uuidLot);
             } else {
                 LOGGER.info("Send document not required");
@@ -233,12 +234,12 @@ public class DocumentHandler extends HttpServlet {
                     createExcelFile(dateList, columnList, BET_HISTORY),
                     fileName, extension));
 
-            // TODO: send document
             String body = "<br/>" + timeNow +
                     "<br/>Добрый день, найдите прикрепленные файлы в письме." +
                     "<br/>Адрес лота: <b>" + urlLot + "</b>" +
                     "<br/><br/>С уважением";
 
+            // TODO: mailUtil.sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(uuidLot)), body, subject + uuidLot);
             mailUtil.sendSimpleHtmlMail("", body, subject + uuidLot);
         } else {
             try {
@@ -312,8 +313,7 @@ public class DocumentHandler extends HttpServlet {
                 "<br/>Добрый день, найдите прикрепленные файлы в письме." +
                 "<br/><br/>С уважением";
 
-        // TODO: send document
-        mailUtil.sendSimpleHtmlMail("", body, "Корреспоненция по всем лотам");
+        mailUtil.sendSimpleHtmlMail(EMAIL_SUPPORT, body, "Корреспоненция по всем лотам");
     }
 
     public String getPdfBetEncode() {

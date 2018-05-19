@@ -2,7 +2,6 @@ package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.PersonalInformationEntity;
-import by.iba.uzhyhala.util.CommonUtil;
 import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
@@ -12,31 +11,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static by.iba.uzhyhala.util.CommonUtil.getUUIDUserByLoginEmail;
+import static by.iba.uzhyhala.util.CommonUtil.loginOrEmail;
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_ADDRESS;
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_PERSONAL_INFORMATION;
 
 public class Profile {
     private static final Logger LOGGER = Logger.getLogger(Profile.class);
 
-    private String uuidUser;
-
-    public Profile(String loginOrEmail) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            LOGGER.debug(" constructor");
-            this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(loginOrEmail, CommonUtil.loginOrEmail(loginOrEmail));
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
-        }
+    Profile() {
     }
 
-    public List<PersonalInformationEntity> getUserPersonalInformation() {
+    public static List<PersonalInformationEntity> getUserPersonalInformation(String loginOrEmail) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" getUserPersonalInformation mathod");
             return session
                     .createQuery("SELECT p FROM " + ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid")
-                    .setParameter("uuid", uuidUser).list();
+                    .setParameter("uuid", getUUIDUserByLoginEmail(loginOrEmail, loginOrEmail(loginOrEmail))).list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -44,21 +36,17 @@ public class Profile {
         return new ArrayList<>();
     }
 
-    public List<AddressEntity> getUserAddress() {
+    public static List<AddressEntity> getUserAddress(String loginOrEmail) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug("getUserAddress method");
             return session
                     .createQuery("SELECT p FROM " + ENTITY_ADDRESS + " p WHERE uuid_user = :uuid")
-                    .setParameter("uuid", uuidUser).list();
+                    .setParameter("uuid", getUUIDUserByLoginEmail(loginOrEmail, loginOrEmail(loginOrEmail))).list();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
         }
         return new ArrayList<>();
-    }
-
-    public String getUuidUser() {
-        return uuidUser;
     }
 }

@@ -41,7 +41,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                         break;
                 }
             } else
-                resp.getWriter().write("{\"exception\":\"API key isnt correct\"}");
+                resp.getWriter().write("{\"exception\":\"API key isn't correct\"}");
         } catch (Exception ex) {
             try {
                 resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");
@@ -63,7 +63,8 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                 "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
                 "\"type\": \"" + PDF + "\",\n" +
                 "\"passcode\":\"" + documentHandler.getDocumentPasscode() + "\"," +
-                "\"document\":\"" + documentHandler.getPdfBetEncode() + "\"}";
+                "\"document\":\"" + documentHandler.getPdfBetEncode() +
+                "\"}";
     }
 
     private String documentExcel(HttpServletRequest req, HttpServletResponse resp) {
@@ -74,7 +75,8 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                 "\"status\": " + resp.getStatus() + ",\n" +
                 "\"url\":\"" + documentHandler.getLotUrl() + "\"," +
                 "\"type\": \"" + EXCEL + "\"," +
-                "\"document\":\"" + documentHandler.getExcelBetEncode() + "\"}";
+                "\"document\":\"" + documentHandler.getExcelBetEncode() +
+                "\"}";
     }
 
     private String documentPdfAndExcel(HttpServletRequest req, HttpServletResponse resp) {
@@ -89,6 +91,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
                 "\"passcode_" + PDF + "\":\"" + documentHandler.getDocumentPasscode() + "\"," +
                 "\"document_" + PDF + "\":\"" + documentHandler.getPdfBetEncode() + "\"," +
                 "\"type_" + EXCEL + "\": \"" + EXCEL + "\"," +
-                "\"document_" + EXCEL + "\":\"" + documentHandler.getExcelBetEncode() + "\"}";
+                "\"document_" + EXCEL + "\":\"" + documentHandler.getExcelBetEncode() +
+                "\"}";
     }
 }

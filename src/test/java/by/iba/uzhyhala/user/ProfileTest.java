@@ -11,13 +11,14 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.junit.Assert.assertNotNull;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class ProfileTest {
+
+    private static final String UUID_USER = "ca169d27-0a1c-41ca-aa2c-49a40a58149c";
 
     @Mock
     private SessionFactory sessionFactory;
@@ -41,9 +42,7 @@ public class ProfileTest {
 
     @Test
     public void test() {
-        Profile profile = new Profile("qwe");
-        profile.getUserPersonalInformation();
-        profile.getUserAddress();
-        assertNotNull(profile.getUuidUser());
+        new Profile().getUserPersonalInformation(UUID_USER);
+        new Profile().getUserAddress(UUID_USER);
     }
 }

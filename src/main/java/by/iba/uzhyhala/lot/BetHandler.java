@@ -32,10 +32,6 @@ public class BetHandler extends HttpServlet implements Serializable {
     private String uuidLot;
     private String uuidUser;
 
-    public BetHandler() {
-
-    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {

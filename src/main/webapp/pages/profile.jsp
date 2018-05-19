@@ -1,14 +1,13 @@
 <%@ page import="by.iba.uzhyhala.entity.AddressEntity" %>
 <%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.entity.PersonalInformationEntity" %>
-<%@ page import="by.iba.uzhyhala.lot.LotHandler" %>
-<%@ page import="by.iba.uzhyhala.user.Profile" %>
-<%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.ENTITY_LOT" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.*" %>
+<%@ page import="static by.iba.uzhyhala.user.Profile.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -29,22 +28,18 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%
-        Profile profile = null;
-        LotHandler lotHandler;
 
         List<PersonalInformationEntity> personalInformationEntityList = null;
         List<AddressEntity> addressEntityList = null;
         List<LotEntity> userLotList = null;
         String userLogin = CookieUtil.getUserLoginFromCookie(request);
+        String uuidUser = getUUIDUserByLoginEmail(request.getParameter("user").toLowerCase(), loginOrEmail(request.getParameter("user").toLowerCase()));
         if (StringUtils.isBlank(userLogin))
             response.sendRedirect("/pages/auth.jsp");
         else {
-            profile = new Profile(request.getParameter("user").toLowerCase());
-            lotHandler = new LotHandler(request.getParameter("user").toLowerCase());
-
-            personalInformationEntityList = profile.getUserPersonalInformation();
-            addressEntityList = profile.getUserAddress();
-            userLotList = lotHandler.getLots("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = :uuid");
+            personalInformationEntityList = getUserPersonalInformation(userLogin);
+            addressEntityList = getUserAddress(userLogin);
+            userLotList = getLots("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = :uuid");
         }
         assert personalInformationEntityList != null;
     %>
@@ -53,8 +48,7 @@
 <header>
 
     <div class="wrapper">
-        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1> <%--<img src="/resources/images/index/logo.png" alt=""
-                                                      title="Auction Diploma Project"/> --%></a>
+        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1></a>
         <nav>
             <ul>
                 <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a>(<%=userLogin%>)</li>
@@ -88,7 +82,7 @@
                     <thead></thead>
                     <tbody>
                     <tr>
-                        <td><b>Uuid: </b><%=profile.getUuidUser()%>
+                        <td><b>Uuid: </b><%=uuidUser%>
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +95,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><b>Рейтинг: </b><%=CommonUtil.getRate(profile.getUuidUser(), VariablesUtil.USER)%>
+                        <td><b>Рейтинг: </b><%=getRate(uuidUser, VariablesUtil.USER)%>
                         </td>
                     </tr>
                     </tbody>
@@ -145,14 +139,14 @@
     <hr/>
     <form action="/changerate" method="post">
         <input type="hidden" name="login_or_email" value="<%=userLogin%>">
-        <input type="hidden" name="uuid_" value="<%=profile.getUuidUser()%>">
+        <input type="hidden" name="uuid_" value="<%=uuidUser%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
         <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_up</i></button>
     </form>
     <form action="/changerate" method="post">
         <input type="hidden" name="login_or_email" value="<%=userLogin%>">
-        <input type="hidden" name="uuid_" value="<%=profile.getUuidUser()%>">
+        <input type="hidden" name="uuid_" value="<%=uuidUser%>">
         <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
         <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i></button>
@@ -194,8 +188,8 @@
                                     String id = lot.getUuid();
                                     String name = lot.getName();
                                     String information = lot.getInformation();
-                                    String status = CommonUtil.translateLotStatus(lot.getStatus());
-                                    String category = CommonUtil.getCategoryById(lot.getIdCategory());
+                                    String status = translateLotStatus(lot.getStatus());
+                                    String category = getCategoryById(lot.getIdCategory());
                                     String cost = lot.getCost();
                                     String blitzCost = lot.getBlitzCost();
                                     String stepCost = userLotList.get(0).getStepCost();

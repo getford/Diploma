@@ -37,7 +37,7 @@ public class LotStatus extends HttpServlet {
         LOGGER.info("isChangeStatus: " + isChangeStatus);
     }
 
-    public boolean isUpdateLotStatus(String status, String uuidLot, HttpServletRequest request) {
+    boolean isUpdateLotStatus(String status, String uuidLot, HttpServletRequest request) {
         LOGGER.info("isUpdateLotStatus method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             BetBulkTO betBulkTO = new Gson().fromJson(getJsonBetBulk(uuidLot), BetBulkTO.class);
