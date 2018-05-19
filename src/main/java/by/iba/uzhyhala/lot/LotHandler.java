@@ -19,6 +19,7 @@ import java.util.*;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 @WebServlet(urlPatterns = "/lothandler")
 public class LotHandler extends HttpServlet implements Serializable {
@@ -36,7 +37,7 @@ public class LotHandler extends HttpServlet implements Serializable {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" constructor");
-            this.uuidUser = getUUIDUserByLoginEmail(session, loginOrEmail, loginOrEmail(loginOrEmail));
+            this.uuidUser = getUUIDUserByLoginEmail(loginOrEmail, loginOrEmail(loginOrEmail));
         } catch (Exception e) {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
             LOGGER.error(e.getLocalizedMessage());
@@ -50,13 +51,13 @@ public class LotHandler extends HttpServlet implements Serializable {
             this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             boolean isLotAdd = addLot(
                     uuidUser,
-                    req.getParameter("name_lot"),
-                    req.getParameter("info_lot"),
-                    req.getParameter("cost"),
-                    req.getParameter("blitz"),
-                    req.getParameter("step"),
-                    req.getParameter("date_start"),
-                    timeStart,
+                    req.getParameter("name_lot").trim(),
+                    req.getParameter("info_lot").trim(),
+                    req.getParameter("cost").trim(),
+                    req.getParameter("blitz").trim(),
+                    req.getParameter("step").trim(),
+                    req.getParameter("date_start").trim(),
+                    timeStart.trim(),
                     1);
             if (isLotAdd)
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
@@ -92,7 +93,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setTimeStart(timeStart + ":00");
             lotEntity.setTimeEnd(getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
-            if (String.valueOf(dateNow).equals(lotEntity.getDateStart()))
+            if (valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(STATUS_LOT_ACTIVE);
             else
                 lotEntity.setStatus(STATUS_LOT_WAIT);
@@ -115,21 +116,21 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     private String prepareBetBulk(String uuidUser, String uuidLot, String status, String cost, String blitz, String step) {
         return "{\n" +
-                "  \"uuid_lot\": \"" + uuidLot + NEW_LINE +
-                "  \"uuid_seller\": \"" + uuidUser + NEW_LINE +
+                "  \"uuid_lot\": \"" + uuidLot.trim() + NEW_LINE +
+                "  \"uuid_seller\": \"" + uuidUser.trim() + NEW_LINE +
                 "  \"uuid_client\": \"\",\n" +
-                "  \"status\": \"" + status + NEW_LINE +
-                "  \"blitz_cost\": \"" + Integer.parseInt(blitz) + NEW_LINE +
-                "  \"step\": \"" + Integer.parseInt(step) + NEW_LINE +
+                "  \"status\": \"" + status.trim() + NEW_LINE +
+                "  \"blitz_cost\": \"" + Integer.parseInt(blitz.trim()) + NEW_LINE +
+                "  \"step\": \"" + Integer.parseInt(step.trim()) + NEW_LINE +
                 "  \"bets\": [\n" +
                 "    {\n" +
-                "      \"uuid_user\": \"" + uuidUser + NEW_LINE +
+                "      \"uuid_user\": \"" + uuidUser.trim() + NEW_LINE +
                 "      \"uuid_bet\": \"" + UUID.randomUUID().toString() + NEW_LINE +
                 "      \"bet\": 0,\n" +
-                "      \"old_cost\": " + Integer.parseInt(cost) + ",\n" +
-                "      \"new_cost\": " + Integer.parseInt(cost) + ",\n" +
-                "      \"date\": \"" + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()) + NEW_LINE +
-                "      \"time\": \"" + new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime()) + "\"\n" +
+                "      \"old_cost\": " + Integer.parseInt(cost.trim()) + ",\n" +
+                "      \"new_cost\": " + Integer.parseInt(cost.trim()) + ",\n" +
+                "      \"date\": \"" + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()).trim() + NEW_LINE +
+                "      \"time\": \"" + new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime()).trim() + "\"\n" +
                 "    }\n" +
                 "  ]\n" +
                 "}";

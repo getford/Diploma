@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static by.iba.uzhyhala.util.VariablesUtil.REGEXP_EMAIL;
+import static java.lang.System.lineSeparator;
+import static java.util.stream.Collectors.joining;
 
 
 @WebServlet(urlPatterns = "/api/user/reg")
@@ -32,7 +33,7 @@ public class RegistrationAPI extends HttpServlet {
 
         String responseMessage = "";
         try {
-            UserRegTOAPI userRegTOAPI = new Gson().fromJson(req.getReader().lines().collect(Collectors.joining(System.lineSeparator())), UserRegTOAPI.class);
+            UserRegTOAPI userRegTOAPI = new Gson().fromJson(req.getReader().lines().collect(joining(lineSeparator())), UserRegTOAPI.class);
             LOGGER.info("userRegTOAPI: " + userRegTOAPI.toString());
             if (validateRequest(userRegTOAPI)) {
                 if (Pattern.compile(REGEXP_EMAIL,

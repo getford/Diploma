@@ -13,6 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 public class CookieUtil {
     private static final Logger LOGGER = Logger.getLogger(CookieUtil.class);
@@ -63,7 +64,7 @@ public class CookieUtil {
             Jws<Claims> jws = Jwts.parser()
                     .setSigningKey(COOKIE_KEY.getBytes("UTF-8"))
                     .parseClaimsJws(token);
-            return String.valueOf(jws.getBody().get("uuid"));
+            return valueOf(jws.getBody().get("uuid"));
         } else {
             LOGGER.info("Cookie with name " + COOKIE_AUTH_NAME + " not found");
             return null;
@@ -74,7 +75,7 @@ public class CookieUtil {
         Jws<Claims> jws = Jwts.parser()
                 .setSigningKey(COOKIE_KEY.getBytes("UTF-8"))
                 .parseClaimsJws(token);
-        return String.valueOf(jws.getBody().get("role"));
+        return valueOf(jws.getBody().get("role"));
     }
 
     public boolean isFindCookie() {

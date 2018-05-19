@@ -32,8 +32,8 @@ public class Registration extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             PrintWriter printWriter = resp.getWriter();
-            String email = req.getParameter("email");
-            String login = req.getParameter("login");
+            String email = req.getParameter(EMAIL);
+            String login = req.getParameter(LOGIN);
             if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
                 if (doRegistration(login, req.getParameter("password"), email)) {
                     URL url = new URL(req.getRequestURL().toString());
@@ -101,8 +101,8 @@ public class Registration extends HttpServlet {
     private boolean isLoginAndEmailEmpty(Session session, String login, String email) {
         return session.createQuery("SELECT a.login, a.email FROM " +
                 ENTITY_AUTH_INFO + " a WHERE login = :login AND email = :email")
-                .setParameter("login", login)
-                .setParameter("email", email)
+                .setParameter(LOGIN, login)
+                .setParameter(EMAIL, email)
                 .list()
                 .isEmpty();
     }

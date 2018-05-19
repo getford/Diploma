@@ -24,7 +24,7 @@ public class Profile {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" constructor");
-            this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(session, loginOrEmail, CommonUtil.loginOrEmail(loginOrEmail));
+            this.uuidUser = CommonUtil.getUUIDUserByLoginEmail(loginOrEmail, CommonUtil.loginOrEmail(loginOrEmail));
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
         }
@@ -33,7 +33,7 @@ public class Profile {
     public List<PersonalInformationEntity> getUserPersonalInformation() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            LOGGER.debug(" getUserPersonalInformation");
+            LOGGER.debug(" getUserPersonalInformation mathod");
             return session
                     .createQuery("SELECT p FROM " + ENTITY_PERSONAL_INFORMATION + " p WHERE uuid_user = :uuid")
                     .setParameter("uuid", uuidUser).list();
@@ -47,7 +47,7 @@ public class Profile {
     public List<AddressEntity> getUserAddress() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            LOGGER.debug(" getUserPersonalInformation");
+            LOGGER.debug("getUserAddress method");
             return session
                     .createQuery("SELECT p FROM " + ENTITY_ADDRESS + " p WHERE uuid_user = :uuid")
                     .setParameter("uuid", uuidUser).list();

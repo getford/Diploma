@@ -20,6 +20,10 @@ public final class VariablesUtil {
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_USER = "user";
 
+    // type login or email
+    public static final String EMAIL = "email";
+    public static final String LOGIN = "login";
+
     // Lot status
     public static final String STATUS_LOT_ACTIVE = "active";
     public static final String STATUS_LOT_SALES = "sales";

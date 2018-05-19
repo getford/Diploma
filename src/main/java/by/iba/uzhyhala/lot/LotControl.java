@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 
 @WebServlet(urlPatterns = "/lotcontrol")
@@ -44,7 +45,7 @@ public class LotControl extends HttpServlet {
 
     public String returnEndTime() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String timeEnd = String.valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));
+            String timeEnd = valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));
 
             DateFormat dateFormat = new SimpleDateFormat(PATTERN_TIME);
             Date reference = dateFormat.parse(ZERO_TIME);
@@ -53,7 +54,7 @@ public class LotControl extends HttpServlet {
             long secondsEnd = (date.getTime() - reference.getTime()) / 1000L;
 
             reference = dateFormat.parse(ZERO_TIME);
-            date = dateFormat.parse(String.valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())));
+            date = dateFormat.parse(valueOf(new SimpleDateFormat(PATTERN_TIME_WITH_MILLISECONDS).format(new Date().getTime())));
             LOGGER.debug("TIME NOW: " + date);
             long secondsNow = (date.getTime() - reference.getTime()) / 1000L;
 
@@ -63,9 +64,9 @@ public class LotControl extends HttpServlet {
                 return STATUS_LOT_CLOSE;
             else {
                 LocalTime timeOfDay = LocalTime.ofSecondOfDay(diff);
-                String time = String.valueOf(timeOfDay);
+                String time = valueOf(timeOfDay);
                 LOGGER.debug("DIFF TIME: " + time);
-                return String.valueOf(diff);
+                return valueOf(diff);
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));

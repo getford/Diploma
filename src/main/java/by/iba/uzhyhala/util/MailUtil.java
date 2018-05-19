@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 public class MailUtil {
     private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
@@ -45,7 +46,7 @@ public class MailUtil {
 
                 for (Map.Entry<String, File> entry : attachments.entrySet()) {
                     MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-                    attachmentBodyPart.attachFile(new File(String.valueOf(entry.getValue())));
+                    attachmentBodyPart.attachFile(new File(valueOf(entry.getValue())));
                     multipart.addBodyPart(attachmentBodyPart);
                 }
 

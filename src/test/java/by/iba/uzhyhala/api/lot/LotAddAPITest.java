@@ -24,7 +24,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class LotAddAPITest {
-    private static final String REQUEST_BODY = "{\n" +
+    private static String REQUEST_BODY = "{\n" +
             "  \"uuid_user_seller\": \"87ff415e-b8ea-481b-964d-c23815e97cb5\",\n" +
             "  \"name\": \"Lot name\",\n" +
             "  \"information\": \"info lot\",\n" +
@@ -60,14 +60,36 @@ public class LotAddAPITest {
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-
-        when(mockHttpServletRequest.getReader()).thenReturn(new BufferedReader(new StringReader(REQUEST_BODY)));
-        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME)).thenReturn(TEST_API_KEY_NAME);
-        when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 
     @Test
     public void test() throws IOException {
+        when(mockHttpServletRequest.getReader()).thenReturn(new BufferedReader(new StringReader(REQUEST_BODY)));
+        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME)).thenReturn(TEST_API_KEY_NAME);
+        when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
+        new LotAddAPI().doPost(mockHttpServletRequest, mockHttpServletResponse);
+        new LotAddAPI().doPost(mockHttpServletRequest, mockHttpServletResponse);
+    }
+
+    @Test
+    public void testEmptyName() throws IOException {
+        REQUEST_BODY = "{\n" +
+                "  \"uuid_user_seller\": \"\",\n" +
+                "  \"name\": \"\",\n" +
+                "  \"information\": \"\",\n" +
+                "  \"cost\": \"\",\n" +
+                "  \"blitz_cost\": \"\",\n" +
+                "  \"step_cost\": \"\",\n" +
+                "  \"date_start\": \"\",\n" +
+                "  \"time_start\": \"\",\n" +
+                "  \"id_category\": \n" +
+                "}";
+        when(mockHttpServletRequest.getReader()).thenReturn(new BufferedReader(new StringReader(REQUEST_BODY)));
+        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME)).thenReturn(TEST_API_KEY_NAME);
+        when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
+        new LotAddAPI().doPost(mockHttpServletRequest, mockHttpServletResponse);
+
+        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME)).thenReturn("");
         new LotAddAPI().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

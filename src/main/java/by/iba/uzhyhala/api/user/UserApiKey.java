@@ -11,13 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
 
 import static by.iba.uzhyhala.util.CommonUtil.getUserLoginByUUID;
 import static by.iba.uzhyhala.util.CommonUtil.isUserHaveApiKey;
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_AUTH_INFO;
+import static java.lang.String.valueOf;
 
 @WebServlet("/getapikey")
 public class UserApiKey extends HttpServlet {
@@ -26,7 +26,7 @@ public class UserApiKey extends HttpServlet {
 
     @SuppressFBWarnings({"XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER", "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"})
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         String responseMessage;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -35,10 +35,8 @@ public class UserApiKey extends HttpServlet {
             resp.setCharacterEncoding("UTF-8");
 
             String uuid = req.getParameter("uuid");
-            String key = String.valueOf(UUID.randomUUID()).replaceAll("-", "").toUpperCase();
-            if (StringUtils.isBlank(getUserLoginByUUID(uuid)))
-                resp.getWriter().write("{\"exception\":\"user uuid: " + uuid + " isn't correct\"}");
-            else {
+            String key = valueOf(UUID.randomUUID()).replaceAll("-", "").toUpperCase();
+            if (!StringUtils.isBlank(getUserLoginByUUID(uuid))) {
                 if (!isUserHaveApiKey(uuid)) {
                     session.createQuery("UPDATE " + ENTITY_AUTH_INFO + " SET api_key = :key WHERE uuid = :uuid")
                             .setParameter("key", key)
@@ -49,7 +47,8 @@ public class UserApiKey extends HttpServlet {
                     responseMessage = "{\"exception\":\"user uuid: " + uuid + " already have api_key\"}";
                 }
                 resp.getWriter().write(responseMessage);
-            }
+            } else
+                resp.getWriter().write("{\"exception\":\"user uuid: " + uuid + " isn't correct\"}");
         } catch (Exception ex) {
             try {
                 resp.getWriter().write("{\"exception\":\"" + ex.getLocalizedMessage() + "\"}");

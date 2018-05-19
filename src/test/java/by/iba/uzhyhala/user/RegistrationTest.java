@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import static by.iba.uzhyhala.util.VariablesUtil.EMAIL;
+import static by.iba.uzhyhala.util.VariablesUtil.LOGIN;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -50,9 +52,9 @@ public class RegistrationTest {
         sessionFactory = configuration.buildSessionFactory();
 
         when(mockHttpServletRequest.getParameter("g-recaptcha-response")).thenReturn("true");
-        when(mockHttpServletRequest.getParameter("login")).thenReturn("qqqq");
+        when(mockHttpServletRequest.getParameter(LOGIN)).thenReturn("qqqq");
         when(mockHttpServletRequest.getParameter("password")).thenReturn("qqqq");
-        when(mockHttpServletRequest.getParameter("email")).thenReturn("qqqq@qqqq.qq");
+        when(mockHttpServletRequest.getParameter(EMAIL)).thenReturn("qqqq@qqqq.qq");
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }
 

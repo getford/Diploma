@@ -19,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 @WebServlet(urlPatterns = "/auth")
 public class Authorization extends HttpServlet {
@@ -37,7 +38,7 @@ public class Authorization extends HttpServlet {
             type = CommonUtil.loginOrEmail(loginOrEmail).toLowerCase();
             if (isPasswordValid(loginOrEmail, req.getParameter("password"))) {
                 Object[] obj = getUserUuidAndRole(loginOrEmail.toLowerCase());
-                setAuthCookie(((Object[]) obj[0])[0].toString(), String.valueOf(((Object[]) obj[0])[1]), resp);
+                setAuthCookie(((Object[]) obj[0])[0].toString(), valueOf(((Object[]) obj[0])[1]), resp);
                 resp.sendRedirect(REDIRECT_INDEX_PAGE);
             } else {
                 resp.sendRedirect(REDIRECT_AUTH_PAGE);

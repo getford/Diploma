@@ -11,12 +11,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import static by.iba.uzhyhala.util.CommonUtil.isApiKeyValid;
 import static by.iba.uzhyhala.util.VariablesUtil.PARAMETER_API_KEY_NAME;
+import static java.lang.System.lineSeparator;
+import static java.util.stream.Collectors.joining;
 
 @WebServlet(urlPatterns = "/api/lot/add")
 public class LotAddAPI extends HttpServlet {
@@ -24,7 +24,7 @@ public class LotAddAPI extends HttpServlet {
     private static final long serialVersionUID = 7419178022015023781L;
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.info("doPost Method");
         LotHandler lotHandler = new LotHandler();
         String responseMessage = "";
@@ -32,7 +32,7 @@ public class LotAddAPI extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         try {
-            body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+            body = req.getReader().lines().collect(joining(lineSeparator()));
             LOGGER.debug(body);
             LotTOAPI lotTOAPI = handleResponse(body);
 
@@ -71,14 +71,14 @@ public class LotAddAPI extends HttpServlet {
 
     private boolean validateRequest(LotTOAPI to) {
         LOGGER.info("validateRequest Method");
-        return !StringUtils.isBlank(to.getUuidUserSeller()) &&
-                !StringUtils.isBlank(to.getName()) &&
-                !StringUtils.isBlank(to.getInformation()) &&
-                !StringUtils.isBlank(to.getCost()) &&
-                !StringUtils.isBlank(to.getBlitzCost()) &&
-                !StringUtils.isBlank(to.getStepCost()) &&
-                !StringUtils.isBlank(to.getDateStart()) &&
-                !StringUtils.isBlank(to.getTimeStart()) &&
+        return !StringUtils.isBlank(to.getUuidUserSeller().trim()) &&
+                !StringUtils.isBlank(to.getName().trim()) &&
+                !StringUtils.isBlank(to.getInformation().trim()) &&
+                !StringUtils.isBlank(to.getCost().trim()) &&
+                !StringUtils.isBlank(to.getBlitzCost().trim()) &&
+                !StringUtils.isBlank(to.getStepCost().trim()) &&
+                !StringUtils.isBlank(to.getDateStart().trim()) &&
+                !StringUtils.isBlank(to.getTimeStart().trim()) &&
                 to.getIdCategory() != null;
     }
 

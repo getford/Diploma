@@ -3,13 +3,16 @@ package by.iba.uzhyhala.api.to;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import static by.iba.uzhyhala.util.VariablesUtil.EMAIL;
+import static by.iba.uzhyhala.util.VariablesUtil.LOGIN;
+
 public class UserRegTOAPI {
 
-    @SerializedName("login")
+    @SerializedName(LOGIN)
     @Expose
     private String login;
 
-    @SerializedName("email")
+    @SerializedName(EMAIL)
     @Expose
     private String email;
 

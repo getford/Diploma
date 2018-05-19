@@ -21,6 +21,7 @@ import java.util.*;
 import static by.iba.uzhyhala.util.CommonUtil.getJsonBetBulk;
 import static by.iba.uzhyhala.util.CommonUtil.getLotDateEnd;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 
 @WebServlet(urlPatterns = "/bethandler")
@@ -40,7 +41,7 @@ public class BetHandler extends HttpServlet implements Serializable {
         try {
             this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             this.uuidLot = req.getParameter("uuid_lot");
-            String timeNow = String.valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date().getTime()));
+            String timeNow = valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date().getTime()));
             doBet(prepareDoBet(Integer.parseInt(req.getParameter("cost")), timeNow, req), timeNow);
 
             resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidLot);
@@ -61,7 +62,7 @@ public class BetHandler extends HttpServlet implements Serializable {
             if (bet < betBulkTO.getBlitzCost()) {
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
-                betTO.setDate(String.valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));
+                betTO.setDate(valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));
                 betTO.setOldCost(betBulkTO.getBets().get(size).getNewCost());
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);
@@ -76,7 +77,7 @@ public class BetHandler extends HttpServlet implements Serializable {
 
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
-                betTO.setDate(String.valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));
+                betTO.setDate(valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));
                 betTO.setOldCost(betBulkTO.getBets().get(size).getNewCost());
                 betTO.setNewCost(betBulkTO.getBets().get(size).getNewCost() + bet);
                 betTO.setUuidUser(uuidUser);

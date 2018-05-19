@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import static by.iba.uzhyhala.util.CommonUtil.getHistoryBets;
-import static by.iba.uzhyhala.util.CommonUtil.isApiKeyValid;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
@@ -42,9 +40,6 @@ public class LotBetHistoryDocumentAPITest {
 
     @Test
     public void test() throws IOException {
-        getHistoryBets(UUID_LOT);
-        isApiKeyValid(TEST_API_KEY_NAME);
-
         when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME))
                 .thenReturn(TEST_API_KEY_NAME);
 
@@ -55,6 +50,14 @@ public class LotBetHistoryDocumentAPITest {
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
 
         when(mockHttpServletRequest.getParameter("type")).thenReturn("");
+        new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
+    }
+
+    @Test
+    public void testCatchBlock() throws IOException {
+
+        when(mockHttpServletRequest.getParameter(PARAMETER_API_KEY_NAME))
+                .thenReturn("");
         new LotBetHistoryDocumentAPI().doGet(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 @WebServlet(urlPatterns = "/status")
 public class LotStatus extends HttpServlet {
@@ -61,7 +62,7 @@ public class LotStatus extends HttpServlet {
                     .setParameter("uuid", uuidLot)
                     .executeUpdate();
 
-            URL url = new URL(String.valueOf(request.getRequestURL()));
+            URL url = new URL(valueOf(request.getRequestURL()));
             String subject = "Статус лота был успешно изменен";
             String body = "<br/> " + new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                     "<p>Здравствуйте,</p>" +

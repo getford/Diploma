@@ -24,6 +24,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 public class CommonUtil {
     private static final Logger LOGGER = Logger.getLogger(CommonUtil.class);
@@ -31,21 +32,36 @@ public class CommonUtil {
     public static String loginOrEmail(String loginOrEmail) {
         LOGGER.info("loginOrEmail method");
         return Pattern.compile(REGEXP_EMAIL,
-                Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? "email" : "login";
+                Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? EMAIL : LOGIN;
     }
 
-    public static String getUUIDUserByLoginEmail(Session session, String loginOrEmail, String type) {
+    public static String getUUIDUserByLoginEmail(String loginOrEmail, String type) {
         LOGGER.info("getUUIDUserByLoginEmail method");
-        return session.createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO
-                + " a WHERE " + type + " = :cred").setParameter("cred", loginOrEmail).list().get(0).toString();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            return session
+                    .createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred")
+                    .setParameter("cred", loginOrEmail)
+                    .list()
+                    .get(0)
+                    .toString();
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return null;
+        }
     }
 
     public static String getUserLoginByUUID(String uuid) {
         LOGGER.info("getUserLoginByUUID method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT a.login FROM " + ENTITY_AUTH_INFO
-                    + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
+            return session
+                    .createQuery("SELECT a.login FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+                    .setParameter("uuid", uuid)
+                    .list()
+                    .get(0)
+                    .toString();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getUserLoginByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -57,8 +73,11 @@ public class CommonUtil {
         LOGGER.info("getUserEmailByUUID method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT a.email FROM " + ENTITY_AUTH_INFO
-                    + " a WHERE uuid = :uuid").setParameter("uuid", uuid).list().get(0).toString();
+            return session.createQuery("SELECT a.email FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
+                    .setParameter("uuid", uuid)
+                    .list()
+                    .get(0)
+                    .toString();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getUserEmailByUUID\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -68,7 +87,6 @@ public class CommonUtil {
 
     public static String getUUIDUserByUUIDLot(String uuidLot) {
         LOGGER.info("getUUIDUserByUUIDLot method");
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
@@ -85,18 +103,17 @@ public class CommonUtil {
 
     public static String getUserFirstLastNameByUUID(Session session, String uuid) {
         LOGGER.info("getUserFirstLastNameByUUID method");
-
         Object[] object = session
                 .createSQLQuery("SELECT first_name, last_name FROM personal_information WHERE uuid_user = '" + uuid + "'")
-                .list().toArray();
-        String result = String.valueOf(((Object[]) object[0])[0]) + " " + ((Object[]) object[0])[1];
+                .list()
+                .toArray();
+        String result = valueOf(((Object[]) object[0])[0]) + " " + ((Object[]) object[0])[1];
         LOGGER.debug("return: " + result);
         return result;
     }
 
     public static String getCategoryById(int id) {
         LOGGER.info("getCategoryById method");
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT c.category_name FROM " + ENTITY_CATEGORY + " c WHERE id = :id")
@@ -112,7 +129,6 @@ public class CommonUtil {
 
     public static List<AuthInfoEntity> getAllUser() {
         LOGGER.info("getAllUser method");
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT a FROM " + ENTITY_AUTH_INFO + " a").list();
@@ -125,13 +141,13 @@ public class CommonUtil {
 
     public static String getJsonBetBulk(String uuid) {
         LOGGER.info("getJsonBetBulk method");
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return String.valueOf(session.createQuery("SELECT b.bulk FROM " + ENTITY_BET + " b WHERE uuid = :uuid")
+            return valueOf(session.createQuery("SELECT b.bulk FROM " + ENTITY_BET + " b WHERE uuid = :uuid")
                     .setParameter("uuid", uuid)
                     .list()
-                    .get(0));
+                    .get(0)
+            );
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
@@ -141,7 +157,6 @@ public class CommonUtil {
 
     public static List<BetHistoryTO> getHistoryBets(String uuidLot) {
         LOGGER.info("getHistoryBets method");
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
@@ -173,24 +188,22 @@ public class CommonUtil {
 
     public static String getLotDateEnd(String start, String plusSec) {
         LOGGER.info("getLotDateEnd method");
-
         String dateNow = new SimpleDateFormat(PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
-        return String.valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
+        return valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
     }
 
     public static boolean isUserHaveApiKey(String uuid) {
         LOGGER.info("isUserHaveApiKey method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            int length = session
+            return session
                     .createSQLQuery("SELECT api_key FROM auth_info WHERE uuid = :uuid")
                     .setParameter("uuid", uuid)
                     .getResultList()
                     .get(0)
                     .toString()
-                    .length();
-            return length == TEST_API_KEY_NAME.length();
+                    .length() == TEST_API_KEY_NAME.length();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: isUserHaveApiKey\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());
@@ -202,7 +215,6 @@ public class CommonUtil {
         LOGGER.info("isApiKeyValid method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
             return session
                     .createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO + " a WHERE api_key = :key")
                     .setParameter("key", key)
@@ -225,7 +237,7 @@ public class CommonUtil {
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (extension.equals(EXCEL_EXTENSION_XLSX) || extension.equals(EXCEL_EXTENSION_XLS)) {
-                LOGGER.info("prepareFileForAttach\textension: " + extension);
+                LOGGER.info("prepareFileForAttach extension: " + extension);
                 Workbook workbook = (Workbook) o;
                 workbook.write(byteArrayOutputStream);
             }
@@ -252,7 +264,7 @@ public class CommonUtil {
 
         for (int i = 0; i < columnList.size(); i++) {
             Cell cell = rowHeader.createCell(i);
-            cell.setCellValue(String.valueOf(columnList.get(i)));
+            cell.setCellValue(valueOf(columnList.get(i)));
         }
 
         int rowNumber = 1;
@@ -290,19 +302,19 @@ public class CommonUtil {
             session.beginTransaction();
 
             if (LOT.equals(type)) {
-                currentRate = Integer.parseInt(String.valueOf(session
+                currentRate = Integer.parseInt(valueOf(session
                         .createQuery("SELECT a.rate FROM " + ENTITY_LOT + " a WHERE uuid = :uuid")
                         .setParameter("uuid", uuid)
                         .list()
-                        .get(0)));
-
+                        .get(0))
+                );
             } else if (USER.equals(type)) {
-                currentRate = Integer.parseInt(String.valueOf(session
+                currentRate = Integer.parseInt(valueOf(session
                         .createQuery("SELECT a.rate FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
                         .setParameter("uuid", uuid)
                         .list()
-                        .get(0)));
-
+                        .get(0))
+                );
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: getRate\n" + Arrays.toString(ex.getStackTrace()));

@@ -29,21 +29,22 @@ import java.util.List;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.lang.String.valueOf;
 
 @WebServlet(urlPatterns = "/generatehistorybets")
 public class DocumentHandler extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentHandler.class);
+
+    private static final long serialVersionUID = 1016213373588804043L;
     private static final String BET_HISTORY = "Bet history";
     private static final String RESIRECT_URL_PATH = "/pages/lot.jsp?uuid=";
-    private static final long serialVersionUID = 1016213373588804043L;
     private ByteArrayOutputStream byteArrayOutputStreamPDF = new ByteArrayOutputStream();
     private String documentPasscode;
     private String urlLot;
     private String fileName = "File_";
     private byte[] bytesExcel = null;
-    private static String timeNow = String.valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date()));
+    private static String timeNow = valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date()));
     private static String subject = "Корреспонденция по лоту ";
-
 
     @SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
     @Override
@@ -98,7 +99,7 @@ public class DocumentHandler extends HttpServlet {
             URL url = new URL(req.getRequestURL().toString());
 
             urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + RESIRECT_URL_PATH + uuidLot;
-            documentPasscode = String.valueOf(UUID.randomUUID()).substring(0, 8);
+            documentPasscode = valueOf(UUID.randomUUID()).substring(0, 8);
 
             PdfPTable table = new PdfPTable(new float[]{20, 10, 10, 10});
             table.setTotalWidth(PageSize.A4.getWidth() - 10);
@@ -118,15 +119,14 @@ public class DocumentHandler extends HttpServlet {
 
             List<BetHistoryTO> list = getHistoryBets(uuidLot);
 
-            assert list != null;
             for (int i = 1; i < list.size(); i++) {
                 table.addCell(list.get(i).getUserName());
-                table.addCell(String.valueOf(list.get(i).getBet()));
+                table.addCell(valueOf(list.get(i).getBet()));
                 table.addCell(list.get(i).getDate());
                 table.addCell(list.get(i).getTime());
             }
 
-            PdfWriter pdfWriter = null;
+            PdfWriter pdfWriter;
 
             // check api call
             if (!StringUtils.isBlank(req.getParameter(PARAMETER_API_KEY_NAME)) && !isSendMail) {
@@ -158,7 +158,7 @@ public class DocumentHandler extends HttpServlet {
 
             document.add(new Paragraph("Auction Diploma"));
             document.add(new Paragraph(BET_HISTORY));
-            document.add(new Paragraph(String.valueOf(new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date()))));
+            document.add(new Paragraph(valueOf(new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date()))));
 
             BarcodeQRCode barcodeQRCode = new BarcodeQRCode(getLotUrl(), 1000, 1000, null);
             Image codeQrImage = barcodeQRCode.getImage();
@@ -218,11 +218,10 @@ public class DocumentHandler extends HttpServlet {
         columnList.add("Date");
         columnList.add("Time");
 
-        assert list != null;
         for (BetHistoryTO betHistoryTO : list) {
             Map<String, String> map = new HashMap<>();
             map.put(columnList.get(0), betHistoryTO.getUserName());
-            map.put(columnList.get(1), String.valueOf(betHistoryTO.getBet()));
+            map.put(columnList.get(1), valueOf(betHistoryTO.getBet()));
             map.put(columnList.get(2), betHistoryTO.getDate());
             map.put(columnList.get(3), betHistoryTO.getTime());
             dateList.add(map);
@@ -249,7 +248,7 @@ public class DocumentHandler extends HttpServlet {
                 new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
                 LOGGER.error(e.getLocalizedMessage());
             }
-            File file = new File(String.valueOf(prepareFileForAttach(
+            File file = new File(valueOf(prepareFileForAttach(
                     createExcelFile(dateList, columnList, BET_HISTORY),
                     fileName, extension)));
 
@@ -299,7 +298,7 @@ public class DocumentHandler extends HttpServlet {
             map.put(columnList.get(10), lotEntity.getDateEnd());
             map.put(columnList.get(11), lotEntity.getTimeStart());
             map.put(columnList.get(12), lotEntity.getTimeEnd());
-            map.put(columnList.get(13), String.valueOf(lotEntity.getIdCategory()));
+            map.put(columnList.get(13), valueOf(lotEntity.getIdCategory()));
             map.put(columnList.get(14), lotEntity.getStatus());
             dateList.add(map);
         }
