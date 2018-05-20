@@ -8,6 +8,9 @@ public class HibernateUtil {
     private static final Logger LOGGER = Logger.getLogger(HibernateUtil.class);
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
+    HibernateUtil() {
+    }
+
     private static SessionFactory buildSessionFactory() {
         try {
             return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();

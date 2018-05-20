@@ -1,2 +1,2 @@
-# Diploma
+# Auction Diploma
 Diploma project

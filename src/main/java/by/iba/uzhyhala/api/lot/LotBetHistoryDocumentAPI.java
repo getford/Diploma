@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.CommonUtil.isApiKeyValid;
@@ -20,7 +19,7 @@ public class LotBetHistoryDocumentAPI extends HttpServlet {
     private static final long serialVersionUID = 2780709724219293504L;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.info("doGet method");
         try {
             resp.setContentType("application/json");

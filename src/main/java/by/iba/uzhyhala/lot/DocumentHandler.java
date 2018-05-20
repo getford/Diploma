@@ -38,13 +38,13 @@ public class DocumentHandler extends HttpServlet {
     private static final long serialVersionUID = 1016213373588804043L;
     private static final String BET_HISTORY = "Bet history";
     private static final String RESIRECT_URL_PATH = "/pages/lot.jsp?uuid=";
+    private static String timeNow = valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date()));
+    private static String subject = "Корреспонденция по лоту ";
     private ByteArrayOutputStream byteArrayOutputStreamPDF = new ByteArrayOutputStream();
     private String documentPasscode;
     private String urlLot;
     private String fileName = "File_";
     private byte[] bytesExcel = null;
-    private static String timeNow = valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date()));
-    private static String subject = "Корреспонденция по лоту ";
 
     @SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
     @Override

@@ -59,7 +59,7 @@ public class RegistrationTest {
     }
 
     @Test
-    public void test() throws Exception {
+    public void test() {
         new Registration().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

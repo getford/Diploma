@@ -1,5 +1,6 @@
 package by.iba.uzhyhala.api.lot;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
 import org.hibernate.Session;
@@ -20,6 +21,7 @@ import static by.iba.uzhyhala.util.VariablesUtil.TEST_API_KEY_NAME;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
+@SuppressFBWarnings({"ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD"})
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class LotAddAPITest {
@@ -55,7 +57,7 @@ public class LotAddAPITest {
     private MockHttpServletResponse mockHttpServletResponse;
 
     @Before
-    public void init() throws Exception {
+    public void init() {
         initMocks(this);
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);

@@ -3,7 +3,9 @@ package by.iba.uzhyhala.lot.to;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
+@SuppressFBWarnings({"URF_UNREAD_FIELD", "URF_UNREAD_FIELD"})
 public class BetTO {
 
     @SerializedName("uuid_user")

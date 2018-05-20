@@ -35,10 +35,6 @@ public class BetBulkTO {
     @Expose
     private List<BetTO> bets = null;
 
-    public void setUuidClient(String uuidClient) {
-        this.uuidClient = uuidClient;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -69,5 +65,9 @@ public class BetBulkTO {
 
     public String getUuidClient() {
         return uuidClient;
+    }
+
+    public void setUuidClient(String uuidClient) {
+        this.uuidClient = uuidClient;
     }
 }

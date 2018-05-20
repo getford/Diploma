@@ -11,6 +11,8 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import static by.iba.uzhyhala.user.Profile.getUserAddress;
+import static by.iba.uzhyhala.user.Profile.getUserPersonalInformation;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -42,7 +44,7 @@ public class ProfileTest {
 
     @Test
     public void test() {
-        new Profile().getUserPersonalInformation(UUID_USER);
-        new Profile().getUserAddress(UUID_USER);
+        getUserPersonalInformation(UUID_USER);
+        getUserAddress(UUID_USER);
     }
 }

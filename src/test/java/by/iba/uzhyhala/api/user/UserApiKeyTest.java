@@ -13,7 +13,6 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -55,7 +54,7 @@ public class UserApiKeyTest {
     }
 
     @Test
-    public void test() throws IOException {
+    public void test() {
         new UserApiKey().doGet(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
@@ -26,7 +25,7 @@ public class RegistrationAPI extends HttpServlet {
     private static final long serialVersionUID = 5498881908205110216L;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.info("doPost Method");
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

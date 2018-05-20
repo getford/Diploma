@@ -70,7 +70,7 @@ public class MailUtil {
     }
 
     public void sendSimpleHtmlMail(String to, String body, String subject) {
-        setupParametersForMessage(EMAIL_SUPPORT, subject, body, EMAIL_CONTENT_TYPE_HTML);
+        setupParametersForMessage(to, subject, body, EMAIL_CONTENT_TYPE_HTML);
     }
 
     public void sendSimplePlainMail(String to, String body, String subject) {

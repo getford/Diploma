@@ -14,7 +14,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
@@ -32,7 +31,7 @@ public class Authorization extends HttpServlet {
     private String type;
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String loginOrEmail = req.getParameter("login_or_email");
             type = CommonUtil.loginOrEmail(loginOrEmail).toLowerCase();
