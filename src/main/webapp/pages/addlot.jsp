@@ -57,7 +57,7 @@
 <br/><br/>
 <section class="recent_work wrapper">
     <h3 class="S_title">Заполните все поля</h3>
-    <form action="/lothandler" method="post">
+    <form action="/lothandler" method="post" enctype="multipart/form-data">
         <span class="input input--isao">
 					<input class="input__field input__field--isao" type="text" id="input-1" name="name_lot"/>
 					<label class="input__label input__label--isao" for="input-1">
@@ -125,6 +125,8 @@
 					</label>
         </span>
         <br/>
+        <hr/>
+        <input type="file" name="upload-img" id="img-upload" placeholder="Images">
         <button type="submit" name="add_lot">Добавить лот</button>
     </form>
 </section>

@@ -24,7 +24,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class BetHandlerTest {
 
-    private static final String UUID_LOT = "5a50702c-8c4e-4eaf-8a97-70d11afdff53";
+    private static final String UUID_LOT = "85d34292-c45a-45da-a05d-d8f285b355b8";
 
     @Mock
     private SessionFactory sessionFactory;

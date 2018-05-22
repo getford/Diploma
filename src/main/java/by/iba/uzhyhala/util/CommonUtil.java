@@ -8,6 +8,7 @@ import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -16,6 +17,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,6 +30,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.io.File.separator;
 import static java.lang.String.valueOf;
 
 public class CommonUtil {
@@ -381,5 +386,32 @@ public class CommonUtil {
             LOGGER.error(e.getLocalizedMessage());
         }
         return new ArrayList<>();
+    }
+
+    private static String separateUploadFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] tokens = contentDisp.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename"))
+                return token.substring(token.indexOf("=") + 2, token.length() - 1);
+        }
+        return "";
+    }
+
+    public static String saveUploadFile(HttpServletRequest req) throws IOException, ServletException {
+        String uploadFilePath = req.getServletContext().getRealPath("") + separator + FOLDER_UPLOAD_IMAGES;
+
+        File fileSaveDir = new File(uploadFilePath);
+        if (!fileSaveDir.exists())
+            fileSaveDir.mkdirs();
+
+        for (Part part : req.getParts()) {
+            String fileName = separateUploadFileName(part);
+            if (!StringUtils.isBlank(fileName)) {
+                part.write(uploadFilePath + separator + fileName);
+                return fileName;
+            }
+        }
+        return "";
     }
 }

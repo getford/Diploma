@@ -73,8 +73,8 @@
     <schema id="16" parent="2" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-05-15.11:53:45.210</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1925</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-23.01:35:49.284</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2391</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -198,7 +198,7 @@
     </table>
     <table id="35" parent="16" name="lot">
       <ObjectId>33226</ObjectId>
-      <StateNumber>1925</StateNumber>
+      <StateNumber>2390</StateNumber>
     </table>
     <table id="36" parent="16" name="personal_information">
       <ObjectId>33189</ObjectId>
@@ -628,28 +628,39 @@
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <index id="103" parent="35" name="lot_id_uindex">
+    <column id="103" parent="35" name="images_name">
+      <Position>20</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>2390</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="104" parent="35" name="lot_id_uindex">
       <ObjectId>33236</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="104" parent="35" name="lot_pkey">
+    <index id="105" parent="35" name="lot_pkey">
       <ObjectId>33234</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="105" parent="35" name="lot_uuid_uindex">
+    <index id="106" parent="35" name="lot_uuid_uindex">
       <ObjectId>33269</ObjectId>
       <ColNames>uuid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="106" parent="35" name="lot_pkey">
+    <index id="107" parent="35" name="lot_images_name_uindex">
+      <ObjectId>74070</ObjectId>
+      <ColNames>images_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="108" parent="35" name="lot_pkey">
       <ObjectId>33235</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>lot_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="107" parent="35" name="lot_auth_info_uuid_fk">
+    <foreign-key id="109" parent="35" name="lot_auth_info_uuid_fk">
       <ObjectId>33478</ObjectId>
       <ColNames>uuid_user_seller</ColNames>
       <RefTableId>24861</RefTableId>
@@ -657,7 +668,7 @@
       <RefTableName>auth_info</RefTableName>
       <RefColNames>uuid</RefColNames>
     </foreign-key>
-    <foreign-key id="108" parent="35" name="lot_category_id_fk">
+    <foreign-key id="110" parent="35" name="lot_category_id_fk">
       <ObjectId>33333</ObjectId>
       <ColNames>id_category</ColNames>
       <RefTableId>24895</RefTableId>
@@ -666,7 +677,7 @@
       <RefKeyName>category_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="109" parent="36" name="id">
+    <column id="111" parent="36" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -675,47 +686,47 @@
       <TypeId>23</TypeId>
       <SequenceName>personal_information_id_seq</SequenceName>
     </column>
-    <column id="110" parent="36" name="uuid_user">
+    <column id="112" parent="36" name="uuid_user">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1217</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="111" parent="36" name="first_name">
+    <column id="113" parent="36" name="first_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1060</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="112" parent="36" name="last_name">
+    <column id="114" parent="36" name="last_name">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1060</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="113" parent="36" name="bday">
+    <column id="115" parent="36" name="bday">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <StateNumber>1060</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="114" parent="36" name="personal_information_pkey">
+    <index id="116" parent="36" name="personal_information_pkey">
       <ObjectId>33196</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="115" parent="36" name="personal_information_uuid_user_uindex">
+    <index id="117" parent="36" name="personal_information_uuid_user_uindex">
       <ObjectId>33452</ObjectId>
       <ColNames>uuid_user</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="116" parent="36" name="personal_information_pkey">
+    <key id="118" parent="36" name="personal_information_pkey">
       <ObjectId>33197</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>personal_information_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="117" parent="36" name="personal_information_auth_info_uuid_fk">
+    <foreign-key id="119" parent="36" name="personal_information_auth_info_uuid_fk">
       <ObjectId>33458</ObjectId>
       <ColNames>uuid_user</ColNames>
       <RefTableId>24861</RefTableId>

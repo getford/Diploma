@@ -47,7 +47,8 @@ public class LotAddAPI extends HttpServlet {
                             lotTOAPI.getStepCost(),
                             lotTOAPI.getDateStart(),
                             lotTOAPI.getTimeStart(),
-                            lotTOAPI.getIdCategory());
+                            lotTOAPI.getIdCategory(),
+                            "");
                     if (isLotAdd)
                         responseMessage = "{\"message\":\"Success\"}";
                     else

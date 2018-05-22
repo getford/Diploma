@@ -8,6 +8,7 @@ import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,9 @@ import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
 @WebServlet(urlPatterns = "/lothandler")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10,    // 3 MB
+        maxFileSize = 1024 * 1024 * 50,        // 10 MB
+        maxRequestSize = 1024 * 1024 * 100)     // 100 MB
 public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final long serialVersionUID = 6295721900470243790L;
@@ -49,7 +53,6 @@ public class LotHandler extends HttpServlet implements Serializable {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        String timeStart = req.getParameter("time_start");
         try {
             this.uuidUser = new CookieUtil(req).getUserUuidFromToken();
             boolean isLotAdd = addLot(
@@ -60,8 +63,9 @@ public class LotHandler extends HttpServlet implements Serializable {
                     req.getParameter("blitz").trim(),
                     req.getParameter("step").trim(),
                     req.getParameter("date_start").trim(),
-                    timeStart.trim(),
-                    Integer.parseInt(req.getParameter("id_category"))
+                    req.getParameter("time_start").trim(),
+                    Integer.parseInt(req.getParameter("id_category")),
+                    saveUploadFile(req).trim()
             );
             if (isLotAdd)
                 resp.sendRedirect("/pages/lot.jsp?uuid=" + uuidAddLot);
@@ -76,8 +80,8 @@ public class LotHandler extends HttpServlet implements Serializable {
     }
 
     public boolean addLot(String uuidUserSeller, String name, String info, String cost, String blitz,
-                          String step, String dateStart, String timeStart, int idCat) throws ParseException {
-        LOGGER.debug(" addLot");
+                          String step, String dateStart, String timeStart, int idCat, String fileName) throws ParseException {
+        LOGGER.debug("addLot");
 
         String dateNow = new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime());
         String dateStartParsed = new SimpleDateFormat(PATTERN_DATE).format(
@@ -98,6 +102,7 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setTimeStart(timeStart + ":00");
             lotEntity.setTimeEnd(getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
+            lotEntity.setImagesName(fileName);
 
             if (valueOf(dateNow).equals(lotEntity.getDateStart()))
                 lotEntity.setStatus(STATUS_LOT_ACTIVE);

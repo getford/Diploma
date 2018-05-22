@@ -111,4 +111,7 @@ public final class VariablesUtil {
     public static final String RATE_MINUS = "minus";
     public static final String LOT = "lot";
     public static final String USER = "user";
+
+    // upload
+    public static final String FOLDER_UPLOAD_IMAGES = "AUCTION DIPLOMA UPLOAD IMAGES";
 }
