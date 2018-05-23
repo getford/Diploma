@@ -8,7 +8,6 @@ import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -30,8 +29,11 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static java.io.File.createTempFile;
 import static java.io.File.separator;
 import static java.lang.String.valueOf;
+import static org.apache.commons.io.FileUtils.readFileToByteArray;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class CommonUtil {
     private static final Logger LOGGER = Logger.getLogger(CommonUtil.class);
@@ -240,7 +242,7 @@ public class CommonUtil {
     public static File prepareFileForAttach(Object o, String fileName, String extension) {
         LOGGER.info("prepareFileForAttach method");
         try {
-            File tempFile = File.createTempFile(fileName, extension);
+            File tempFile = createTempFile(fileName, extension);
 
             LOGGER.info("file name: " + tempFile.getName());
             LOGGER.info("file path: " + tempFile.getAbsolutePath());
@@ -407,11 +409,16 @@ public class CommonUtil {
 
         for (Part part : req.getParts()) {
             String fileName = separateUploadFileName(part);
-            if (!StringUtils.isBlank(fileName)) {
-                part.write(uploadFilePath + separator + fileName);
-                return fileName;
+            if (!isBlank(fileName)) {
+                String path = uploadFilePath + separator + fileName;
+                part.write(path);
+                return Base64.getEncoder().encodeToString(readFileToByteArray(new File(path)));
             }
         }
         return "";
+    }
+
+    public static void prepareImageToShow(String fileName) {
+
     }
 }

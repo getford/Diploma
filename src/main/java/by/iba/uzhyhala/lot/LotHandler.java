@@ -26,9 +26,9 @@ import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
 @WebServlet(urlPatterns = "/lothandler")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10,    // 3 MB
-        maxFileSize = 1024 * 1024 * 50,        // 10 MB
-        maxRequestSize = 1024 * 1024 * 100)     // 100 MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 100,
+        maxFileSize = 1024 * 1024 * 100,
+        maxRequestSize = 1024 * 1024 * 100)
 public class LotHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);
     private static final long serialVersionUID = 6295721900470243790L;

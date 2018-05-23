@@ -8,6 +8,8 @@
 <%@ page import="java.net.URL" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
+<%@ page import="static java.io.File.separator" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.FOLDER_UPLOAD_IMAGES" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -49,6 +51,10 @@
         }
         assert betHistoryList != null;
         assert lotInfoList != null;
+
+        // image path
+        String filePath = "data:image/png;base64," + lotInfoList.get(0).getImagesName();
+
         int currentCost = CommonUtil.getCurrentCost(betHistoryList) + Integer.parseInt(lotInfoList.get(0).getCost());
     %>
     <script>
@@ -195,6 +201,7 @@
                         <td><b>Рейтинг: </b><%=CommonUtil.getRate(lotInfoList.get(0).getUuid(), VariablesUtil.LOT)%>
                         </td>
                     </tr>
+                    <img src="<%=filePath.replace("//", "/")%>" name="logo"/>
                     </tbody>
                 </table>
             </div>
