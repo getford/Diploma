@@ -401,11 +401,8 @@ public class CommonUtil {
     }
 
     public static String saveUploadFile(HttpServletRequest req) throws IOException, ServletException {
-        String uploadFilePath = req.getServletContext().getRealPath("") + separator + FOLDER_UPLOAD_IMAGES;
-
-        File fileSaveDir = new File(uploadFilePath);
-        if (!fileSaveDir.exists())
-            fileSaveDir.mkdirs();
+        String uploadFilePath = "/Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/webapp/resources/images/upload";
+        // String uploadFilePath = req.getServletContext().getRealPath("") + separator + FOLDER_UPLOAD_IMAGES;
 
         for (Part part : req.getParts()) {
             String fileName = separateUploadFileName(part);
@@ -416,9 +413,5 @@ public class CommonUtil {
             }
         }
         return "";
-    }
-
-    public static void prepareImageToShow(String fileName) {
-
     }
 }
