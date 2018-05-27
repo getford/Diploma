@@ -1,7 +1,5 @@
-<%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
 <%@ page import="by.iba.uzhyhala.entity.AuthInfoEntity" %>
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.USER" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.QUERY_CHART_DATE_CREATE_USER" %>
@@ -26,9 +24,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <%
-        StatisticHandler statisticHandler = new StatisticHandler();
         List<AuthInfoEntity> authInfoEntityList = CommonUtil.getAllUser();
-        String lineChartCreateForDay = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATE_CREATE_USER, USER);
     %>
 </head>
 <body>
@@ -54,7 +50,7 @@
         </div>
         <nav class="templatemo-left-nav">
             <ul>
-                <li><a href="#"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
+                <li><a href="/pages/admin.jsp"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
                 <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Графики</a></li>
                 <li><a href="#" class="active"><i class="fa fa-users fa-fw"></i>Пользователи</a></li>
                 <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>
@@ -64,9 +60,6 @@
     </div>
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
-        <div class="templatemo-top-nav-container">
-
-        </div>
         <div class="templatemo-content-container">
             <div class="templatemo-content-widget no-padding">
                 <div class="panel panel-default table-responsive">
@@ -85,7 +78,6 @@
                                     class="caret"></span></a>
                             </td>
                             <td>Edit</td>
-                            <%--<td>Action</td>--%>
                             <td>Delete</td>
                         </tr>
                         </thead>
@@ -125,17 +117,6 @@
                     </table>
                 </div>
             </div>
-            <div class="templatemo-content-container">
-                <div class="templatemo-content-widget white-bg">
-                    <h2 class="margin-bottom-10">Chatrs</h2>
-                    <div class="panel panel-default no-border">
-                        <div class="panel-heading border-radius-10">
-                            <h2>Зарегистрированно пользователей за день</h2>
-                        </div>
-                        <div id="chart_create_user_for_date"></div>
-                    </div>
-                </div>
-            </div>
             <div class="templatemo-flex-row flex-content-row">
                 <div class="col-1">
                     <div class="panel panel-default margin-10">
@@ -164,63 +145,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-1">
-                    <div class="templatemo-content-widget pink-bg">
-                        <i class="fa fa-times"></i>
-                        <h2 class="text-uppercase margin-bottom-10">Latest Data</h2>
-                        <p class="margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mi
-                            sapien, fringilla at orci nec, viverra rhoncus leo. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vivamus rhoncus erat non purus commodo, sit amet varius dolor sagittis.</p>
-                    </div>
-                    <div class="templatemo-content-widget blue-bg">
-                        <i class="fa fa-times"></i>
-                        <h2 class="text-uppercase margin-bottom-10">Older Data</h2>
-                        <p class="margin-bottom-0">Phasellus dapibus nulla quis risus auctor, non placerat augue
-                            consectetur. Aliquam convallis pharetra odio, in convallis erat molestie sed. Fusce mi
-                            lacus, semper sit amet mattis eu, volutpat vitae enim.</p>
-                    </div>
-                </div>
             </div> <!-- Second row ends -->
             <div class="templatemo-flex-row flex-content-row">
-                <div class="templatemo-content-widget white-bg col-2">
-                    <i class="fa fa-times"></i>
-                    <div class="media margin-bottom-30">
-                        <div style="text-align: center" class="media-body">
-                            <h2 class="media-heading text-uppercase blue-text">Статистика за сегодня</h2>
-                            <p>Лоты</p>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="circle green-bg"></div>
-                                </td>
-                                <td>Добвлено лотов за день</td>
-                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_ADD_LOT_TODAY)%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="circle pink-bg"></div>
-                                </td>
-                                <td>Завершено лотов за день</td>
-                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_END_LOT_TODAY)%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="circle blue-bg"></div>
-                                </td>
-                                <td>Начато торгов за день</td>
-                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_START_LOT_TODAY)%>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
                 <div class="templatemo-content-widget white-bg col-1 text-center templatemo-position-relative">
                     <i class="fa fa-times"></i>
                     <img src="/resources/images/person.jpg" alt="Bicycle"
@@ -280,32 +206,5 @@
         $('index.content-bg-index').hide();
     });
 </script>
-<script>
-    google.charts.load('current', {packages: ['corechart', 'line']});
-    google.charts.setOnLoadCallback(lineCreateUsers);
-
-    function lineCreateUsers() {
-        let data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date');
-        data.addColumn('number', 'Count users');
-        data.addRows([<%=lineChartCreateForDay%>]);
-        data.sort({column: 0, desc: true});
-
-        console.log(<%=lineChartCreateForDay%>);
-
-        let options = {
-            hAxis: {
-                title: 'Date'
-            },
-            vAxis: {
-                title: 'Count'
-            }
-        };
-
-        let chart = new google.visualization.LineChart(document.getElementById('chart_create_user_for_date'));
-        chart.draw(data, options);
-    }
-</script>
-<%-- Registered users for day --%>
 </body>
 </html>

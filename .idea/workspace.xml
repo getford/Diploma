@@ -126,20 +126,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Authorization.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-              <folding>
-                <element signature="method#doPost#0;class#Authorization#0" />
-                <element signature="method#isPasswordValid#0;class#Authorization#0" />
-                <element signature="method#setAuthCookie#0;class#Authorization#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -188,11 +174,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+            <state relative-caret-position="176">
+              <caret line="82" column="41" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -200,31 +186,35 @@
       <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="233">
+              <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageusers.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manageusers.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="364">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java">
+      <file leaf-file-name="DeleteHandlerAPI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="24" column="98" selection-start-line="24" selection-start-column="98" selection-end-line="24" selection-end-column="98" />
-              <folding>
-                <element signature="method#Profile#0;class#Profile#0" />
-                <element signature="method#getUserPersonalInformation#0;class#Profile#0" />
-                <element signature="method#getUserAddress#0;class#Profile#0" />
-              </folding>
+            <state relative-caret-position="224">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -261,7 +251,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>name</find>
       <find>Лоты</find>
       <find>prepareFileForAttach</find>
       <find>&quot;http://localhost:8080&quot;</find>
@@ -291,6 +280,7 @@
       <find>\n</find>
       <find>Base</find>
       <find>Arrays</find>
+      <find>Cha</find>
     </findStrings>
     <replaceStrings>
       <replace>/resources/</replace>
@@ -331,7 +321,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/RegistrationAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/UserApiKey.java" />
@@ -367,7 +356,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAddAPI.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
@@ -379,9 +367,11 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin.jsp" />
       </list>
     </option>
   </component>
@@ -959,7 +949,7 @@
       <workItem from="1526767274331" duration="924000" />
       <workItem from="1526768268896" duration="3958000" />
       <workItem from="1526917306315" duration="1373000" />
-      <workItem from="1526918802909" duration="18864000" />
+      <workItem from="1526918802909" duration="20372000" />
     </task>
     <servers />
   </component>
@@ -996,7 +986,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="447584000" />
+    <option name="totallyTimeSpent" value="449092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1009,6 +999,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="PlantUML" order="3" weight="0.3469242" />
       <window_info anchor="right" id="Palette" order="18" />
@@ -1026,7 +1017,7 @@
       <window_info anchor="right" id="JSF" order="11" weight="0.3297568" />
       <window_info anchor="right" id="Ant Build" order="20" weight="0.24964234" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.3369697" />
+      <window_info active="true" anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.3369697" />
       <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
       <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="14" />
@@ -1039,7 +1030,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" sideWeight="0.49499285" weight="0.4690909" />
       <window_info id="Persistence" order="3" sideWeight="0.5265082" side_tool="true" weight="0.27181688" />
       <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.27181688" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.27181688" />
       <window_info anchor="right" id="Bean Validation" order="16" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
@@ -1149,7 +1140,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="573" />
+      <option name="time" value="576" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1300,13 +1291,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/MailUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -2486,13 +2470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -3705,24 +3682,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+        <state relative-caret-position="112">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+        <state relative-caret-position="233">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        <state relative-caret-position="364">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="82" column="41" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
         </state>
       </provider>
     </entry>

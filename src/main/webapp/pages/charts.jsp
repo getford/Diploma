@@ -23,6 +23,7 @@
         String lineChartAddDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_ADD_DATE_LOT, LOT);
         String lineChartStartDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_START_DATE_LOT, LOT);
         String lineChartEndDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_END_DATE_LOT, LOT);
+        String lineChartCreateForDay = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATE_CREATE_USER, USER);
     %>
 </head>
 <body>
@@ -59,11 +60,10 @@
     </div>
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
-        <div class="templatemo-top-nav-container">
-        </div>
         <div class="templatemo-content-container">
             <div class="templatemo-content-widget white-bg">
-                <h2 class="margin-bottom-10">Data Visualization</h2>
+                <h2 class="margin-bottom-10">Статистика. Графики</h2>
+                <%-- ЛОТЫ --%>
                 <div class="panel panel-default no-border">
                     <div class="panel-heading border-radius-10">
                         <h2>Добавлено лотов за день</h2>
@@ -81,6 +81,13 @@
                         <h2>Продано за день</h2>
                     </div>
                     <div id="chart_end_date_lot"></div>
+                </div>
+                <%-- ПОЛЬЗОВАТЕЛИ --%>
+                <div class="panel panel-default no-border">
+                    <div class="panel-heading border-radius-10">
+                        <h2>Зарегистрированно пользователей за день</h2>
+                    </div>
+                    <div id="chart_create_user_for_date"></div>
                 </div>
             </div>
             <footer class="text-right">
@@ -176,5 +183,32 @@
     }
 </script>
 <%--End date lots--%>
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(lineCreateUsers);
+
+    function lineCreateUsers() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', 'Count users');
+        data.addRows([<%=lineChartCreateForDay%>]);
+        data.sort({column: 0, desc: true});
+
+        console.log(<%=lineChartCreateForDay%>);
+
+        let options = {
+            hAxis: {
+                title: 'Date'
+            },
+            vAxis: {
+                title: 'Count'
+            }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('chart_create_user_for_date'));
+        chart.draw(data, options);
+    }
+</script>
+<%-- Registered users for day --%>
 </body>
 </html>

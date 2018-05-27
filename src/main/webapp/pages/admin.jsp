@@ -1,3 +1,5 @@
+<%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
+<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,6 +16,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="/resources/scripts/charts.js"></script>
     <title>Admin - Diploma Auction</title>
+    <%
+        StatisticHandler statisticHandler = new StatisticHandler();
+    %>
 </head>
 <body>
 <!-- Left column -->
@@ -62,41 +67,41 @@
             <div class="templatemo-flex-row flex-content-row">
                 <div class="templatemo-content-widget white-bg col-2">
                     <i class="fa fa-times"></i>
-                    <div class="square"></div>
-                    <h2 class="templatemo-inline-block">Visual Admin Template</h2>
-                    <hr>
-                    <p>Works on all major browsers. IE 10+. Visual Admin is <a
-                            href="http://www.templatemo.com/tag/admin" target="_parent">free responsive admin
-                        template</a> for everyone. Feel free to use this template for your backend user interfaces.
-                        Please tell your friends about <a href="http://www.templatemo.com" target="_parent">templatemo.com</a>
-                        website. You may <a href="http://www.templatemo.com/contact" target="_parent">contact us</a> if
-                        you have anything to say.</p>
-                    <p>Nunc placerat purus eu tincidunt consequat. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Phasellus dapibus nulla quis risus auctor, non placerat augue consectetur. Fusce mi lacus,
-                        semper sit amet mattis eu.</p>
-                </div>
-                <div class="templatemo-content-widget white-bg col-1 text-center">
-                    <i class="fa fa-times"></i>
-                    <h2 class="text-uppercase">Maris</h2>
-                    <h3 class="text-uppercase margin-bottom-10">Design Project</h3>
-                    <img src="/resources/images/bicycle.jpg" alt="Bicycle" class="img-circle img-thumbnail">
-                </div>
-                <div class="templatemo-content-widget white-bg col-1">
-                    <i class="fa fa-times"></i>
-                    <h2 class="text-uppercase">Dictum</h2>
-                    <h3 class="text-uppercase">Sedvel Erat Non</h3>
-                    <hr>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                    <div class="media margin-bottom-30">
+                        <div style="text-align: center" class="media-body">
+                            <h2 class="media-heading text-uppercase blue-text">Статистика за сегодня</h2>
+                            <p>Лоты</p>
+                        </div>
                     </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="circle green-bg"></div>
+                                </td>
+                                <td>Добавлено лотов за день</td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_ADD_LOT_TODAY)%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="circle pink-bg"></div>
+                                </td>
+                                <td>Завершено лотов за день</td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_END_LOT_TODAY)%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="circle blue-bg"></div>
+                                </td>
+                                <td>Начато торгов за день</td>
+                                <td><%=statisticHandler.countStatistic(VariablesUtil.QUERY_COUNT_START_LOT_TODAY)%>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
