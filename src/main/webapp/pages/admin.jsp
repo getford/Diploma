@@ -43,7 +43,7 @@
                 <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Графики</a></li>
                 <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Пользователели</a></li>
                 <li><a href="/pages/managelots.jsp"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>
-                <li><a href="/"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
+                <li><a href="/"><i class="fa fa-eject fa-fw"></i>Выход</a></li>
             </ul>
         </nav>
     </div>

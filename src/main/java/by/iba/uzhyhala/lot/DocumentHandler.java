@@ -118,13 +118,13 @@ public class DocumentHandler extends HttpServlet {
             }
 
             List<BetHistoryTO> list = getHistoryBets(uuidLot);
-
             for (int i = 1; i < list.size(); i++) {
                 table.addCell(list.get(i).getUserName());
                 table.addCell(valueOf(list.get(i).getBet()));
                 table.addCell(list.get(i).getDate());
                 table.addCell(list.get(i).getTime());
             }
+
 
             PdfWriter pdfWriter;
 
@@ -171,7 +171,11 @@ public class DocumentHandler extends HttpServlet {
             document.add(new Paragraph("\n"));
             document.add(new Paragraph("Rate: " + getRate(uuidLot, LOT)));
             document.add(new Paragraph("\n"));
-            document.add(table);
+
+            if (list.size() != 1)
+                document.add(table);
+            else
+                document.add(new Paragraph("Bets isn't found"));
 
             document.add(new Paragraph("\n"));
             document.add(new Paragraph("---------------------------------------------------------------" +
@@ -195,7 +199,7 @@ public class DocumentHandler extends HttpServlet {
 
 
                 // TODO: mailUtil.sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(uuidLot)), body, subject + uuidLot);
-                mailUtil.sendSimpleHtmlMail("", body, subject + uuidLot);
+                mailUtil.sendSimpleHtmlMail(EMAIL_SUPPORT, body, subject + uuidLot);
             } else {
                 LOGGER.info("Send document not required");
             }
@@ -240,7 +244,7 @@ public class DocumentHandler extends HttpServlet {
                     "<br/><br/>С уважением";
 
             // TODO: mailUtil.sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(uuidLot)), body, subject + uuidLot);
-            mailUtil.sendSimpleHtmlMail("", body, subject + uuidLot);
+            mailUtil.sendSimpleHtmlMail(EMAIL_SUPPORT, body, subject + uuidLot);
         } else {
             try {
                 URL url = new URL(req.getRequestURL().toString());
