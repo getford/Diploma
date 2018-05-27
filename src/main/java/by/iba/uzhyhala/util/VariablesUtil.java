@@ -20,9 +20,10 @@ public final class VariablesUtil {
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_USER = "user";
 
-    // type login or email
+    //
     public static final String EMAIL = "email";
     public static final String LOGIN = "login";
+    public static final String PASSCODE = "password";
 
     // Lot status
     public static final String STATUS_LOT_ACTIVE = "active";
@@ -114,4 +115,7 @@ public final class VariablesUtil {
 
     // upload
     public static final String FOLDER_UPLOAD_IMAGES = "AUCTION DIPLOMA UPLOAD IMAGES";
+
+    // hash
+    public static final String HASH_SALT = "LA";
 }

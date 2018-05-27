@@ -32,6 +32,7 @@ import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.io.File.createTempFile;
 import static java.io.File.separator;
 import static java.lang.String.valueOf;
+import static java.util.regex.Pattern.compile;
 import static org.apache.commons.io.FileUtils.readFileToByteArray;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -43,7 +44,7 @@ public class CommonUtil {
 
     public static String loginOrEmail(String loginOrEmail) {
         LOGGER.info("loginOrEmail method");
-        return Pattern.compile(REGEXP_EMAIL,
+        return compile(REGEXP_EMAIL,
                 Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? EMAIL : LOGIN;
     }
 
@@ -395,7 +396,7 @@ public class CommonUtil {
         String[] tokens = contentDisp.split(";");
         for (String token : tokens) {
             if (token.trim().startsWith("filename"))
-                return token.substring(token.indexOf("=") + 2, token.length() - 1);
+                return token.substring(token.indexOf('=') + 2, token.length() - 1);
         }
         return "";
     }

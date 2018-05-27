@@ -73,8 +73,8 @@
     <schema id="16" parent="2" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-05-23.03:20:33.975</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2436</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-24.23:52:03.390</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2451</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -186,7 +186,7 @@
     </table>
     <table id="32" parent="16" name="bet">
       <ObjectId>33053</ObjectId>
-      <StateNumber>1083</StateNumber>
+      <StateNumber>2451</StateNumber>
     </table>
     <table id="33" parent="16" name="category">
       <ObjectId>24895</ObjectId>
@@ -393,9 +393,9 @@
     </column>
     <column id="66" parent="32" name="bulk">
       <Position>3</Position>
-      <DataType>text|0s</DataType>
-      <StateNumber>1059</StateNumber>
-      <TypeId>25</TypeId>
+      <DataType>json|0s</DataType>
+      <StateNumber>2451</StateNumber>
+      <TypeId>114</TypeId>
     </column>
     <index id="67" parent="32" name="bet_id_uindex">
       <ObjectId>33062</ObjectId>

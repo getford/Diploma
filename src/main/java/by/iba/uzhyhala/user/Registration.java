@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
+import static org.apache.commons.codec.digest.DigestUtils.sha512Hex;
 
 @WebServlet(urlPatterns = "/registration")
 public class Registration extends HttpServlet {
@@ -35,14 +36,14 @@ public class Registration extends HttpServlet {
             String email = req.getParameter(EMAIL);
             String login = req.getParameter(LOGIN);
             if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
-                if (doRegistration(login, req.getParameter("password"), email)) {
+                if (doRegistration(login, req.getParameter(PASSCODE), email)) {
                     URL url = new URL(req.getRequestURL().toString());
                     String body = "<br/> " + new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                             "<p>Hello,</p>" +
                             "<p>You will be successfully registered in Auction</p>" +
                             "<p>" +
                             "<b>Your login: </b>" + login + "" +
-                            "<br/><b>Your password: </b>" + req.getParameter("password") + "" +
+                            "<br/><b>Your password: </b>" + req.getParameter(PASSCODE) + "" +
                             "</p>" +
                             "<p>You profile: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?login=" + login + "\">" +
                             "" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/profile.jsp?user=" + login + "</a></p>";
@@ -66,11 +67,13 @@ public class Registration extends HttpServlet {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            AuthInfoEntity authInfoEntity = new Gson().fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
-            if (isLoginAndEmailEmpty(session, authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
+            AuthInfoEntity authInfoEntity = new Gson().fromJson(prepareInputString(login.toLowerCase(),
+                    password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);
+            if (isLoginAndEmailEmpty(session, authInfoEntity.getLogin().toLowerCase(),
+                    authInfoEntity.getEmail().toLowerCase())) {
 
                 authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
-                authInfoEntity.setPassword(authInfoEntity.getPassword());
+                authInfoEntity.setPassword(sha512Hex(authInfoEntity.getPassword() + HASH_SALT));
                 authInfoEntity.setEmail(authInfoEntity.getEmail());
                 authInfoEntity.setRole(ROLE_USER);
                 authInfoEntity.setUuid(newUserUUID);

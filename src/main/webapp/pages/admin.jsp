@@ -40,10 +40,10 @@
         <nav class="templatemo-left-nav">
             <ul>
                 <li><a href="#" class="active"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
-                <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Charts</a></li>
-                <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
-                <li><a href="preferences.html"><i class="fa fa-sliders fa-fw"></i>Preferences</a></li>
-                <li><a href="login.html"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
+                <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Графики</a></li>
+                <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Пользователели</a></li>
+                <li><a href="/pages/managelots.jsp"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>
+                <li><a href="/"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
             </ul>
         </nav>
     </div>
@@ -53,10 +53,7 @@
             <div class="row">
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
                     <ul class="text-uppercase">
-                        <li><a href="" class="active">Admin panel</a></li>
-                        <li><a href="">Dashboard</a></li>
-                        <li><a href="">Overview</a></li>
-                        <li><a href="login.html">Sign in form</a></li>
+                        <%----%>
                     </ul>
                 </nav>
             </div>
@@ -139,8 +136,10 @@
                 <div class="col-1">
                     <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
                         <i class="fa fa-times"></i>
-                        <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">User
-                            Table</h2></div>
+                        <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Последние 3
+                            зарегистрированных пользователя</h2></div>
+
+                        <%--TODO: add last 3 users--%>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
@@ -255,7 +254,7 @@
     }
 
     $(document).ready(function () {
-        if ($.browser.mozilla) {
+        if ($.browser.chrome) {
             //refresh page on browser resize
             // http://www.sitepoint.com/jquery-refresh-page-browser-resize/
             $(window).bind('resize', function (e) {
