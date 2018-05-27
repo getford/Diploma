@@ -100,6 +100,18 @@ public final class VariablesUtil {
     public static final String QUERY_COUNT_START_LOT_TODAY = "SELECT count(uuid) FROM lot WHERE date_start = '"
             + new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime()) + "'";
 
+    private static final String PREPARE_QUERY_COUNT_ALL = "SELECT count(uuid) FROM lot WHERE status =";
+    public static final String QUERY_COUNT_ALL_LOT = "SELECT count(uuid) FROM lot";
+    public static final String QUERY_COUNT_ALL_LOT_ACTIVE = PREPARE_QUERY_COUNT_ALL + "'" + STATUS_LOT_ACTIVE + "'";
+    public static final String QUERY_COUNT_ALL_LOT_SALES = PREPARE_QUERY_COUNT_ALL + "'" + STATUS_LOT_SALES + "'";
+    public static final String QUERY_COUNT_ALL_LOT_WAIT = PREPARE_QUERY_COUNT_ALL + "'" + STATUS_LOT_WAIT + "'";
+    public static final String QUERY_COUNT_ALL_LOT_CLOSE = PREPARE_QUERY_COUNT_ALL + "'" + STATUS_LOT_CLOSE + "'";
+    public static final String QUERY_COUNT_ALL_USERS = "SELECT count(uuid) FROM auth_info";
+
+    public static final String QUERY_COUNT_USERS_USE_API = "SELECT count(uuid) FROM auth_info WHERE api_key != 'null'";
+    public static final String QUERY_COUNT_USERS_ADD_TODAY = "SELECT count(uuid) FROM auth_info WHERE create_date = '"
+            + new SimpleDateFormat(PATTERN_DATE_REVERSE).format(new Date().getTime()) + "'";
+    
     // api
     public static final String PARAMETER_API_KEY_NAME = "api_key";
 

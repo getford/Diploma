@@ -32,19 +32,8 @@
 <div class="templatemo-flex-row">
     <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
-            <h1>AUCTION DIPLOMA, ADMIN</h1>
+            <h1>ADMIN. AUCTION</h1>
         </header>
-        <div class="profile-photo-container">
-            <img src="/resources/images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
-            <div class="profile-photo-overlay"></div>
-        </div>
-        <!-- Search box -->
-        <form class="templatemo-search-form" role="search">
-            <div class="input-group">
-                <button type="submit" class="fa fa-search"></button>
-                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-            </div>
-        </form>
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
         </div>
@@ -132,13 +121,6 @@
                                     <input type="password" class="form-control" placeholder="Enter password">
                                 </div>
                                 <div class="form-group">
-                                    <div class="checkbox squaredTwo">
-                                        <label>
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <button type="submit" class="templatemo-blue-button">Submit</button>
                                 </div>
                             </form>
@@ -146,48 +128,6 @@
                     </div>
                 </div>
             </div> <!-- Second row ends -->
-            <div class="templatemo-flex-row flex-content-row">
-                <div class="templatemo-content-widget white-bg col-1 text-center templatemo-position-relative">
-                    <i class="fa fa-times"></i>
-                    <img src="/resources/images/person.jpg" alt="Bicycle"
-                         class="img-circle img-thumbnail margin-bottom-30">
-                    <h2 class="text-uppercase blue-text margin-bottom-5">Paul Smith</h2>
-                    <h3 class="text-uppercase margin-bottom-70">Managing Director</h3>
-                    <div class="templatemo-social-icons-container">
-                        <div class="social-icon-wrap">
-                            <i class="fa fa-facebook templatemo-social-icon"></i>
-                        </div>
-                        <div class="social-icon-wrap">
-                            <i class="fa fa-twitter templatemo-social-icon"></i>
-                        </div>
-                        <div class="social-icon-wrap">
-                            <i class="fa fa-google-plus templatemo-social-icon"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg">
-                    <img src="/resources/images/sunset-big.jpg" alt="Sunset" class="img-responsive content-bg-img">
-                    <i class="fa fa-heart"></i>
-                    <h2 class="templatemo-position-relative white-text">Sunset</h2>
-                    <div class="view-img-btn-wrap">
-                        <a href="" class="btn btn-default templatemo-view-img-btn">View</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pagination-wrap">
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li class="active"><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true"><i class="fa fa-play"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
             <footer class="text-right">
                 <p>Copyright &copy; 2018 Uladzimir Zhyhala inc.</p>
             </footer>

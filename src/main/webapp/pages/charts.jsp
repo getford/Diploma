@@ -31,20 +31,8 @@
 <div class="templatemo-flex-row">
     <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
-            <div class="square"></div>
-            <h1>Visual Admin</h1>
+            <h1>ADMIN. AUCTION</h1>
         </header>
-        <div class="profile-photo-container">
-            <img src="/resources/images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
-            <div class="profile-photo-overlay"></div>
-        </div>
-        <!-- Search box -->
-        <form class="templatemo-search-form" role="search">
-            <div class="input-group">
-                <button type="submit" class="fa fa-search"></button>
-                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-            </div>
-        </form>
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
         </div>
@@ -60,34 +48,48 @@
     </div>
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
+        <div class="templatemo-top-nav-container">
+            <div class="row">
+                <nav class="templatemo-top-nav col-lg-12 col-md-12">
+                    <ul class="text-uppercase">
+                        <div style="text-align: center" class="media-body">
+                            <h2 class="media-heading text-uppercase blue-text">Графики</h2>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
         <div class="templatemo-content-container">
-            <div class="templatemo-content-widget white-bg">
-                <h2 class="margin-bottom-10">Статистика. Графики</h2>
-                <%-- ЛОТЫ --%>
-                <div class="panel panel-default no-border">
-                    <div class="panel-heading border-radius-10">
-                        <h2>Добавлено лотов за день</h2>
+            <div class="templatemo-flex-row flex-content-row">
+                <div class="templatemo-content-widget white-bg col-2">
+                    <i class="fa fa-times"></i>
+                    <h2 class="margin-bottom-10">Статистика. Графики</h2>
+                    <%-- ЛОТЫ --%>
+                    <div class="panel panel-default no-border">
+                        <div class="panel-heading border-radius-10">
+                            <h2>Добавлено лотов за день</h2>
+                        </div>
+                        <div id="chart_add_date_lot"></div>
                     </div>
-                    <div id="chart_add_date_lot"></div>
-                </div>
-                <div class="panel panel-default no-border">
-                    <div class="panel-heading border-radius-10">
-                        <h2>Начато торгов за день</h2>
+                    <div class="panel panel-default no-border">
+                        <div class="panel-heading border-radius-10">
+                            <h2>Начато торгов за день</h2>
+                        </div>
+                        <div id="chart_start_date_lot"></div>
                     </div>
-                    <div id="chart_start_date_lot"></div>
-                </div>
-                <div class="panel panel-default no-border">
-                    <div class="panel-heading border-radius-10">
-                        <h2>Продано за день</h2>
+                    <div class="panel panel-default no-border">
+                        <div class="panel-heading border-radius-10">
+                            <h2>Продано за день</h2>
+                        </div>
+                        <div id="chart_end_date_lot"></div>
                     </div>
-                    <div id="chart_end_date_lot"></div>
-                </div>
-                <%-- ПОЛЬЗОВАТЕЛИ --%>
-                <div class="panel panel-default no-border">
-                    <div class="panel-heading border-radius-10">
-                        <h2>Зарегистрированно пользователей за день</h2>
+                    <%-- ПОЛЬЗОВАТЕЛИ --%>
+                    <div class="panel panel-default no-border">
+                        <div class="panel-heading border-radius-10">
+                            <h2>Зарегистрированно пользователей за день</h2>
+                        </div>
+                        <div id="chart_create_user_for_date"></div>
                     </div>
-                    <div id="chart_create_user_for_date"></div>
                 </div>
             </div>
             <footer class="text-right">
