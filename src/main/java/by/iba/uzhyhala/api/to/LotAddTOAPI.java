@@ -1,11 +1,8 @@
 package by.iba.uzhyhala.api.to;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class LotAddTOAPI {
 
-    @SerializedName("uuid_user_seller")
+    /*@SerializedName("uuid_user_seller")
     @Expose
     private String uuidUserSeller;
     @SerializedName("name")
@@ -48,5 +45,5 @@ public class LotAddTOAPI {
     public void setCost(String cost) {
         this.cost = cost;
     }
-
+*/
 }

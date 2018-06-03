@@ -25,10 +25,10 @@
     <SUITE FILE_PATH="coverage/auction$LotAddAPITest.ic" NAME="LotAddAPITest Coverage Results" MODIFIED="1526763373317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>by.iba.uzhyhala.api.lot.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/auction$All_in_auction.ic" NAME="All in auction Coverage Results" MODIFIED="1526336013134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/auction$MailUtilTest.ic" NAME="MailUtilTest Coverage Results" MODIFIED="1526854846562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>by.iba.uzhyhala.util.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/auction$All_in_auction.ic" NAME="All in auction Coverage Results" MODIFIED="1527902472381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/auction$RegistrationTest.ic" NAME="RegistrationTest Coverage Results" MODIFIED="1526335799138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>by.iba.uzhyhala.user.*</FILTER>
     </SUITE>
@@ -109,6 +109,7 @@
     </expand>
     <select />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="FavoritesManager">
     <favorites_list name="auction">
       <favorite_root url="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
@@ -116,103 +117,181 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
+      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="55" selection-start-line="55" selection-end-line="58" selection-end-column="47" />
+            <state relative-caret-position="868">
+              <caret line="198" column="69" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#CommonUtil#0;class#CommonUtil#0" />
+                <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
+                <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
+                <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
+                <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
+                <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
+                <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
+                <element signature="method#getCategoryById#0;class#CommonUtil#0" />
+                <element signature="method#getAllUser#0;class#CommonUtil#0" />
+                <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
+                <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
+                <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
+                <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
+                <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+                <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+                <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
+                <element signature="method#createExcelFile#0;class#CommonUtil#0" />
+                <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
+                <element signature="method#getRate#0;class#CommonUtil#0" />
+                <element signature="method#changeRate#0;class#CommonUtil#0" />
+                <element signature="method#getLots#0;class#CommonUtil#0" />
+                <element signature="method#getCategories#0;class#CommonUtil#0" />
+                <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
+                <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StatisticHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java">
+      <file leaf-file-name="EditHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="45" column="35" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="154">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql">
+      <file leaf-file-name="LotHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+            <state relative-caret-position="1092">
+              <caret line="101" column="64" selection-start-line="101" selection-start-column="64" selection-end-line="101" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#prepareBetBulk#0;class#LotHandler#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth_info" pinned="false" current-in-tab="false">
-        <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/auth_info">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="BetHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VariablesUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BetBulkTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetBulkTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="9" selection-start-line="9" selection-end-line="71" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#732#733#0" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
+                <element signature="e#805#806#0" expanded="true" />
+                <element signature="e#841#842#0" expanded="true" />
+                <element signature="e#878#879#0" expanded="true" />
+                <element signature="e#910#911#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#1010#1011#0" expanded="true" />
+                <element signature="e#1042#1043#0" expanded="true" />
+                <element signature="e#1078#1079#0" expanded="true" />
+                <element signature="e#1105#1106#0" expanded="true" />
+                <element signature="e#1150#1151#0" expanded="true" />
+                <element signature="e#1182#1183#0" expanded="true" />
+                <element signature="e#1219#1220#0" expanded="true" />
+                <element signature="e#1252#1253#0" expanded="true" />
+                <element signature="e#1304#1305#0" expanded="true" />
+                <element signature="e#1348#1349#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VariablesUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
+            <state relative-caret-position="112">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lot" pinned="false" current-in-tab="false">
-        <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/lot">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
+      <file leaf-file-name="HibernateUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="61" selection-start-line="61" selection-end-line="64" selection-end-column="47" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageusers.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-880">
-              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeleteHandlerAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
               <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BetTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="677">
+              <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#797#798#0" expanded="true" />
+                <element signature="e#828#829#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#916#917#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#1000#1001#0" expanded="true" />
+                <element signature="e#1031#1032#0" expanded="true" />
+                <element signature="e#1057#1058#0" expanded="true" />
+                <element signature="e#1096#1097#0" expanded="true" />
+                <element signature="e#1126#1127#0" expanded="true" />
+                <element signature="e#1173#1174#0" expanded="true" />
+                <element signature="e#1211#1212#0" expanded="true" />
+                <element signature="e#1246#1247#0" expanded="true" />
+                <element signature="e#1276#1277#0" expanded="true" />
+                <element signature="e#1323#1324#0" expanded="true" />
+                <element signature="e#1361#1362#0" expanded="true" />
+                <element signature="e#1392#1393#0" expanded="true" />
+                <element signature="e#1419#1420#0" expanded="true" />
+                <element signature="e#1459#1460#0" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1522#1523#0" expanded="true" />
+                <element signature="e#1549#1550#0" expanded="true" />
+                <element signature="e#1589#1590#0" expanded="true" />
+                <element signature="e#1621#1622#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authorization.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="56" column="42" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+              <folding>
+                <element signature="method#doPost#0;class#Authorization#0" />
+                <element signature="method#setAuthCookie#0;class#Authorization#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -310,8 +389,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/StatisticHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/UserApiKey.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/ReCaptchaUtilTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/DocumentHandlerTest.java" />
@@ -324,45 +401,52 @@
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/user/UserApiKeyTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetBulkTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPI.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotAddAPITest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/user/ProfileTest.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/MailUtilTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/ReCaptchaUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/BetHandlerTest.java" />
         <option value="$PROJECT_DIR$/diagrams/Untitled" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/RateHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/ImagesHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/LotEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotAddAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/PasscodeHashHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentHandler.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotFullFieldTOAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetBulkTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="All in auction" />
+    </enabled-run-configurations>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -400,7 +484,13 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="Diploma project Auction" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Diploma project Auction" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="deploy" type="36feed69:MavenProjectsStructure$PluginNode" />
         </path>
       </expand>
       <select />
@@ -416,155 +506,12 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
-      <flattenPackages ProjectPane="false" />
-      <hideEmptyPackages ProjectPane="false" />
+      <flattenPackages ProjectPane="true" />
+      <hideEmptyPackages ProjectPane="true" />
+      <abbreviatePackageNames ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="diagrams" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="lot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="lot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="by" type="462c0819:PsiDirectoryNode" />
-              <item name="iba" type="462c0819:PsiDirectoryNode" />
-              <item name="uzhyhala" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -576,6 +523,60 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -593,7 +594,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="JPA.DatabaseSchemaImportDialog" value="6780e94f-6688-4eb9-af27-6a4b0e1ff1df" />
     <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.5673499" />
-    <property name="SearchEverywhereHistoryKey" value="CommonUtil&#9;null&#9;null&#10;bet&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/test/java/by/iba/uzhyhala/lot/BetHandlerTest.java&#10;ьфшд&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/test/java/by/iba/uzhyhala/util/MailUtilTest.java&#10;pro&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/test/java/by/iba/uzhyhala/user/ProfileTest.java&#10;pom&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/pom.xml&#10;&quot;email&quot;&#9;null&#9;null&#10;getLotDateEnd&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil#getLotDateEnd&#10;timeE&#9;PSI&#9;JAVA://by.iba.uzhyhala.entity.LotEntity#getTimeEnd&#10;logger&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.HibernateUtil#logger&#10;getLots&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotHandler#getLots&#10;setupParametersForMessage&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.MailUtil#setupParametersForMessage&#10;returnEndTime&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotControl#returnEndTime&#10;Hi&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/TestHibernate.java&#10;Bet &#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.BetHandler#doBet&#10;new Simple&#9;PSI&#9;JAVA://com.sun.media.sound.EmergencySoundbank#newSimpleDrumSample&#10;Hiberna&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/TestHibernate.java&#10;all lot&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.VariablesUtil#QUERY_SELECT_ALL_LOT&#10;Addlot&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotHandler#addLot&#10;doBet&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.BetHandler#doBet&#10;history&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java&#10;Hibe&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.HibernateUtil&#10;createSQL&#9;PSI&#9;JAVA://org.hibernate.query.QueryProducer#createSQLQuery&#10;debug&#9;ACTION&#9;Debug&#10;getHis&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil#getHistoryBets&#10;status &#9;ACTION&#9;Javaee.RefreshDeploymentStatus&#10;status&#9;FILE&#9;jar:///Users/vladimirzhigalo/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/transaction/Status.class&#10;LotTO&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java" />
+    <property name="SearchEverywhereHistoryKey" value="Comm&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil&#10;Mail&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.MailUtil&#10;CommonUtil&#9;null&#9;null&#10;bet&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/test/java/by/iba/uzhyhala/lot/BetHandlerTest.java&#10;ьфшд&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/test/java/by/iba/uzhyhala/util/MailUtilTest.java&#10;pro&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/test/java/by/iba/uzhyhala/user/ProfileTest.java&#10;pom&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/pom.xml&#10;&quot;email&quot;&#9;null&#9;null&#10;getLotDateEnd&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil#getLotDateEnd&#10;timeE&#9;PSI&#9;JAVA://by.iba.uzhyhala.entity.LotEntity#getTimeEnd&#10;logger&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.HibernateUtil#logger&#10;getLots&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotHandler#getLots&#10;setupParametersForMessage&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.MailUtil#setupParametersForMessage&#10;returnEndTime&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotControl#returnEndTime&#10;Hi&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/TestHibernate.java&#10;Bet &#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.BetHandler#doBet&#10;new Simple&#9;PSI&#9;JAVA://com.sun.media.sound.EmergencySoundbank#newSimpleDrumSample&#10;Hiberna&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/TestHibernate.java&#10;all lot&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.VariablesUtil#QUERY_SELECT_ALL_LOT&#10;Addlot&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.LotHandler#addLot&#10;doBet&#9;PSI&#9;JAVA://by.iba.uzhyhala.lot.BetHandler#doBet&#10;history&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/lot/DocumentBetHistory.java&#10;Hibe&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.HibernateUtil&#10;createSQL&#9;PSI&#9;JAVA://org.hibernate.query.QueryProducer#createSQLQuery&#10;debug&#9;ACTION&#9;Debug&#10;getHis&#9;PSI&#9;JAVA://by.iba.uzhyhala.util.CommonUtil#getHistoryBets&#10;status &#9;ACTION&#9;Javaee.RefreshDeploymentStatus&#10;status&#9;FILE&#9;jar:///Users/vladimirzhigalo/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/transaction/Status.class&#10;LotTO&#9;FILE&#9;file:///Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
@@ -648,7 +649,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tom">
+  <component name="RunManager" selected="JUnit.All in auction">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -694,6 +695,23 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="All in auction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="auction" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="MailUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="auction" />
@@ -892,9 +910,11 @@
       <item itemvalue="Application.RateHandler" />
       <item itemvalue="JUnit.ProfileTest" />
       <item itemvalue="JUnit.MailUtilTest" />
+      <item itemvalue="JUnit.All in auction" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in auction" />
         <item itemvalue="Application.RateHandler" />
         <item itemvalue="JUnit.MailUtilTest" />
         <item itemvalue="JUnit.ProfileTest" />
@@ -938,14 +958,12 @@
       <workItem from="1526767274331" duration="924000" />
       <workItem from="1526768268896" duration="3958000" />
       <workItem from="1526917306315" duration="1373000" />
-      <workItem from="1526918802909" duration="23431000" />
+      <workItem from="1526918802909" duration="30401000" />
+      <workItem from="1527956850421" duration="311000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LotAddAPITest - 2018.05.19 at 21h 33m 08s.xml">
-      <configuration name="LotAddAPITest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LotAddAPITest - 2018.05.19 at 21h 36m 13s.xml">
       <configuration name="LotAddAPITest" configurationId="JUnit" />
     </history-entry>
@@ -973,9 +991,12 @@
     <history-entry file="MailUtilTest - 2018.05.21 at 01h 32m 23s.xml">
       <configuration name="MailUtilTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_auction - 2018.06.02 at 04h 23m 22s.xml">
+      <configuration name="All in auction" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="452151000" />
+    <option name="totallyTimeSpent" value="459432000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -992,7 +1013,7 @@
     <layout>
       <window_info anchor="right" id="PlantUML" order="3" weight="0.3469242" />
       <window_info anchor="right" id="Palette" order="18" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="11" sideWeight="0.49928468" weight="0.3939394" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="11" sideWeight="0.49928468" weight="0.43757576" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028612" side_tool="true" weight="0.40242425" />
       <window_info anchor="bottom" id="Application Servers" order="1" sideWeight="0.49713877" weight="0.32848486" />
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.3297568" />
@@ -1006,32 +1027,32 @@
       <window_info anchor="right" id="JSF" order="11" weight="0.3297568" />
       <window_info anchor="right" id="Ant Build" order="20" weight="0.24964234" />
       <window_info id="UI Designer" order="1" />
-      <window_info active="true" anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.3369697" />
+      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.537196" weight="0.3369697" />
       <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
-      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="14" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.32848486" />
       <window_info anchor="right" id="Capture Analysis" order="15" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32848486" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="16" sideWeight="0.74463516" weight="0.4169697" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="16" sideWeight="0.7439199" weight="0.51995164" />
       <window_info anchor="bottom" id="Sequence" order="2" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" sideWeight="0.49499285" weight="0.4690909" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49499285" weight="0.60459495" />
       <window_info id="Persistence" order="3" sideWeight="0.5265082" side_tool="true" weight="0.27181688" />
-      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" weight="0.27181688" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.24248926" />
       <window_info anchor="right" id="Bean Validation" order="16" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
-      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27878788" />
       <window_info anchor="right" id="Theme Preview" order="17" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
-      <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.416309" side_tool="true" weight="0.43288997" />
+      <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.25608012" side_tool="true" weight="0.5344619" />
       <window_info anchor="bottom" id="Inspection" order="19" weight="0.4" />
       <window_info anchor="bottom" id="Duplicates" order="13" weight="0.32969698" />
       <window_info anchor="bottom" id="Cvs" order="18" weight="0.25" />
       <window_info anchor="bottom" id="Chronon" order="20" visible="true" weight="0.32969698" />
+      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="21" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27811366" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3272727" />
       <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32969698" />
       <window_info anchor="right" id="Commander" order="19" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="14" />
@@ -1042,48 +1063,48 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="11" sideWeight="0.49928468" weight="0.3939394" />
       <window_info anchor="bottom" id="Application Servers" order="1" sideWeight="0.49713877" weight="0.32848486" />
       <window_info id="Designer" order="0" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="PlantUML" order="0" weight="0.3469242" />
       <window_info anchor="right" id="Palette" order="9" />
       <window_info anchor="bottom" id="Duplicates" order="13" weight="0.32969698" />
       <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="16" sideWeight="0.74463516" weight="0.4169697" />
-      <window_info anchor="bottom" id="Sequence" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="18" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="11" weight="0.24964234" />
-      <window_info anchor="bottom" id="Chronon" order="20" visible="true" weight="0.32969698" />
       <window_info id="UI Designer" order="1" />
-      <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" sideWeight="0.49499285" weight="0.4690909" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32969698" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Sequence" order="2" />
       <window_info anchor="right" id="JSF" order="4" weight="0.3297568" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028612" side_tool="true" weight="0.40242425" />
-      <window_info anchor="bottom" id="Cvs" order="18" weight="0.25" />
       <window_info id="Statistic" order="9" sideWeight="0.49928468" weight="0.6666667" />
+      <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="12" weight="0.25" />
-      <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32969698" />
+      <window_info anchor="right" id="Database" order="3" weight="0.2539342" />
       <window_info anchor="right" id="Commander" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.32848486" />
-      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32969698" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32969698" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32848486" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.3297568" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" sideWeight="0.49499285" weight="0.4690909" />
       <window_info active="true" id="simpleUML" order="10" visible="true" weight="0.3297568" />
-      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27878788" />
       <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.27181688" />
       <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3272727" />
-      <window_info anchor="right" id="Database" order="3" weight="0.2539342" />
       <window_info anchor="bottom" id="Message" order="14" />
-      <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
+      <window_info anchor="bottom" id="Chronon" order="20" visible="true" weight="0.32969698" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="CDI" order="2" weight="0.3297568" />
       <window_info anchor="bottom" id="Inspection" order="19" weight="0.4" />
       <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.416309" side_tool="true" weight="0.43288997" />
-      <window_info active="true" anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.3369697" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27878788" />
       <window_info anchor="right" id="Bean Validation" order="7" weight="0.3297568" />
+      <window_info active="true" anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.3369697" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1130,12 +1151,9 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="579" />
+      <option name="time" value="580" />
     </breakpoint-manager>
     <watches-manager>
-      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="personalInformationEntityList.replaceAll(&quot;null&quot;, &quot;-&quot;);" language="JSP" />
-      </configuration>
       <configuration name="Application">
         <watch expression="LotFullFieldTOAPI.class.classLoader" language="JAVA" />
         <watch expression="categoryEntityList.get(0).id" language="JAVA" />
@@ -1148,6 +1166,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>sha512Hex(&quot;qwe&quot; + HASH_SALT)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>personalInformationEntityList.replaceAll(&quot;null&quot;, &quot;-&quot;);</expression-string>
         <language-id>JSP</language-id>
@@ -1195,11 +1218,6 @@
       </expression>
       <expression>
         <expression-string>Base64.getEncoder().encodeToString(FileUtils.readFileToByteArray(tempFile));</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1281,90 +1299,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="14">
-            <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/ReCaptchaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/BetHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="26" column="80" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javax/servlet/annotations.xml" />
-    <entry file="file://$PROJECT_DIR$/diagrams/Untitled" />
-    <entry file="uml://MODULES/mdl-auction">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MODULES</ID>
-          <OriginalElement>mdl-auction</OriginalElement>
-          <nodes>
-            <node x="" y="">mdl-auction</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="68.0" y="15.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/CategoryEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/FeedbackEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagrams/test_diagrams">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -2321,16 +2255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/ImagesHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -2359,86 +2283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1797">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="e#1030#1031#0" expanded="true" />
-            <element signature="e#1055#1056#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1116#1117#0" expanded="true" />
-            <element signature="e#1216#1217#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
-            <element signature="e#1315#1316#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1684#1685#0" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1783#1784#0" expanded="true" />
-            <element signature="e#1896#1897#0" expanded="true" />
-            <element signature="e#1930#1931#0" expanded="true" />
-            <element signature="e#1984#1985#0" expanded="true" />
-            <element signature="e#2030#2031#0" expanded="true" />
-            <element signature="e#2129#2130#0" expanded="true" />
-            <element signature="e#2156#2157#0" expanded="true" />
-            <element signature="e#2196#2197#0" expanded="true" />
-            <element signature="e#2228#2229#0" expanded="true" />
-            <element signature="e#2338#2339#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-            <element signature="e#2420#2421#0" expanded="true" />
-            <element signature="e#2462#2463#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2601#2602#0" expanded="true" />
-            <element signature="e#2649#2650#0" expanded="true" />
-            <element signature="e#2689#2690#0" expanded="true" />
-            <element signature="e#2795#2796#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
-            <element signature="e#2871#2872#0" expanded="true" />
-            <element signature="e#2909#2910#0" expanded="true" />
-            <element signature="e#3019#3020#0" expanded="true" />
-            <element signature="e#3051#3052#0" expanded="true" />
-            <element signature="e#3101#3102#0" expanded="true" />
-            <element signature="e#3143#3144#0" expanded="true" />
-            <element signature="e#3249#3250#0" expanded="true" />
-            <element signature="e#3279#3280#0" expanded="true" />
-            <element signature="e#3325#3326#0" expanded="true" />
-            <element signature="e#3363#3364#0" expanded="true" />
-            <element signature="e#3473#3474#0" expanded="true" />
-            <element signature="e#3505#3506#0" expanded="true" />
-            <element signature="e#3555#3556#0" expanded="true" />
-            <element signature="e#3597#3598#0" expanded="true" />
-            <element signature="e#3703#3704#0" expanded="true" />
-            <element signature="e#3733#3734#0" expanded="true" />
-            <element signature="e#3779#3780#0" expanded="true" />
-            <element signature="e#3817#3818#0" expanded="true" />
-            <element signature="e#3938#3939#0" expanded="true" />
-            <element signature="e#3975#3976#0" expanded="true" />
-            <element signature="e#4035#4036#0" expanded="true" />
-            <element signature="e#4087#4088#0" expanded="true" />
-            <element signature="e#4187#4188#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4273#4274#0" expanded="true" />
-            <element signature="e#4317#4318#0" expanded="true" />
-            <element signature="e#4420#4421#0" expanded="true" />
-            <element signature="e#4449#4450#0" expanded="true" />
-            <element signature="e#4493#4494#0" expanded="true" />
-            <element signature="e#4529#4530#0" expanded="true" />
-            <element signature="e#4613#4614#0" expanded="true" />
-            <element signature="e#4640#4641#0" expanded="true" />
-            <element signature="e#4677#4678#0" expanded="true" />
-            <element signature="e#4709#4710#0" expanded="true" />
-            <element signature="e#4882#4883#0" expanded="true" />
-            <element signature="e#4914#4915#0" expanded="true" />
-            <element signature="e#4967#4968#0" expanded="true" />
-            <element signature="e#5009#5010#0" expanded="true" />
-            <element signature="e#5192#5193#0" expanded="true" />
-            <element signature="e#5229#5230#0" expanded="true" />
-            <element signature="e#5297#5298#0" expanded="true" />
-            <element signature="e#5349#5350#0" expanded="true" />
-            <element signature="e#5525#5526#0" expanded="true" />
-            <element signature="e#5568#5569#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2453,9 +2297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="623" selection-start-line="623" selection-end-line="623" />
-          <folding>
-            <element signature="e#25341#25342#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2491,17 +2332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#prepareBetBulk#0;class#LotHandler#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -2511,929 +2341,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/images/upload/1.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagrams/test_diagrams.uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="20.0" y="1150.0">by.iba.uzhyhala.api.to.LotTOAPI</node>
-            <node x="1048.812183072334" y="1150.0">by.iba.uzhyhala.lot.BetHandler</node>
-            <node x="3144.052777777778" y="110.0">by.iba.uzhyhala.entity.BetEntity</node>
-            <node x="845.237428818385" y="960.0">by.iba.uzhyhala.user.Profile</node>
-            <node x="2078.237183072334" y="660.0">by.iba.uzhyhala.util.CommonUtil</node>
-            <node x="2590.737183072334" y="1150.0">by.iba.uzhyhala.lot.LotHandler</node>
-            <node x="491.23742881838484" y="440.0">by.iba.uzhyhala.lot.to.BetBulkTO</node>
-            <node x="1332.0661006033479" y="660.0">by.iba.uzhyhala.admin.StatisticHandler</node>
-            <node x="1521.0661006033479" y="660.0">by.iba.uzhyhala.util.ReCaptchaUtil</node>
-            <node x="41.25" y="1461.0">by.iba.uzhyhala.api.to.LotFullFieldTOAPI</node>
-            <node x="2331.737183072334" y="1150.0">by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI</node>
-            <node x="400.81242881838466" y="660.0">by.iba.uzhyhala.entity.AddressEntity</node>
-            <node x="243.25" y="1381.0">by.iba.uzhyhala.admin.FeedbackHandler</node>
-            <node x="2961.002706596163" y="210.0">by.iba.uzhyhala.entity.LotEntity</node>
-            <node x="2193.570516405667" y="440.0">by.iba.uzhyhala.api.to.UserRegTOAPI</node>
-            <node x="2009.237183072334" y="960.0">by.iba.uzhyhala.api.lot.LotInfoBetAPI</node>
-            <node x="1914.987183072334" y="1280.0">by.iba.uzhyhala.api.lot.LotAddAPI</node>
-            <node x="3031.2527777777777" y="440.0">by.iba.uzhyhala.lot.to.BetHistoryTO</node>
-            <node x="1666.052777777778" y="440.0">by.iba.uzhyhala.util.MailUtil</node>
-            <node x="2419.802777777778" y="960.0">by.iba.uzhyhala.lot.DocumentHandler</node>
-            <node x="1136.0661006033479" y="660.0">by.iba.uzhyhala.api.DeleteHandlerAPI</node>
-            <node x="2848.2527777777777" y="440.0">by.iba.uzhyhala.entity.CategoryEntity</node>
-            <node x="2635.987183072334" y="1280.0">by.iba.uzhyhala.lot.LotControl</node>
-            <node x="2789.067806419903" y="0.0">by.iba.uzhyhala.entity.AuthInfoEntity</node>
-            <node x="594.2374288183848" y="660.0">by.iba.uzhyhala.entity.PersonalInformationEntity</node>
-            <node x="20.0" y="1381.0">by.iba.uzhyhala.api.to.LotAddTOAPI</node>
-            <node x="191.0" y="440.0">by.iba.uzhyhala.util.HibernateUtil</node>
-            <node x="418.23742881838484" y="960.0">by.iba.uzhyhala.user.Registration</node>
-            <node x="2254.802777777778" y="960.0">by.iba.uzhyhala.admin.RateHandler</node>
-            <node x="974.237428818385" y="960.0">by.iba.uzhyhala.lot.LotStatus</node>
-            <node x="413.1372508643474" y="210.0">by.iba.uzhyhala.lot.to.BetTO</node>
-            <node x="2021.712183072334" y="440.0">by.iba.uzhyhala.user.Logout</node>
-            <node x="2880.752706596163" y="110.0">by.iba.uzhyhala.entity.FeedbackEntity</node>
-            <node x="2151.98447308657" y="210.0">by.iba.uzhyhala.util.VariablesUtil</node>
-            <node x="1386.9" y="960.0">by.iba.uzhyhala.user.Authorization</node>
-            <node x="1814.6152065961628" y="960.0">by.iba.uzhyhala.util.CookieUtil</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-52.88888888888914" y="-15.0" />
-              <point x="1055.4232941834448" y="1130.0" />
-              <point x="222.59090909090924" y="1130.0" />
-              <point x="222.59090909090924" y="640.0" />
-              <point x="220.77272727272748" y="640.0" />
-              <point x="-35.72727272727252" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.UserRegTOAPI" target="by.iba.uzhyhala.api.to.UserRegTOAPI">
-              <point x="0.0" y="15.0" />
-              <point x="2263.570516405667" y="490.0" />
-              <point x="2173.570516405667" y="490.0" />
-              <point x="2173.570516405667" y="455.0" />
-              <point x="-70.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="26.444444444444343" y="-15.0" />
-              <point x="1134.7566275167783" y="1110.0" />
-              <point x="1734.837428818385" y="1110.0" />
-              <point x="1734.837428818385" y="640.0" />
-              <point x="1708.552777777778" y="640.0" />
-              <point x="-5.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.entity.PersonalInformationEntity">
-              <point x="18.59999999999991" y="-15.0" />
-              <point x="498.83742881838475" y="780.0" />
-              <point x="672.9874288183848" y="780.0" />
-              <point x="-26.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotFullFieldTOAPI" target="by.iba.uzhyhala.api.to.LotFullFieldTOAPI">
-              <point x="0.0" y="15.0" />
-              <point x="119.75" y="1511.0" />
-              <point x="21.25" y="1511.0" />
-              <point x="21.25" y="1476.0" />
-              <point x="-78.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="7.416666666666515" y="-15.0" />
-              <point x="897.1540954850515" y="330.0" />
-              <point x="2174.2094730865697" y="330.0" />
-              <point x="-41.27499999999998" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.user.Profile">
-              <point x="0.0" y="15.0" />
-              <point x="889.737428818385" y="1010.0" />
-              <point x="825.237428818385" y="1010.0" />
-              <point x="825.237428818385" y="975.0" />
-              <point x="-44.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-39.33333333333337" y="-15.0" />
-              <point x="2610.4038497390006" y="1060.0" />
-              <point x="1774.1152065961628" y="1060.0" />
-              <point x="1774.1152065961628" y="600.0" />
-              <point x="1728.552777777778" y="600.0" />
-              <point x="15.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-56.69999999999993" y="-15.0" />
-              <point x="2084.537183072334" y="550.0" />
-              <point x="316.0454545454545" y="550.0" />
-              <point x="59.545454545454504" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-41.66666666666663" y="-15.0" />
-              <point x="2275.6361111111114" y="820.0" />
-              <point x="1860.552777777778" y="820.0" />
-              <point x="1860.552777777778" y="570.0" />
-              <point x="1743.552777777778" y="570.0" />
-              <point x="30.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-52.44444444444446" y="-15.0" />
-              <point x="2597.2927386278893" y="1070.0" />
-              <point x="233.59090909090924" y="1070.0" />
-              <point x="-23.818181818181984" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="6.2999999999999545" y="-15.0" />
-              <point x="2147.537183072334" y="590.0" />
-              <point x="2791.0027777777777" y="590.0" />
-              <point x="2791.0027777777777" y="90.0" />
-              <point x="2870.73447308657" y="90.0" />
-              <point x="11.666666666666515" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-31.5" y="-15.0" />
-              <point x="2109.737183072334" y="530.0" />
-              <point x="1753.552777777778" y="530.0" />
-              <point x="40.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.ReCaptchaUtil" target="by.iba.uzhyhala.util.ReCaptchaUtil">
-              <point x="-34.25" y="15.0" />
-              <point x="1555.3161006033479" y="710.0" />
-              <point x="1501.0661006033479" y="710.0" />
-              <point x="1501.0661006033479" y="675.0" />
-              <point x="-68.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.lot.to.BetHistoryTO">
-              <point x="56.700000000000045" y="-15.0" />
-              <point x="2197.937183072334" y="630.0" />
-              <point x="3115.0027777777777" y="630.0" />
-              <point x="16.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.lot.LotControl">
-              <point x="0.0" y="15.0" />
-              <point x="2693.987183072334" y="1330.0" />
-              <point x="2615.987183072334" y="1330.0" />
-              <point x="2615.987183072334" y="1295.0" />
-              <point x="-58.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.FeedbackEntity" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="36.0" y="-15.0" />
-              <point x="2988.752706596163" y="80.0" />
-              <point x="2917.4011397532363" y="80.0" />
-              <point x="58.33333333333326" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-43.799999999999955" y="-15.0" />
-              <point x="2397.437183072334" y="1100.0" />
-              <point x="2154.737183072334" y="1100.0" />
-              <point x="2154.737183072334" y="920.0" />
-              <point x="2167.487183072334" y="920.0" />
-              <point x="26.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.lot.LotHandler">
-              <point x="28.75" y="-15.0" />
-              <point x="2001.237183072334" y="1250.0" />
-              <point x="2634.987183072334" y="1250.0" />
-              <point x="-14.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoBetAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="38.0" y="-15.0" />
-              <point x="2104.237183072334" y="930.0" />
-              <point x="2440.3871830723338" y="930.0" />
-              <point x="2440.3871830723338" y="410.0" />
-              <point x="2244.0594730865696" y="410.0" />
-              <point x="28.575000000000045" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotFullFieldTOAPI" target="by.iba.uzhyhala.api.to.LotAddTOAPI">
-              <point x="0.0" y="-15.0" />
-              <point x="33.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="-22.0" y="-15.0" />
-              <point x="1007.237428818385" y="730.0" />
-              <point x="563.7374288183848" y="730.0" />
-              <point x="14.5" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-46.40000000000009" y="-15.0" />
-              <point x="2647.5871830723336" y="1230.0" />
-              <point x="138.5" y="1230.0" />
-              <point x="138.5" y="640.0" />
-              <point x="208.8636363636365" y="640.0" />
-              <point x="-47.63636363636351" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.api.lot.LotAddAPI">
-              <point x="0.0" y="15.0" />
-              <point x="1972.487183072334" y="1330.0" />
-              <point x="1894.987183072334" y="1330.0" />
-              <point x="1894.987183072334" y="1295.0" />
-              <point x="-57.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.lot.LotStatus">
-              <point x="-27.5" y="15.0" />
-              <point x="1001.737428818385" y="1010.0" />
-              <point x="954.237428818385" y="1010.0" />
-              <point x="954.237428818385" y="975.0" />
-              <point x="-55.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.lot.LotHandler">
-              <point x="-44.25" y="15.0" />
-              <point x="2605.487183072334" y="1200.0" />
-              <point x="2570.737183072334" y="1200.0" />
-              <point x="2570.737183072334" y="1165.0" />
-              <point x="-59.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-37.66666666666674" y="-15.0" />
-              <point x="1833.6152065961628" y="590.0" />
-              <point x="1733.552777777778" y="590.0" />
-              <point x="20.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="26.22222222222217" y="-15.0" />
-              <point x="2675.959405294556" y="1110.0" />
-              <point x="3197.352777777778" y="1110.0" />
-              <point x="3197.352777777778" y="400.0" />
-              <point x="3051.1027065961625" y="400.0" />
-              <point x="37.09999999999991" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.VariablesUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-60.32499999999999" y="15.0" />
-              <point x="2155.1594730865695" y="260.0" />
-              <point x="2131.98447308657" y="260.0" />
-              <point x="2131.98447308657" y="225.0" />
-              <point x="-63.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-13.416666666666629" y="-15.0" />
-              <point x="2486.8861111111114" y="780.0" />
-              <point x="2429.3871830723338" y="780.0" />
-              <point x="2429.3871830723338" y="510.0" />
-              <point x="1758.552777777778" y="510.0" />
-              <point x="45.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-31.0" y="-15.0" />
-              <point x="449.23742881838484" y="920.0" />
-              <point x="244.59090909090924" y="920.0" />
-              <point x="-11.909090909090992" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.user.Registration">
-              <point x="0.0" y="15.0" />
-              <point x="480.23742881838484" y="1010.0" />
-              <point x="398.23742881838484" y="1010.0" />
-              <point x="398.23742881838484" y="975.0" />
-              <point x="-62.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.admin.StatisticHandler">
-              <point x="0.0" y="15.0" />
-              <point x="1406.0661006033479" y="710.0" />
-              <point x="1312.0661006033479" y="710.0" />
-              <point x="1312.0661006033479" y="675.0" />
-              <point x="-74.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetTO" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="-37.08333333333326" y="15.0" />
-              <point x="420.5539175310141" y="260.0" />
-              <point x="393.1372508643474" y="260.0" />
-              <point x="393.1372508643474" y="225.0" />
-              <point x="-44.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="43.40000000000009" y="-15.0" />
-              <point x="523.6374288183849" y="800.0" />
-              <point x="1490.5661006033479" y="800.0" />
-              <point x="1490.5661006033479" y="600.0" />
-              <point x="1683.552777777778" y="600.0" />
-              <point x="-30.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.FeedbackEntity" target="by.iba.uzhyhala.entity.FeedbackEntity">
-              <point x="-48.0" y="15.0" />
-              <point x="2904.752706596163" y="160.0" />
-              <point x="2860.752706596163" y="160.0" />
-              <point x="2860.752706596163" y="125.0" />
-              <point x="-72.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.AuthInfoEntity" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="-58.33333333333326" y="15.0" />
-              <point x="2800.73447308657" y="50.0" />
-              <point x="2769.067806419903" y="50.0" />
-              <point x="2769.067806419903" y="15.0" />
-              <point x="-70.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="-13.222222222222172" y="-15.0" />
-              <point x="1095.0899608501118" y="1100.0" />
-              <point x="552.7374288183848" y="1100.0" />
-              <point x="552.7374288183848" y="640.0" />
-              <point x="534.7374288183848" y="640.0" />
-              <point x="-14.5" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.FeedbackEntity">
-              <point x="-39.75" y="-15.0" />
-              <point x="2974.252706596163" y="190.0" />
-              <point x="2952.752706596163" y="190.0" />
-              <point x="0.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Logout" target="by.iba.uzhyhala.user.Logout">
-              <point x="0.0" y="15.0" />
-              <point x="2068.712183072334" y="490.0" />
-              <point x="2001.712183072334" y="490.0" />
-              <point x="2001.712183072334" y="455.0" />
-              <point x="-47.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.CookieUtil">
-              <point x="39.666666666666515" y="-15.0" />
-              <point x="1147.9788497390005" y="1120.0" />
-              <point x="1885.2402065961628" y="1120.0" />
-              <point x="14.125" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoBetAPI" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="2066.237183072334" y="890.0" />
-              <point x="2135.987183072334" y="890.0" />
-              <point x="-5.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="37.083333333333485" y="-15.0" />
-              <point x="926.8207621517184" y="850.0" />
-              <point x="2093.987183072334" y="850.0" />
-              <point x="-47.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetBulkTO" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="-43.5" y="15.0" />
-              <point x="505.73742881838484" y="490.0" />
-              <point x="471.23742881838484" y="490.0" />
-              <point x="471.23742881838484" y="455.0" />
-              <point x="-58.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetHistoryTO" target="by.iba.uzhyhala.lot.to.BetHistoryTO">
-              <point x="-50.25" y="15.0" />
-              <point x="3048.0027777777777" y="490.0" />
-              <point x="3011.2527777777777" y="490.0" />
-              <point x="3011.2527777777777" y="455.0" />
-              <point x="-67.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.MailUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-45.0" y="15.0" />
-              <point x="1668.552777777778" y="490.0" />
-              <point x="1646.052777777778" y="490.0" />
-              <point x="1646.052777777778" y="455.0" />
-              <point x="-47.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotTOAPI" target="by.iba.uzhyhala.api.to.LotTOAPI">
-              <point x="-27.0" y="15.0" />
-              <point x="47.0" y="1200.0" />
-              <point x="0.0" y="1200.0" />
-              <point x="0.0" y="1165.0" />
-              <point x="-54.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="13.222222222222172" y="-15.0" />
-              <point x="1121.534405294556" y="1080.0" />
-              <point x="1094.737428818385" y="1080.0" />
-              <point x="1094.737428818385" y="350.0" />
-              <point x="2186.9094730865695" y="350.0" />
-              <point x="-28.575000000000045" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="44.0" y="-15.0" />
-              <point x="1073.237428818385" y="860.0" />
-              <point x="2104.487183072334" y="860.0" />
-              <point x="-36.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-50.25" y="-15.0" />
-              <point x="1403.65" y="790.0" />
-              <point x="1083.737428818385" y="790.0" />
-              <point x="1083.737428818385" y="630.0" />
-              <point x="280.318181818182" y="630.0" />
-              <point x="23.818181818181984" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Logout" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="2068.712183072334" y="410.0" />
-              <point x="2225.0094730865694" y="410.0" />
-              <point x="9.525000000000091" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="16.75" y="-15.0" />
-              <point x="1470.65" y="840.0" />
-              <point x="1678.5661006033479" y="840.0" />
-              <point x="1678.5661006033479" y="640.0" />
-              <point x="1703.552777777778" y="640.0" />
-              <point x="-10.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoBetAPI" target="by.iba.uzhyhala.api.lot.LotInfoBetAPI">
-              <point x="0.0" y="15.0" />
-              <point x="2066.237183072334" y="1010.0" />
-              <point x="1989.237183072334" y="1010.0" />
-              <point x="1989.237183072334" y="975.0" />
-              <point x="-57.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI">
-              <point x="0.0" y="15.0" />
-              <point x="2441.237183072334" y="1200.0" />
-              <point x="2311.737183072334" y="1200.0" />
-              <point x="2311.737183072334" y="1165.0" />
-              <point x="-109.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-9.583333333333314" y="-15.0" />
-              <point x="1962.9038497390006" y="1240.0" />
-              <point x="1759.1152065961628" y="1240.0" />
-              <point x="1759.1152065961628" y="630.0" />
-              <point x="1713.552777777778" y="630.0" />
-              <point x="0.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.user.Authorization">
-              <point x="0.0" y="15.0" />
-              <point x="1453.9" y="1010.0" />
-              <point x="1366.9" y="1010.0" />
-              <point x="1366.9" y="975.0" />
-              <point x="-67.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-52.0" y="-15.0" />
-              <point x="1162.0661006033479" y="620.0" />
-              <point x="292.2272727272725" y="620.0" />
-              <point x="35.72727272727252" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.lot.DocumentHandler">
-              <point x="-53.66666666666663" y="15.0" />
-              <point x="2446.6361111111114" y="1010.0" />
-              <point x="2399.802777777778" y="1010.0" />
-              <point x="2399.802777777778" y="975.0" />
-              <point x="-80.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="23.200000000000045" y="-15.0" />
-              <point x="2717.187183072334" y="1250.0" />
-              <point x="2780.0027777777777" y="1250.0" />
-              <point x="2780.0027777777777" y="360.0" />
-              <point x="2275.8094730865696" y="360.0" />
-              <point x="60.325000000000045" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.lot.DocumentHandler">
-              <point x="43.799999999999955" y="-15.0" />
-              <point x="2485.037183072334" y="1120.0" />
-              <point x="2553.9694444444444" y="1120.0" />
-              <point x="53.66666666666663" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="52.0" y="-15.0" />
-              <point x="1266.0661006033479" y="580.0" />
-              <point x="1673.552777777778" y="580.0" />
-              <point x="-40.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.api.DeleteHandlerAPI">
-              <point x="0.0" y="15.0" />
-              <point x="1214.0661006033479" y="710.0" />
-              <point x="1116.0661006033479" y="710.0" />
-              <point x="1116.0661006033479" y="675.0" />
-              <point x="-78.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="9.583333333333314" y="-15.0" />
-              <point x="1982.0705164056671" y="1240.0" />
-              <point x="2144.237183072334" y="1240.0" />
-              <point x="2144.237183072334" y="910.0" />
-              <point x="2156.987183072334" y="910.0" />
-              <point x="15.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.entity.AddressEntity">
-              <point x="6.199999999999818" y="-15.0" />
-              <point x="17.125" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-57.75" y="15.0" />
-              <point x="2083.487183072334" y="710.0" />
-              <point x="2058.237183072334" y="710.0" />
-              <point x="2058.237183072334" y="675.0" />
-              <point x="-63.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="50.25" y="-15.0" />
-              <point x="1504.15" y="870.0" />
-              <point x="2114.987183072334" y="870.0" />
-              <point x="-26.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.CategoryEntity" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-17.75" y="-15.0" />
-              <point x="2901.5027777777777" y="390.0" />
-              <point x="2987.502706596163" y="390.0" />
-              <point x="-26.5" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="67.08333333333337" y="-15.0" />
-              <point x="2567.3861111111114" y="940.0" />
-              <point x="3175.7527777777777" y="940.0" />
-              <point x="3175.7527777777777" y="420.0" />
-              <point x="3029.9027065961627" y="420.0" />
-              <point x="15.900000000000091" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="-26.444444444444343" y="-15.0" />
-              <point x="1081.8677386278896" y="1110.0" />
-              <point x="343.5" y="1110.0" />
-              <point x="343.5" y="300.0" />
-              <point x="450.22058419768086" y="300.0" />
-              <point x="-7.416666666666515" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.AddressEntity" target="by.iba.uzhyhala.entity.AddressEntity">
-              <point x="-51.375" y="15.0" />
-              <point x="417.93742881838466" y="710.0" />
-              <point x="380.81242881838466" y="710.0" />
-              <point x="380.81242881838466" y="675.0" />
-              <point x="-68.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.BetEntity">
-              <point x="13.25" y="-15.0" />
-              <point x="3027.252706596163" y="180.0" />
-              <point x="3176.1527777777774" y="180.0" />
-              <point x="-21.4" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="2649.737183072334" y="1090.0" />
-              <point x="2710.5027777777777" y="1090.0" />
-              <point x="2710.5027777777777" y="370.0" />
-              <point x="2269.4594730865692" y="370.0" />
-              <point x="53.97499999999991" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="2317.302777777778" y="810.0" />
-              <point x="2188.487183072334" y="810.0" />
-              <point x="47.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.entity.PersonalInformationEntity">
-              <point x="-7.416666666666515" y="-15.0" />
-              <point x="882.3207621517184" y="750.0" />
-              <point x="777.9874288183848" y="750.0" />
-              <point x="78.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="1214.0661006033479" y="370.0" />
-              <point x="2199.60947308657" y="370.0" />
-              <point x="-15.875" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.PersonalInformationEntity" target="by.iba.uzhyhala.entity.PersonalInformationEntity">
-              <point x="-78.75" y="15.0" />
-              <point x="620.4874288183848" y="710.0" />
-              <point x="574.2374288183848" y="710.0" />
-              <point x="574.2374288183848" y="675.0" />
-              <point x="-105.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-87.60000000000002" y="-15.0" />
-              <point x="2353.6371830723338" y="1110.0" />
-              <point x="1769.1152065961628" y="1110.0" />
-              <point x="1769.1152065961628" y="610.0" />
-              <point x="1723.552777777778" y="610.0" />
-              <point x="10.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="52.88888888888869" y="-15.0" />
-              <point x="1161.2010719612226" y="1130.0" />
-              <point x="2133.737183072334" y="1130.0" />
-              <point x="2133.737183072334" y="900.0" />
-              <point x="2146.487183072334" y="900.0" />
-              <point x="5.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.BetHandler">
-              <point x="0.0" y="15.0" />
-              <point x="1108.312183072334" y="1200.0" />
-              <point x="1028.812183072334" y="1200.0" />
-              <point x="1028.812183072334" y="1165.0" />
-              <point x="-59.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.ReCaptchaUtil">
-              <point x="55.80000000000018" y="-15.0" />
-              <point x="536.037428818385" y="810.0" />
-              <point x="1623.8161006033479" y="810.0" />
-              <point x="34.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="46.40000000000009" y="-15.0" />
-              <point x="2740.3871830723338" y="1260.0" />
-              <point x="3207.9527777777776" y="1260.0" />
-              <point x="3207.9527777777776" y="390.0" />
-              <point x="3061.702706596163" y="390.0" />
-              <point x="47.700000000000045" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-49.33333333333326" y="-15.0" />
-              <point x="1356.7327672700144" y="570.0" />
-              <point x="304.1363636363635" y="570.0" />
-              <point x="47.63636363636351" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-18.59999999999991" y="-15.0" />
-              <point x="461.63742881838493" y="910.0" />
-              <point x="370.31242881838466" y="910.0" />
-              <point x="370.31242881838466" y="310.0" />
-              <point x="2161.5094730865694" y="310.0" />
-              <point x="-53.97500000000002" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-6.2999999999999545" y="-15.0" />
-              <point x="2134.937183072334" y="420.0" />
-              <point x="2231.35947308657" y="420.0" />
-              <point x="15.875" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.admin.RateHandler">
-              <point x="0.0" y="15.0" />
-              <point x="2317.302777777778" y="1010.0" />
-              <point x="2234.802777777778" y="1010.0" />
-              <point x="2234.802777777778" y="975.0" />
-              <point x="-62.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="41.66666666666663" y="-15.0" />
-              <point x="2358.9694444444444" y="940.0" />
-              <point x="2446.737183072334" y="940.0" />
-              <point x="2446.737183072334" y="400.0" />
-              <point x="2250.4094730865695" y="400.0" />
-              <point x="34.924999999999955" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="37.66666666666674" y="-15.0" />
-              <point x="1908.7818732628295" y="880.0" />
-              <point x="2125.487183072334" y="880.0" />
-              <point x="-15.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-28.75" y="-15.0" />
-              <point x="1943.737183072334" y="1250.0" />
-              <point x="814.737428818385" y="1250.0" />
-              <point x="814.737428818385" y="320.0" />
-              <point x="2167.85947308657" y="320.0" />
-              <point x="-47.625" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.CategoryEntity" target="by.iba.uzhyhala.entity.CategoryEntity">
-              <point x="-35.5" y="15.0" />
-              <point x="2883.7527777777777" y="490.0" />
-              <point x="2828.2527777777777" y="490.0" />
-              <point x="2828.2527777777777" y="455.0" />
-              <point x="-71.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotAddTOAPI" target="by.iba.uzhyhala.api.to.LotAddTOAPI">
-              <point x="-33.25" y="15.0" />
-              <point x="53.25" y="1431.0" />
-              <point x="0.0" y="1431.0" />
-              <point x="0.0" y="1396.0" />
-              <point x="-66.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="1029.237428818385" y="340.0" />
-              <point x="2180.5594730865696" y="340.0" />
-              <point x="-34.924999999999955" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.ReCaptchaUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="1589.5661006033479" y="610.0" />
-              <point x="1688.552777777778" y="610.0" />
-              <point x="-25.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.api.to.LotTOAPI">
-              <point x="-47.916666666666686" y="-15.0" />
-              <point x="1924.5705164056671" y="1260.0" />
-              <point x="101.0" y="1260.0" />
-              <point x="27.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="-18.899999999999977" y="-15.0" />
-              <point x="2122.337183072334" y="520.0" />
-              <point x="1793.052777777778" y="520.0" />
-              <point x="1793.052777777778" y="280.0" />
-              <point x="494.72058419768086" y="280.0" />
-              <point x="37.083333333333485" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-16.75" y="-15.0" />
-              <point x="1437.15" y="780.0" />
-              <point x="1105.5661006033479" y="780.0" />
-              <point x="1105.5661006033479" y="360.0" />
-              <point x="2193.2594730865694" y="360.0" />
-              <point x="-22.22499999999991" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="49.33333333333326" y="-15.0" />
-              <point x="1455.399433936681" y="590.0" />
-              <point x="1678.552777777778" y="590.0" />
-              <point x="-35.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.lot.to.BetHistoryTO">
-              <point x="40.25" y="-15.0" />
-              <point x="2540.552777777778" y="930.0" />
-              <point x="3089.0746830723338" y="930.0" />
-              <point x="3089.0746830723338" y="640.0" />
-              <point x="3148.5027777777777" y="640.0" />
-              <point x="50.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.lot.LotHandler">
-              <point x="0.0" y="-15.0" />
-              <point x="44.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.MailUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="1713.552777777778" y="390.0" />
-              <point x="2212.3094730865696" y="390.0" />
-              <point x="-3.1749999999999545" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="-44.09999999999991" y="-15.0" />
-              <point x="2097.1371830723338" y="540.0" />
-              <point x="592.7374288183848" y="540.0" />
-              <point x="43.5" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.BetEntity" target="by.iba.uzhyhala.entity.BetEntity">
-              <point x="-42.799999999999955" y="15.0" />
-              <point x="3154.7527777777777" y="160.0" />
-              <point x="3124.052777777778" y="160.0" />
-              <point x="3124.052777777778" y="125.0" />
-              <point x="-53.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="1406.0661006033479" y="380.0" />
-              <point x="2205.9594730865692" y="380.0" />
-              <point x="-9.525000000000091" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-47.700000000000045" y="15.0" />
-              <point x="2966.302706596163" y="260.0" />
-              <point x="2941.002706596163" y="260.0" />
-              <point x="2941.002706596163" y="225.0" />
-              <point x="-53.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="-55.80000000000018" y="-15.0" />
-              <point x="424.43742881838466" y="940.0" />
-              <point x="149.5" y="940.0" />
-              <point x="149.5" y="70.0" />
-              <point x="2824.067806419903" y="70.0" />
-              <point x="-35.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.entity.CategoryEntity">
-              <point x="18.899999999999977" y="-15.0" />
-              <point x="2160.1371830723338" y="600.0" />
-              <point x="2954.7527777777777" y="600.0" />
-              <point x="35.5" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-40.25" y="-15.0" />
-              <point x="2460.052777777778" y="790.0" />
-              <point x="2198.987183072334" y="790.0" />
-              <point x="57.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-23.200000000000045" y="-15.0" />
-              <point x="2670.787183072334" y="1220.0" />
-              <point x="1764.1152065961628" y="1220.0" />
-              <point x="1764.1152065961628" y="620.0" />
-              <point x="1718.552777777778" y="620.0" />
-              <point x="5.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="1871.1152065961628" y="840.0" />
-              <point x="1912.737183072334" y="840.0" />
-              <point x="1912.737183072334" y="400.0" />
-              <point x="2218.6594730865695" y="400.0" />
-              <point x="3.1749999999999545" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="31.5" y="-15.0" />
-              <point x="2172.737183072334" y="610.0" />
-              <point x="3000.7527777777777" y="610.0" />
-              <point x="3000.7527777777777" y="420.0" />
-              <point x="3019.302706596163" y="420.0" />
-              <point x="5.2999999999999545" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.CookieUtil">
-              <point x="-26.22222222222223" y="-15.0" />
-              <point x="2623.5149608501115" y="1050.0" />
-              <point x="1913.4902065961628" y="1050.0" />
-              <point x="42.375" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoBetAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-38.0" y="-15.0" />
-              <point x="2028.237183072334" y="830.0" />
-              <point x="1855.552777777778" y="830.0" />
-              <point x="1855.552777777778" y="580.0" />
-              <point x="1738.552777777778" y="580.0" />
-              <point x="25.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.LotStatus">
-              <point x="0.0" y="-15.0" />
-              <point x="1108.312183072334" y="1090.0" />
-              <point x="1056.737428818385" y="1090.0" />
-              <point x="27.5" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="13.416666666666629" y="-15.0" />
-              <point x="2513.7194444444444" y="940.0" />
-              <point x="2512.152777777778" y="940.0" />
-              <point x="2512.152777777778" y="390.0" />
-              <point x="2256.7594730865694" y="390.0" />
-              <point x="41.27500000000009" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetBulkTO" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="29.0" y="-15.0" />
-              <point x="578.2374288183848" y="290.0" />
-              <point x="479.8872508643474" y="290.0" />
-              <point x="22.25" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.CookieUtil">
-              <point x="-42.375" y="15.0" />
-              <point x="1828.7402065961628" y="1010.0" />
-              <point x="1794.6152065961628" y="1010.0" />
-              <point x="1794.6152065961628" y="982.5" />
-              <point x="-56.5" y="7.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.entity.BetEntity">
-              <point x="52.44444444444446" y="-15.0" />
-              <point x="2702.1816275167785" y="1130.0" />
-              <point x="3229.9527777777776" y="1130.0" />
-              <point x="3229.9527777777776" y="190.0" />
-              <point x="3240.3527777777776" y="190.0" />
-              <point x="42.799999999999955" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.HibernateUtil" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-59.545454545454504" y="15.0" />
-              <point x="196.9545454545455" y="490.0" />
-              <point x="171.0" y="490.0" />
-              <point x="171.0" y="455.0" />
-              <point x="-65.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-37.083333333333485" y="-15.0" />
-              <point x="852.6540954850515" y="770.0" />
-              <point x="255.59090909090924" y="770.0" />
-              <point x="0.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-13.111111111111086" y="-15.0" />
-              <point x="2636.626071961223" y="1040.0" />
-              <point x="2224.302777777778" y="1040.0" />
-              <point x="2224.302777777778" y="920.0" />
-              <point x="2177.987183072334" y="920.0" />
-              <point x="36.75" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="87.60000000000002" y="-15.0" />
-              <point x="2528.837183072334" y="1130.0" />
-              <point x="2608.440206596163" y="1130.0" />
-              <point x="2608.440206596163" y="380.0" />
-              <point x="2263.10947308657" y="380.0" />
-              <point x="47.625" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="22.25" y="-15.0" />
-              <point x="911.987428818385" y="820.0" />
-              <point x="1668.5661006033479" y="820.0" />
-              <point x="1668.5661006033479" y="620.0" />
-              <point x="1693.552777777778" y="620.0" />
-              <point x="-20.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.UserRegTOAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-15.0" />
-              <point x="2263.570516405667" y="420.0" />
-              <point x="2237.7094730865692" y="420.0" />
-              <point x="22.22499999999991" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-44.0" y="-15.0" />
-              <point x="985.237428818385" y="740.0" />
-              <point x="266.59090909090924" y="740.0" />
-              <point x="266.59090909090924" y="640.0" />
-              <point x="268.409090909091" y="640.0" />
-              <point x="11.909090909090992" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="22.0" y="-15.0" />
-              <point x="1051.237428818385" y="830.0" />
-              <point x="1673.5661006033479" y="830.0" />
-              <point x="1673.5661006033479" y="630.0" />
-              <point x="1698.552777777778" y="630.0" />
-              <point x="-15.0" y="15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.CategoryEntity">
-              <point x="-15.900000000000091" y="15.0" />
-              <point x="2998.1027065961625" y="400.0" />
-              <point x="2937.0027777777777" y="400.0" />
-              <point x="17.75" y="-15.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.entity.AddressEntity">
-              <point x="-22.25" y="-15.0" />
-              <point x="867.487428818385" y="760.0" />
-              <point x="520.6874288183847" y="760.0" />
-              <point x="51.375" y="15.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.4267399267399267" x="552.4034334763949" y="415.7145922746781" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
     </entry>
     <entry file="uml://DATABASE/6780e94f-6688-4eb9-af27-6a4b0e1ff1df">
       <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -3490,12 +2397,13 @@
               <point x="49.0" y="213.5" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.8396946564885496" x="-14.240909090909156" y="275.8181818181818" />
+          <settings layout="Hierarchic Group" zoom="0.8396946564885496" x="-14.0" y="276.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Columns</Category>
             <Category>Key columns</Category>
+            <Category>Columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -3506,50 +2414,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/PasscodeHashHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/PasscodeHashHandler.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/src.zip!/java/security/MessageDigest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
           <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
-          <folding>
-            <element signature="method#CommonUtil#0;class#CommonUtil#0" />
-            <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
-            <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
-            <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
-            <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
-            <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
-            <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
-            <element signature="method#getCategoryById#0;class#CommonUtil#0" />
-            <element signature="method#getAllUser#0;class#CommonUtil#0" />
-            <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
-            <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
-            <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
-            <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
-            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
-            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
-            <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
-            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
-            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
-            <element signature="method#getRate#0;class#CommonUtil#0" />
-            <element signature="method#changeRate#0;class#CommonUtil#0" />
-            <element signature="method#getLots#0;class#CommonUtil#0" />
-            <element signature="method#getCategories#0;class#CommonUtil#0" />
-            <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
-            <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3573,18 +2442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="method#doPost#0;class#Authorization#0" />
-            <element signature="method#isPasswordValid#0;class#Authorization#0" />
-            <element signature="method#setAuthCookie#0;class#Authorization#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -3601,16 +2458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/bet">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="bulk" languageId="JSON" />
-          </column-attributes>
         </state>
       </provider>
     </entry>
@@ -3637,13 +2484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/DeleteHandlerAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -3655,20 +2495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="45" column="35" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/auth_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -3711,10 +2537,309 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/MailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="method#setupParametersForMessage#0;class#MailUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/bet">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="bulk" languageId="JSON" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagrams/test_diagrams.uml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">by.iba.uzhyhala.api.to.LotTOAPI</node>
+            <node x="" y="">by.iba.uzhyhala.lot.BetHandler</node>
+            <node x="" y="">by.iba.uzhyhala.entity.BetEntity</node>
+            <node x="" y="">by.iba.uzhyhala.user.Profile</node>
+            <node x="" y="">by.iba.uzhyhala.util.CommonUtil</node>
+            <node x="" y="">by.iba.uzhyhala.lot.LotHandler</node>
+            <node x="" y="">by.iba.uzhyhala.lot.to.BetBulkTO</node>
+            <node x="" y="">by.iba.uzhyhala.admin.StatisticHandler</node>
+            <node x="" y="">by.iba.uzhyhala.api.to.LotFullFieldTOAPI</node>
+            <node x="" y="">by.iba.uzhyhala.util.ReCaptchaUtil</node>
+            <node x="" y="">by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI</node>
+            <node x="" y="">by.iba.uzhyhala.entity.AddressEntity</node>
+            <node x="" y="">by.iba.uzhyhala.entity.LotEntity</node>
+            <node x="" y="">by.iba.uzhyhala.admin.FeedbackHandler</node>
+            <node x="" y="">by.iba.uzhyhala.api.to.UserRegTOAPI</node>
+            <node x="" y="">by.iba.uzhyhala.api.lot.LotAddAPI</node>
+            <node x="" y="">by.iba.uzhyhala.util.MailUtil</node>
+            <node x="" y="">by.iba.uzhyhala.lot.to.BetHistoryTO</node>
+            <node x="" y="">by.iba.uzhyhala.lot.DocumentHandler</node>
+            <node x="" y="">by.iba.uzhyhala.api.DeleteHandlerAPI</node>
+            <node x="" y="">by.iba.uzhyhala.entity.CategoryEntity</node>
+            <node x="" y="">by.iba.uzhyhala.lot.LotControl</node>
+            <node x="" y="">by.iba.uzhyhala.entity.AuthInfoEntity</node>
+            <node x="" y="">by.iba.uzhyhala.entity.PersonalInformationEntity</node>
+            <node x="" y="">by.iba.uzhyhala.api.to.LotAddTOAPI</node>
+            <node x="" y="">by.iba.uzhyhala.util.HibernateUtil</node>
+            <node x="" y="">by.iba.uzhyhala.user.Registration</node>
+            <node x="" y="">by.iba.uzhyhala.admin.RateHandler</node>
+            <node x="" y="">by.iba.uzhyhala.lot.LotStatus</node>
+            <node x="" y="">by.iba.uzhyhala.user.Logout</node>
+            <node x="" y="">by.iba.uzhyhala.lot.to.BetTO</node>
+            <node x="" y="">by.iba.uzhyhala.entity.FeedbackEntity</node>
+            <node x="" y="">by.iba.uzhyhala.util.VariablesUtil</node>
+            <node x="" y="">by.iba.uzhyhala.user.Authorization</node>
+            <node x="" y="">by.iba.uzhyhala.util.CookieUtil</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="1164.0" y="355.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/6780e94f-6688-4eb9-af27-6a4b0e1ff1df.SCHEMA:auction.public">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>6780e94f-6688-4eb9-af27-6a4b0e1ff1df.SCHEMA:auction.public</OriginalElement>
+          <nodes>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.lot</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.category</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.address</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.bet</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.feedback</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.personal_information</node>
+            <node x="" y="">6780e94f-6688-4eb9-af27-6a4b0e1ff1df.TABLE:auction.public.auth_info</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="322.0" y="532.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/auth_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6780e94f-6688-4eb9-af27-6a4b0e1ff1df/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetHistoryTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/UserRegTOAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotTOAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotFullFieldTOAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="50" column="7" selection-start-line="4" selection-start-column="3" selection-end-line="50" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="868">
+          <caret line="198" column="69" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CommonUtil#0;class#CommonUtil#0" />
+            <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
+            <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
+            <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
+            <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
+            <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
+            <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
+            <element signature="method#getCategoryById#0;class#CommonUtil#0" />
+            <element signature="method#getAllUser#0;class#CommonUtil#0" />
+            <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
+            <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
+            <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
+            <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
+            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+            <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
+            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
+            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
+            <element signature="method#getRate#0;class#CommonUtil#0" />
+            <element signature="method#changeRate#0;class#CommonUtil#0" />
+            <element signature="method#getLots#0;class#CommonUtil#0" />
+            <element signature="method#getCategories#0;class#CommonUtil#0" />
+            <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
+            <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="101" column="64" selection-start-line="101" selection-start-column="64" selection-end-line="101" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#prepareBetBulk#0;class#LotHandler#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="56" column="42" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+          <folding>
+            <element signature="method#doPost#0;class#Authorization#0" />
+            <element signature="method#setAuthCookie#0;class#Authorization#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetBulkTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="9" selection-start-line="9" selection-end-line="71" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#910#911#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1105#1106#0" expanded="true" />
+            <element signature="e#1150#1151#0" expanded="true" />
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+            <element signature="e#1304#1305#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/to/BetTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1031#1032#0" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
+            <element signature="e#1096#1097#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1211#1212#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1392#1393#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+            <element signature="e#1459#1460#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1589#1590#0" expanded="true" />
+            <element signature="e#1621#1622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
+        <state relative-caret-position="112">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>

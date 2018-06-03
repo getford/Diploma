@@ -1,11 +1,8 @@
 package by.iba.uzhyhala.api.to;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class LotFullFieldTOAPI extends LotAddTOAPI {
 
-    @SerializedName("uuid")
+   /* @SerializedName("uuid")
     @Expose
     private String uuid;
 
@@ -51,6 +48,6 @@ public class LotFullFieldTOAPI extends LotAddTOAPI {
 
     public void setStatus(String status) {
         this.status = status;
-    }
+    }*/
 
 }

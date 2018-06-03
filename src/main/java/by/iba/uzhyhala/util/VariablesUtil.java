@@ -7,6 +7,8 @@ public final class VariablesUtil {
     private VariablesUtil() {
     }
 
+    static final String HIBERNATE_CONFIG = "hibernate.cfg.xml";
+
     // Entity
     public static final String ENTITY_ADDRESS = "AddressEntity";
     public static final String ENTITY_AUTH_INFO = "AuthInfoEntity";
@@ -111,7 +113,7 @@ public final class VariablesUtil {
     public static final String QUERY_COUNT_USERS_USE_API = "SELECT count(uuid) FROM auth_info WHERE api_key != 'null'";
     public static final String QUERY_COUNT_USERS_ADD_TODAY = "SELECT count(uuid) FROM auth_info WHERE create_date = '"
             + new SimpleDateFormat(PATTERN_DATE_REVERSE).format(new Date().getTime()) + "'";
-    
+
     // api
     public static final String PARAMETER_API_KEY_NAME = "api_key";
 
@@ -130,4 +132,7 @@ public final class VariablesUtil {
 
     // hash
     public static final String HASH_SALT = "LA";
+
+    // others variables
+    public static final String DOUBLE_ZERO = "00";
 }

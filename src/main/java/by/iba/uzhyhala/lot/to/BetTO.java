@@ -83,5 +83,4 @@ public class BetTO {
     public void setTime(String time) {
         this.time = time;
     }
-
 }

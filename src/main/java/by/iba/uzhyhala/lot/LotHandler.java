@@ -99,8 +99,8 @@ public class LotHandler extends HttpServlet implements Serializable {
             lotEntity.setStepCost(step);
             lotEntity.setDateAdd(dateNow);
             lotEntity.setDateStart(dateStartParsed);
-            lotEntity.setTimeStart(timeStart + ":00");
-            lotEntity.setTimeEnd(getLotDateEnd(timeStart + ":00", LOT_TIME_SEC));
+            lotEntity.setTimeStart(timeStart + ":" + DOUBLE_ZERO);
+            lotEntity.setTimeEnd(getLotDateEnd(timeStart + ":" + DOUBLE_ZERO, LOT_TIME_SEC));
             lotEntity.setIdCategory(idCat);
             lotEntity.setImagesName(fileName);
 

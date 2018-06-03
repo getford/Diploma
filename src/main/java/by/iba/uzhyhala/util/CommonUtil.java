@@ -8,6 +8,7 @@ import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import com.google.gson.Gson;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -29,12 +30,8 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
-import static java.io.File.createTempFile;
-import static java.io.File.separator;
 import static java.lang.String.valueOf;
-import static java.util.regex.Pattern.compile;
 import static org.apache.commons.io.FileUtils.readFileToByteArray;
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class CommonUtil {
     private static final Logger LOGGER = Logger.getLogger(CommonUtil.class);
@@ -44,7 +41,7 @@ public class CommonUtil {
 
     public static String loginOrEmail(String loginOrEmail) {
         LOGGER.info("loginOrEmail method");
-        return compile(REGEXP_EMAIL,
+        return Pattern.compile(REGEXP_EMAIL,
                 Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? EMAIL : LOGIN;
     }
 
@@ -203,7 +200,7 @@ public class CommonUtil {
         LOGGER.info("getLotDateEnd method");
         String dateNow = new SimpleDateFormat(PATTERN_DATE_REVERSE).format(new Date().getTime());
         LocalDateTime localDateTime = LocalDateTime.parse(dateNow + "T" + start);
-        return valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":00");
+        return valueOf(localDateTime.plusSeconds(Long.parseLong(plusSec)).toLocalTime() + ":" + DOUBLE_ZERO);
     }
 
     public static boolean isUserHaveApiKey(String uuid) {
@@ -243,7 +240,7 @@ public class CommonUtil {
     public static File prepareFileForAttach(Object o, String fileName, String extension) {
         LOGGER.info("prepareFileForAttach method");
         try {
-            File tempFile = createTempFile(fileName, extension);
+            File tempFile = File.createTempFile(fileName, extension);
 
             LOGGER.info("file name: " + tempFile.getName());
             LOGGER.info("file path: " + tempFile.getAbsolutePath());
@@ -407,8 +404,8 @@ public class CommonUtil {
 
         for (Part part : req.getParts()) {
             String fileName = separateUploadFileName(part);
-            if (!isBlank(fileName)) {
-                String path = uploadFilePath + separator + fileName;
+            if (!StringUtils.isBlank(fileName)) {
+                String path = uploadFilePath + File.separator + fileName;
                 part.write(path);
                 return Base64.getEncoder().encodeToString(readFileToByteArray(new File(path)));
             }

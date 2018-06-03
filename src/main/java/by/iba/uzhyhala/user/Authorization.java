@@ -54,7 +54,7 @@ public class Authorization extends HttpServlet {
     private boolean isPasswordValid(Session session, String cred, String password) {
         Query query = session.createQuery("SELECT a.password FROM " + ENTITY_AUTH_INFO + " a WHERE " +
                 type + " = :cred").setParameter("cred", cred);
-        return !(query.list().isEmpty()) && (sha512Hex(password + HASH_SALT).equals(valueOf(query.list().get(0))));
+        return !query.list().isEmpty() && sha512Hex(password + HASH_SALT).equals(valueOf(query.list().get(0)));
     }
 
     private void setAuthCookie(String uuid, String role, HttpServletResponse resp) {
