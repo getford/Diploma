@@ -1,5 +1,5 @@
-<%@ page import="by.iba.uzhyhala.util.ReCaptchaUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
+<%@ page import="static by.iba.uzhyhala.util.ReCaptchaUtil.PUBLIC" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -101,7 +101,7 @@
 					</label>
                     </span>
                     <span class="input input--isao">
-                    <div class="g-recaptcha" data-sitekey="<%=ReCaptchaUtil.PUBLIC%>"></div>
+                    <div class="g-recaptcha" data-sitekey="<%=PUBLIC%>"></div>
                     <button type="submit" name="reg">REG</button>
                     </span>
                 </form>

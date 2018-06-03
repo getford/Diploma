@@ -22,11 +22,6 @@ public final class VariablesUtil {
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_USER = "user";
 
-    //
-    public static final String EMAIL = "email";
-    public static final String LOGIN = "login";
-    public static final String PASSCODE = "password";
-
     // Lot status
     public static final String STATUS_LOT_ACTIVE = "active";
     public static final String STATUS_LOT_SALES = "sales";
@@ -64,14 +59,13 @@ public final class VariablesUtil {
     public static final String COOKIE_AUTH_NAME = "auction_auth";
 
     public static final String LOT_TIME_SEC = "600";
-    public static final String LOT_TIME_AFTER_BET_SEC = "10";
+    public static final String LOT_TIME_AFTER_BET_SEC = "30";
 
     public static final String MESSAGE_ERROR_SERVER = "Please, contact with administrator. " +
             "Email: auction.diploma@gmail.com";
 
     // Regexp
     public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
-    public static final String REGEXP_DELETE_NUMBERS = "^([0-9]+)";
 
     // Files
     public static final String PDF_OWNER_PASSCODE = "9cb6baf0";
@@ -135,4 +129,7 @@ public final class VariablesUtil {
 
     // others variables
     public static final String DOUBLE_ZERO = "00";
+    public static final String EMAIL = "email";
+    public static final String LOGIN = "login";
+    public static final String PASSCODE = "password";
 }
