@@ -129,19 +129,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1092">
-              <caret line="101" column="64" selection-start-line="101" selection-start-column="64" selection-end-line="101" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#prepareBetBulk#0;class#LotHandler#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BetHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -211,11 +198,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BetEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BetEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
               <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LotInfoBetAPI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -391,7 +387,6 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoAPI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/PasscodeHashHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentHandler.java" />
@@ -413,6 +408,7 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java" />
       </list>
     </option>
   </component>
@@ -940,7 +936,7 @@
       <workItem from="1526768268896" duration="3958000" />
       <workItem from="1526917306315" duration="1373000" />
       <workItem from="1526918802909" duration="30401000" />
-      <workItem from="1527956850421" duration="466000" />
+      <workItem from="1527956850421" duration="628000" />
     </task>
     <servers />
   </component>
@@ -977,7 +973,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="459587000" />
+    <option name="totallyTimeSpent" value="459749000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1519,13 +1515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/PasscodeHashHandler.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/src.zip!/java/security/MessageDigest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1959,6 +1948,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
         </state>
       </provider>
     </entry>
