@@ -44,10 +44,8 @@ public class LotStatusTest {
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-
         when(mockHttpServletRequest.getParameter("uuid")).thenReturn("5a132e1d-10c5-486c-886b-756fb4b3a1f8");
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
-
         whenNew(URL.class).withArguments(TEST_URL).thenReturn(mock(URL.class));
     }
 
