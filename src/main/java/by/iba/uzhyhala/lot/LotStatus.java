@@ -31,6 +31,7 @@ public class LotStatus extends HttpServlet {
         boolean isChangeStatus;
         if (Objects.requireNonNull(getHistoryBets(req.getParameter("uuid"))).size() > 1) {
             isChangeStatus = isUpdateLotStatus(STATUS_LOT_SALES, req.getParameter("uuid"), req);
+            new DocumentHandler().generateConfirmationLotSalesPDF(req.getParameter("uuid"), req, resp);
         } else {
             isChangeStatus = isUpdateLotStatus(STATUS_LOT_CLOSE, req.getParameter("uuid"), req);
         }

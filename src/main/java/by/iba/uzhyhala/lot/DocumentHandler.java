@@ -1,6 +1,9 @@
 package by.iba.uzhyhala.lot;
 
+import by.iba.uzhyhala.entity.AddressEntity;
+import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.entity.LotEntity;
+import by.iba.uzhyhala.entity.PersonalInformationEntity;
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import by.iba.uzhyhala.util.MailUtil;
 import com.itextpdf.text.*;
@@ -27,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
+import static by.iba.uzhyhala.user.Profile.*;
 import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
@@ -36,7 +40,8 @@ public class DocumentHandler extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(DocumentHandler.class);
 
     private static final long serialVersionUID = 1016213373588804043L;
-    private static final String BET_HISTORY = "Bet history";
+    private static final String TITLE_BET_HISTORY = "Bet history";
+    private static final String TITLE_CONFIRMATION_LOT_SALES = "Sales confirmation";
     private static final String RESIRECT_URL_PATH = "/pages/lot.jsp?uuid=";
     private static String timeNow = valueOf(new SimpleDateFormat(PATTERN_TIME).format(new Date()));
     private static String subject = "Корреспонденция по лоту ";
@@ -154,10 +159,10 @@ public class DocumentHandler extends HttpServlet {
             document.open();
 
             document.addAuthor("Auction Diploma");
-            document.addTitle(BET_HISTORY);
+            document.addTitle(TITLE_BET_HISTORY);
 
             document.add(new Paragraph("Auction Diploma"));
-            document.add(new Paragraph(BET_HISTORY));
+            document.add(new Paragraph(TITLE_BET_HISTORY));
             document.add(new Paragraph(valueOf(new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date()))));
 
             BarcodeQRCode barcodeQRCode = new BarcodeQRCode(getLotUrl(), 1000, 1000, null);
@@ -213,6 +218,103 @@ public class DocumentHandler extends HttpServlet {
         }
     }
 
+    public void generateConfirmationLotSalesPDF(String uuidLot, HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            Document document = new Document(PageSize.A4);
+            URL url = new URL(req.getRequestURL().toString());
+
+            urlLot = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + RESIRECT_URL_PATH + uuidLot;
+            documentPasscode = valueOf(UUID.randomUUID()).substring(0, 8);
+
+            LotEntity lotEntityList = new LotControl(uuidLot).getLotInfoByUuid().get(0);
+            AuthInfoEntity authInfoEntitySellerList = getUserAuthInfo(lotEntityList.getUuidUserSeller()).get(0);
+            AuthInfoEntity authInfoEntityClientList = getUserAuthInfo(lotEntityList.getUuidUserClient()).get(0);
+            PersonalInformationEntity personalInformationSellerEntity = getUserPersonalInformation(getUserLoginByUUID(getUUIDUserByUUIDLot(uuidLot))).get(0);
+            PersonalInformationEntity personalInformationClientEntity = getUserPersonalInformation(getUserLoginByUUID(getUUIDUserByUUIDLot(uuidLot))).get(0);
+            AddressEntity addressClientEntity = getUserAddress(getUserLoginByUUID(authInfoEntityClientList.getUuid())).get(0);
+
+            PdfWriter pdfWriter;
+            pdfWriter = PdfWriter.getInstance(document, byteArrayOutputStreamPDF);
+
+            // passcode for document
+            pdfWriter.setEncryption(
+                    getDocumentPasscode().getBytes(StandardCharsets.UTF_8),
+                    PDF_OWNER_PASSCODE.getBytes(StandardCharsets.UTF_8),
+                    PdfWriter.ALLOW_COPY,
+                    PdfWriter.ENCRYPTION_AES_128
+            );
+
+            document.open();
+
+            document.addAuthor("Auction Diploma");
+            document.addTitle(TITLE_BET_HISTORY);
+
+            document.add(new Paragraph("Auction Diploma"));
+            document.add(new Paragraph(TITLE_CONFIRMATION_LOT_SALES));
+            document.add(new Paragraph(valueOf(new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date()))));
+
+            BarcodeQRCode barcodeQRCode = new BarcodeQRCode(getLotUrl(), 1000, 1000, null);
+            Image codeQrImage = barcodeQRCode.getImage();
+            codeQrImage.setAbsolutePosition(469, 729);
+            codeQrImage.scaleAbsolute(100, 100);
+            document.add(codeQrImage);
+
+            document.add(new Paragraph("\n---------------------------------------------------------------" +
+                    "-------------------------------------------------------------------"));
+            document.add(new Paragraph("This document confirms the sale of the lot " + lotEntityList.getName() + "\n"));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph("\n--------------------------------- LOT ------------------------------"));
+            document.add(new Paragraph("Name: " + lotEntityList.getName()));
+            document.add(new Paragraph("Info: " + lotEntityList.getInformation()));
+
+            document.add(new Paragraph("\n--------------------------------- SELLER ------------------------------"));
+            document.add(new Paragraph("Name: " + personalInformationSellerEntity.getFirstName() + " " + personalInformationSellerEntity.getLastName() + "\n"));
+            document.add(new Paragraph("Email: " + authInfoEntitySellerList.getEmail() + "\n"));
+
+            document.add(new Paragraph("\n--------------------------------- CLIENT ------------------------------"));
+            document.add(new Paragraph("Name: " + personalInformationClientEntity.getFirstName() + " " + personalInformationClientEntity.getLastName()));
+            document.add(new Paragraph("Email: " + authInfoEntityClientList.getEmail() + "\n"));
+            document.add(new Paragraph("Phone: " + personalInformationClientEntity.getPhone() + "\n"));
+            document.add(new Paragraph("\nClient address\n"));
+            document.add(new Paragraph("Country: " + addressClientEntity.getCountry() + "\n"));
+            document.add(new Paragraph("City: " + addressClientEntity.getCity() + "\n"));
+            document.add(new Paragraph("Street: " + addressClientEntity.getStreet() + "\n"));
+            document.add(new Paragraph("House: " + addressClientEntity.getHouse() + "\n"));
+            document.add(new Paragraph("Zip: " + addressClientEntity.getZip() + "\n"));
+
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph("---------------------------------------------------------------" +
+                    "-------------------------------------------------------------------"));
+            document.add(new Paragraph("UUID lot: " + uuidLot));
+            document.add(new Paragraph("URL lot: " + getLotUrl()));
+
+            document.close();
+
+            MailUtil mailUtil = new MailUtil();
+            mailUtil.addAttachment(prepareFileForAttach(byteArrayOutputStreamPDF,
+                    fileName, PDF_EXTENSION)
+            );
+
+            String body = "<br/>" + timeNow +
+                    "<br/>Добрый день, найдите прикрепленные файлы в письме." +
+                    "<br/>Документ подтверждает продажу лота." +
+                    "<br/>Если вы являетесь покупателем, пожалуйста свяжитесь с продавцом." +
+                    "<br/>Адрес лота: <b>" + urlLot + "</b>" +
+                    "<br/>Пароль для открытия файла: <b>" + documentPasscode + "</b>" +
+                    "<br/><br/>С уважением";
+
+            // TODO: mailUtil.sendSimpleHtmlMail(getUserEmailByUUID(getUUIDUserByUUIDLot(uuidLot)), body, "Подверждение сделки");
+            mailUtil.sendSimpleHtmlMail(EMAIL_SUPPORT, body, "Подтверждение сделки");
+
+            LOGGER.info("PDF document successfully generated");
+            LOGGER.info("Document name\t" + fileName);
+            LOGGER.info("Password\t" + getDocumentPasscode());
+        } catch (IOException | DocumentException e) {
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            LOGGER.error(e.getLocalizedMessage());
+        }
+    }
+
     public void generateExcelDocHistoryBet(HttpServletRequest req, String uuidLot, String extension, boolean isSendMail) {
         List<Map<String, String>> dateList = new ArrayList<>();
         List<BetHistoryTO> list = getHistoryBets(uuidLot);
@@ -235,7 +337,7 @@ public class DocumentHandler extends HttpServlet {
         if (isSendMail) {
             MailUtil mailUtil = new MailUtil();
             mailUtil.addAttachment(prepareFileForAttach(
-                    createExcelFile(dateList, columnList, BET_HISTORY),
+                    createExcelFile(dateList, columnList, TITLE_BET_HISTORY),
                     fileName, extension));
 
             String body = "<br/>" + timeNow +
@@ -254,7 +356,7 @@ public class DocumentHandler extends HttpServlet {
                 LOGGER.error(e.getLocalizedMessage());
             }
             File file = new File(valueOf(prepareFileForAttach(
-                    createExcelFile(dateList, columnList, BET_HISTORY),
+                    createExcelFile(dateList, columnList, TITLE_BET_HISTORY),
                     fileName, extension)));
 
             try (FileInputStream fis = new FileInputStream(file)) {
@@ -335,4 +437,5 @@ public class DocumentHandler extends HttpServlet {
     public String getLotUrl() {
         return urlLot;
     }
+
 }

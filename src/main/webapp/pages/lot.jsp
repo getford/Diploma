@@ -10,6 +10,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="static java.io.File.separator" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.FOLDER_UPLOAD_IMAGES" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.STATUS_LOT_SALES" %>
+<%@ page import="by.iba.uzhyhala.lot.DocumentHandler" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

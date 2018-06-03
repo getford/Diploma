@@ -19,7 +19,6 @@ import java.util.List;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
-
 @WebServlet(urlPatterns = "/lotcontrol")
 public class LotControl extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotHandler.class);

@@ -57,7 +57,7 @@ public class DocumentHandlerTest {
 
     @Test
     public void testDoPost() {
-        String UUID_LOT = "2ee7fa10-6c2a-4980-bd8e-be174c273d53";
+        final String UUID_LOT = "95025d79-3296-4254-93c7-d60b666f5bbe";
 
         getHistoryBets(UUID_LOT);
         prepareFileForAttach(new XSSFWorkbook(), "File name",
@@ -82,6 +82,8 @@ public class DocumentHandlerTest {
         when(mockHttpServletRequest.getParameter("type")).thenReturn(EXCEL);
         when(mockHttpServletRequest.getParameter("send-mail")).thenReturn("false");
         new DocumentHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+
+        new DocumentHandler().generateConfirmationLotSalesPDF(UUID_LOT, mockHttpServletRequest, mockHttpServletResponse);
     }
 
     @Test

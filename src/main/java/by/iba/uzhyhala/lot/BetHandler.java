@@ -55,6 +55,7 @@ public class BetHandler extends HttpServlet implements Serializable {
         int size = betBulkTO.getBets().size() - 1;
         if (betBulkTO.getStatus().equals(STATUS_LOT_ACTIVE) && bet >= betBulkTO.getStep()) {
             if (bet < betBulkTO.getBlitzCost()) {
+                betBulkTO.setUuidClient(uuidUser);
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
                 betTO.setDate(valueOf(new SimpleDateFormat(PATTERN_DATE).format(new Date().getTime())));

@@ -73,8 +73,8 @@
     <schema id="16" parent="2" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-05-28.00:13:43.173</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2476</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-04.02:06:40.687</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2598</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -202,7 +202,7 @@
     </table>
     <table id="36" parent="16" name="personal_information">
       <ObjectId>33189</ObjectId>
-      <StateNumber>1230</StateNumber>
+      <StateNumber>2598</StateNumber>
     </table>
     <column id="37" parent="30" name="id">
       <Position>1</Position>
@@ -705,23 +705,29 @@
       <StateNumber>1060</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="115" parent="36" name="personal_information_pkey">
+    <column id="115" parent="36" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <StateNumber>2598</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="116" parent="36" name="personal_information_pkey">
       <ObjectId>33196</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="116" parent="36" name="personal_information_uuid_user_uindex">
+    <index id="117" parent="36" name="personal_information_uuid_user_uindex">
       <ObjectId>33452</ObjectId>
       <ColNames>uuid_user</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="117" parent="36" name="personal_information_pkey">
+    <key id="118" parent="36" name="personal_information_pkey">
       <ObjectId>33197</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>personal_information_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="118" parent="36" name="personal_information_auth_info_uuid_fk">
+    <foreign-key id="119" parent="36" name="personal_information_auth_info_uuid_fk">
       <ObjectId>33458</ObjectId>
       <ColNames>uuid_user</ColNames>
       <RefTableId>24861</RefTableId>

@@ -42,7 +42,7 @@ public class PasswordHandlerTest {
     private MockHttpServletResponse mockHttpServletResponse;
 
     @Before
-    public void init() throws Exception {
+    public void init() {
         initMocks(this);
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);

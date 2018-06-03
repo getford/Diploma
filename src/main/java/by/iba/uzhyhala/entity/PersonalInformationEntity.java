@@ -16,6 +16,7 @@ public class PersonalInformationEntity implements Serializable {
     private String firstName;
     private String lastName;
     private Date bday;
+    private String phone;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,5 +69,15 @@ public class PersonalInformationEntity implements Serializable {
     @SuppressFBWarnings("EI_EXPOSE_REP2")
     public void setBday(Date bday) {
         this.bday = bday;
+    }
+
+    @Basic
+    @Column(name = "phone", nullable = true, length = -1)
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

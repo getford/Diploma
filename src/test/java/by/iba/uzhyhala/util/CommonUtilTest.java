@@ -2,6 +2,7 @@ package by.iba.uzhyhala.util;
 
 import by.iba.uzhyhala.lot.to.BetHistoryTO;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import org.apache.struts.mock.MockHttpServletRequest;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -38,6 +39,9 @@ public class CommonUtilTest {
 
     @Mock
     private Configuration configuration;
+
+    @Mock
+    private MockHttpServletRequest mockHttpServletRequest;
 
     @Before
     public void init() {
@@ -110,4 +114,5 @@ public class CommonUtilTest {
     public void testGetCategories() {
         getCategories();
     }
+
 }

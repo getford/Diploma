@@ -51,6 +51,7 @@ public class LotStatusTest {
 
     @Test
     public void test() {
+        when(mockHttpServletRequest.getRequestURL()).thenReturn(new StringBuffer(TEST_URL));
         new LotStatus().doGet(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

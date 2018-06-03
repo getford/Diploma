@@ -13,7 +13,6 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -24,7 +23,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
 public class BetHandlerTest {
 
-    private static final String UUID_LOT = "85d34292-c45a-45da-a05d-d8f285b355b8";
+    private static final String UUID_LOT = "893cefc1-136e-4b4e-9116-f36128295b73 ";
 
     @Mock
     private SessionFactory sessionFactory;
@@ -56,14 +55,14 @@ public class BetHandlerTest {
     }
 
     @Test
-    public void testBetLessThenBlitzCost() throws IOException {
+    public void testBetLessThenBlitzCost() {
         when(mockHttpServletRequest.getParameter("cost")).thenReturn("1000");
         new BetHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 
 
     @Test
-    public void testBetMoreThenBlitzCost() throws IOException {
+    public void testBetMoreThenBlitzCost() {
         when(mockHttpServletRequest.getParameter("cost")).thenReturn("100000");
         new BetHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
