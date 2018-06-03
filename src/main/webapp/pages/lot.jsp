@@ -52,9 +52,7 @@
         assert betHistoryList != null;
         assert lotInfoList != null;
 
-        // image path
-        String filePath = "data:image/png;base64," + lotInfoList.get(0).getImagesName();
-
+        String imagesLot = separator + FOLDER_UPLOAD_IMAGES + separator + lotInfoList.get(0).getImagesName();
         int currentCost = CommonUtil.getCurrentCost(betHistoryList) + Integer.parseInt(lotInfoList.get(0).getCost());
     %>
     <script>
@@ -201,7 +199,7 @@
                         <td><b>Рейтинг: </b><%=CommonUtil.getRate(lotInfoList.get(0).getUuid(), VariablesUtil.LOT)%>
                         </td>
                     </tr>
-                    <img src="<%=filePath.replace("//", "/")%>" name="logo"/>
+                    <img src="<%=imagesLot%>" name="logo"/>
                     </tbody>
                 </table>
             </div>

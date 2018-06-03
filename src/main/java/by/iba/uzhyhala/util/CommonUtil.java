@@ -31,7 +31,6 @@ import java.util.regex.Pattern;
 
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
-import static org.apache.commons.io.FileUtils.readFileToByteArray;
 
 public class CommonUtil {
     private static final Logger LOGGER = Logger.getLogger(CommonUtil.class);
@@ -268,6 +267,7 @@ public class CommonUtil {
 
     public static Workbook createExcelFile(List<Map<String, String>> dataList,
                                            List<String> columnList, String sheetName) {
+        LOGGER.info("createExcelFile method");
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet(sheetName);
         Row rowHeader = sheet.createRow(0);
@@ -399,15 +399,19 @@ public class CommonUtil {
     }
 
     public static String saveUploadFile(HttpServletRequest req) throws IOException, ServletException {
-        String uploadFilePath = "/Users/vladimirzhigalo/Documents/GitHub/Diploma/src/main/webapp/resources/images/upload";
-        // String uploadFilePath = req.getServletContext().getRealPath("") + separator + FOLDER_UPLOAD_IMAGES;
+        String uploadFilePath = req.getServletContext().getRealPath("") + FOLDER_UPLOAD_IMAGES;
+
+        File fileSaveDir = new File(uploadFilePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdirs();
+        }
 
         for (Part part : req.getParts()) {
             String fileName = separateUploadFileName(part);
             if (!StringUtils.isBlank(fileName)) {
                 String path = uploadFilePath + File.separator + fileName;
                 part.write(path);
-                return Base64.getEncoder().encodeToString(readFileToByteArray(new File(path)));
+                return fileName;
             }
         }
         return "";
