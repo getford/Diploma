@@ -7,8 +7,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -83,6 +86,17 @@ public class MailUtil {
                 "<br/><br/>" + error +
                 "<br/>";
         setupParametersForMessage(EMAIL_SUPPORT, "Error " + timeNow, mailBody, EMAIL_CONTENT_TYPE_HTML);
+    }
+
+    public void sendForgetPasscodeMail(String uuidUser, HttpServletRequest request) throws MalformedURLException {
+        URL url = new URL(valueOf(request.getRequestURL()));
+        String mailBody = "<br/> " + new SimpleDateFormat(PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
+                "<p>Здравствуйте,</p>" +
+                "<p>Уведомляем вас о том, что вы запросили изменение забытого пароля</p>" +
+                "<p>" +
+                "<p>Перейдите по ссылке для изменения: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort()
+                + "/pages/password.jsp?uuid=" + uuidUser + "&fp=true\">CLICK HERE FOR CHANGE PASSWORD</a></p>";
+        setupParametersForMessage(EMAIL_SUPPORT, "Password was forget " + timeNow, mailBody, EMAIL_CONTENT_TYPE_HTML);
     }
 
     public void addAttachment(File file) {

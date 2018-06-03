@@ -151,6 +151,7 @@
         <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
         <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i></button>
     </form>
+    <a href="<%="/pages/password.jsp?uuid=" + uuidUser + "&fp=false"%>">Изменить пароль</a>
 </section>
 
 <div class="container">

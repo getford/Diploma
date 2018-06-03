@@ -398,6 +398,7 @@ public class CommonUtil {
         return "";
     }
 
+    @SuppressFBWarnings("RV_RETURN_VALUE_IGNORED_BAD_PRACTICE")
     public static String saveUploadFile(HttpServletRequest req) throws IOException, ServletException {
         String uploadFilePath = req.getServletContext().getRealPath("") + FOLDER_UPLOAD_IMAGES;
 

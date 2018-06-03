@@ -22,6 +22,9 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/input/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/input/component.css"/>
 </head>
+<%
+    // if cookie not clear
+%>
 <body>
 
 <header>
@@ -113,22 +116,11 @@
             <p>BLR, Minsk<span class="phone"><%=VariablesUtil.EMAIL_SUPPORT%></span></p>
         </div>
 
-        <%-- <div class="f_cols">
-             <h3>Company</h3>
-             <ul>
-                 <li><a href="#">Our Story</a></li>
-                 <li><a href="#">Mission</a></li>
-                 <li><a href="#">Journal</a></li>
-                 <li><a href="#">Careers</a></li>
-             </ul>
-         </div>--%>
-
         <div class="f_cols">
-            <h3>Support</h3>
+            <h3>Поддержка</h3>
             <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Policies</a></li>
+                <li><a href="/pages/password.jsp">Восстановить пароль</a></li>
+                <li><a href="#">Связь с администрацией</a></li>
             </ul>
         </div>
 
