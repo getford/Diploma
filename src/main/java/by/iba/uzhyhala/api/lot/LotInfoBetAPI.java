@@ -1,6 +1,7 @@
 package by.iba.uzhyhala.api.lot;
 
 import by.iba.uzhyhala.util.MailUtil;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -18,7 +19,8 @@ import static by.iba.uzhyhala.util.VariablesUtil.PARAMETER_API_KEY_NAME;
 public class LotInfoBetAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(LotInfoBetAPI.class);
     private static final long serialVersionUID = -5847046564494053976L;
-    
+
+    @SuppressFBWarnings("XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER")
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         resp.setContentType("application/json");

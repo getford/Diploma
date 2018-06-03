@@ -114,18 +114,10 @@
         data.addColumn('number', 'Add lots for date');
         data.addRows([<%=lineChartAddDateLot%>]);
         data.sort({column: 0, asc: true});
-
-        console.log(<%=lineChartAddDateLot%>);
-
         let options = {
-            hAxis: {
-                title: 'Date'
-            },
-            vAxis: {
-                title: 'Count'
-            }
+            hAxis: {title: 'Date'},
+            vAxis: {title: 'Count'}
         };
-
         let chart = new google.visualization.LineChart(document.getElementById('chart_add_date_lot'));
         chart.draw(data, options);
     }
