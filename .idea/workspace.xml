@@ -117,42 +117,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="868">
-              <caret line="198" column="69" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#CommonUtil#0;class#CommonUtil#0" />
-                <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
-                <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
-                <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
-                <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
-                <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
-                <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
-                <element signature="method#getCategoryById#0;class#CommonUtil#0" />
-                <element signature="method#getAllUser#0;class#CommonUtil#0" />
-                <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
-                <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
-                <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
-                <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
-                <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
-                <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
-                <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
-                <element signature="method#createExcelFile#0;class#CommonUtil#0" />
-                <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
-                <element signature="method#getRate#0;class#CommonUtil#0" />
-                <element signature="method#changeRate#0;class#CommonUtil#0" />
-                <element signature="method#getLots#0;class#CommonUtil#0" />
-                <element signature="method#getCategories#0;class#CommonUtil#0" />
-                <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
-                <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EditHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -238,11 +202,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
               <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BetEntity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -389,7 +362,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/ReCaptchaUtilTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/api/lot/LotBetHistoryDocumentAPITest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/DocumentHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotControlTest.java" />
@@ -440,6 +412,7 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java" />
       </list>
     </option>
   </component>
@@ -563,6 +536,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="auction" type="b2602c69:ProjectViewProjectNode" />
@@ -959,7 +940,7 @@
       <workItem from="1526768268896" duration="3958000" />
       <workItem from="1526917306315" duration="1373000" />
       <workItem from="1526918802909" duration="30401000" />
-      <workItem from="1527956850421" duration="311000" />
+      <workItem from="1527956850421" duration="466000" />
     </task>
     <servers />
   </component>
@@ -996,7 +977,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="459432000" />
+    <option name="totallyTimeSpent" value="459587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1299,955 +1280,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="160.48102626405216" y="3945.0">by.iba.uzhyhala.api.to.LotTOAPI</node>
-            <node x="4732.742868369316" y="3966.5">by.iba.uzhyhala.lot.BetHandler</node>
-            <node x="20.0" y="341.0">by.iba.uzhyhala.entity.BetEntity</node>
-            <node x="5209.271980177973" y="3500.0">by.iba.uzhyhala.user.Profile</node>
-            <node x="1831.0553556137145" y="2579.0">by.iba.uzhyhala.util.CommonUtil</node>
-            <node x="384.48102626405216" y="3933.0">by.iba.uzhyhala.lot.LotHandler</node>
-            <node x="3842.2594801779733" y="2788.5">by.iba.uzhyhala.admin.StatisticHandler</node>
-            <node x="6257.271980177973" y="2163.0">by.iba.uzhyhala.lot.to.BetBulkTO</node>
-            <node x="69.0" y="4812.0">by.iba.uzhyhala.api.to.LotFullFieldTOAPI</node>
-            <node x="3598.2594801779733" y="2744.0">by.iba.uzhyhala.util.ReCaptchaUtil</node>
-            <node x="1395.3976929307194" y="3977.5">by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI</node>
-            <node x="5992.271980177973" y="2744.5">by.iba.uzhyhala.entity.AddressEntity</node>
-            <node x="363.8041666666668" y="1036.0">by.iba.uzhyhala.entity.LotEntity</node>
-            <node x="316.0" y="4533.0">by.iba.uzhyhala.admin.FeedbackHandler</node>
-            <node x="4867.271980177973" y="2185.0">by.iba.uzhyhala.api.to.UserRegTOAPI</node>
-            <node x="454.48102626405216" y="4298.0">by.iba.uzhyhala.api.lot.LotAddAPI</node>
-            <node x="1667.5553556137145" y="3511.5">by.iba.uzhyhala.api.lot.LotInfoAPI</node>
-            <node x="3157.8810262640523" y="2152.0">by.iba.uzhyhala.util.MailUtil</node>
-            <node x="466.5553556137147" y="2185.0">by.iba.uzhyhala.lot.to.BetHistoryTO</node>
-            <node x="989.5553556137147" y="3357.0">by.iba.uzhyhala.lot.DocumentHandler</node>
-            <node x="4260.110011230285" y="2777.5">by.iba.uzhyhala.api.DeleteHandlerAPI</node>
-            <node x="674.5553556137147" y="2196.0">by.iba.uzhyhala.entity.CategoryEntity</node>
-            <node x="3251.117868369315" y="4275.0">by.iba.uzhyhala.lot.LotControl</node>
-            <node x="851.0" y="0.0">by.iba.uzhyhala.entity.AuthInfoEntity</node>
-            <node x="5742.271980177973" y="2766.5">by.iba.uzhyhala.entity.PersonalInformationEntity</node>
-            <node x="20.0" y="4533.0">by.iba.uzhyhala.api.to.LotAddTOAPI</node>
-            <node x="6468.271980177973" y="2184.5">by.iba.uzhyhala.util.HibernateUtil</node>
-            <node x="5905.426388888889" y="3478.5">by.iba.uzhyhala.user.Registration</node>
-            <node x="2466.8810262640523" y="3511.5">by.iba.uzhyhala.admin.RateHandler</node>
-            <node x="3835.617868369315" y="3500.5">by.iba.uzhyhala.lot.LotStatus</node>
-            <node x="2151.9553556137143" y="2207.0">by.iba.uzhyhala.user.Logout</node>
-            <node x="3189.9285463697406" y="563.0">by.iba.uzhyhala.util.VariablesUtil</node>
-            <node x="415.1791666666668" y="308.0">by.iba.uzhyhala.entity.FeedbackEntity</node>
-            <node x="6452.1850112302845" y="1190.5">by.iba.uzhyhala.lot.to.BetTO</node>
-            <node x="4333.617868369316" y="3445.5">by.iba.uzhyhala.user.Authorization</node>
-            <node x="2928.8810262640523" y="3455.5">by.iba.uzhyhala.util.CookieUtil</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="91.55555555555543" y="-92.5" />
-              <point x="5030.298423924871" y="3893.0" />
-              <point x="6731.946374866648" y="3893.0" />
-              <point x="6731.946374866648" y="2559.0" />
-              <point x="6729.090161996155" y="2559.0" />
-              <point x="109.81818181818153" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.UserRegTOAPI" target="by.iba.uzhyhala.api.to.UserRegTOAPI">
-              <point x="0.0" y="70.5" />
-              <point x="5017.771980177973" y="2346.0" />
-              <point x="4847.271980177973" y="2346.0" />
-              <point x="4847.271980177973" y="2255.5" />
-              <point x="-150.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.entity.PersonalInformationEntity">
-              <point x="-61.799999999999955" y="-81.5" />
-              <point x="6049.626388888889" y="3157.0" />
-              <point x="5926.021980177973" y="3157.0" />
-              <point x="78.75" y="81.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-91.55555555555588" y="-92.5" />
-              <point x="4847.1873128137595" y="3823.0" />
-              <point x="3384.126388888889" y="3823.0" />
-              <point x="3384.126388888889" y="2489.0" />
-              <point x="3436.302078895631" y="2489.0" />
-              <point x="48.42105263157873" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotFullFieldTOAPI" target="by.iba.uzhyhala.api.to.LotFullFieldTOAPI">
-              <point x="0.0" y="81.5" />
-              <point x="170.0" y="4995.0" />
-              <point x="49.0" y="4995.0" />
-              <point x="49.0" y="4893.5" />
-              <point x="-101.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.user.Profile">
-              <point x="0.0" y="60.0" />
-              <point x="5455.271980177973" y="3640.0" />
-              <point x="5189.271980177973" y="3640.0" />
-              <point x="5189.271980177973" y="3560.0" />
-              <point x="-246.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-41.0" y="-60.0" />
-              <point x="5414.271980177973" y="2072.0" />
-              <point x="3559.1785463697406" y="2072.0" />
-              <point x="158.25" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="184.0" y="-126.0" />
-              <point x="844.4810262640522" y="3863.0" />
-              <point x="3336.617868369315" y="3863.0" />
-              <point x="3336.617868369315" y="2489.0" />
-              <point x="3339.4599736324735" y="2489.0" />
-              <point x="-48.42105263157873" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="237.60000000000036" y="-269.0" />
-              <point x="2332.655355613715" y="2529.0" />
-              <point x="6509.453798359792" y="2529.0" />
-              <point x="-109.81818181818176" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="245.33333333333303" y="-126.0" />
-              <point x="905.8143595973852" y="3883.0" />
-              <point x="6720.946374866648" y="3883.0" />
-              <point x="6720.946374866648" y="2549.0" />
-              <point x="6701.63561654161" y="2549.0" />
-              <point x="82.36363636363649" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="137.33333333333348" y="-48.5" />
-              <point x="2810.2143595973857" y="3337.0" />
-              <point x="3180.794567897272" y="3337.0" />
-              <point x="3180.794567897272" y="2489.0" />
-              <point x="3291.0389210008943" y="2489.0" />
-              <point x="-96.84210526315792" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="-26.399999999999636" y="-269.0" />
-              <point x="2068.655355613715" y="2399.0" />
-              <point x="1303.0553556137147" y="2399.0" />
-              <point x="1303.0553556137147" y="288.0" />
-              <point x="941.416666666667" y="288.0" />
-              <point x="12.91666666666697" y="114.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="79.19999999999982" y="-269.0" />
-              <point x="2174.2553556137145" y="2459.0" />
-              <point x="3218.407342053526" y="2459.0" />
-              <point x="-169.47368421052624" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.ReCaptchaUtil" target="by.iba.uzhyhala.util.ReCaptchaUtil">
-              <point x="-51.0" y="104.0" />
-              <point x="3649.2594801779733" y="2972.0" />
-              <point x="3578.2594801779733" y="2972.0" />
-              <point x="3578.2594801779733" y="2848.0" />
-              <point x="-102.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.lot.to.BetHistoryTO">
-              <point x="-184.80000000000018" y="-269.0" />
-              <point x="1910.2553556137143" y="2429.0" />
-              <point x="571.5553556137147" y="2429.0" />
-              <point x="21.0" y="70.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.lot.LotControl">
-              <point x="0.0" y="93.5" />
-              <point x="3369.617868369315" y="4482.0" />
-              <point x="3231.117868369315" y="4482.0" />
-              <point x="3231.117868369315" y="4368.5" />
-              <point x="-118.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoAPI" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="0.0" y="-48.5" />
-              <point x="1870.5553556137145" y="3307.0" />
-              <point x="1941.0553556137145" y="3307.0" />
-              <point x="-154.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.FeedbackEntity" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="64.0" y="-92.5" />
-              <point x="607.1791666666668" y="288.0" />
-              <point x="915.583333333333" y="288.0" />
-              <point x="-12.91666666666697" y="114.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="103.80000000000018" y="-81.5" />
-              <point x="1758.6976929307195" y="3843.0" />
-              <point x="2228.731026264052" y="3843.0" />
-              <point x="2228.731026264052" y="3297.0" />
-              <point x="2029.0553556137145" y="3297.0" />
-              <point x="-66.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.lot.LotHandler">
-              <point x="-34.333333333333485" y="-70.5" />
-              <point x="626.1476929307187" y="4255.0" />
-              <point x="591.4810262640522" y="4255.0" />
-              <point x="-69.0" y="126.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotFullFieldTOAPI" target="by.iba.uzhyhala.api.to.LotAddTOAPI">
-              <point x="0.0" y="-81.5" />
-              <point x="50.0" y="114.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="91.59999999999991" y="-59.5" />
-              <point x="4156.2178683693155" y="3267.0" />
-              <point x="4848.610011230285" y="3267.0" />
-              <point x="4848.610011230285" y="2519.0" />
-              <point x="6364.146980177973" y="2519.0" />
-              <point x="21.375" y="92.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoAPI" target="by.iba.uzhyhala.api.lot.LotInfoAPI">
-              <point x="0.0" y="48.5" />
-              <point x="1870.5553556137145" y="3628.5" />
-              <point x="1647.5553556137145" y="3628.5" />
-              <point x="1647.5553556137145" y="3560.0" />
-              <point x="-203.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="94.80000000000018" y="-93.5" />
-              <point x="3464.4178683693153" y="4255.0" />
-              <point x="6742.946374866648" y="4255.0" />
-              <point x="6742.946374866648" y="2559.0" />
-              <point x="6756.544707450701" y="2559.0" />
-              <point x="137.27272727272748" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.api.lot.LotAddAPI">
-              <point x="0.0" y="70.5" />
-              <point x="660.4810262640522" y="4459.0" />
-              <point x="434.48102626405216" y="4459.0" />
-              <point x="434.48102626405216" y="4368.5" />
-              <point x="-206.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.lot.LotStatus">
-              <point x="-114.5" y="59.5" />
-              <point x="3950.117868369315" y="3639.5" />
-              <point x="3815.617868369315" y="3639.5" />
-              <point x="3815.617868369315" y="3560.0" />
-              <point x="-229.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.lot.LotHandler">
-              <point x="-207.0" y="126.0" />
-              <point x="453.48102626405216" y="4205.0" />
-              <point x="364.48102626405216" y="4205.0" />
-              <point x="364.48102626405216" y="4059.0" />
-              <point x="-276.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="132.33333333333348" y="-104.5" />
-              <point x="3259.7143595973857" y="3337.0" />
-              <point x="3300.736289421947" y="3337.0" />
-              <point x="3300.736289421947" y="2489.0" />
-              <point x="3315.249447316684" y="2489.0" />
-              <point x="-72.63157894736833" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-61.33333333333303" y="-126.0" />
-              <point x="599.1476929307191" y="3873.0" />
-              <point x="229.99400245835477" y="3873.0" />
-              <point x="229.99400245835477" y="2102.0" />
-              <point x="435.5541666666668" y="2102.0" />
-              <point x="-71.75" y="246.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.VariablesUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-200.45000000000002" y="719.5" />
-              <point x="3200.478546369741" y="2022.0" />
-              <point x="3169.9285463697406" y="2022.0" />
-              <point x="3169.9285463697406" y="1282.5" />
-              <point x="-211.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="265.83333333333303" y="-203.0" />
-              <point x="1574.3886889470477" y="3317.0" />
-              <point x="3112.5225877192984" y="3317.0" />
-              <point x="3112.5225877192984" y="2469.0" />
-              <point x="3242.6178683693156" y="2469.0" />
-              <point x="-145.26315789473665" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="103.0" y="-81.5" />
-              <point x="6214.426388888889" y="3317.0" />
-              <point x="6709.946374866648" y="3317.0" />
-              <point x="6709.946374866648" y="2559.0" />
-              <point x="6674.181071087065" y="2559.0" />
-              <point x="54.90909090909099" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.user.Registration">
-              <point x="0.0" y="81.5" />
-              <point x="6111.426388888889" y="3661.5" />
-              <point x="5885.426388888889" y="3661.5" />
-              <point x="5885.426388888889" y="3560.0" />
-              <point x="-206.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.admin.StatisticHandler">
-              <point x="0.0" y="59.5" />
-              <point x="4019.7594801779733" y="2927.5" />
-              <point x="3822.2594801779733" y="2927.5" />
-              <point x="3822.2594801779733" y="2848.0" />
-              <point x="-177.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetTO" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="-64.58333333333348" y="92.0" />
-              <point x="6465.1016778969515" y="1394.5" />
-              <point x="6432.1850112302845" y="1394.5" />
-              <point x="6432.1850112302845" y="1282.5" />
-              <point x="-77.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.AuthInfoEntity" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="-64.58333333333348" y="114.0" />
-              <point x="863.9166666666665" y="248.0" />
-              <point x="831.0" y="248.0" />
-              <point x="831.0" y="114.0" />
-              <point x="-77.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.FeedbackEntity" target="by.iba.uzhyhala.entity.FeedbackEntity">
-              <point x="-85.33333333333348" y="92.5" />
-              <point x="457.8458333333333" y="513.0" />
-              <point x="395.1791666666668" y="513.0" />
-              <point x="395.1791666666668" y="400.5" />
-              <point x="-128.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-185.4000000000001" y="-81.5" />
-              <point x="5926.026388888889" y="3187.0" />
-              <point x="3567.7594801779733" y="3187.0" />
-              <point x="3567.7594801779733" y="2469.0" />
-              <point x="3533.1441841587894" y="2469.0" />
-              <point x="145.2631578947371" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="45.7777777777776" y="-92.5" />
-              <point x="4984.520646147093" y="3873.0" />
-              <point x="6370.438888888889" y="3873.0" />
-              <point x="6370.438888888889" y="2519.0" />
-              <point x="6406.896980177973" y="2519.0" />
-              <point x="64.125" y="92.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.FeedbackEntity">
-              <point x="35.875" y="-246.5" />
-              <point x="0.0" y="92.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Logout" target="by.iba.uzhyhala.user.Logout">
-              <point x="0.0" y="48.5" />
-              <point x="2357.9553556137143" y="2324.0" />
-              <point x="2131.9553556137143" y="2324.0" />
-              <point x="2131.9553556137143" y="2255.5" />
-              <point x="-206.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.CookieUtil">
-              <point x="-137.33333333333348" y="-92.5" />
-              <point x="4801.409535035982" y="3833.0" />
-              <point x="3276.2560262640523" y="3833.0" />
-              <point x="148.875" y="104.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetBulkTO" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="-64.125" y="92.5" />
-              <point x="6278.646980177973" y="2368.0" />
-              <point x="6237.271980177973" y="2368.0" />
-              <point x="6237.271980177973" y="2255.5" />
-              <point x="-85.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-205.0" y="-60.0" />
-              <point x="5250.271980177973" y="3207.0" />
-              <point x="2337.0553556137147" y="3207.0" />
-              <point x="242.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetHistoryTO" target="by.iba.uzhyhala.lot.to.BetHistoryTO">
-              <point x="-63.0" y="70.5" />
-              <point x="487.5553556137147" y="2346.0" />
-              <point x="446.5553556137147" y="2346.0" />
-              <point x="446.5553556137147" y="2255.5" />
-              <point x="-84.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.MailUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-217.89473684210526" y="103.5" />
-              <point x="3169.986289421947" y="2379.0" />
-              <point x="3137.8810262640523" y="2379.0" />
-              <point x="3137.8810262640523" y="2255.5" />
-              <point x="-230.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotTOAPI" target="by.iba.uzhyhala.api.to.LotTOAPI">
-              <point x="-46.0" y="114.0" />
-              <point x="206.48102626405216" y="4193.0" />
-              <point x="140.48102626405216" y="4193.0" />
-              <point x="140.48102626405216" y="4059.0" />
-              <point x="-92.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-2.2737367544323206E-13" y="-92.5" />
-              <point x="4938.742868369315" y="3863.0" />
-              <point x="5178.771980177973" y="3863.0" />
-              <point x="5178.771980177973" y="2082.0" />
-              <point x="3538.0785463697407" y="2082.0" />
-              <point x="137.1500000000001" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-183.20000000000005" y="-59.5" />
-              <point x="3881.4178683693153" y="3247.0" />
-              <point x="2249.0553556137147" y="3247.0" />
-              <point x="154.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="157.875" y="-114.5" />
-              <point x="4701.992868369316" y="3297.0" />
-              <point x="6648.423647593921" y="3297.0" />
-              <point x="6648.423647593921" y="2559.0" />
-              <point x="6619.271980177973" y="2559.0" />
-              <point x="0.0" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Logout" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-48.5" />
-              <point x="2357.9553556137143" y="2102.0" />
-              <point x="3348.1785463697406" y="2102.0" />
-              <point x="-52.75" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-52.625" y="-114.5" />
-              <point x="4491.492868369316" y="3217.0" />
-              <point x="3545.7594801779733" y="3217.0" />
-              <point x="3545.7594801779733" y="2489.0" />
-              <point x="3484.72313152721" y="2489.0" />
-              <point x="96.84210526315792" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI">
-              <point x="0.0" y="81.5" />
-              <point x="1654.8976929307194" y="4160.5" />
-              <point x="1375.3976929307194" y="4160.5" />
-              <point x="1375.3976929307194" y="4059.0" />
-              <point x="-259.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="171.66666666666652" y="-70.5" />
-              <point x="832.1476929307187" y="4255.0" />
-              <point x="3358.617868369315" y="4255.0" />
-              <point x="3358.617868369315" y="2469.0" />
-              <point x="3387.8810262640523" y="2469.0" />
-              <point x="0.0" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.user.Authorization">
-              <point x="0.0" y="114.5" />
-              <point x="4544.117868369316" y="3694.5" />
-              <point x="4313.617868369316" y="3694.5" />
-              <point x="4313.617868369316" y="3560.0" />
-              <point x="-210.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="135.66666666666652" y="-70.5" />
-              <point x="4599.276677896951" y="2549.0" />
-              <point x="6564.362889268883" y="2549.0" />
-              <point x="-54.90909090909088" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.lot.DocumentHandler">
-              <point x="-212.66666666666652" y="203.0" />
-              <point x="1095.8886889470482" y="3783.0" />
-              <point x="969.5553556137147" y="3783.0" />
-              <point x="969.5553556137147" y="3560.0" />
-              <point x="-319.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="47.399999999999636" y="-93.5" />
-              <point x="3417.017868369315" y="4245.0" />
-              <point x="5711.771980177973" y="4245.0" />
-              <point x="5711.771980177973" y="2062.0" />
-              <point x="3580.2785463697405" y="2062.0" />
-              <point x="179.3499999999999" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-135.66666666666652" y="-70.5" />
-              <point x="4327.943344563618" y="2439.0" />
-              <point x="3605.7757631061577" y="2439.0" />
-              <point x="217.89473684210543" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.lot.DocumentHandler">
-              <point x="-103.80000000000018" y="-81.5" />
-              <point x="1551.0976929307192" y="3813.0" />
-              <point x="1308.5553556137147" y="3813.0" />
-              <point x="0.0" y="203.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.api.DeleteHandlerAPI">
-              <point x="0.0" y="70.5" />
-              <point x="4463.610011230285" y="2938.5" />
-              <point x="4240.110011230285" y="2938.5" />
-              <point x="4240.110011230285" y="2848.0" />
-              <point x="-203.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="103.0" y="-70.5" />
-              <point x="763.4810262640522" y="4245.0" />
-              <point x="2239.731026264052" y="4245.0" />
-              <point x="2239.731026264052" y="3287.0" />
-              <point x="2073.0553556137147" y="3287.0" />
-              <point x="-22.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.entity.AddressEntity">
-              <point x="-20.599999999999966" y="-81.5" />
-              <point x="6090.826388888889" y="3267.0" />
-              <point x="6118.521980177973" y="3267.0" />
-              <point x="25.25" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-242.0" y="269.0" />
-              <point x="1853.0553556137145" y="3137.0" />
-              <point x="1811.0553556137145" y="3137.0" />
-              <point x="1811.0553556137145" y="2848.0" />
-              <point x="-264.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-157.875" y="-114.5" />
-              <point x="4386.242868369316" y="3227.0" />
-              <point x="2293.0553556137147" y="3227.0" />
-              <point x="198.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.CategoryEntity" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-90.375" y="-59.5" />
-              <point x="704.6803556137147" y="2132.0" />
-              <point x="550.354166666667" y="2132.0" />
-              <point x="43.05000000000018" y="246.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-265.83333333333303" y="-203.0" />
-              <point x="1042.7220222803817" y="3337.0" />
-              <point x="425.0553556137147" y="3337.0" />
-              <point x="425.0553556137147" y="2122.0" />
-              <point x="492.9541666666664" y="2122.0" />
-              <point x="-14.350000000000364" y="246.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="137.33333333333326" y="-92.5" />
-              <point x="5076.076201702649" y="3903.0" />
-              <point x="6780.771980177973" y="3903.0" />
-              <point x="6780.771980177973" y="2132.0" />
-              <point x="6568.4350112302845" y="2132.0" />
-              <point x="38.75" y="92.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.BetEntity">
-              <point x="-107.625" y="-246.5" />
-              <point x="399.6791666666668" y="543.0" />
-              <point x="161.39999999999964" y="543.0" />
-              <point x="40.399999999999636" y="59.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.AddressEntity" target="by.iba.uzhyhala.entity.AddressEntity">
-              <point x="-75.75" y="103.5" />
-              <point x="6017.521980177973" y="2971.5" />
-              <point x="5972.271980177973" y="2971.5" />
-              <point x="5972.271980177973" y="2848.0" />
-              <point x="-101.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-126.0" />
-              <point x="660.4810262640522" y="3823.0" />
-              <point x="937.0553556137147" y="3823.0" />
-              <point x="937.0553556137147" y="2052.0" />
-              <point x="3242.6785463697406" y="2052.0" />
-              <point x="-158.25" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-137.33333333333348" y="-48.5" />
-              <point x="2535.5476929307188" y="3267.0" />
-              <point x="2161.0553556137147" y="3267.0" />
-              <point x="66.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.entity.PersonalInformationEntity">
-              <point x="41.0" y="-60.0" />
-              <point x="5496.271980177973" y="3257.0" />
-              <point x="5821.021980177973" y="3257.0" />
-              <point x="-26.25" y="81.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="135.33333333333303" y="-48.5" />
-              <point x="2005.8886889470475" y="3327.0" />
-              <point x="3123.5225877192984" y="3327.0" />
-              <point x="3123.5225877192984" y="2479.0" />
-              <point x="3266.8283946851047" y="2479.0" />
-              <point x="-121.05263157894751" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.DeleteHandlerAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-70.5" />
-              <point x="4463.610011230285" y="2112.0" />
-              <point x="3474.7785463697405" y="2112.0" />
-              <point x="73.84999999999991" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.PersonalInformationEntity" target="by.iba.uzhyhala.entity.PersonalInformationEntity">
-              <point x="-78.75" y="81.5" />
-              <point x="5768.521980177973" y="2949.5" />
-              <point x="5722.271980177973" y="2949.5" />
-              <point x="5722.271980177973" y="2848.0" />
-              <point x="-105.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="207.60000000000036" y="-81.5" />
-              <point x="1862.4976929307197" y="3873.0" />
-              <point x="3347.617868369315" y="3873.0" />
-              <point x="3347.617868369315" y="2459.0" />
-              <point x="3363.6704999482627" y="2459.0" />
-              <point x="-24.210526315789593" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-183.1111111111113" y="-92.5" />
-              <point x="4755.631757258205" y="3843.0" />
-              <point x="2250.731026264052" y="3843.0" />
-              <point x="2250.731026264052" y="3277.0" />
-              <point x="2117.0553556137147" y="3277.0" />
-              <point x="22.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.BetHandler">
-              <point x="0.0" y="92.5" />
-              <point x="4938.742868369316" y="4171.5" />
-              <point x="4712.742868369316" y="4171.5" />
-              <point x="4712.742868369316" y="4059.0" />
-              <point x="-206.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.ReCaptchaUtil">
-              <point x="-144.19999999999993" y="-81.5" />
-              <point x="5967.226388888889" y="3177.0" />
-              <point x="3751.2594801779733" y="3177.0" />
-              <point x="51.0" y="104.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-47.399999999999636" y="-93.5" />
-              <point x="3322.2178683693155" y="4225.0" />
-              <point x="946.9810262640522" y="4225.0" />
-              <point x="946.9810262640522" y="3813.0" />
-              <point x="403.0553556137147" y="3813.0" />
-              <point x="403.0553556137147" y="2112.0" />
-              <point x="464.2541666666666" y="2112.0" />
-              <point x="-43.05000000000018" y="246.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="118.33333333333326" y="-59.5" />
-              <point x="4138.092813511306" y="2539.0" />
-              <point x="6536.908343814337" y="2539.0" />
-              <point x="-82.36363636363637" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="61.80000000000018" y="-81.5" />
-              <point x="6173.226388888889" y="3287.0" />
-              <point x="6215.771980177973" y="3287.0" />
-              <point x="6215.771980177973" y="2052.0" />
-              <point x="3601.378546369741" y="2052.0" />
-              <point x="200.45000000000027" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.admin.RateHandler">
-              <point x="0.0" y="48.5" />
-              <point x="2672.8810262640523" y="3628.5" />
-              <point x="2446.8810262640523" y="3628.5" />
-              <point x="2446.8810262640523" y="3560.0" />
-              <point x="-206.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="26.399999999999636" y="-269.0" />
-              <point x="2121.4553556137143" y="2092.0" />
-              <point x="3327.0785463697407" y="2092.0" />
-              <point x="-73.84999999999991" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.RateHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-48.5" />
-              <point x="2672.8810262640523" y="3307.0" />
-              <point x="2574.4553556137143" y="3307.0" />
-              <point x="2574.4553556137143" y="2112.0" />
-              <point x="3369.2785463697405" y="2112.0" />
-              <point x="-31.65000000000009" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="-132.33333333333348" y="-104.5" />
-              <point x="2995.0476929307188" y="3257.0" />
-              <point x="2205.0553556137147" y="3257.0" />
-              <point x="110.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-171.66666666666652" y="-70.5" />
-              <point x="488.81435959738565" y="4255.0" />
-              <point x="129.98102626405216" y="4255.0" />
-              <point x="129.98102626405216" y="3913.0" />
-              <point x="414.0553556137147" y="3913.0" />
-              <point x="414.0553556137147" y="2559.0" />
-              <point x="926.0553556137147" y="2559.0" />
-              <point x="926.0553556137147" y="2042.0" />
-              <point x="3221.5785463697407" y="2042.0" />
-              <point x="-179.3499999999999" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.CategoryEntity" target="by.iba.uzhyhala.entity.CategoryEntity">
-              <point x="-60.25" y="59.5" />
-              <point x="734.8053556137147" y="2335.0" />
-              <point x="654.5553556137147" y="2335.0" />
-              <point x="654.5553556137147" y="2255.5" />
-              <point x="-120.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.LotAddTOAPI" target="by.iba.uzhyhala.api.to.LotAddTOAPI">
-              <point x="-50.0" y="114.5" />
-              <point x="70.0" y="4782.0" />
-              <point x="0.0" y="4782.0" />
-              <point x="0.0" y="4647.5" />
-              <point x="-100.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-59.5" />
-              <point x="4064.617868369315" y="3257.0" />
-              <point x="4207.759480177973" y="3257.0" />
-              <point x="4207.759480177973" y="2122.0" />
-              <point x="3453.6785463697406" y="2122.0" />
-              <point x="52.75" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotAddAPI" target="by.iba.uzhyhala.api.to.LotTOAPI">
-              <point x="-103.0" y="-70.5" />
-              <point x="557.4810262640522" y="4245.0" />
-              <point x="298.48102626405216" y="4245.0" />
-              <point x="46.0" y="114.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.ReCaptchaUtil" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="0.0" y="-104.0" />
-              <point x="3700.2594801779733" y="2459.0" />
-              <point x="3557.3547104745785" y="2459.0" />
-              <point x="169.47368421052624" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="132.0" y="-269.0" />
-              <point x="2227.0553556137147" y="2499.0" />
-              <point x="6226.771980177973" y="2499.0" />
-              <point x="6226.771980177973" y="2112.0" />
-              <point x="6490.9350112302845" y="2112.0" />
-              <point x="-38.75" y="92.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Authorization" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="52.625" y="-114.5" />
-              <point x="4596.742868369316" y="3257.0" />
-              <point x="4697.821980177973" y="3257.0" />
-              <point x="4697.821980177973" y="2102.0" />
-              <point x="3495.8785463697404" y="2102.0" />
-              <point x="94.94999999999982" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-118.33333333333326" y="-59.5" />
-              <point x="3901.4261468446402" y="2449.0" />
-              <point x="3581.565236790368" y="2449.0" />
-              <point x="193.68421052631584" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.lot.to.BetHistoryTO">
-              <point x="-159.5" y="-203.0" />
-              <point x="1149.0553556137147" y="3327.0" />
-              <point x="948.0553556137147" y="3327.0" />
-              <point x="948.0553556137147" y="2549.0" />
-              <point x="529.5553556137147" y="2549.0" />
-              <point x="-21.0" y="70.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.lot.LotHandler">
-              <point x="-94.80000000000018" y="-93.5" />
-              <point x="3274.817868369315" y="4235.0" />
-              <point x="867.4810262640522" y="4235.0" />
-              <point x="207.0" y="126.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.MailUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-103.5" />
-              <point x="3387.8810262640523" y="2132.0" />
-              <point x="3411.478546369741" y="2132.0" />
-              <point x="10.550000000000182" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.lot.to.BetBulkTO">
-              <point x="184.80000000000018" y="-269.0" />
-              <point x="2279.855355613715" y="2509.0" />
-              <point x="6321.396980177973" y="2509.0" />
-              <point x="-21.375" y="92.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.BetEntity" target="by.iba.uzhyhala.entity.BetEntity">
-              <point x="-80.80000000000018" y="59.5" />
-              <point x="40.19999999999982" y="480.0" />
-              <point x="0.0" y="480.0" />
-              <point x="0.0" y="400.5" />
-              <point x="-101.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.admin.StatisticHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-59.5" />
-              <point x="4019.7594801779733" y="2132.0" />
-              <point x="3432.5785463697407" y="2132.0" />
-              <point x="31.65000000000009" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-129.1500000000001" y="246.5" />
-              <point x="378.1541666666667" y="1549.0" />
-              <point x="343.8041666666668" y="1549.0" />
-              <point x="343.8041666666668" y="1282.5" />
-              <point x="-143.5" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Registration" target="by.iba.uzhyhala.entity.AuthInfoEntity">
-              <point x="185.4000000000001" y="-81.5" />
-              <point x="6296.826388888889" y="3337.0" />
-              <point x="6813.771980177973" y="3337.0" />
-              <point x="6813.771980177973" y="268.0" />
-              <point x="993.083333333333" y="268.0" />
-              <point x="64.58333333333303" y="114.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotInfoAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-135.33333333333303" y="-48.5" />
-              <point x="1735.2220222803815" y="3277.0" />
-              <point x="1515.5060262640525" y="3277.0" />
-              <point x="1515.5060262640525" y="2082.0" />
-              <point x="3305.978546369741" y="2082.0" />
-              <point x="-94.94999999999982" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="159.5" y="-203.0" />
-              <point x="1468.0553556137147" y="3297.0" />
-              <point x="1897.0553556137145" y="3297.0" />
-              <point x="-198.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.entity.CategoryEntity">
-              <point x="-79.19999999999982" y="-269.0" />
-              <point x="2015.8553556137147" y="2409.0" />
-              <point x="855.3053556137147" y="2409.0" />
-              <point x="60.25" y="59.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotControl" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="0.0" y="-93.5" />
-              <point x="3369.617868369315" y="2479.0" />
-              <point x="3412.091552579842" y="2479.0" />
-              <point x="24.210526315789593" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-104.5" />
-              <point x="3127.3810262640523" y="3307.0" />
-              <point x="3028.9553556137143" y="3307.0" />
-              <point x="3028.9553556137143" y="2122.0" />
-              <point x="3390.3785463697404" y="2122.0" />
-              <point x="-10.550000000000182" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CommonUtil" target="by.iba.uzhyhala.entity.LotEntity">
-              <point x="-237.60000000000036" y="-269.0" />
-              <point x="1857.4553556137141" y="2439.0" />
-              <point x="436.0553556137147" y="2439.0" />
-              <point x="436.0553556137147" y="2132.0" />
-              <point x="521.6541666666672" y="2132.0" />
-              <point x="14.350000000000364" y="246.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.CookieUtil">
-              <point x="122.66666666666697" y="-126.0" />
-              <point x="783.1476929307191" y="3853.0" />
-              <point x="3177.0060262640523" y="3853.0" />
-              <point x="49.625" y="104.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.BetHandler" target="by.iba.uzhyhala.lot.LotStatus">
-              <point x="-45.777777777778056" y="-92.5" />
-              <point x="4892.965090591538" y="3813.0" />
-              <point x="4179.117868369315" y="3813.0" />
-              <point x="114.5" y="59.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.DocumentHandler" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-53.16666666666697" y="-203.0" />
-              <point x="1255.3886889470477" y="3337.0" />
-              <point x="1292.0553556137147" y="3337.0" />
-              <point x="1292.0553556137147" y="2072.0" />
-              <point x="3284.8785463697404" y="2072.0" />
-              <point x="-116.05000000000018" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.to.BetBulkTO" target="by.iba.uzhyhala.lot.to.BetTO">
-              <point x="42.75" y="-92.5" />
-              <point x="6385.521980177973" y="2132.0" />
-              <point x="6542.6016778969515" y="2132.0" />
-              <point x="12.916666666666629" y="92.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.CookieUtil" target="by.iba.uzhyhala.util.CookieUtil">
-              <point x="-49.625" y="104.5" />
-              <point x="3077.7560262640523" y="3694.5" />
-              <point x="2898.8810262640523" y="3694.5" />
-              <point x="2898.8810262640523" y="3507.75" />
-              <point x="-198.5" y="-52.25" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.entity.BetEntity">
-              <point x="-184.0" y="-126.0" />
-              <point x="476.48102626405216" y="3893.0" />
-              <point x="106.30000000000018" y="3893.0" />
-              <point x="106.30000000000018" y="543.0" />
-              <point x="121.0" y="543.0" />
-              <point x="0.0" y="59.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.util.HibernateUtil" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="-137.27272727272748" y="71.0" />
-              <point x="6481.999252905246" y="2346.5" />
-              <point x="6448.271980177973" y="2346.5" />
-              <point x="6448.271980177973" y="2255.5" />
-              <point x="-151.0" y="-0.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="205.0" y="-60.0" />
-              <point x="5660.271980177973" y="3307.0" />
-              <point x="6659.423647593921" y="3307.0" />
-              <point x="6659.423647593921" y="2549.0" />
-              <point x="6646.726525632519" y="2549.0" />
-              <point x="27.454545454545496" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotHandler" target="by.iba.uzhyhala.util.CommonUtil">
-              <point x="61.33333333333303" y="-126.0" />
-              <point x="721.8143595973852" y="3833.0" />
-              <point x="2084.0553556137147" y="3833.0" />
-              <point x="2084.0553556137147" y="3307.0" />
-              <point x="1985.0553556137145" y="3307.0" />
-              <point x="-110.0" y="269.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.lot.LotBetHistoryDocumentAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="-207.60000000000036" y="-81.5" />
-              <point x="1447.297692930719" y="3823.0" />
-              <point x="959.0553556137147" y="3823.0" />
-              <point x="959.0553556137147" y="2062.0" />
-              <point x="3263.7785463697405" y="2062.0" />
-              <point x="-137.1500000000001" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-123.0" y="-60.0" />
-              <point x="5332.271980177973" y="3197.0" />
-              <point x="3556.7594801779733" y="3197.0" />
-              <point x="3556.7594801779733" y="2479.0" />
-              <point x="3508.9336578429998" y="2479.0" />
-              <point x="121.05263157894751" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.api.to.UserRegTOAPI" target="by.iba.uzhyhala.util.VariablesUtil">
-              <point x="0.0" y="-70.5" />
-              <point x="5017.771980177973" y="2092.0" />
-              <point x="3516.978546369741" y="2092.0" />
-              <point x="116.05000000000018" y="719.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.MailUtil">
-              <point x="-91.59999999999991" y="-59.5" />
-              <point x="3973.0178683693157" y="3237.0" />
-              <point x="3473.5763888888887" y="3237.0" />
-              <point x="3473.5763888888887" y="2489.0" />
-              <point x="3460.5126052114206" y="2489.0" />
-              <point x="72.63157894736833" y="103.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.lot.LotStatus" target="by.iba.uzhyhala.util.HibernateUtil">
-              <point x="183.20000000000005" y="-59.5" />
-              <point x="4247.817868369315" y="3277.0" />
-              <point x="6204.771980177973" y="3277.0" />
-              <point x="6204.771980177973" y="2559.0" />
-              <point x="6591.817434723428" y="2559.0" />
-              <point x="-27.454545454545496" y="71.0" />
-            </edge>
-            <edge source="by.iba.uzhyhala.entity.LotEntity" target="by.iba.uzhyhala.entity.CategoryEntity">
-              <point x="129.14999999999964" y="246.5" />
-              <point x="636.4541666666664" y="2102.0" />
-              <point x="885.4303556137147" y="2102.0" />
-              <point x="90.375" y="-59.5" />
-            </edge>
-            <edge source="by.iba.uzhyhala.user.Profile" target="by.iba.uzhyhala.entity.AddressEntity">
-              <point x="123.0" y="-60.0" />
-              <point x="5578.271980177973" y="3267.0" />
-              <point x="6068.021980177973" y="3267.0" />
-              <point x="-25.25" y="103.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.3292706050814515" x="2133.0" y="1446.0" />
-          <SelectedNodes>
-            <node>by.iba.uzhyhala.admin.FeedbackHandler</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-            <Category>Properties</Category>
-            <Category>Inner Classes</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/RateHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -2283,6 +1315,86 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1797">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="e#1030#1031#0" expanded="true" />
+            <element signature="e#1055#1056#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1315#1316#0" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="e#1585#1586#0" expanded="true" />
+            <element signature="e#1684#1685#0" expanded="true" />
+            <element signature="e#1711#1712#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
+            <element signature="e#1896#1897#0" expanded="true" />
+            <element signature="e#1930#1931#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2030#2031#0" expanded="true" />
+            <element signature="e#2129#2130#0" expanded="true" />
+            <element signature="e#2156#2157#0" expanded="true" />
+            <element signature="e#2196#2197#0" expanded="true" />
+            <element signature="e#2228#2229#0" expanded="true" />
+            <element signature="e#2338#2339#0" expanded="true" />
+            <element signature="e#2370#2371#0" expanded="true" />
+            <element signature="e#2420#2421#0" expanded="true" />
+            <element signature="e#2462#2463#0" expanded="true" />
+            <element signature="e#2570#2571#0" expanded="true" />
+            <element signature="e#2601#2602#0" expanded="true" />
+            <element signature="e#2649#2650#0" expanded="true" />
+            <element signature="e#2689#2690#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
+            <element signature="e#2909#2910#0" expanded="true" />
+            <element signature="e#3019#3020#0" expanded="true" />
+            <element signature="e#3051#3052#0" expanded="true" />
+            <element signature="e#3101#3102#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="true" />
+            <element signature="e#3249#3250#0" expanded="true" />
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3325#3326#0" expanded="true" />
+            <element signature="e#3363#3364#0" expanded="true" />
+            <element signature="e#3473#3474#0" expanded="true" />
+            <element signature="e#3505#3506#0" expanded="true" />
+            <element signature="e#3555#3556#0" expanded="true" />
+            <element signature="e#3597#3598#0" expanded="true" />
+            <element signature="e#3703#3704#0" expanded="true" />
+            <element signature="e#3733#3734#0" expanded="true" />
+            <element signature="e#3779#3780#0" expanded="true" />
+            <element signature="e#3817#3818#0" expanded="true" />
+            <element signature="e#3938#3939#0" expanded="true" />
+            <element signature="e#3975#3976#0" expanded="true" />
+            <element signature="e#4035#4036#0" expanded="true" />
+            <element signature="e#4087#4088#0" expanded="true" />
+            <element signature="e#4187#4188#0" expanded="true" />
+            <element signature="e#4220#4221#0" expanded="true" />
+            <element signature="e#4273#4274#0" expanded="true" />
+            <element signature="e#4317#4318#0" expanded="true" />
+            <element signature="e#4420#4421#0" expanded="true" />
+            <element signature="e#4449#4450#0" expanded="true" />
+            <element signature="e#4493#4494#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
+            <element signature="e#4613#4614#0" expanded="true" />
+            <element signature="e#4640#4641#0" expanded="true" />
+            <element signature="e#4677#4678#0" expanded="true" />
+            <element signature="e#4709#4710#0" expanded="true" />
+            <element signature="e#4882#4883#0" expanded="true" />
+            <element signature="e#4914#4915#0" expanded="true" />
+            <element signature="e#4967#4968#0" expanded="true" />
+            <element signature="e#5009#5010#0" expanded="true" />
+            <element signature="e#5192#5193#0" expanded="true" />
+            <element signature="e#5229#5230#0" expanded="true" />
+            <element signature="e#5297#5298#0" expanded="true" />
+            <element signature="e#5349#5350#0" expanded="true" />
+            <element signature="e#5525#5526#0" expanded="true" />
+            <element signature="e#5568#5569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2840,6 +1952,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/BetEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
         </state>
       </provider>
     </entry>
