@@ -266,8 +266,8 @@ public class CommonUtil {
         }
     }
 
-    public static Workbook createExcelFile(List<Map<String, String>> dataList, List<String> columnList, String sheetName) {
-        LOGGER.info("createExcelFile method");
+    public static Workbook createExcelFile(List<Map<String, String>> dataList,
+                                           List<String> columnList, String sheetName) {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet(sheetName);
         Row rowHeader = sheet.createRow(0);

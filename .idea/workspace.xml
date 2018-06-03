@@ -117,13 +117,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BetHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/BetHandler.java">
+      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+            <state relative-caret-position="469">
+              <caret line="269" column="43" selection-start-line="269" selection-start-column="43" selection-end-line="269" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#CommonUtil#0;class#CommonUtil#0" />
+                <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
+                <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
+                <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
+                <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
+                <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
+                <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
+                <element signature="method#getCategoryById#0;class#CommonUtil#0" />
+                <element signature="method#getAllUser#0;class#CommonUtil#0" />
+                <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
+                <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
+                <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
+                <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
+                <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+                <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+                <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
+                <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
+                <element signature="method#getRate#0;class#CommonUtil#0" />
+                <element signature="method#changeRate#0;class#CommonUtil#0" />
+                <element signature="method#getLots#0;class#CommonUtil#0" />
+                <element signature="method#getCategories#0;class#CommonUtil#0" />
+                <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
+                <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
               </folding>
             </state>
           </provider>
@@ -213,11 +236,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotStatusTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LotStatusTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotStatusTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="47" column="98" selection-start-line="47" selection-start-column="98" selection-end-line="47" selection-end-column="98" />
+            <state relative-caret-position="28">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -388,7 +411,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotFullFieldTOAPI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Authorization.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java" />
@@ -402,6 +424,7 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/lot/LotInfoBetAPI.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotStatusTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
       </list>
     </option>
   </component>
@@ -929,7 +952,7 @@
       <workItem from="1526768268896" duration="3958000" />
       <workItem from="1526917306315" duration="1373000" />
       <workItem from="1526918802909" duration="30401000" />
-      <workItem from="1527956850421" duration="1365000" />
+      <workItem from="1527956850421" duration="1504000" />
     </task>
     <servers />
   </component>
@@ -966,7 +989,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="460486000" />
+    <option name="totallyTimeSpent" value="460625000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1761,40 +1784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
-          <caret line="198" column="69" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CommonUtil#0;class#CommonUtil#0" />
-            <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
-            <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
-            <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
-            <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
-            <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
-            <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
-            <element signature="method#getCategoryById#0;class#CommonUtil#0" />
-            <element signature="method#getAllUser#0;class#CommonUtil#0" />
-            <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
-            <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
-            <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
-            <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
-            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
-            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
-            <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
-            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
-            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
-            <element signature="method#getRate#0;class#CommonUtil#0" />
-            <element signature="method#changeRate#0;class#CommonUtil#0" />
-            <element signature="method#getLots#0;class#CommonUtil#0" />
-            <element signature="method#getCategories#0;class#CommonUtil#0" />
-            <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
-            <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1092">
@@ -1943,8 +1932,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotStatusTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="47" column="98" selection-start-line="47" selection-start-column="98" selection-end-line="47" selection-end-column="98" />
+        <state relative-caret-position="28">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="269" column="43" selection-start-line="269" selection-start-column="43" selection-end-line="269" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CommonUtil#0;class#CommonUtil#0" />
+            <element signature="method#loginOrEmail#0;class#CommonUtil#0" />
+            <element signature="method#getUUIDUserByLoginEmail#0;class#CommonUtil#0" />
+            <element signature="method#getUserLoginByUUID#0;class#CommonUtil#0" />
+            <element signature="method#getUserEmailByUUID#0;class#CommonUtil#0" />
+            <element signature="method#getUUIDUserByUUIDLot#0;class#CommonUtil#0" />
+            <element signature="method#getUserFirstLastNameByUUID#0;class#CommonUtil#0" />
+            <element signature="method#getCategoryById#0;class#CommonUtil#0" />
+            <element signature="method#getAllUser#0;class#CommonUtil#0" />
+            <element signature="method#getJsonBetBulk#0;class#CommonUtil#0" />
+            <element signature="method#getHistoryBets#0;class#CommonUtil#0" />
+            <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
+            <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
+            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+            <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
+            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
+            <element signature="method#getRate#0;class#CommonUtil#0" />
+            <element signature="method#changeRate#0;class#CommonUtil#0" />
+            <element signature="method#getLots#0;class#CommonUtil#0" />
+            <element signature="method#getCategories#0;class#CommonUtil#0" />
+            <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
+            <element signature="method#saveUploadFile#0;class#CommonUtil#0" />
+          </folding>
         </state>
       </provider>
     </entry>
