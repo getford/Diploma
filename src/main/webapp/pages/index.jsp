@@ -33,8 +33,9 @@
 <header>
 
     <div class="wrapper">
-        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1> <%--<img src="/resources/images/index/logo.png" alt=""
-                                                      title="Auction Diploma Project"/> --%></a>
+        <a href="/pages/index.jsp" class="logo">
+            <img src="/resources/images/logo.jpg" alt=""
+                 title="Auction Diploma Project"/></a>
         <nav>
             <ul>
                 <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a>(<%=userLogin%>)</li>
@@ -51,8 +52,6 @@
 <section class="billboard">
     <section class="caption">
         <p class="cap_title">Аукцион услуг</p>
-        <p class="cap_desc">Скоро тут будет шикар...подожди-подожди...ная площадка для торгов</p>
-        <a href="#start">Начнём <i></i></a>
     </section>
 </section><!-- End billboard -->
 
@@ -205,16 +204,6 @@
     </div>
 </section>
 <!-- End recent_work -->
-
-
-<section class="subscription">
-    <div class="wrapper">
-        <p class="title">join our subscribers.</p>
-        <p class="desc">10 000 sint occaecat cupidatat non proident sunt in culpa qui officia.</p>
-        <a href="#" class="start_btn">Click here to subscribe</a>
-    </div>
-</section><!-- End subscription -->
-
 
 <%--<section class="social">
     <a href="http://facebook.com/pixelhint" target="_blank" class="fb"></a>

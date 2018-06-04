@@ -106,28 +106,6 @@
                     </table>
                 </div>
             </div>
-            <div class="templatemo-flex-row flex-content-row">
-                <div class="col-1">
-                    <div class="panel panel-default margin-10">
-                        <div class="panel-heading"><h2 class="text-uppercase">Login Form</h2></div>
-                        <div class="panel-body">
-                            <form action="index.html" class="templatemo-login-form">
-                                <div class="form-group">
-                                    <label for="inputEmail">Email address</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail">Password</label>
-                                    <input type="password" class="form-control" placeholder="Enter password">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="templatemo-blue-button">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- Second row ends -->
             <footer class="text-right">
                 <p>Copyright &copy; 2018 Uladzimir Zhyhala inc.</p>
             </footer>

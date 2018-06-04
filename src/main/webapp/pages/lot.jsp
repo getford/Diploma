@@ -113,7 +113,9 @@
 
 <header>
     <div class="wrapper">
-        <a href="/pages/index.jsp" class="logo"><h1><span style="color: black">AUCTION DIPLOMA</span></h1></a>
+        <a href="/pages/index.jsp" class="logo">
+            <img src="/resources/images/logo.jpg" alt=""
+                 title="Auction Diploma Project"/></a>
         <nav>
             <ul>
                 <li><a href="/pages/profile.jsp">Профиль</a></li>
@@ -128,8 +130,7 @@
 
 <section class="billboard">
     <section class="caption">
-        <p class="cap_title">Лот</p>
-        <p class="cap_desc">Скоро тут будет шикар...подожди-подожди...ная площадка для торгов</p>
+        <p class="cap_title">Информация о Лоте - <%=lotInfoList.get(0).getName()%></p>
     </section>
 </section><!-- End billboard -->
 
