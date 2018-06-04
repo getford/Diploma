@@ -6,6 +6,7 @@ import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 
-import static by.iba.uzhyhala.util.CommonUtil.getUUIDUserByUUIDLot;
-import static by.iba.uzhyhala.util.CommonUtil.getUserEmailByUUID;
+import static by.iba.uzhyhala.util.CommonUtil.*;
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_AUTH_INFO;
 import static by.iba.uzhyhala.util.VariablesUtil.HASH_SALT;
 import static java.lang.String.valueOf;
@@ -29,6 +29,8 @@ public class PasswordHandler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            
             String isForgetPassword = req.getParameter("fp");
             String uuid = req.getParameter("uuid");
             if ("true".equals(isForgetPassword)) {  // change forget password
@@ -46,7 +48,6 @@ public class PasswordHandler extends HttpServlet {
                 if (oldPassword.equals(sha512Hex(req.getParameter("old_password") + HASH_SALT))) {
                     if (req.getParameter("new_password").equals(req.getParameter("new_password_"))) {
                         String hashPassword = sha512Hex(req.getParameter("new_password") + HASH_SALT);
-                        session.beginTransaction();
                         session.createSQLQuery("UPDATE auth_info SET " +
                                 "password = '" + hashPassword + "' WHERE uuid ='" + uuid + "'").executeUpdate();
                         LOGGER.info("Password change successfully for user " + uuid);
@@ -69,5 +70,12 @@ public class PasswordHandler extends HttpServlet {
             LOGGER.error(ex.getLocalizedMessage());
             resp.sendRedirect("/pages/index.jsp");
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String le = req.getParameter("login_email");
+        new MailUtil().sendForgetPasscodeMail(getUUIDUserByLoginEmail(le, loginOrEmail(le)), req);
+        resp.sendRedirect("/pages/auth.jsp");
     }
 }

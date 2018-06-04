@@ -85,11 +85,13 @@
 					</label>
                     </span>
                     <span class="input input--isao">
-                    <button type="submit" name="login">Log in</button>
+                    <button class="btn btn-primary" type="submit" name="login">Авторизация</button>
                     </span>
                 </form>
             </div>
-
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Восстановить пароль
+            </button>
             <div class="col-sm-5">
                 <form action="/registration" method="post">
                     <span class="input input--isao">
@@ -102,7 +104,7 @@
                     <span class="input input--isao">
 					<input class="input__field input__field--isao" type="email" id="input-4" name="email"/>
 					<label class="input__label input__label--isao" for="input-1">
-						<span class="input__label-content input__label-content--isao">Пароль</span>
+						<span class="input__label-content input__label-content--isao">email</span>
 					</label>
                     </span>
                     <br/>
@@ -114,7 +116,7 @@
                     </span>
                     <span class="input input--isao">
                     <div class="g-recaptcha" data-sitekey="<%=PUBLIC%>"></div>
-                    <button type="submit" name="reg">REG</button>
+                    <button class="btn btn-primary" type="submit" name="reg">Регистрация</button>
                     </span>
                 </form>
             </div>
@@ -129,18 +131,35 @@
         </div>
 
         <div class="f_cols">
-            <h3>Поддержка</h3>
-            <ul>
-                <li><a href="/pages/password.jsp">Восстановить пароль</a></li>
-                <li><a href="#">Связь с администрацией</a></li>
-            </ul>
-        </div>
-
-        <div class="f_cols">
             <p>Copyright &copy; 2018<span class="phone"> Uladzimir Zhyhala inc.</span></p>
         </div>
 
     </div>
+
 </footer><!-- End footer -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Восстановление пароля</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/forgetpassword" method="get">
+                <div class="modal-body">
+                    <input type="text" name="login_email" placeholder="Логин или email">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="submit" name="btn_recovery_passcode" class="btn btn-primary">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
