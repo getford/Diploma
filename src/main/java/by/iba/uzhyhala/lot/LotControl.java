@@ -42,6 +42,16 @@ public class LotControl extends HttpServlet {
         }
     }
 
+    public static List<LotEntity> getAllLots() {
+        LOGGER.debug(" getLotInfoByUuid");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT l FROM " + ENTITY_LOT + " l", LotEntity.class).getResultList();
+        } catch (Exception ex) {
+            LOGGER.error(ex.getLocalizedMessage());
+            return new ArrayList<>();
+        }
+    }
+
     public String returnEndTime() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String timeEnd = valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));

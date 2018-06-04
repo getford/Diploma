@@ -51,7 +51,6 @@
 
 <section class="billboard">
     <section class="caption">
-        <p class="cap_title">Аукцион услуг</p>
     </section>
 </section><!-- End billboard -->
 

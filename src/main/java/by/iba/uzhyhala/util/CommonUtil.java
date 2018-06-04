@@ -110,15 +110,22 @@ public class CommonUtil {
         }
     }
 
-    public static String getUserFirstLastNameByUUID(Session session, String uuid) {
+    public static String getUserFirstLastNameByUUID(String uuid) {
         LOGGER.info("getUserFirstLastNameByUUID method");
-        Object[] object = session
-                .createSQLQuery("SELECT first_name, last_name FROM personal_information WHERE uuid_user = '" + uuid + "'")
-                .list()
-                .toArray();
-        String result = valueOf(((Object[]) object[0])[0]) + " " + ((Object[]) object[0])[1];
-        LOGGER.debug("return: " + result);
-        return result;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Object[] object = session
+                    .createSQLQuery("SELECT first_name, last_name FROM personal_information WHERE uuid_user = '" + uuid + "'")
+                    .list()
+                    .toArray();
+            String result = valueOf(((Object[]) object[0])[0]) + " " + ((Object[]) object[0])[1];
+            LOGGER.debug("return: " + result);
+            return result;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("Method: getUserFirstLastNameByUUID\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return null;
+        }
     }
 
     public static String getCategoryById(int id) {
@@ -168,13 +175,13 @@ public class CommonUtil {
         LOGGER.info("getHistoryBets method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            BetBulkTO betBulkTO = new Gson().fromJson(CommonUtil.getJsonBetBulk(uuidLot), BetBulkTO.class);
+            BetBulkTO betBulkTO = new Gson().fromJson(getJsonBetBulk(uuidLot), BetBulkTO.class);
             List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
 
             List<BetHistoryTO> betHistoryTO = new ArrayList<>();
             for (BetTO bet : betTOList) {
                 BetHistoryTO to = new BetHistoryTO();
-                to.setUserName(CommonUtil.getUserFirstLastNameByUUID(session, bet.getUuidUser()));
+                to.setUserName(getUserFirstLastNameByUUID(bet.getUuidUser()));
                 to.setBet(bet.getBet());
                 to.setDate(bet.getDate());
                 to.setTime(bet.getTime());
