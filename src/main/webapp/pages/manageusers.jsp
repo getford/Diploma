@@ -1,8 +1,9 @@
 <%@ page import="by.iba.uzhyhala.entity.AuthInfoEntity" %>
 <%@ page import="by.iba.uzhyhala.util.CommonUtil" %>
-<%@ page import="java.util.List" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.USER" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.QUERY_CHART_DATE_CREATE_USER" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,6 +25,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <%
+        CookieUtil cookieUtil = new CookieUtil(request);
+        if(!cookieUtil.isAdmin())
+            response.sendRedirect("/pages/index.jsp");
         List<AuthInfoEntity> authInfoEntityList = CommonUtil.getAllUser();
     %>
 </head>

@@ -1,5 +1,6 @@
 <%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.*" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,6 +19,9 @@
     <title>Admin - Diploma Auction</title>
     <%
         StatisticHandler statisticHandler = new StatisticHandler();
+        CookieUtil cookieUtil = new CookieUtil(request);
+        if(!cookieUtil.isAdmin())
+            response.sendRedirect("/pages/index.jsp");
     %>
 </head>
 <body>

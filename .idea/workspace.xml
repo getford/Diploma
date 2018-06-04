@@ -117,88 +117,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <file leaf-file-name="lot.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="375" column="41" selection-start-line="375" selection-start-column="34" selection-end-line="375" selection-end-column="41" />
+            <state relative-caret-position="273">
+              <caret line="123" column="18" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
-                <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
-                <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
-                <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
-                <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
-                <element signature="method#createExcelFile#0;class#CommonUtil#0" />
-                <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
-                <element signature="method#getRate#0;class#CommonUtil#0" />
-                <element signature="method#getCategories#0;class#CommonUtil#0" />
-                <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/DocumentHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="371" column="36" selection-start-line="371" selection-start-column="16" selection-end-line="371" selection-end-column="36" />
-              <folding>
-                <element signature="method#doPost#0;class#DocumentHandler#0" />
-                <element signature="method#generateExcelDocHistoryBet#0;class#DocumentHandler#0" />
-                <element signature="method#getPdfBetEncode#0;class#DocumentHandler#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentHandlerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/DocumentHandlerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="90" column="71" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="41" column="111" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="managelots.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408">
-              <caret line="48" selection-start-line="48" selection-end-line="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Registration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
-              <folding>
-                <element signature="method#doPost#0;class#Registration#0" />
-                <element signature="method#isLoginAndEmailEmpty#0;class#Registration#0" />
-                <element signature="method#prepareInputString#0;class#Registration#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manageusers.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="70" lean-forward="true" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -206,8 +132,80 @@
       <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="186">
+              <caret line="21" selection-start-line="21" selection-end-line="23" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="55" column="18" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="55" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addlot.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="managelots.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manageusers.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,16 +214,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="charts.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+              <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -326,7 +318,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/user/ProfileTest.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/util/MailUtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/ReCaptchaUtil.java" />
@@ -364,19 +355,20 @@
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/DocumentHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/LotStatusTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/by/iba/uzhyhala/lot/BetHandlerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/auth.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/index/main.css" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/auth.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -436,10 +428,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="827" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -960,7 +951,7 @@
       <workItem from="1526917306315" duration="1373000" />
       <workItem from="1526918802909" duration="30401000" />
       <workItem from="1527956850421" duration="6749000" />
-      <workItem from="1528049517248" duration="16859000" />
+      <workItem from="1528049517248" duration="17829000" />
     </task>
     <servers />
   </component>
@@ -997,7 +988,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="482729000" />
+    <option name="totallyTimeSpent" value="483699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1009,7 +1000,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="827" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="PlantUML" order="3" weight="0.3469242" />
@@ -1028,7 +1019,7 @@
       <window_info anchor="right" id="JSF" order="11" weight="0.3297568" />
       <window_info anchor="right" id="Ant Build" order="20" weight="0.24964234" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.537196" weight="0.37123287" />
+      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.32848486" />
       <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
       <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="14" />
@@ -1040,11 +1031,11 @@
       <window_info anchor="bottom" id="Sequence" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49499285" weight="0.6036364" />
       <window_info id="Persistence" order="3" sideWeight="0.5265082" side_tool="true" weight="0.27181688" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" weight="0.2832618" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.2832618" />
       <window_info anchor="right" id="Bean Validation" order="16" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
-      <window_info active="true" anchor="bottom" id="Find" order="5" sideWeight="0.49928468" visible="true" weight="0.27671233" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27671233" />
       <window_info anchor="right" id="Theme Preview" order="17" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
       <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.25608012" side_tool="true" weight="0.5344619" />
@@ -1159,24 +1150,13 @@
           <properties />
           <option name="timeStamp" value="600" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java</url>
-          <line>120</line>
-          <properties />
-          <option name="timeStamp" value="616" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="617" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="618" />
+      <option name="time" value="619" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="request.getParameter(&quot;user&quot;)" language="JSP" />
+        <watch expression="getLots(&quot;SELECT l FROM &quot; + ENTITY_LOT + &quot; l WHERE uuidUserSeller = '&quot; + uuidUser + &quot;'&quot;)" language="JSP" />
       </configuration>
       <configuration name="Application">
         <watch expression="LotFullFieldTOAPI.class.classLoader" language="JAVA" />
@@ -1190,6 +1170,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>getLots(&quot;SELECT l FROM &quot; + ENTITY_LOT + &quot; l WHERE uuidUserSeller = '&quot; + uuidUser + &quot;'&quot;)</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>request.getParameter(&quot;user&quot;)</expression-string>
         <language-id>JSP</language-id>
@@ -1232,11 +1217,6 @@
       </expression>
       <expression>
         <expression-string>session.createQuery(&quot;SELECT a.password FROM &quot; + ENTITY_AUTH_INFO + &quot; a WHERE uuid = :uuid&quot;)                         .setParameter(&quot;uuid&quot;, uuid).list().get(0).toString().equals(sha512Hex(req.getParameter(&quot;old_password&quot;) + HASH_SALT))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>oldPassword.equals(sha512Hex(req.getParameter(&quot;old_password&quot;) + HASH_SALT))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1323,13 +1303,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotTOAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/to/LotAddTOAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -1542,13 +1515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1620,31 +1586,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/report.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="117" column="54" lean-forward="true" selection-start-line="117" selection-start-column="54" selection-end-line="117" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/index/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="149" column="17" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1676,48 +1621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="70" lean-forward="true" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="48" selection-start-line="48" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/user/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1726,26 +1629,6 @@
             <element signature="method#doPost#0;class#Registration#0" />
             <element signature="method#isLoginAndEmailEmpty#0;class#Registration#0" />
             <element signature="method#prepareInputString#0;class#Registration#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="375" column="41" selection-start-line="375" selection-start-column="34" selection-end-line="375" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
-            <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
-            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
-            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
-            <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
-            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
-            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
-            <element signature="method#getRate#0;class#CommonUtil#0" />
-            <element signature="method#getCategories#0;class#CommonUtil#0" />
-            <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
           </folding>
         </state>
       </provider>
@@ -1769,10 +1652,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCurrentCost#0;class#CommonUtil#0" />
+            <element signature="method#getLotDateEnd#0;class#CommonUtil#0" />
+            <element signature="method#isUserHaveApiKey#0;class#CommonUtil#0" />
+            <element signature="method#isApiKeyValid#0;class#CommonUtil#0" />
+            <element signature="method#prepareFileForAttach#0;class#CommonUtil#0" />
+            <element signature="method#createExcelFile#0;class#CommonUtil#0" />
+            <element signature="method#translateLotStatus#0;class#CommonUtil#0" />
+            <element signature="method#getRate#0;class#CommonUtil#0" />
+            <element signature="method#getCategories#0;class#CommonUtil#0" />
+            <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CookieUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="55" column="18" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="55" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="123" column="18" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="41" column="111" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
+        <state relative-caret-position="312">
+          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/auth.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/addlot.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="21" selection-start-line="21" selection-end-line="23" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/charts.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>

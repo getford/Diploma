@@ -50,12 +50,9 @@ public class CookieUtil {
         return "";
     }
 
-    public boolean isAdmin(Cookie[] cookies) throws UnsupportedEncodingException {
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals(COOKIE_AUTH_NAME)
-                    && getRoleFromToken().equalsIgnoreCase(ROLE_ADMIN))
-                return true;
-        }
+    public boolean isAdmin() throws UnsupportedEncodingException {
+        if (getRoleFromToken().equalsIgnoreCase(ROLE_ADMIN))
+            return true;
         return false;
     }
 

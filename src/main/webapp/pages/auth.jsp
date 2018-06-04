@@ -1,5 +1,6 @@
-<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="static by.iba.uzhyhala.util.ReCaptchaUtil.PUBLIC" %>
+<%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,12 +33,24 @@
     <div class="wrapper">
         <a href="/pages/index.jsp" class="logo">
             <img src="/resources/images/logo.jpg" alt=""
-                 title="Auction Diploma Project"/></a>     <nav>
+                 title="Auction Diploma Project"/></a>
+        <nav>
             <ul>
                 <li><a href="/pages/profile.jsp">Профиль</a></li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
                 <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
+                <%
+                    CookieUtil cookieUtil = new CookieUtil(request);
+                    if (cookieUtil.isAdmin()) {
+                %>
                 <li><a href="/pages/admin.jsp">Админ</a></li>
+                <%
+                } else {
+                %>
+                <li><a style="pointer-events: none" href="/pages/admin.jsp">Админ</a></li>
+                <%
+                    }
+                %>
                 <li><a href="">Обратная связь</a></li>
             </ul>
         </nav>

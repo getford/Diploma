@@ -1,5 +1,6 @@
 <%@ page import="by.iba.uzhyhala.admin.StatisticHandler" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.*" %>
+<%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,6 +20,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <%
+        CookieUtil cookieUtil = new CookieUtil(request);
+        if(!cookieUtil.isAdmin())
+            response.sendRedirect("/pages/index.jsp");
+
         StatisticHandler statisticHandler = new StatisticHandler();
         String lineChartAddDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_ADD_DATE_LOT, LOT);
         String lineChartStartDateLot = statisticHandler.prepareChartDataFormat(QUERY_CHART_DATA_START_DATE_LOT, LOT);

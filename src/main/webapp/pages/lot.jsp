@@ -121,7 +121,17 @@
                 <li><a href="/pages/profile.jsp">Профиль</a></li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
                 <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
+                <%
+                    if (cookieUtil.isAdmin()) {
+                %>
                 <li><a href="/pages/admin.jsp">Админ</a></li>
+                <%
+                } else {
+                %>
+                <li><a style="pointer-events: none" href="/pages/admin.jsp">Админ</a></li>
+                <%
+                    }
+                %>
                 <li><a href="">Обратная связь</a></li>
             </ul>
         </nav>
