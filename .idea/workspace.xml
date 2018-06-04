@@ -117,10 +117,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="-1842">
               <caret line="35" column="74" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -158,11 +158,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="managelots.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="managelots.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="80" column="130" selection-start-line="80" selection-start-column="130" selection-end-line="80" selection-end-column="130" />
+            <state relative-caret-position="64">
+              <caret line="48" column="87" selection-start-line="48" selection-start-column="87" selection-end-line="48" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -366,8 +366,8 @@
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/lot/LotControl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/charts.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp" />
       </list>
     </option>
   </component>
@@ -950,7 +950,7 @@
       <workItem from="1526917306315" duration="1373000" />
       <workItem from="1526918802909" duration="30401000" />
       <workItem from="1527956850421" duration="6749000" />
-      <workItem from="1528049517248" duration="15674000" />
+      <workItem from="1528049517248" duration="15836000" />
     </task>
     <servers />
   </component>
@@ -987,7 +987,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481544000" />
+    <option name="totallyTimeSpent" value="481706000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1018,9 +1018,9 @@
       <window_info anchor="right" id="JSF" order="11" weight="0.3297568" />
       <window_info anchor="right" id="Ant Build" order="20" weight="0.24964234" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.537196" weight="0.32848486" />
+      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.537196" visible="true" weight="0.32848486" />
       <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
-      <window_info active="true" anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" visible="true" weight="0.3272727" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3272727" />
       <window_info anchor="right" id="Palette&#9;" order="14" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.32848486" />
@@ -1030,7 +1030,7 @@
       <window_info anchor="bottom" id="Sequence" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49499285" weight="0.6036364" />
       <window_info id="Persistence" order="3" sideWeight="0.5265082" side_tool="true" weight="0.27181688" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.2832618" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.2832618" />
       <window_info anchor="right" id="Bean Validation" order="16" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
@@ -1703,13 +1703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -1731,16 +1724,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="80" column="130" selection-start-line="80" selection-start-column="130" selection-end-line="80" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="-1842">
           <caret line="35" column="74" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1756,6 +1742,20 @@
             <element signature="method#getCategories#0;class#CommonUtil#0" />
             <element signature="method#separateUploadFileName#0;class#CommonUtil#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manageusers.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/managelots.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="48" column="87" selection-start-line="48" selection-start-column="87" selection-end-line="48" selection-end-column="87" />
         </state>
       </provider>
     </entry>
