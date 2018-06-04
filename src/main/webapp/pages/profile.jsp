@@ -39,7 +39,7 @@
         else {
             personalInformationEntityList = getUserPersonalInformation(userLogin);
             addressEntityList = getUserAddress(userLogin);
-            userLotList = getLots("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = :uuid");
+            userLotList = getLots("SELECT l FROM " + ENTITY_LOT + " l WHERE uuidUserSeller = '" + uuidUser + "'");
         }
         assert personalInformationEntityList != null;
     %>
@@ -50,7 +50,8 @@
     <div class="wrapper">
         <a href="/pages/index.jsp" class="logo">
             <img src="/resources/images/logo.jpg" alt=""
-                 title="Auction Diploma Project"/></a> <nav>
+                 title="Auction Diploma Project"/></a>
+        <nav>
             <ul>
                 <li><a href="/pages/profile.jsp?user=<%=userLogin%>">Профиль</a>(<%=userLogin%>)</li>
                 <li><a href="/pages/addlot.jsp">Добавить лот</a></li>
@@ -193,7 +194,7 @@
                                     String category = getCategoryById(lot.getIdCategory());
                                     String cost = lot.getCost();
                                     String blitzCost = lot.getBlitzCost();
-                                    String stepCost = userLotList.get(0).getStepCost();
+                                    String stepCost = lot.getStepCost();
                                     String dateAdd = String.valueOf(lot.getDateAdd());
                                     String dateStart = String.valueOf(lot.getDateStart());
                                     String dateEnd = String.valueOf(lot.getDateEnd());
