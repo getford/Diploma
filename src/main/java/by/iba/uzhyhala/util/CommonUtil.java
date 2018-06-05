@@ -155,6 +155,20 @@ public class CommonUtil {
         }
     }
 
+    public static List<AuthInfoEntity> getAuthInfoUserByUUID(String uuid) {
+        LOGGER.info("getAllUser method");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            return session
+                    .createQuery("SELECT a FROM " + ENTITY_AUTH_INFO + " a WHERE uuid=: uuid")
+                    .setParameter("uuid", uuid).getResultList();
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("getAllUser\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
+            return new ArrayList<>();
+        }
+    }
+
     public static String getJsonBetBulk(String uuid) {
         LOGGER.info("getJsonBetBulk method");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

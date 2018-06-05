@@ -11,7 +11,7 @@
 <%@ page import="static java.io.File.separator" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.FOLDER_UPLOAD_IMAGES" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.STATUS_LOT_SALES" %>
-<%@ page import="by.iba.uzhyhala.lot.DocumentHandler" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.STATUS_LOT_WAIT" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -140,7 +140,8 @@
 
 <section class="billboard">
     <section class="caption">
-        <p class="cap_title">Информация о Лоте - <%=lotInfoList.get(0).getName()%></p>
+        <p class="cap_title">Информация о Лоте - <%=lotInfoList.get(0).getName()%>
+        </p>
     </section>
 </section><!-- End billboard -->
 
@@ -151,7 +152,12 @@
     <input type="hidden" id="_uuid_lot" value="<%=request.getParameter("uuid")%>">
     <%
         assert timeEnd != null;
-        if (!timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE)) {
+        if (lotInfoList.get(0).getStatus().equals(STATUS_LOT_WAIT)) {
+    %> <h1>
+    <span style="color: yellow">Лот в ожидании торгов.</span>
+    <span style="color: yellow">Торги начнутся в <%=lotInfoList.get(0).getTimeStart()%></span></h1>
+    <%
+    } else if (!timeEnd.equals(VariablesUtil.STATUS_LOT_CLOSE) && !lotInfoList.get(0).getStatus().equals(STATUS_LOT_WAIT)) {
     %>
     <h1 id="title_time">Осталось времени: <span id="time"></span></h1>
     <input type="hidden" value="<%=timeEnd%>" id="start_ticks">

@@ -43,7 +43,7 @@
         </div>
         <nav class="templatemo-left-nav">
             <ul>
-                <li><a href="/pages/admin.jsp"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
+                <li><a href="/pages/admin.jsp"><i class="fa fa-home fa-fw"></i>Главная</a></li>
                 <li><a href="#" class="active"><i class="fa fa-bar-chart fa-fw"></i>Графики</a></li>
                 <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Пользователи</a></li>
                 <li><a href="/pages/managelots.jsp"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>

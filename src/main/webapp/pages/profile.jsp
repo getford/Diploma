@@ -8,6 +8,7 @@
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.ENTITY_LOT" %>
 <%@ page import="static by.iba.uzhyhala.util.CommonUtil.*" %>
 <%@ page import="static by.iba.uzhyhala.user.Profile.*" %>
+<%@ page import="static by.iba.uzhyhala.util.CookieUtil.getUserLoginFromCookie" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,7 +33,7 @@
         List<PersonalInformationEntity> personalInformationEntityList = null;
         List<AddressEntity> addressEntityList = null;
         List<LotEntity> userLotList = null;
-        String userLogin = CookieUtil.getUserLoginFromCookie(request);
+        String userLogin = getUserLoginFromCookie(request);
         String uuidUser = getUUIDUserByLoginEmail(request.getParameter("user").toLowerCase(), loginOrEmail(request.getParameter("user").toLowerCase()));
         if (StringUtils.isBlank(userLogin))
             response.sendRedirect("/pages/auth.jsp");
@@ -87,7 +88,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <div class="panel panel-warning">
-                    <div class="panel-heading" style="text-align: center;"><h3>Profile info</h3>
+                    <div class="panel-heading" style="text-align: center;"><h3>Информация</h3>
                     </div>
                 </div>
                 <table class="table table-condensed">
@@ -116,7 +117,7 @@
 
             <div class="col-sm-5">
                 <div class="panel panel-warning">
-                    <div class="panel-heading" style="text-align: center;"><h3>Address</h3>
+                    <div class="panel-heading" style="text-align: center;"><h3>Адрес</h3>
                     </div>
                 </div>
                 <table class="table table-condensed">
@@ -172,7 +173,7 @@
             <div class="panel panel-success">
                 <a href="#spoilerLot" class="btn btn-success btn-md btn-block" data-toggle="collapse"
                    style="text-align: center;">
-                    <h4>Lots</h4>
+                    <h4>Ваши лоты</h4>
                 </a>
                 <div id="spoilerLot" class="collapse">
                     <div class="panel-body">
@@ -181,8 +182,7 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Info</th>
+                                <th>Название</th>
                                 <th>Status</th>
                                 <th>Category</th>
                                 <th>Cost</th>
@@ -193,14 +193,12 @@
                                 <th>Date end</th>
                                 <th>Time start</th>
                                 <th>Time end</th>
-                                <%--<th>Control</th>--%>
                             </tr>
                             </thead>
                             <%
                                 for (LotEntity lot : userLotList) {
                                     String id = lot.getUuid();
                                     String name = lot.getName();
-                                    String information = lot.getInformation();
                                     String status = translateLotStatus(lot.getStatus());
                                     String category = getCategoryById(lot.getIdCategory());
                                     String cost = lot.getCost();
@@ -215,9 +213,6 @@
                             <tbody id="lotTable">
                             <tr>
                                 <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=name%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=information%>
                                 </a>
                                 </td>
                                 <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=status%>
@@ -246,8 +241,6 @@
                                 </td>
                                 <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeEnd%>
                                 </a>
-                                </td>
-                                <td>
                                 </td>
                             </tr>
                             </tbody>

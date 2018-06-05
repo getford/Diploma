@@ -36,7 +36,7 @@
         </div>
         <nav class="templatemo-left-nav">
             <ul>
-                <li><a href="#" class="active"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
+                <li><a href="#" class="active"><i class="fa fa-home fa-fw"></i>Главная</a></li>
                 <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Графики</a></li>
                 <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Пользователели</a></li>
                 <li><a href="/pages/managelots.jsp"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>

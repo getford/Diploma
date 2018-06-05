@@ -30,7 +30,7 @@ public class PasswordHandler extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            
+
             String isForgetPassword = req.getParameter("fp");
             String uuid = req.getParameter("uuid");
             if ("true".equals(isForgetPassword)) {  // change forget password
@@ -39,6 +39,7 @@ public class PasswordHandler extends HttpServlet {
                     String hashPassword = sha512Hex(req.getParameter("new_password") + HASH_SALT);
                     session.createSQLQuery("UPDATE auth_info SET " +
                             "password = '" + hashPassword + "' WHERE uuid ='" + uuid + "'").executeUpdate();
+                    resp.sendRedirect("/pages/auth.jsp");
                 }
             } else if ("false".equals(isForgetPassword)) { // change user password
                 LOGGER.info("isForgetPassword -> " + isForgetPassword);
