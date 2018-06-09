@@ -44,7 +44,7 @@
                 <li><a href="/pages/auth.jsp">Авторизация/Регистрация</a></li>
                 <%
                     CookieUtil cookieUtil = new CookieUtil(request);
-                    if (cookieUtil.isAdmin()) {
+                    if (cookieUtil.isFindCookie() && cookieUtil.isAdmin()) {
                 %>
                 <li><a href="/pages/admin.jsp">Админ</a></li>
                 <%
