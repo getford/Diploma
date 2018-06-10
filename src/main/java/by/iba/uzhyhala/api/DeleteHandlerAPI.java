@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.api;
 
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 
 @WebServlet(urlPatterns = "/del")
@@ -23,7 +23,7 @@ public class DeleteHandlerAPI extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
 
             String parameter = Pattern.compile("=").split(req.getQueryString())[0];

@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.user;
 
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -17,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.CommonUtil.loginOrEmail;
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 import static org.apache.commons.codec.digest.DigestUtils.sha512Hex;
@@ -33,7 +33,7 @@ public class Authorization extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             String loginOrEmail = req.getParameter("login_or_email");
             type = loginOrEmail(loginOrEmail).toLowerCase();

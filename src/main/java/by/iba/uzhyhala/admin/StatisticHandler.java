@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.admin;
 
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -11,6 +10,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
@@ -18,7 +18,7 @@ public class StatisticHandler {
     private static final Logger LOGGER = Logger.getLogger(StatisticHandler.class);
 
     public String prepareChartDataFormat(String query, String type) {    // return [date, count]
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
 
             LOGGER.debug("prepareChartDataFormat query: " + query);
@@ -58,7 +58,7 @@ public class StatisticHandler {
 
     public String countStatistic(String query) {
         LOGGER.debug("countStatistic query: " + query);
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return valueOf(session.createSQLQuery(query).list().get(0));
         } catch (Exception ex) {

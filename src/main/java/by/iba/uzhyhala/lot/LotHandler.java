@@ -3,7 +3,6 @@ package by.iba.uzhyhala.lot;
 import by.iba.uzhyhala.entity.BetEntity;
 import by.iba.uzhyhala.entity.LotEntity;
 import by.iba.uzhyhala.util.CookieUtil;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -22,6 +21,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
@@ -41,7 +41,7 @@ public class LotHandler extends HttpServlet implements Serializable {
     }
 
     LotHandler(String loginOrEmail) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             LOGGER.debug(" constructor");
             this.uuidUser = getUUIDUserByLoginEmail(loginOrEmail, loginOrEmail(loginOrEmail));
@@ -87,7 +87,7 @@ public class LotHandler extends HttpServlet implements Serializable {
         String dateStartParsed = new SimpleDateFormat(PATTERN_DATE).format(
                 new SimpleDateFormat(PATTERN_DATE_REVERSE).parse(dateStart));
         this.uuidAddLot = UUID.randomUUID().toString();
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             LotEntity lotEntity = new LotEntity();
             lotEntity.setUuid(uuidAddLot);

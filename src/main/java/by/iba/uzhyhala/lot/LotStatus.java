@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.lot.to.BetBulkTO;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
@@ -18,6 +17,7 @@ import java.util.Date;
 import java.util.Objects;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
@@ -40,7 +40,7 @@ public class LotStatus extends HttpServlet {
 
     boolean isUpdateLotStatus(String status, String uuidLot, HttpServletRequest request) {
         LOGGER.info("isUpdateLotStatus method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             BetBulkTO betBulkTO = new Gson().fromJson(getJsonBetBulk(uuidLot), BetBulkTO.class);
             betBulkTO.setStatus(status);
 

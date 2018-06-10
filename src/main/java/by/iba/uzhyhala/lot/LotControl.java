@@ -1,7 +1,6 @@
 package by.iba.uzhyhala.lot;
 
 import by.iba.uzhyhala.entity.LotEntity;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -16,6 +15,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
@@ -33,7 +33,7 @@ public class LotControl extends HttpServlet {
 
     public List<LotEntity> getLotInfoByUuid() {
         LOGGER.debug(" getLotInfoByUuid");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             return session.createQuery("SELECT l FROM " + ENTITY_LOT + " l WHERE uuid = :uuid", LotEntity.class)
                     .setParameter("uuid", uuidLot).getResultList();
         } catch (Exception ex) {
@@ -44,7 +44,7 @@ public class LotControl extends HttpServlet {
 
     public static List<LotEntity> getAllLots() {
         LOGGER.debug(" getLotInfoByUuid");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             return session.createQuery("SELECT l FROM " + ENTITY_LOT + " l", LotEntity.class).getResultList();
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
@@ -53,7 +53,7 @@ public class LotControl extends HttpServlet {
     }
 
     public String returnEndTime() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             String timeEnd = valueOf(session.createSQLQuery("SELECT time_end FROM lot WHERE uuid = '" + uuidLot + "'").getResultList().get(0));
 
             DateFormat dateFormat = new SimpleDateFormat(PATTERN_TIME);

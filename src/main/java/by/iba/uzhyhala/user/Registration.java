@@ -3,7 +3,6 @@ package by.iba.uzhyhala.user;
 import by.iba.uzhyhala.entity.AddressEntity;
 import by.iba.uzhyhala.entity.AuthInfoEntity;
 import by.iba.uzhyhala.entity.PersonalInformationEntity;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import by.iba.uzhyhala.util.ReCaptchaUtil;
 import com.google.gson.Gson;
@@ -21,6 +20,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
 
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static org.apache.commons.codec.digest.DigestUtils.sha512Hex;
 
@@ -65,7 +65,7 @@ public class Registration extends HttpServlet {
         LOGGER.debug("method: doRegistration");
         String newUserUUID = UUID.randomUUID().toString();
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             AuthInfoEntity authInfoEntity = new Gson().fromJson(prepareInputString(login.toLowerCase(),
                     password.toLowerCase(), email.toLowerCase()), AuthInfoEntity.class);

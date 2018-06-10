@@ -1,6 +1,5 @@
 package by.iba.uzhyhala.api.user;
 
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.StringUtils;
@@ -16,6 +15,7 @@ import java.util.UUID;
 
 import static by.iba.uzhyhala.util.CommonUtil.getUserLoginByUUID;
 import static by.iba.uzhyhala.util.CommonUtil.isUserHaveApiKey;
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_AUTH_INFO;
 import static java.lang.String.valueOf;
 
@@ -28,7 +28,7 @@ public class UserApiKey extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         String responseMessage;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
 
             resp.setContentType("application/json");

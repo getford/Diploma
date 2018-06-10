@@ -29,6 +29,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.Pattern;
 
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
@@ -46,7 +47,7 @@ public class CommonUtil {
 
     public static String getUUIDUserByLoginEmail(String loginOrEmail, String type) {
         LOGGER.info("getUUIDUserByLoginEmail method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
                     .createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO + " a WHERE " + type + " = :cred")
@@ -63,7 +64,7 @@ public class CommonUtil {
 
     public static String getUserLoginByUUID(String uuid) {
         LOGGER.info("getUserLoginByUUID method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
                     .createQuery("SELECT a.login FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
@@ -80,7 +81,7 @@ public class CommonUtil {
 
     public static String getUserEmailByUUID(String uuid) {
         LOGGER.info("getUserEmailByUUID method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT a.email FROM " + ENTITY_AUTH_INFO + " a WHERE uuid = :uuid")
                     .setParameter("uuid", uuid)
@@ -96,7 +97,7 @@ public class CommonUtil {
 
     public static String getUUIDUserByUUIDLot(String uuidLot) {
         LOGGER.info("getUUIDUserByUUIDLot method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
                     .createSQLQuery("SELECT uuid_user_seller FROM lot WHERE uuid = '" + uuidLot + "'")
@@ -112,7 +113,7 @@ public class CommonUtil {
 
     public static String getUserFirstLastNameByUUID(String uuid) {
         LOGGER.info("getUserFirstLastNameByUUID method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             Object[] object = session
                     .createSQLQuery("SELECT first_name, last_name FROM personal_information WHERE uuid_user = '" + uuid + "'")
@@ -130,7 +131,7 @@ public class CommonUtil {
 
     public static String getCategoryById(int id) {
         LOGGER.info("getCategoryById method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT c.category_name FROM " + ENTITY_CATEGORY + " c WHERE id = :id")
                     .setParameter("id", id)
@@ -145,7 +146,7 @@ public class CommonUtil {
 
     public static List<AuthInfoEntity> getAllUser() {
         LOGGER.info("getAllUser method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT a FROM " + ENTITY_AUTH_INFO + " a").list();
         } catch (Exception ex) {
@@ -156,11 +157,11 @@ public class CommonUtil {
     }
 
     public static List<AuthInfoEntity> getAuthInfoUserByUUID(String uuid) {
-        LOGGER.info("getAllUser method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        LOGGER.info("getAuthInfoUserByUUID method");
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
-                    .createQuery("SELECT a FROM " + ENTITY_AUTH_INFO + " a WHERE uuid=: uuid")
+                    .createQuery("SELECT a FROM " + ENTITY_AUTH_INFO + " a WHERE uuid= :uuid")
                     .setParameter("uuid", uuid).getResultList();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("getAllUser\n" + Arrays.toString(ex.getStackTrace()));
@@ -171,7 +172,7 @@ public class CommonUtil {
 
     public static String getJsonBetBulk(String uuid) {
         LOGGER.info("getJsonBetBulk method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return valueOf(session.createQuery("SELECT b.bulk FROM " + ENTITY_BET + " b WHERE uuid = :uuid")
                     .setParameter("uuid", uuid)
@@ -187,7 +188,7 @@ public class CommonUtil {
 
     public static List<BetHistoryTO> getHistoryBets(String uuidLot) {
         LOGGER.info("getHistoryBets method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             BetBulkTO betBulkTO = new Gson().fromJson(getJsonBetBulk(uuidLot), BetBulkTO.class);
             List<BetTO> betTOList = new ArrayList<>(betBulkTO.getBets());
@@ -225,7 +226,7 @@ public class CommonUtil {
 
     public static boolean isUserHaveApiKey(String uuid) {
         LOGGER.info("isUserHaveApiKey method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
                     .createSQLQuery("SELECT api_key FROM auth_info WHERE uuid = :uuid")
@@ -243,7 +244,7 @@ public class CommonUtil {
 
     public static boolean isApiKeyValid(String key) {
         LOGGER.info("isApiKeyValid method");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             return session
                     .createQuery("SELECT a.uuid FROM " + ENTITY_AUTH_INFO + " a WHERE api_key = :key")
@@ -329,7 +330,7 @@ public class CommonUtil {
     public static int getRate(String uuid, String type) {
         LOGGER.info("getRate method");
         int currentRate = 0;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
 
             if (LOT.equals(type)) {
@@ -365,7 +366,7 @@ public class CommonUtil {
             rate -= 1;
         }
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             if (LOT.equals(type)) {
                 session.createQuery("UPDATE " + ENTITY_LOT + " SET rate = :rate WHERE uuid = :uuid")
@@ -389,7 +390,7 @@ public class CommonUtil {
 
     public static List<LotEntity> getLots(String query) {
         LOGGER.debug("getLots");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             return session.createQuery(query).getResultList();
         } catch (Exception e) {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
@@ -400,7 +401,7 @@ public class CommonUtil {
 
     public static List<LotEntity> getLotsLimitRows(String query, int limit) {
         LOGGER.debug("getLots");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             return session.createQuery(query).setMaxResults(limit).getResultList();
         } catch (Exception e) {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
@@ -411,7 +412,7 @@ public class CommonUtil {
 
     public static List<CategoryEntity> getCategories() {
         LOGGER.debug("getCategories");
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             return session.createQuery("SELECT c FROM " + ENTITY_CATEGORY + " c").getResultList();
         } catch (Exception e) {
             new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));

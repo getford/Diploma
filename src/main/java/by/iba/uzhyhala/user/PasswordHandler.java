@@ -1,12 +1,10 @@
 package by.iba.uzhyhala.user;
 
 import by.iba.uzhyhala.util.CommonUtil;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +14,7 @@ import java.net.URL;
 import java.util.Arrays;
 
 import static by.iba.uzhyhala.util.CommonUtil.*;
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.ENTITY_AUTH_INFO;
 import static by.iba.uzhyhala.util.VariablesUtil.HASH_SALT;
 import static java.lang.String.valueOf;
@@ -28,7 +27,7 @@ public class PasswordHandler extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
 
             String isForgetPassword = req.getParameter("fp");

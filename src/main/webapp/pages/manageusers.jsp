@@ -10,7 +10,6 @@
 <head>
     <title>Manage users - Auction Diploma</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Zhyhala">
@@ -103,11 +102,40 @@
                             </td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal">
-                                    Изменить
+                                        data-target="#exampleModal<%=userUuid%>">
+                                    Изменить пользователя
                                 </button>
-                                <%--<a href="" class="templatemo-edit-btn">Edit</a>--%></td>
-                            <%--<td><a href="" class="templatemo-link">Action</a></td>--%>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal<%=userUuid%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Изменение пользователя</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="/change?uuid=<%=userUuid%>" method="get">
+                                                <div class="modal-body">
+                                                    <%
+                                                        AuthInfoEntity authInfoEntity = getAuthInfoUserByUUID(userUuid).get(0);
+                                                    %>
+                                                    <input type="text" name="login" placeholder="Логин" value="<%=authInfoEntity.getLogin()%>">
+                                                    <br/>
+                                                    <input type="text" name="email" placeholder="Email" value="<%=authInfoEntity.getEmail()%>">
+                                                    <br/>
+                                                    <input type="text" name="role" placeholder="Роль" value="<%=authInfoEntity.getRole()%>">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                                    <button type="submit" name="btn_recovery_passcode" class="btn btn-primary">Отправить</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                             <td>
                                 <form action="/del" method="get" name="delete-form">
                                     <a href="/del?uuid-user=<%=userUuid%>" class="templatemo-link">Удалить</a>
@@ -139,34 +167,5 @@
         $('index.content-bg-index').hide();
     });
 </script>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Изменение пользователя</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="/change" method="get">
-                <div class="modal-body">
-                    <%
-                        AuthInfoEntity authInfoEntity = getAuthInfoUserByUUID(request.getParameter("uuid-user")).get(0);
-                    %>
-                    <input type="text" name="login" placeholder="Логин" value="<%=authInfoEntity.getLogin()%>">
-                    <input type="text" name="email" placeholder="Email" value="<%=authInfoEntity.getEmail()%>">
-                    <input type="text" name="role" placeholder="Роль" value="<%=authInfoEntity.getRole()%>">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <button type="submit" name="btn_recovery_passcode" class="btn btn-primary">Отправить</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 </body>
 </html>

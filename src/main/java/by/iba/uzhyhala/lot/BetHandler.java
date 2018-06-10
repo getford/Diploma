@@ -3,7 +3,6 @@ package by.iba.uzhyhala.lot;
 import by.iba.uzhyhala.lot.to.BetBulkTO;
 import by.iba.uzhyhala.lot.to.BetTO;
 import by.iba.uzhyhala.util.CookieUtil;
-import by.iba.uzhyhala.util.HibernateUtil;
 import by.iba.uzhyhala.util.MailUtil;
 import com.google.gson.Gson;
 import org.apache.log4j.Logger;
@@ -19,6 +18,7 @@ import java.util.*;
 
 import static by.iba.uzhyhala.util.CommonUtil.getJsonBetBulk;
 import static by.iba.uzhyhala.util.CommonUtil.getLotDateEnd;
+import static by.iba.uzhyhala.util.HibernateUtil.getSessionFactory;
 import static by.iba.uzhyhala.util.VariablesUtil.*;
 import static java.lang.String.valueOf;
 
@@ -54,7 +54,8 @@ public class BetHandler extends HttpServlet implements Serializable {
 
         int size = betBulkTO.getBets().size() - 1;
         if (betBulkTO.getStatus().equals(STATUS_LOT_ACTIVE) && bet >= betBulkTO.getStep()) {
-            if (bet < betBulkTO.getBlitzCost()) {
+            if (bet < betBulkTO.getBlitzCost())
+            {
                 betBulkTO.setUuidClient(uuidUser);
                 betTO.setUuidBet(UUID.randomUUID().toString());
                 betTO.setBet(bet);
@@ -90,7 +91,7 @@ public class BetHandler extends HttpServlet implements Serializable {
     private void doBet(String jsonBulk, String time) {
         LOGGER.info("doBet method");
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = getSessionFactory().openSession()) {
             session.beginTransaction();
             session.createQuery("UPDATE " + ENTITY_BET + " SET bulk = :newBulk WHERE uuid = :uuid")
                     .setParameter("newBulk", jsonBulk)
