@@ -132,4 +132,5 @@ public final class VariablesUtil {
     public static final String EMAIL = "email";
     public static final String LOGIN = "login";
     public static final String PASSCODE = "password";
+    public static final int LIMIT_SELECT_LOT = 9;
 }

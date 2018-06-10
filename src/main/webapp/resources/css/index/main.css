@@ -272,6 +272,13 @@ header nav ul li a:hover {
     /*text-align: center;*/
 }
 
+/*  Recent work center  */
+.recent_work_center {
+    margin-bottom: 100px;
+    overflow: hidden;
+    text-align: center;
+}
+
 .recent_work h3.S_title {
     font-family: 'open_bold', arial;
     font-weight: bold;
@@ -298,7 +305,7 @@ header nav ul li a:hover {
 .recent_work a.work_img {
     width: 262px;
     height: 320px;
-    background: red;
+    /*background: green;*/
     position: relative;
 }
 

@@ -1,6 +1,14 @@
+<%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
 <%@ page import="by.iba.uzhyhala.util.VariablesUtil" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="java.util.List" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getLots" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.ENTITY_LOT" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.FOLDER_UPLOAD_IMAGES" %>
+<%@ page import="static java.io.File.separator" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getLotsLimitRows" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.LIMIT_SELECT_LOT" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -66,163 +74,29 @@
     </section>
 </section><!-- End billboard -->
 
-<!--	<section class="services wrapper">
-		<ul>
-			<li>
-				<index class="s_icons" src="/index/s1_icon.png" title="" alt=""/>
-				<h3>Duis aute irure</h3>
-				<p>Excepteur sint occaecat cupi datat non it proident, sunt in culpa qui officia dese runtorn mollit anim id est laborum.</p>
-			</li>
-			<li>
-				<index class="s_icons" src="/index/s2_icon.png" title="" alt=""/>
-				<h3>Duis aute irure</h3>
-				<p>Excepteur sint occaecat cupi datat non it proident, sunt in culpa qui officia dese runtorn mollit anim id est laborum.</p>
-			</li>
-			<li>
-				<index class="s_icons" src="/index/s3_icon.png" title="" alt=""/>
-				<h3>Duis aute irure</h3>
-				<p>Excepteur sint occaecat cupi datat non it proident, sunt in culpa qui officia dese runtorn mollit anim id est laborum.</p>
-			</li>
-		</ul>
-	</section> End services -->
-
-
-<!-- <section class="video wrapper">
-    <h3>sunt in culpa qui officia deserunt mollit</h3>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <div class="ex_video">
-        <a href="#"><index src="/index/video.jpg" alt="" title=""/></a>
-    </div>
-</section>	End video -->
 <br/><br/>
 <section class="recent_work wrapper">
     <h3 class="S_title">Новые лоты</h3>
-    <input type="hidden" id="start">
-
+    <%
+        List<LotEntity> lotInfoList = getLotsLimitRows("SELECT l FROM " + ENTITY_LOT + " l ORDER BY id DESC", LIMIT_SELECT_LOT);
+        for (LotEntity lot : lotInfoList) {
+            String id = lot.getUuid();
+            String lotName = lot.getName();
+            String imagesLot = separator + FOLDER_UPLOAD_IMAGES + separator + lot.getImagesName();
+    %>
     <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
+        <a href="/pages/lot.jsp?uuid=<%=id%>" class="work_img">
+            <img src="<%=imagesLot%>" alt="" title="<%=lotName%>"/>
         </a>
-        <a href="#" class="work_title">
-            Brand Project
+        <a href="/pages/lot.jsp?uuid=<%=id%>" class="work_title">
+            <%=lotName%>
             <i></i>
         </a>
     </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 2
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 3
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 4
-            <i></i>
-        </a>
-    </div>
+    <%
+        }
+    %>
 </section>
-<section class="recent_work wrapper">
-
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 2
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 3
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 4
-            <i></i>
-        </a>
-    </div>
-</section>
-<section class="recent_work wrapper">
-
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 2
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 3
-            <i></i>
-        </a>
-    </div>
-    <div class="work">
-        <a href="#" class="work_img">
-            <img src="/resources/images/index/work_image.jpg" alt="" title=""/>
-        </a>
-        <a href="#" class="work_title">
-            Brand Project 4
-            <i></i>
-        </a>
-    </div>
-</section>
-<!-- End recent_work -->
-
-<%--<section class="social">
-    <a href="http://facebook.com/pixelhint" target="_blank" class="fb"></a>
-    <a href="http://twitter.com/pixelhint" target="_blank" class="t"></a>
-    <a href="http://dribbble.com/pixelhint" target="_blank" class="d"></a>
-    <a href="#" target="_blank" class="g"></a>
-</section><!-- End social -->--%>
-
 
 <footer>
     <div class="wrapper">

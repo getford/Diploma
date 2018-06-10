@@ -23,7 +23,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
-@PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*"})
+@PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "java.lang.*"})
 public class CommonUtilTest {
     private static final String UUID_LOT = "2ee7fa10-6c2a-4980-bd8e-be174c273d53";
     private static final String UUID_USER = "293f3466-ae17-4b47-ab64-77bf85006c1d";
@@ -115,4 +115,9 @@ public class CommonUtilTest {
         getCategories();
     }
 
+/*    @Test
+    public void testSaveUploadFile() throws IOException, ServletException {
+        // when(mockHttpServletRequest.getServletContext().getRealPath("")).thenReturn("/");
+        saveUploadFile(mockHttpServletRequest);
+    }*/
 }

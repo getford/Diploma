@@ -398,6 +398,17 @@ public class CommonUtil {
         return new ArrayList<>();
     }
 
+    public static List<LotEntity> getLotsLimitRows(String query, int limit) {
+        LOGGER.debug("getLots");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery(query).setMaxResults(limit).getResultList();
+        } catch (Exception e) {
+            new MailUtil().sendErrorMail(Arrays.toString(e.getStackTrace()));
+            LOGGER.error(e.getLocalizedMessage());
+        }
+        return new ArrayList<>();
+    }
+
     public static List<CategoryEntity> getCategories() {
         LOGGER.debug("getCategories");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
