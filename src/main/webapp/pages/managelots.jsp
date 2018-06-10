@@ -1,15 +1,20 @@
-<%@ page import="by.iba.uzhyhala.entity.AuthInfoEntity" %>
+<%@ page import="by.iba.uzhyhala.entity.LotEntity" %>
 <%@ page import="by.iba.uzhyhala.util.CookieUtil" %>
-<%@ page import="java.util.List" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.USER" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.QUERY_CHART_DATE_CREATE_USER" %>
-<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getAllUser" %>
-<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getAuthInfoUserByUUID" %>
+<%@ page import="static by.iba.uzhyhala.lot.LotControl.getAllLots" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getUserLoginByUUID" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getUserFirstLastNameByUUID" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getUUIDUserByUUIDLot" %>
+<%@ page import="java.util.List" %>
+<%@ page import="static by.iba.uzhyhala.util.VariablesUtil.LOT" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Manage users - Auction Diploma</title>
+    <title>Manage lots - Auction Diploma</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Zhyhala">
@@ -19,21 +24,19 @@
     <link href="/resources/css/font-awesome.min.css" rel="stylesheet">
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/templatemo-style.css" rel="stylesheet">
-
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/scripts/index/jquery.js"></script>
     <script type="text/javascript" src="/resources/scripts/index/main_head.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <%
         CookieUtil cookieUtil = new CookieUtil(request);
         if (!cookieUtil.isAdmin())
             response.sendRedirect("/pages/index.jsp");
-        List<AuthInfoEntity> authInfoEntityList = getAllUser();
+        List<LotEntity> lotEntityList = getAllLots();
     %>
 </head>
 <body>
@@ -50,8 +53,8 @@
             <ul>
                 <li><a href="/pages/admin.jsp"><i class="fa fa-home fa-fw"></i>Главная</a></li>
                 <li><a href="/pages/charts.jsp"><i class="fa fa-bar-chart fa-fw"></i>Графики</a></li>
-                <li><a href="#" class="active"><i class="fa fa-users fa-fw"></i>Пользователи</a></li>
-                <li><a href="/pages/managelots.jsp"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>
+                <li><a href="/pages/manageusers.jsp"><i class="fa fa-users fa-fw"></i>Пользователи</a></li>
+                <li><a href="#" class="active"><i class="fa fa-sliders fa-fw"></i>Лоты</a></li>
                 <li><a href="/pages/index.jsp"><i class="fa fa-eject fa-fw"></i>На сайт</a></li>
             </ul>
         </nav>
@@ -66,79 +69,88 @@
                         <tr>
                             <td><a href="" class="white-text templatemo-sort-by">UUID <span class="caret"></span></a>
                             </td>
-                            <td><a href="" class="white-text templatemo-sort-by">Логин <span class="caret"></span></a>
-                            </td>
-                            <td><a href="" class="white-text templatemo-sort-by">Почта <span
-                                    class="caret"></span></a></td>
-                            <td><a href="" class="white-text templatemo-sort-by">Роль <span
-                                    class="caret"></span></a></td>
-                            <td><a href="" class="white-text templatemo-sort-by">Дата регистрации <span
+                            <td><a href="" class="white-text templatemo-sort-by">Название <span
                                     class="caret"></span></a>
                             </td>
-                            <td>Edit</td>
-                            <td>Delete</td>
+                            <td><a href="" class="white-text templatemo-sort-by">Продавец <span
+                                    class="caret"></span></a></td>
+                            <td><a href="" class="white-text templatemo-sort-by">Дата создания <span
+                                    class="caret"></span></a></td>
+                            <td><a href="" class="white-text templatemo-sort-by">Статус <span
+                                    class="caret"></span></a>
+                            </td>
+                            <td>Изменить</td>
+                            <td>Удалить</td>
                         </tr>
                         </thead>
                         <%
-                            assert authInfoEntityList != null;
-                            for (AuthInfoEntity list : authInfoEntityList) {
-                                String userUuid = list.getUuid();
-                                String login = list.getLogin();
-                                String email = String.valueOf(list.getEmail());
-                                String dateRegistration = String.valueOf(list.getCreateDate());
-                                String role = list.getRole();
+                            assert lotEntityList != null;
+                            for (LotEntity list : lotEntityList) {
+                                String uuid = list.getUuid();
+                                String name = list.getName();
+                                String createBy = String.valueOf(getUserFirstLastNameByUUID(getUUIDUserByUUIDLot(list.getUuid())));
+                                String dateCreate = String.valueOf(list.getDateAdd());
+                                String status = list.getStatus();
                         %>
                         <tbody>
                         <tr>
-                            <td><%=userUuid%>
+                            <td><%=uuid%>
                             </td>
-                            <td><%=login%>
+                            <td><%=name%>
                             </td>
-                            <td><%=email%>
+                            <td><%=createBy%>
                             </td>
-                            <td><%=role%>
+                            <td><%=dateCreate%>
                             </td>
-                            <td><%=dateRegistration%>
+                            <td><%=status%>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal<%=userUuid%>">
-                                    Изменить пользователя
+                                        data-target="#exampleModal<%=uuid%>">
+                                    Изменить лот
                                 </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal<%=userUuid%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="exampleModal<%=uuid%>" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel"
                                      aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Изменение пользователя</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <h5 class="modal-title" id="exampleModalLabel">Изменение лота</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form action="/change?type=<%=USER%>&uuid=<%=userUuid%>" method="post">
+                                            <form action="/change?type=<%=LOT%>&uuid=<%=uuid%>" method="post">
                                                 <div class="modal-body">
-                                                    <%
-                                                        AuthInfoEntity authInfoEntity = getAuthInfoUserByUUID(userUuid).get(0);
-                                                    %>
-                                                    <input type="text" name="login" placeholder="Логин" value="<%=authInfoEntity.getLogin()%>">
+
+                                                    <input type="text" name="name_lot" placeholder="Название"
+                                                           value="<%=name%>">
                                                     <br/>
-                                                    <input type="text" name="email" placeholder="Email" value="<%=authInfoEntity.getEmail()%>">
+                                                    <input type="text" name="info_lot" placeholder="Информация"
+                                                           value="<%=list.getInformation()%>">
                                                     <br/>
-                                                    <input type="text" name="role" placeholder="Роль" value="<%=authInfoEntity.getRole()%>">
+                                                    <input type="text" name="cost_lot" placeholder="Цена"
+                                                           value="<%=list.getCost()%>">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                                                    <button type="submit" name="btn_recovery_passcode" class="btn btn-primary">Отправить</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Закрыть
+                                                    </button>
+                                                    <button type="submit" name="btn_recovery_passcode"
+                                                            class="btn btn-primary">Отправить
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </td>
+                            <%--<td><a href="" class="templatemo-link">Action</a></td>--%>
                             <td>
                                 <form action="/del" method="get" name="delete-form">
-                                    <a href="/del?uuid-user=<%=userUuid%>" class="templatemo-link">Удалить</a>
+                                    <a href="/del?uuid-lot=<%=uuid%>" class="templatemo-link">Удалить</a>
                                 </form>
                             </td>
                         </tr>
