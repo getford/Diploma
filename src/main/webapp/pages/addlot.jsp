@@ -86,21 +86,21 @@
         <span class="input input--isao">
 					<input class="input__field input__field--isao" type="text" id="input-3" name="cost"/>
 					<label class="input__label input__label--isao" for="input-3">
-						<span class="input__label-content input__label-content--isao">Начальная цена</span>
+						<span class="input__label-content input__label-content--isao">Начальная цена (руб.)</span>
 					</label>
         </span>
         <br/>
         <span class="input input--isao">
 					<input class="input__field input__field--isao" type="text" id="input-4" name="blitz"/>
 					<label class="input__label input__label--isao" for="input-4">
-						<span class="input__label-content input__label-content--isao">Блиц цена</span>
+						<span class="input__label-content input__label-content--isao">Блиц цена (руб.)</span>
 					</label>
         </span>
         <br/>
         <span class="input input--isao">
 					<input class="input__field input__field--isao" type="text" id="input-5" name="step"/>
 					<label class="input__label input__label--isao" for="input-5">
-						<span class="input__label-content input__label-content--isao">Шаг цены</span>
+						<span class="input__label-content input__label-content--isao">Шаг цены (руб.)</span>
 					</label>
         </span>
         <br/>
@@ -158,15 +158,6 @@
                  <li><a href="#">Careers</a></li>
              </ul>
          </div>--%>
-
-        <div class="f_cols">
-            <h3>Support</h3>
-            <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Policies</a></li>
-            </ul>
-        </div>
 
         <div class="f_cols">
             <p>Copyright &copy; 2018<span class="phone"> Uladzimir Zhyhala inc.</span></p>

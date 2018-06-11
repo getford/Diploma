@@ -32,11 +32,12 @@ public class DeleteHandlerAPI extends HttpServlet {
             LOGGER.info("uuid: " + uuid);
             if ("uuid-user".equals(parameter)) {
                 deleteUser(session, uuid);
+                resp.sendRedirect("/pages/manageusers.jsp");
             } else if ("uuid-lot".equals(parameter)) {
                 deleteLot(session, uuid);
+                resp.sendRedirect("/pages/managelots.jsp");
             }
             resp.getWriter().write("{\"message\":\"Success\"}");
-            resp.sendRedirect("/pages/manageusers.jsp");
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());

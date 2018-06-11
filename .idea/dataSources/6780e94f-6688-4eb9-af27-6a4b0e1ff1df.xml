@@ -73,8 +73,8 @@
     <schema id="16" parent="2" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-06-04.02:06:40.687</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2598</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-11.03:46:34.240</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2733</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -707,8 +707,8 @@
     </column>
     <column id="115" parent="36" name="phone">
       <Position>6</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <StateNumber>2598</StateNumber>
+      <DataType>varchar(15)|0s</DataType>
+      <StateNumber>2733</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="116" parent="36" name="personal_information_pkey">

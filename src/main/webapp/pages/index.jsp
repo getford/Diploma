@@ -115,15 +115,6 @@
          </div>--%>
 
         <div class="f_cols">
-            <h3>Support</h3>
-            <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Policies</a></li>
-            </ul>
-        </div>
-
-        <div class="f_cols">
             <p>Copyright &copy; 2018<span class="phone"> Uladzimir Zhyhala inc.</span></p>
         </div>
 

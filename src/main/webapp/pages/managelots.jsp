@@ -125,14 +125,19 @@
                                             <form action="/change?type=<%=LOT%>&uuid=<%=uuid%>" method="post">
                                                 <div class="modal-body">
 
-                                                    <input type="text" name="name_lot" placeholder="Название"
-                                                           value="<%=name%>">
+                                                    Название: <input type="text" name="name_lot" placeholder="Название"
+                                                                     value="<%=name%>">
                                                     <br/>
-                                                    <input type="text" name="info_lot" placeholder="Информация"
-                                                           value="<%=list.getInformation()%>">
+                                                    Информация: <input type="text" name="info_lot"
+                                                                       placeholder="Информация"
+                                                                       value="<%=list.getInformation()%>">
                                                     <br/>
-                                                    <input type="text" name="cost_lot" placeholder="Цена"
-                                                           value="<%=list.getCost()%>">
+                                                    Блиц-цена: <input type="text" name="blitz_cost_lot"
+                                                                       placeholder="Информация"
+                                                                       value="<%=list.getBlitzCost()%>">
+                                                    <br/>
+                                                    Цена: <input type="text" name="cost_lot" placeholder="Цена"
+                                                                 value="<%=list.getCost()%>">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

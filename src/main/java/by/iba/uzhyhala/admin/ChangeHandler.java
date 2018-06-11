@@ -46,9 +46,37 @@ public class ChangeHandler extends HttpServlet {
                         .setParameter("role", req.getParameter("role"))
                         .setParameter("uuid", req.getParameter("uuid"))
                         .executeUpdate();
+                resp.sendRedirect("/pages/manageusers.jsp");
             } else if (req.getParameter("type").equals(LOT)) {
+                session.createQuery("UPDATE " + ENTITY_LOT +
+                        " SET name = :name " +
+                        "WHERE uuid = :uuid")
+                        .setParameter("name", req.getParameter("name_lot"))
+                        .setParameter("uuid", req.getParameter("uuid"))
+                        .executeUpdate();
+
+                session.createQuery("UPDATE " + ENTITY_LOT +
+                        " SET information = :info " +
+                        "WHERE uuid = :uuid")
+                        .setParameter("info", req.getParameter("info_lot"))
+                        .setParameter("uuid", req.getParameter("uuid"))
+                        .executeUpdate();
+
+                session.createQuery("UPDATE " + ENTITY_LOT +
+                        " SET cost = :cost " +
+                        "WHERE uuid = :uuid")
+                        .setParameter("cost", req.getParameter("cost_lot"))
+                        .setParameter("uuid", req.getParameter("uuid"))
+                        .executeUpdate();
+
+                session.createQuery("UPDATE " + ENTITY_LOT +
+                        " SET blitz_cost = :blitz " +
+                        "WHERE uuid = :uuid")
+                        .setParameter("blitz", req.getParameter("blitz_cost_lot"))
+                        .setParameter("uuid", req.getParameter("uuid"))
+                        .executeUpdate();
+                resp.sendRedirect("/pages/managelots.jsp");
             }
-            resp.sendRedirect("/pages/manageusers.jsp");
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("Method: isUpdateLotStatus\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getLocalizedMessage());

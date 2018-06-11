@@ -12,6 +12,8 @@
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.FOLDER_UPLOAD_IMAGES" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.STATUS_LOT_SALES" %>
 <%@ page import="static by.iba.uzhyhala.util.VariablesUtil.STATUS_LOT_WAIT" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getCurrentCost" %>
+<%@ page import="static by.iba.uzhyhala.util.CommonUtil.getHistoryBets" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -44,7 +46,7 @@
         String timeEnd = null;
         String host = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort();
         try {
-            betHistoryList = CommonUtil.getHistoryBets(request.getParameter("uuid"));
+            betHistoryList = getHistoryBets(request.getParameter("uuid"));
             lotControl = new LotControl(request.getParameter("uuid"));
             lotInfoList = lotControl.getLotInfoByUuid();
             timeEnd = lotControl.returnEndTime();
@@ -55,7 +57,7 @@
         assert lotInfoList != null;
 
         String imagesLot = separator + FOLDER_UPLOAD_IMAGES + separator + lotInfoList.get(0).getImagesName();
-        int currentCost = CommonUtil.getCurrentCost(betHistoryList) + Integer.parseInt(lotInfoList.get(0).getCost());
+        int currentCost = getCurrentCost(betHistoryList) + Integer.parseInt(lotInfoList.get(0).getCost());
     %>
     <script>
         function startTimer(duration, display) {
@@ -81,7 +83,7 @@
                         document.getElementById("title_time").hidden = true;
                         document.getElementById("do_bet_title").hidden = true;
                         document.getElementById('div-sale').style.display = 'block';
-                        alert("ЛОТ ЗАКРЫТ");
+                        /*alert("ЛОТ ЗАКРЫТ");*/
                         flag = false;
                         display.textContent = "Лот закрыт";
                     } else {
@@ -173,7 +175,7 @@
         if (betHistoryList.size() != 1) {
     %>
     <h1>
-        <span style="color: green">Победитель: <%=betHistoryList.get(betHistoryList.size() - 1).getUserName()%>, цена: <%=currentCost%></span>
+        <span style="color: green">Победитель: <%=betHistoryList.get(betHistoryList.size() - 1).getUserName()%>, цена: <%=currentCost%> руб.</span>
     </h1>
     <%
     } else {
@@ -229,23 +231,23 @@
                     <tbody>
                     <tr>
                         <td>
-                            <b>Стартовая цена: </b><%=lotInfoList.get(0).getCost()%>
+                            <b>Стартовая цена: </b><%=lotInfoList.get(0).getCost()%> руб.
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <b>Блиц цена: </b><%=lotInfoList.get(0).getBlitzCost()%>
+                            <b>Блиц цена: </b><%=lotInfoList.get(0).getBlitzCost()%> руб.
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <b>Минимальная ставка: </b><%=lotInfoList.get(0).getStepCost()%>
+                            <b>Минимальная ставка: </b><%=lotInfoList.get(0).getStepCost()%> руб.
                         </td>
                     </tr>
                     <tr style="background-color: #d7d7d7">
                         <td>
                             <b>Текущая
-                                цена: </b><%=currentCost%>
+                                цена: </b><%=currentCost%> руб.
                         </td>
                     </tr>
                     </tbody>
@@ -320,50 +322,70 @@
     </div>
     <br/>
     <hr/>
-    <form action="/generatehistorybets" method="post">
-        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
-        <input type="hidden" name="send-mail" value="true">
-        <button style="font-size:24px" type="submit" name="generate_doc_pdf_mail">PDF<i
-                class="material-icons">mail</i>
-        </button>
-    </form>
-    <form action="/generatehistorybets" method="post">
-        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
-        <input type="hidden" name="send-mail" value="true">
-        <button style="font-size:24px" type="submit" name="generate_doc_excel_mail">Excel<i
-                class="material-icons">mail</i></button>
-    </form>
-    <form action="/generatehistorybets" method="post">
-        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
-        <input type="hidden" name="send-mail" value="false">
-        <button style="font-size:24px" type="submit" name="generate_doc_pdf">PDF<i
-                class="material-icons">file_download</i></button>
-    </form>
-    <form action="/generatehistorybets" method="post">
-        <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
-        <input type="hidden" name="send-mail" value="false">
-        <button style="font-size:24px" type="submit" name="generate_doc_excel">Excel<i class="material-icons">file_download</i>
-        </button>
-    </form>
-    <hr/>
-    <form action="/changerate" method="post">
-        <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
-        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
-        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_up</i>
-        </button>
-    </form>
-    <form action="/changerate" method="post">
-        <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
-        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
-        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i>
-        </button>
-    </form>
+    <div class="container">
+        <div class="row">
+                <div class="panel panel-success">
+                    <a href="#spoilerLot" class="btn btn-success btn-md btn-block" data-toggle="collapse"
+                       style="">
+                        <h4>Кнопки управления</h4>
+                    </a>
+                    <div id="spoilerLot" class="collapse">
+                        <div class="panel-body">
+                            <form action="/generatehistorybets" method="post">
+                                <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+                                <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
+                                <input type="hidden" name="send-mail" value="true">
+                                <button style="font-size:24px" type="submit"
+                                        name="generate_doc_pdf_mail">PDF<i
+                                        class="material-icons">mail</i>
+                                </button>
+                            </form>
+                            <form action="/generatehistorybets" method="post">
+                                <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+                                <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
+                                <input type="hidden" name="send-mail" value="true">
+                                <button style="font-size:24px" type="submit"
+                                        name="generate_doc_excel_mail">Excel<i
+                                        class="material-icons">mail</i></button>
+                            </form>
+                            <form action="/generatehistorybets" method="post">
+                                <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+                                <input type="hidden" name="type" value="<%=VariablesUtil.PDF%>">
+                                <input type="hidden" name="send-mail" value="false">
+                                <button style="font-size:24px" type="submit"
+                                        name="generate_doc_pdf">PDF<i
+                                        class="material-icons">file_download</i></button>
+                            </form>
+                            <form action="/generatehistorybets" method="post">
+                                <input type="hidden" name="uuid_lot" value="<%=request.getParameter("uuid")%>">
+                                <input type="hidden" name="type" value="<%=VariablesUtil.EXCEL%>">
+                                <input type="hidden" name="send-mail" value="false">
+                                <button style="font-size:24px" type="submit"
+                                        name="generate_doc_excel">
+                                    Excel<i class="material-icons">file_download</i>
+                                </button>
+                            </form>
+                            <hr/>
+                            <form action="/changerate" method="post">
+                                <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
+                                <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
+                                <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
+                                <button style="font-size:24px" type="submit" name="rate_plus"><i
+                                        class="material-icons">thumb_up</i>
+                                </button>
+                            </form>
+                            <form action="/changerate" method="post">
+                                <input type="hidden" name="uuid_" value="<%=request.getParameter("uuid")%>">
+                                <input type="hidden" name="type" value="<%=VariablesUtil.LOT%>">
+                                <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
+                                <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 </section>
 <!-- End recent_work -->
 
@@ -380,6 +402,7 @@
     </div>
 </footer><!-- End footer -->
 </body>
+
 <script>
     function changeStatusColor() {
         if (document.getElementById("english_status").value === "sales")

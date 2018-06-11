@@ -111,6 +111,10 @@
                         <td><b>Рейтинг: </b><%=getRate(uuidUser, VariablesUtil.USER)%>
                         </td>
                     </tr>
+                    <tr>
+                        <td><b>Ключ API: </b><%=showApiKey(uuidUser)%>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -150,107 +154,135 @@
         </div>
     </div>
     <hr/>
-    <form action="/changerate" method="post">
-        <input type="hidden" name="login_or_email" value="<%=userLogin%>">
-        <input type="hidden" name="uuid_" value="<%=uuidUser%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
-        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
-        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_up</i></button>
-    </form>
-    <form action="/changerate" method="post">
-        <input type="hidden" name="login_or_email" value="<%=userLogin%>">
-        <input type="hidden" name="uuid_" value="<%=uuidUser%>">
-        <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
-        <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
-        <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_down</i></button>
-    </form>
-    <a href="<%="/pages/password.jsp?uuid=" + uuidUser + "&fp=false"%>">Изменить пароль</a>
 </section>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-10">
-            <div class="panel panel-success">
-                <a href="#spoilerLot" class="btn btn-success btn-md btn-block" data-toggle="collapse"
-                   style="text-align: center;">
-                    <h4>Ваши лоты</h4>
-                </a>
-                <div id="spoilerLot" class="collapse">
-                    <div class="panel-body">
-                        <input class="form-control" id="lotInput" type="text" placeholder="Search..">
-                        <br>
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>Название</th>
-                                <th>Status</th>
-                                <th>Category</th>
-                                <th>Cost</th>
-                                <th>Blitz Cost</th>
-                                <th>Step Cost</th>
-                                <th>Date add</th>
-                                <th>Date start</th>
-                                <th>Date end</th>
-                                <th>Time start</th>
-                                <th>Time end</th>
-                            </tr>
-                            </thead>
-                            <%
-                                for (LotEntity lot : userLotList) {
-                                    String id = lot.getUuid();
-                                    String name = lot.getName();
-                                    String status = translateLotStatus(lot.getStatus());
-                                    String category = getCategoryById(lot.getIdCategory());
-                                    String cost = lot.getCost();
-                                    String blitzCost = lot.getBlitzCost();
-                                    String stepCost = lot.getStepCost();
-                                    String dateAdd = String.valueOf(lot.getDateAdd());
-                                    String dateStart = String.valueOf(lot.getDateStart());
-                                    String dateEnd = String.valueOf(lot.getDateEnd());
-                                    String timeStart = String.valueOf(lot.getTimeStart());
-                                    String timeEnd = String.valueOf(lot.getTimeEnd());
-                            %>
-                            <tbody id="lotTable">
-                            <tr>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=name%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=status%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=category%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=cost%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=blitzCost%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=stepCost%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateAdd%>
-                                </a>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateStart%>
-                                </a>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateEnd%>
-                                </a>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeStart%>
-                                </a>
-                                </td>
-                                <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeEnd%>
-                                </a>
-                                </td>
-                            </tr>
-                            </tbody>
-                            <%
-                                }
-                            %>
-                        </table>
-                    </div>
+        <div class="panel panel-success">
+            <a href="#spoilerLot_" class="btn btn-success btn-md btn-block" data-toggle="collapse"
+               style="">
+                <h4>Кнопки управления</h4>
+            </a>
+            <div id="spoilerLot_" class="collapse">
+                <form action="/changerate" method="post">
+                    <input type="hidden" name="login_or_email" value="<%=userLogin%>">
+                    <input type="hidden" name="uuid_" value="<%=uuidUser%>">
+                    <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
+                    <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_PLUS%>">
+                    <button style="font-size:24px" type="submit" name="rate_plus"><i class="material-icons">thumb_up</i>
+                    </button>
+                </form>
+                <form action="/changerate" method="post">
+                    <input type="hidden" name="login_or_email" value="<%=userLogin%>">
+                    <input type="hidden" name="uuid_" value="<%=uuidUser%>">
+                    <input type="hidden" name="type" value="<%=VariablesUtil.USER%>">
+                    <input type="hidden" name="goal" value="<%=VariablesUtil.RATE_MINUS%>">
+                    <button style="font-size:24px" type="submit" name="rate_plus"><i
+                            class="material-icons">thumb_down</i></button>
+                </form>
+                <hr>
+                <a href="<%="/pages/password.jsp?uuid=" + uuidUser + "&fp=false"%>">Изменить пароль</a>
+                <hr>
+                <a href="<%="/pages/password.jsp?uuid=" + uuidUser + "&fp=false"%>">Изменить информацию профиля</a>
+                <hr>
+                <a href="<%="/getapikey?uuid=" + uuidUser + ""%>">Получить API ключ</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-success">
+            <a href="#spoilerLot" class="btn btn-success btn-md btn-block" data-toggle="collapse"
+               style="text-align: center;">
+                <h4>Ваши лоты</h4>
+            </a>
+            <div id="spoilerLot" class="collapse">
+                <div class="panel-body">
+                    <input class="form-control" id="lotInput" type="text" placeholder="Search..">
+                    <br>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Status</th>
+                            <th>Category</th>
+                            <th>Cost</th>
+                            <th>Blitz Cost</th>
+                            <th>Step Cost</th>
+                            <th>Date add</th>
+                            <th>Date start</th>
+                            <th>Date end</th>
+                            <th>Time start</th>
+                            <th>Time end</th>
+                        </tr>
+                        </thead>
+                        <%
+                            for (LotEntity lot : userLotList) {
+                                String id = lot.getUuid();
+                                String name = lot.getName();
+                                String status = translateLotStatus(lot.getStatus());
+                                String category = getCategoryById(lot.getIdCategory());
+                                String cost = lot.getCost();
+                                String blitzCost = lot.getBlitzCost();
+                                String stepCost = lot.getStepCost();
+                                String dateAdd = String.valueOf(lot.getDateAdd());
+                                String dateStart = String.valueOf(lot.getDateStart());
+                                String dateEnd = String.valueOf(lot.getDateEnd());
+                                String timeStart = String.valueOf(lot.getTimeStart());
+                                String timeEnd = String.valueOf(lot.getTimeEnd());
+                        %>
+                        <tbody id="lotTable">
+                        <tr>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=name%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=status%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=category%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=cost%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=blitzCost%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=stepCost%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateAdd%>
+                            </a>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateStart%>
+                            </a>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=dateEnd%>
+                            </a>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeStart%>
+                            </a>
+                            </td>
+                            <td><a href="/pages/lot.jsp?uuid=<%=id%>"><%=timeEnd%>
+                            </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <%
+                            }
+                        %>
+                    </table>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-success">
+            <a href="#spoilerLot__" class="btn btn-success btn-md btn-block" data-toggle="collapse"
+               style="">
+                <h4>Отзывы</h4>
+            </a>
         </div>
     </div>
 </div>

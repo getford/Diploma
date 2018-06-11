@@ -258,6 +258,22 @@ public class CommonUtil {
         }
     }
 
+    public static String showApiKey(String uuid) {
+        LOGGER.info("showApiKey method");
+        try (Session session = getSessionFactory().openSession()) {
+            session.beginTransaction();
+            String s = session.createSQLQuery("SELECT api_key FROM auth_info WHERE uuid = '" + uuid + "'").getResultList().get(0).toString();
+            if (s.equals(""))
+                return "У вас нет ключа";
+            else
+                return s;
+        } catch (Exception ex) {
+   //         new MailUtil().sendErrorMail("Method: isApiKeyValid\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
+            return "Ключ не найден";
+        }
+    }
+
     public static File prepareFileForAttach(Object o, String fileName, String extension) {
         LOGGER.info("prepareFileForAttach method");
         try {

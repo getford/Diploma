@@ -43,6 +43,7 @@ public class UserApiKey extends HttpServlet {
                             .setParameter("uuid", uuid)
                             .executeUpdate();
                     responseMessage = "{\"api_key\":\"" + key + "\"}";
+                    resp.sendRedirect("/pages/profile.jsp?user=" + getUserLoginByUUID(uuid));
                 } else {
                     responseMessage = "{\"exception\":\"user uuid: " + uuid + " already have api_key\"}";
                 }
