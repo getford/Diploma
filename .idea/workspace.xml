@@ -126,7 +126,7 @@
       <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="3346">
               <caret line="270" column="5" selection-start-line="270" selection-start-column="5" selection-end-line="270" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -146,7 +146,7 @@
       <file leaf-file-name="VariablesUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="840">
               <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
             </state>
           </provider>
@@ -155,15 +155,8 @@
       <file leaf-file-name="lot.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="331" column="58" lean-forward="true" selection-start-line="331" selection-start-column="58" selection-end-line="331" selection-end-column="58" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#form#0;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#form#1;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#form#2;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#form#3;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#form#5;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="4634">
+              <caret line="331" column="58" selection-start-line="331" selection-start-column="58" selection-end-line="331" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -171,7 +164,7 @@
       <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
+            <state relative-caret-position="2618">
               <caret line="187" column="39" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="39" />
             </state>
           </provider>
@@ -180,7 +173,7 @@
       <file leaf-file-name="UserApiKey.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/UserApiKey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
+            <state relative-caret-position="392">
               <caret line="45" column="90" selection-start-line="45" selection-start-column="90" selection-end-line="45" selection-end-column="90" />
             </state>
           </provider>
@@ -195,7 +188,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth_info" pinned="false" current-in-tab="false">
+      <file leaf-file-name="auth_info" pinned="false" current-in-tab="true">
         <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/auth_info">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -204,15 +197,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dump_sql_igrekDB.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/Downloads/dump_sql_igrekDB.sql">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="AuthInfoEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="896">
               <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
               <folding>
                 <element signature="e#2142#2143#0" expanded="true" />
@@ -424,7 +412,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="718" />
+    <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -436,6 +424,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="auction" type="58d84e3e:PackageViewProjectNode" />
+              <item name="auction" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -483,14 +483,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="auction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -507,18 +499,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="auction" type="58d84e3e:PackageViewProjectNode" />
-              <item name="auction" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -933,6 +913,7 @@
       <workItem from="1527956850421" duration="6749000" />
       <workItem from="1528049517248" duration="26971000" />
       <workItem from="1528153840372" duration="20814000" />
+      <workItem from="1528927931818" duration="31000" />
     </task>
     <servers />
   </component>
@@ -969,7 +950,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513655000" />
+    <option name="totallyTimeSpent" value="513686000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1002,30 +983,30 @@
       <window_info id="UI Designer" order="1" />
       <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.6738197" weight="0.32848486" />
       <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
-      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3260606" />
       <window_info anchor="right" id="Palette&#9;" order="14" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.32848486" />
       <window_info anchor="right" id="Capture Analysis" order="15" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32848486" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="16" sideWeight="0.74177396" weight="0.52" />
-      <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.32546496" side_tool="true" weight="0.32769045" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32848486" />
       <window_info anchor="bottom" id="Sequence" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49499285" weight="0.6036364" />
       <window_info id="Persistence" order="3" sideWeight="0.5265082" side_tool="true" weight="0.27181688" />
-      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.28683835" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.2911302" />
       <window_info anchor="right" id="Bean Validation" order="16" weight="0.3297568" />
       <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
-      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27636364" />
       <window_info anchor="right" id="Theme Preview" order="17" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
+      <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.32546496" side_tool="true" weight="0.32769045" />
       <window_info anchor="bottom" id="Inspection" order="19" weight="0.4" />
       <window_info anchor="bottom" id="Duplicates" order="13" weight="0.32969698" />
       <window_info anchor="bottom" id="Cvs" order="18" weight="0.25" />
       <window_info anchor="bottom" id="Chronon" order="20" visible="true" weight="0.32969698" />
+      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="21" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27636364" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3260606" />
       <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32969698" />
       <window_info anchor="right" id="Commander" order="19" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="14" />
@@ -1036,48 +1017,48 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="11" sideWeight="0.49928468" weight="0.43757576" />
       <window_info anchor="bottom" id="Application Servers" order="1" sideWeight="0.49713877" weight="0.32848486" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="PlantUML" order="0" weight="0.3469242" />
       <window_info anchor="right" id="Palette" order="9" />
       <window_info anchor="bottom" id="Duplicates" order="13" weight="0.32969698" />
-      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49570817" weight="0.2230303" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="16" sideWeight="0.74177396" weight="0.5212121" />
-      <window_info anchor="bottom" id="Sequence" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="18" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="11" weight="0.24964234" />
-      <window_info anchor="bottom" id="Chronon" order="20" visible="true" weight="0.32969698" />
       <window_info id="UI Designer" order="1" />
-      <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
       <window_info id="Favorites" order="5" sideWeight="0.5295238" side_tool="true" weight="0.25822604" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49499285" weight="0.6036364" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32969698" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Sequence" order="2" />
       <window_info anchor="right" id="JSF" order="4" weight="0.3297568" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.32618025" side_tool="true" weight="0.32848486" />
-      <window_info anchor="bottom" id="Cvs" order="18" weight="0.25" />
       <window_info id="Statistic" order="9" sideWeight="0.49928468" weight="0.6666667" />
+      <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
       <window_info anchor="bottom" id="SonarLint" order="0" sideWeight="0.49713877" weight="0.40242425" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="12" weight="0.25" />
-      <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32969698" />
+      <window_info anchor="right" id="Database" order="3" weight="0.2539342" />
       <window_info anchor="right" id="Commander" order="10" weight="0.4" />
+      <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.32848486" />
-      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32969698" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32969698" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32848486" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.3297568" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49499285" weight="0.6036364" />
       <window_info active="true" id="simpleUML" order="10" visible="true" weight="0.3297568" />
-      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27636364" />
       <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.4734918" visible="true" weight="0.28683835" />
       <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.57439196" weight="0.3260606" />
-      <window_info anchor="right" id="Database" order="3" weight="0.2539342" />
       <window_info anchor="bottom" id="Message" order="14" />
-      <window_info anchor="bottom" id="TODO" order="15" weight="0.32848486" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Web" order="4" sideWeight="0.5213358" side_tool="true" weight="0.2546495" />
+      <window_info anchor="bottom" id="Chronon" order="20" visible="true" weight="0.32969698" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.24964234" />
       <window_info anchor="right" id="CDI" order="2" weight="0.3297568" />
       <window_info anchor="bottom" id="Inspection" order="19" weight="0.4" />
       <window_info anchor="bottom" id="Coverage" order="21" sideWeight="0.32546496" side_tool="true" weight="0.32769045" />
-      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.6738197" visible="true" weight="0.32848486" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49928468" weight="0.27636364" />
       <window_info anchor="right" id="Bean Validation" order="7" weight="0.3297568" />
+      <window_info anchor="bottom" id="Debug" order="17" sideWeight="0.6738197" visible="true" weight="0.32848486" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1279,11 +1260,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
           <caret line="98" selection-start-line="98" selection-end-line="98" />
-          <folding>
-            <element signature="method#setupParametersForMessage#0;class#MailUtil#0" />
-            <element signature="method#sendSimplePlainMail#0;class#MailUtil#0" />
-            <element signature="method#sendErrorMail#0;class#MailUtil#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1298,10 +1274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-          <folding>
-            <element signature="method#generateExcelDocHistoryBet#0;class#DocumentHandler#0" />
-            <element signature="method#getPdfBetEncode#0;class#DocumentHandler#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1337,9 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
           <caret line="47" column="49" lean-forward="true" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1347,20 +1316,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="55" column="51" lean-forward="true" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-          <folding>
-            <element signature="method#Profile#0;class#Profile#0" />
-            <element signature="method#getUserPersonalInformation#0;class#Profile#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/EditHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/admin/FeedbackHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1414,9 +1373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1431,10 +1387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="method#doPost#0;class#Registration#0" />
-            <element signature="method#prepareInputString#0;class#Registration#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1449,9 +1401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="25" column="38" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1550,7 +1499,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/entity/AuthInfoEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="896">
           <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
           <folding>
             <element signature="e#2142#2143#0" expanded="true" />
@@ -1561,7 +1510,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
+        <state relative-caret-position="2618">
           <caret line="187" column="39" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="39" />
         </state>
       </provider>
@@ -1582,14 +1531,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/api/user/UserApiKey.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
+        <state relative-caret-position="392">
           <caret line="45" column="90" selection-start-line="45" selection-start-column="90" selection-end-line="45" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="3346">
           <caret line="270" column="5" selection-start-line="270" selection-start-column="5" selection-end-line="270" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1607,22 +1556,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/by/iba/uzhyhala/util/VariablesUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="840">
           <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lot.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="331" column="58" lean-forward="true" selection-start-line="331" selection-start-column="58" selection-end-line="331" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#1;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#2;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#3;n#div#2;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#5;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="4634">
+          <caret line="331" column="58" selection-start-line="331" selection-start-column="58" selection-end-line="331" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1633,15 +1575,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/dump_sql_igrekDB.sql" />
     <entry file="das://6780e94f-6688-4eb9-af27-6a4b0e1ff1df/database/auction/schema/public/table/auth_info">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/dump_sql_igrekDB.sql">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
